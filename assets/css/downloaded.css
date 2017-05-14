@@ -1,0 +1,37 @@
+/* HTML Elements */
+    /* <body> */
+    body {
+        overflow: hidden
+    }
+
+/* Components */
+    /* Main Content */
+    #main {
+        background-attachment: local;
+        background-blend-mode: normal;
+        background-color: #04B;
+        background-image: url(../img/png/img.png);
+        background-position: center;
+        background-size: cover;
+        color: #FFF;
+        font-weight: 600;
+        height: 700px;
+        padding-top: 165px;
+        text-align: center;
+        text-shadow: 0 0 5px #000
+    }
+        /* Header Group */
+        #main * {
+            font-family: Calibri
+        }
+        #main h1 {
+            font-size: 68px
+        }
+        #main h2 {
+            font-size: 38px
+        }
+
+    /* Main Content Navigation */
+    #main-nav {
+        display: none !important
+    }

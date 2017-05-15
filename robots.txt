@@ -1,7 +1,0 @@
-User-agent: *
-Disallow: /assets.txt
-Disallow: /humans.txt
-Disallow: /robots.txt
-
-User-agent: Google
-Disallow: /assets.txt

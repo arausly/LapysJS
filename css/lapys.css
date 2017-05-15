@@ -6,14 +6,14 @@
 
 /* Lapys JS Colors
     Background Colors:
-        #0078FF,
-        #0045FF
+        #0078FF or rgb(0, 120, 255) or hsl(212, 255, 255) or cmky(100, 53, 0, 0),
+        #0045FF or rgb(0, 69, 255) or hsl(224, 255, 255) or cmyk(100, 73, 0, 0)
 
     Foreground Colors:
-        #0023FF
+        #0023FF or rgb(0, 35, 255) or hsl(232, 255, 255) or cmyk(100, 86, 0, 0)
 
     Miscellaneous Colors:
-        #FFFFFF
+        #FFFFFF or rgb(255, 255, 255) or hsl(0, 0, 255) or cmyk(0, 0, 0, 0)
 */
 
 /* Lapys JS CSS At-Rules */

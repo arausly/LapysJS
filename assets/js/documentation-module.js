@@ -53,6 +53,8 @@
                 ).replace(/id<span class="code-color-default">=/g, '<span class="code-color-orange">id</span><span class="code-color-default">='
                 // Replace all "placeholder="
                 ).replace(/placeholder<span class="code-color-default">=/g, '<span class="code-color-green">placeholder</span><span class="code-color-default">='
+                // Replace all "psd-focus="
+                ).replace(/psd-focus<span class="code-color-default">=/g, '<span class="code-color-green">psd-focus</span><span class="code-color-default">='
                 // Replace all "type="
                 ).replace(/type<span class="code-color-default">=/g, '<span class="code-color-green">type</span><span class="code-color-default">='
                 // Replace all "src="

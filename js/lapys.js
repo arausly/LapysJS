@@ -508,52 +508,90 @@ if (window && !LapysJS.executed) {
             yr: new Date().getFullYear()
         }
             // date.dy
-            if (Date().indexOf("Sun") >= 0) date.dy = "Sunday"
-            if (Date().indexOf("Mon") >= 0) date.dy = "Monday"
-            if (Date().indexOf("Tue") >= 0) date.dy = "Tuesday"
-            if (Date().indexOf("Wed") >= 0) date.dy = "Wednesday"
-            if (Date().indexOf("Thu") >= 0) date.dy = "Thursday"
-            if (Date().indexOf("Fri") >= 0) date.dy = "Friday"
-            if (Date().indexOf("Sat") >= 0) date.dy = "Saturday"
+            if (Date().indexOf("Sun") >= 0)
+                date.dy = "Sunday"
+            if (Date().indexOf("Mon") >= 0)
+                date.dy = "Monday"
+            if (Date().indexOf("Tue") >= 0)
+                date.dy = "Tuesday"
+            if (Date().indexOf("Wed") >= 0)
+                date.dy = "Wednesday"
+            if (Date().indexOf("Thu") >= 0)
+                date.dy = "Thursday"
+            if (Date().indexOf("Fri") >= 0)
+                date.dy = "Friday"
+            if (Date().indexOf("Sat") >= 0)
+                date.dy = "Saturday"
             // date.mth
-            if (Date().indexOf("Jan") >= 0) date.mth = "January"
-            if (Date().indexOf("Feb") >= 0) date.mth = "February"
-            if (Date().indexOf("Mar") >= 0) date.mth = "March"
-            if (Date().indexOf("Apr") >= 0) date.mth = "April"
-            if (Date().indexOf("May") >= 0) date.mth = "May"
-            if (Date().indexOf("Jun") >= 0) date.mth = "June"
-            if (Date().indexOf("Jul") >= 0) date.mth = "July"
-            if (Date().indexOf("Aug") >= 0) date.mth = "August"
-            if (Date().indexOf("Sep") >= 0) date.mth = "September"
-            if (Date().indexOf("Oct") >= 0) date.mth = "October"
-            if (Date().indexOf("Nov") >= 0) date.mth = "November"
-            if (Date().indexOf("Dec") >= 0) date.mth = "December"
+            if (Date().indexOf("Jan") >= 0)
+                date.mth = "January"
+            if (Date().indexOf("Feb") >= 0)
+                date.mth = "February"
+            if (Date().indexOf("Mar") >= 0)
+                date.mth = "March"
+            if (Date().indexOf("Apr") >= 0)
+                date.mth = "April"
+            if (Date().indexOf("May") >= 0)
+                date.mth = "May"
+            if (Date().indexOf("Jun") >= 0)
+                date.mth = "June"
+            if (Date().indexOf("Jul") >= 0)
+                date.mth = "July"
+            if (Date().indexOf("Aug") >= 0)
+                date.mth = "August"
+            if (Date().indexOf("Sep") >= 0)
+                date.mth = "September"
+            if (Date().indexOf("Oct") >= 0)
+                date.mth = "October"
+            if (Date().indexOf("Nov") >= 0)
+                date.mth = "November"
+            if (Date().indexOf("Dec") >= 0)
+                date.mth = "December"
             // The "date" object can be updated continuously if chosen
             if (false) {
                 setInterval(function() {
-                    if (Date().indexOf("Sun") >= 0) date.dy = "Sunday"
-                    if (Date().indexOf("Mon") >= 0) date.dy = "Monday"
-                    if (Date().indexOf("Tue") >= 0) date.dy = "Tuesday"
-                    if (Date().indexOf("Wed") >= 0) date.dy = "Wednesday"
-                    if (Date().indexOf("Thu") >= 0) date.dy = "Thursday"
-                    if (Date().indexOf("Fri") >= 0) date.dy = "Friday"
-                    if (Date().indexOf("Sat") >= 0) date.dy = "Saturday"
+                    if (Date().indexOf("Sun") >= 0)
+                        date.dy = "Sunday"
+                    if (Date().indexOf("Mon") >= 0)
+                        date.dy = "Monday"
+                    if (Date().indexOf("Tue") >= 0)
+                        date.dy = "Tuesday"
+                    if (Date().indexOf("Wed") >= 0)
+                        date.dy = "Wednesday"
+                    if (Date().indexOf("Thu") >= 0)
+                        date.dy = "Thursday"
+                    if (Date().indexOf("Fri") >= 0)
+                        date.dy = "Friday"
+                    if (Date().indexOf("Sat") >= 0)
+                        date.dy = "Saturday"
                     date.dyIndex = new Date().getDate()
                     date.fullDate = Date()
                     date.hr = new Date().getHours()
                     date.min = new Date().getMinutes()
-                    if (Date().indexOf("Jan") >= 0) date.mth = "January"
-                    if (Date().indexOf("Feb") >= 0) date.mth = "February"
-                    if (Date().indexOf("Mar") >= 0) date.mth = "March"
-                    if (Date().indexOf("Apr") >= 0) date.mth = "April"
-                    if (Date().indexOf("May") >= 0) date.mth = "May"
-                    if (Date().indexOf("Jun") >= 0) date.mth = "June"
-                    if (Date().indexOf("Jul") >= 0) date.mth = "July"
-                    if (Date().indexOf("Aug") >= 0) date.mth = "August"
-                    if (Date().indexOf("Sep") >= 0) date.mth = "September"
-                    if (Date().indexOf("Oct") >= 0) date.mth = "October"
-                    if (Date().indexOf("Nov") >= 0) date.mth = "November"
-                    if (Date().indexOf("Dec") >= 0) date.mth = "December"
+                    if (Date().indexOf("Jan") >= 0)
+                        date.mth = "January"
+                    if (Date().indexOf("Feb") >= 0)
+                        date.mth = "February"
+                    if (Date().indexOf("Mar") >= 0)
+                        date.mth = "March"
+                    if (Date().indexOf("Apr") >= 0)
+                        date.mth = "April"
+                    if (Date().indexOf("May") >= 0)
+                        date.mth = "May"
+                    if (Date().indexOf("Jun") >= 0)
+                        date.mth = "June"
+                    if (Date().indexOf("Jul") >= 0)
+                        date.mth = "July"
+                    if (Date().indexOf("Aug") >= 0)
+                        date.mth = "August"
+                    if (Date().indexOf("Sep") >= 0)
+                        date.mth = "September"
+                    if (Date().indexOf("Oct") >= 0)
+                        date.mth = "October"
+                    if (Date().indexOf("Nov") >= 0)
+                        date.mth = "November"
+                    if (Date().indexOf("Dec") >= 0)
+                        date.mth = "December"
                     date.mthIndex = new Date().getMonth() + 1
                     date.sec = new Date().getSeconds()
                     date.yr = new Date().getFullYear()
@@ -1884,7 +1922,7 @@ if (window && !LapysJS.executed) {
             }
         }, 1)
         
-        // ToolTip (or ScreenTip) JS
+        /* ToolTip (or ScreenTip) JS */
         var tooltip = document.createElement("div"),
             // Elements with "data-title" attribute present
             tooltipElements = document.querySelectorAll("[data-title]")
@@ -1910,8 +1948,9 @@ if (window && !LapysJS.executed) {
             
             // Mark all elements with the tooltip element
             for (i = 0; i < tooltipElements.length; i++) {
-                // Show the tooltip and position it
+                // Add the event
                 tooltipElements[i].onmouseover = function() {
+                    // Show the tooltip and position it
                     tooltip.innerHTML = this.getAttribute("data-title")
 
                     tooltip.style.display = "inline"
@@ -1922,35 +1961,35 @@ if (window && !LapysJS.executed) {
                         (event.clientY + 10) + "px" +
                     ")"
 
-                // If the tooltip is positioned past the page borders
-                if ((event.clientX + tooltip.clientWidth) >= body.clientWidth)
-                    tooltip.style.transform = "translate(" +
-                        ((event.clientX - tooltip.clientWidth) + 10) + "px, " +
-                        (event.clientY + 10) + "px" +
-                    ")"
+                    // If the tooltip is positioned past the page borders
+                    if ((event.clientX + tooltip.clientWidth) >= body.clientWidth)
+                        tooltip.style.transform = "translate(" +
+                            ((event.clientX - tooltip.clientWidth) + 10) + "px, " +
+                            (event.clientY + 10) + "px" +
+                        ")"
 
-                // Remove any disturbances to the tooltip
-                    // Required Elements
-                    if (this.hasAttribute("required") ||
-                        this.required) {
-                        this.removeAttribute("required")
-                        this.setAttribute("title", "")
+                    // Remove any obstructions to the tooltip
+                        // Required Elements
+                        if (this.hasAttribute("required") ||
+                            this.required) {
+                            this.removeAttribute("required")
+                            this.setAttribute("title", "")
 
-                        this.tooltipBefore = this.getAttribute("title")
-                            if (!this.tooltipBefore || this.tooltipBefore == "")
-                                this.tooltipBefore == false
+                            this.tooltipBefore = this.getAttribute("title")
+                                if (!this.tooltipBefore || this.tooltipBefore == "")
+                                    this.tooltipBefore == false
 
-                        this.onceRequired = true
-                    }
+                            this.onceRequired = true
+                        }
 
-                    /* Titled Elements
-                            Two tooltips are not flexible on a
-                            single element.
-                    */
-                    if (this.hasAttribute("title"))
-                        this.removeAttribute("title")
+                        /* Titled Elements
+                                Two tooltips are not flexible on a
+                                single element.
+                        */
+                        if (this.hasAttribute("title"))
+                            this.removeAttribute("title")
 
-                // Hide the tooltip regardless
+                    // Hide the tooltip regardless
                     if (this.getAttribute("data-title").lastIndexOf("_hidden") >= 0)
                         tooltip.style.opacity = "0"
                 }

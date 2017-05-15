@@ -1,8 +1,2 @@
 # Ignore the LapysJS landing page.
 index.html
-
-# Ignore all pages within LapysJS' context.
-html/**
-
-# Ignore the "robots.txt" file
-robots.txt

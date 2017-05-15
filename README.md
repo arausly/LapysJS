@@ -50,3 +50,7 @@ LapysJS is imported via normal means as it comprises of a CSS and Javascript fil
 ```
 
 <small> Download the documentation to learn more about the framework. </small>
+
+## Current Updates to this Repository
+- The manual.html file contains all neccesary and common components of the LapysJS framework.
+- For more information, check the documentation at https://www.lapysarts.com.

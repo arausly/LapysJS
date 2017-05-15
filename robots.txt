@@ -1,7 +1,6 @@
 User-agent: *
 Disallow: /assets.txt
 Disallow: /humans.txt
-Disallow: /LICENSE.txt
 Disallow: /robots.txt
 
 User-agent: Google

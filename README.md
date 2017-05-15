@@ -4,8 +4,8 @@
   <img alt="Lapys JS Logo" src="https://raw.githubusercontent.com/LapysNights/LapysJS/master/Lapys%20Arts%20(150%20x%20150).png">
 </p>
 
-# LapysJS
-## Seamless, Simple Development
+<h1 align="center"> LapysJS </h1>
+<h2 align="center"> Seamless, Simple Development </h2>
 
 ### What is Lapys JS?
 Lapys JS comprises of both CSS and Javascript as a front-end design and development framework with the aim of reducing building and coding time with conveniently organized and visually aesthetic apps or components.

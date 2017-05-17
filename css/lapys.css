@@ -638,9 +638,6 @@ body:not([default]) {
     flood-color: #000000;
     flood-opacity: 1;
     font-language-override: normal;
-    font-family: Calibri, "Calibri Light", "Segoe UI", "Helvetica Neue", Arial,
-                        "Lucida Sans Unicode", "Microsoft Sans Serif", Roman, Script, "Segoe UI Semilight",
-                        sans-serif;
     font-feature-settings: inherit;
     font-kerning: auto;
     font-size-adjust: none;
@@ -1196,7 +1193,6 @@ h6:not([default]) {
     /* --- NOTE ---
             Headers are given a lighter font.
     */
-    font-family: "Calibri Light";
     margin-block-end: .67em;
     margin-block-start: .67em
 }
@@ -6326,9 +6322,11 @@ table.cmpnt *:not(tr),
         border-left: 2px solid;
         display: inline;
         padding-right: 0;
+        white-space: no-wrap;
         z-index: 3
     }
-    [data-kbd*="rev"] {
+    [data-input="backwardDelete"][data-kbd],
+    [data-input="type"][data-kbd] {
         border-left: 0;
         border-right: 2px solid
     }

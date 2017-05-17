@@ -1765,7 +1765,11 @@ if (window && !LapysJS.executed) {
             }
         }
 
-        /* Text Type JS (also Dynamic Text JS) */
+        /* Text Type JS (also Dynamic Text JS)
+                --- UPDATE REQUIRED ---
+                    The typing function must work in
+                    multiple instances.
+        */
         var txt = document.querySelectorAll("[data-kbd]"),
             // Text Baseline Counter
             txtBaselineCounter = [0],
@@ -1776,7 +1780,13 @@ if (window && !LapysJS.executed) {
             // Text Content
             txtHTML = [""],
             // Text txt Attributes
-            txtHTMLTxt = [[""]]
+            txtHTMLTxt = [[""]],
+            // Text txt Attributes Split
+            txtHTMLTxtSplit = [[""]],
+            // Text txt Attributes Split Indexer
+            txtHTMLTxtSplitIndexer = [],
+            // Text txt Attributes Split Character Indexer
+            txtHTMLTxtSplitCharacterIndexer = [0]
 
         // This function must run after the succeeding setInterval() function
         setTimeout(function() {
@@ -1791,7 +1801,7 @@ if (window && !LapysJS.executed) {
                     (txt[i].getAttribute("data-txt").slice(
                         0,
                         parseInt(txt[i].getAttribute("data-txt").indexOf("_")))
-                    ).replace(/</g, "&lt;").replace(/>/g, "&gt;").toString(),
+                    ).toString(),
 
                     // The second text
                     (txt[i].getAttribute("data-txt").slice(
@@ -1803,8 +1813,34 @@ if (window && !LapysJS.executed) {
                     (
                         (txt[i].getAttribute("data-txt").slice(parseInt(txt[i].getAttribute("data-txt").lastIndexOf("_") + 1), -1)).toString() +
                         (txt[i].getAttribute("data-txt").slice(-1)).toString()
-                    ).replace(/</g, "&lt;").replace(/>/g, "&gt;").toString()
+                    ).toString()
                 ]
+
+                // Store the numerous alternative texts in "data-txt" (each value is separated by "_" characters)
+                txtHTMLTxtSplit[i] = [
+                    // The first text
+                    (txt[i].getAttribute("data-txt").slice(
+                        0,
+                        parseInt(txt[i].getAttribute("data-txt").indexOf("_")))
+                    ).toString().split(""),
+
+                    // The second text
+                    (txt[i].getAttribute("data-txt").slice(
+                        parseInt(txt[i].getAttribute("data-txt").indexOf("_") + 1),
+                        (parseInt(txt[i].getAttribute("data-txt").lastIndexOf("_"))))
+                    ).split(""),
+                    
+                    // The third text
+                    (
+                        (txt[i].getAttribute("data-txt").slice(parseInt(txt[i].getAttribute("data-txt").lastIndexOf("_") + 1), -1)).toString() +
+                        (txt[i].getAttribute("data-txt").slice(-1)).toString()
+                    ).toString().split("")
+                ]
+
+                    // Create an index for each word that is split
+                    txtHTMLTxtSplitIndexer[i] = 0
+                    // Create an indexer for each concatenated character
+                    txtHTMLTxtSplitCharacterIndexer[i] = 0
                 
                 // Store the text content character length
                 txtLength[i] = txtHTML[i].length
@@ -1817,13 +1853,61 @@ if (window && !LapysJS.executed) {
             }
         }, 2)
 
-        // Slice the text content in order
-        function txtForwardSlice() {
-            txt[i].innerHTML = txt[i].innerHTML.slice(1)
-        }
-        function txtReverseSlice() {
-            txt[i].innerHTML = txt[i].innerHTML.slice(0, -1)
-        }
+        // Run the function in order
+            // Forward Delete
+            function txtForwardSlice() {
+                txt[i].innerHTML = txt[i].innerHTML.slice(1)
+            }
+            // Backward Delete
+            function txtReverseSlice() {
+                txt[i].innerHTML = txt[i].innerHTML.slice(0, -1)
+            }
+            // Type
+            function txtConcat() {
+                /* --- NOTE ---
+                        "txtHTMLTxtSplitIndexer[i]" is not initially defined.
+                */
+                if (!txtHTMLTxtSplitIndexer[i])
+                    txtHTMLTxtSplitIndexer[i] = 0
+
+                // Type in a new character each interval
+                txt[i].innerHTML = (
+                    txt[i].innerHTML + txtHTMLTxtSplit[0][txtHTMLTxtSplitIndexer[i]][txtHTMLTxtSplitCharacterIndexer[i]]
+                ).replace(/undefined/g, "")
+
+                // Increment the character indexer to go through each character
+                txtHTMLTxtSplitCharacterIndexer[i]++
+
+                // Reset the character indexer
+                if (txtHTMLTxtSplitCharacterIndexer[i] >= txtHTMLTxt[i][txtHTMLTxtSplitIndexer[i]].length)
+                    txtHTMLTxtSplitCharacterIndexer[i] = 0
+
+                if (txt[i].innerHTML.indexOf(txtHTMLTxt[i][txtHTMLTxtSplitIndexer[i]]) >= 1) {
+                    /* --- NOTE ---
+                            Clear the content.
+                            
+                            The non-breakable space is to disallow the "data-txt*-complete" attributes.
+                    */
+                    txt[i].innerHTML = txt[i].innerHTML.replace(
+                        txtHTML[i], ""
+                    ).replace(
+                        txtHTMLTxt[i][0], ""
+                    ).replace(
+                        txtHTMLTxt[i][1], ""
+                    ).replace(
+                        txtHTMLTxt[i][2], ""
+                    ) + " "
+
+                    /* --- NOTE ---
+                            There's a counter to toggle between each word to type.
+                            This is it.
+                    */
+                    if (txtHTMLTxtSplitIndexer[i] >= 2)
+                        txtHTMLTxtSplitIndexer[i] = 0
+                    else
+                        txtHTMLTxtSplitIndexer[i]++
+                }
+            }
 
         /* --- NOTE ---
                 This function must run continuously (every millisecond)
@@ -1833,7 +1917,7 @@ if (window && !LapysJS.executed) {
             // Loop through every text
             for (i = 0; i < txt.length; i++) {
                 // Increment the baseline
-                txtCounter[i] += 0.005
+                txtCounter[i] += .005
                 
                 // Stringify the text content
                 txt[i].innerHTML = txt[i].innerHTML.replace(/</g, "&lt;").replace(/>/g, "&gt;").toString()
@@ -1843,81 +1927,92 @@ if (window && !LapysJS.executed) {
                         // Make sure to reset the counter to replay the condition
                         txtCounter[i] = 0
 
-                        // Slice the text
-                        if (txt[i].getAttribute("data-kbd") == "rev" ||
-                            txt[i].getAttribute("data-kbd") == "reverse")
-                            txtReverseSlice()
-                        else
+                        // Forward Delete
+                        if (txt[i].getAttribute("data-input").indexOf("forwardDelete") >= 0)
                             txtForwardSlice()
+                        // Backward Delete
+                        if (txt[i].getAttribute("data-input").indexOf("backwardDelete") >= 0)
+                            txtReverseSlice()
+                        // Type
+                        if (txt[i].getAttribute("data-input").indexOf("type") >= 0)
+                            txtConcat()
                 }
 
-                // Run this when the first content is done slicing 
-                if (txt[i].innerHTML == "" &&
+                // Run this when the first content is done
+                if (
+                    txt[i].innerHTML == "" &&
                     !txt[i].hasAttribute("data-txt1-complete") &&
                     !txt[i].hasAttribute("data-txt2-complete") &&
-                    !txt[i].hasAttribute("data-txt3-complete")) {
-                        // Record the completion
-                        txt[i].setAttribute("data-txt1-complete", "")
-                
-                        // Change the content
-                        txt[i].innerHTML = txtHTMLTxt[i][0]
-                
-                        // Update the text length and baseline
-                        txtLength[i] = txtHTMLTxt[i][0].length
-                        txtBaselineCounter[i] = parseFloat(txt[i].getAttribute("data-interval") / txtLength[i])
+                    !txt[i].hasAttribute("data-txt3-complete")
+                ) {
+                    // Record the completion
+                    txt[i].setAttribute("data-txt1-complete", "")
+
+                    // Change the content
+                    txt[i].innerHTML = txtHTMLTxt[i][0]
+
+                    // Update the text length and baseline
+                    txtLength[i] = txtHTMLTxt[i][0].length
+                    txtBaselineCounter[i] = parseFloat(txt[i].getAttribute("data-interval") / txtLength[i])
                 }
 
-                // Run this when the second content is done slicing
-                if (txt[i].innerHTML == "" &&
-                    txt[i].hasAttribute("data-txt1-complete")) {
-                        // Remove all left-over white-spaces
-                        txt[i].innerHTML = txt[i].innerHTML.replace(/ /g, "")
+                // Run this when the second content is done
+                if (
+                    txt[i].innerHTML == "" &&
+                    txt[i].hasAttribute("data-txt1-complete")
+                ) {
+                    // Remove all left-over white-spaces
+                    txt[i].innerHTML = txt[i].innerHTML.replace(/ /g, "")
 
-                        // Record the completion
-                        txt[i].removeAttribute("data-txt1-complete")
-                        txt[i].setAttribute("data-txt2-complete", "")
-                
-                        // Change the content
-                        txt[i].innerHTML = txtHTMLTxt[i][1]
-                
-                        // Update the text length
-                        txtLength[i] = txtHTMLTxt[i][1].length
-                        txtBaselineCounter[i] = parseFloat(txt[i].getAttribute("data-interval") / txtLength[i])
+                    // Record the completion
+                    txt[i].removeAttribute("data-txt1-complete")
+                    txt[i].setAttribute("data-txt2-complete", "")
+            
+                    // Change the content
+                    txt[i].innerHTML = txtHTMLTxt[i][1]
+            
+                    // Update the text length
+                    txtLength[i] = txtHTMLTxt[i][1].length
+                    txtBaselineCounter[i] = parseFloat(txt[i].getAttribute("data-interval") / txtLength[i])
                 }
                 
-                // Run this when the third content is done slicing
-                if (txt[i].innerHTML == "" &&
-                    txt[i].hasAttribute("data-txt2-complete")) {
-                        // Remove all left-over white-spaces
-                        txt[i].innerHTML = txt[i].innerHTML.replace(/ /g, "")
+                // Run this when the third content is done
+                if (
+                    txt[i].innerHTML == "" &&
+                    txt[i].hasAttribute("data-txt2-complete")
+                ) {
+                    // Remove all left-over white-spaces
+                    txt[i].innerHTML = txt[i].innerHTML.replace(/ /g, "")
 
-                        // Record the completion
-                        txt[i].removeAttribute("data-txt2-complete")
-                        txt[i].setAttribute("data-txt3-complete", "")
-                
-                        // Change the content
-                        txt[i].innerHTML = txtHTMLTxt[i][2]
-                
-                        // Update the text length
-                        txtLength[i] = txtHTMLTxt[i][2].length
-                        txtBaselineCounter[i] = parseFloat(txt[i].getAttribute("data-interval") / txtLength[i])
+                    // Record the completion
+                    txt[i].removeAttribute("data-txt2-complete")
+                    txt[i].setAttribute("data-txt3-complete", "")
+            
+                    // Change the content
+                    txt[i].innerHTML = txtHTMLTxt[i][2]
+            
+                    // Update the text length
+                    txtLength[i] = txtHTMLTxt[i][2].length
+                    txtBaselineCounter[i] = parseFloat(txt[i].getAttribute("data-interval") / txtLength[i])
                 }
 
                 // Run this when all content is done slicing successively
-                if (txt[i].innerHTML == "" &&
-                    txt[i].hasAttribute("data-txt3-complete")) {
-                        // Remove all left-over white-spaces
-                        txt[i].innerHTML = txt[i].innerHTML.replace(/ /g, "")
+                if (
+                    txt[i].innerHTML == "" &&
+                    txt[i].hasAttribute("data-txt3-complete")
+                ) {
+                    // Remove all left-over white-spaces
+                    txt[i].innerHTML = txt[i].innerHTML.replace(/ /g, "")
 
-                        // Record the completion
-                        txt[i].removeAttribute("data-txt3-complete")
+                    // Record the completion
+                    txt[i].removeAttribute("data-txt3-complete")
+    
+                    // Change the content
+                    txt[i].innerHTML = txtHTML[i]
         
-                        // Change the content
-                        txt[i].innerHTML = txtHTML[i]
-            
-                        // Update the text length
-                        txtLength[i] = txtHTML[i].length
-                        txtBaselineCounter[i] = parseFloat(txt[i].getAttribute("data-interval") / txtLength[i])
+                    // Update the text length
+                    txtLength[i] = txtHTML[i].length
+                    txtBaselineCounter[i] = parseFloat(txt[i].getAttribute("data-interval") / txtLength[i])
                 }
             }
         }, 1)
@@ -1961,7 +2056,7 @@ if (window && !LapysJS.executed) {
                         (event.clientY + 10) + "px" +
                     ")"
 
-                    // If the tooltip is positioned past the page borders
+                    // If the tooltip is positioned past the page's right border
                     if ((event.clientX + tooltip.clientWidth) >= body.clientWidth)
                         tooltip.style.transform = "translate(" +
                             ((event.clientX - tooltip.clientWidth) + 10) + "px, " +
@@ -1990,8 +2085,115 @@ if (window && !LapysJS.executed) {
                             this.removeAttribute("title")
 
                     // Hide the tooltip regardless
-                    if (this.getAttribute("data-title").lastIndexOf("_hidden") >= 0)
+                    if (this.getAttribute("data-title").lastIndexOf("_hidden") >= 0) {
+                        // Remove the "_hidden".
+                        tooltip.innerHTML = tooltip.innerHTML.replace(/_hidden([^_hidden]*)$/, "$1")
+
                         tooltip.style.opacity = "0"
+                    }
+
+                    // Positioning
+                        // Bottom
+                        if (this.getAttribute("data-title").lastIndexOf("_bottom") >= 0) {
+                            // Remove the "_bottom".
+                            tooltip.innerHTML = tooltip.innerHTML.replace(/_bottom([^_bottom]*)$/, "$1")
+
+                            // Position the tooltip
+                            tooltip.style.transform = "translate(" +
+                                (event.clientX + 10) + "px, " +
+                                ((this.getBoundingClientRect().top + tooltip.clientHeight) - 10) + "px" +
+                            ")"
+                        }
+                            // Bottom Left
+                            if (
+                                    this.getAttribute("data-title").lastIndexOf("_bottom") >= 0
+                                        &&
+                                    this.getAttribute("data-title").lastIndexOf("_left") >= 0
+                                ) {
+                                // Remove the "_bottom" and "_left".
+                                tooltip.innerHTML = tooltip.innerHTML.replace("_bottom", "").replace("_left", "")
+
+                                // Position the tooltip
+                                tooltip.style.transform = "translate(" +
+                                    ((this.getBoundingClientRect().left - tooltip.clientWidth) - 10) + "px, " +
+                                    ((this.getBoundingClientRect().top + tooltip.clientHeight) - 10) + "px" +
+                                ")"
+                            }
+                            // Bottom Right
+                            if (
+                                    this.getAttribute("data-title").lastIndexOf("_bottom") >= 0 &&
+                                    this.getAttribute("data-title").lastIndexOf("_right") >= 0
+                                ) {
+                                // Remove the "_bottom" and "_right".
+                                tooltip.innerHTML = tooltip.innerHTML.replace("_bottom", "").replace("_right", "")
+
+                                // Position the tooltip
+                                tooltip.style.transform = "translate(" +
+                                    ((this.getBoundingClientRect().left + tooltip.clientWidth) - 10) + "px, " +
+                                    ((this.getBoundingClientRect().top + tooltip.clientHeight) - 10) + "px" +
+                                ")"
+                            }
+                        // Left
+                        if (this.getAttribute("data-title").lastIndexOf("_left") >= 0) {
+                            // Remove the "_left".
+                            tooltip.innerHTML = tooltip.innerHTML.replace(/_left([^_left]*)$/, "$1")
+
+                            // Position the tooltip
+                            tooltip.style.transform = "translate(" +
+                                ((this.getBoundingClientRect().left - tooltip.clientWidth) - 10) + "px, " +
+                                (event.clientY + 10) + "px" +
+                            ")"
+                        }
+                        // Right
+                        if (this.getAttribute("data-title").lastIndexOf("_right") >= 0) {
+                            // Remove the "_right".
+                            tooltip.innerHTML = tooltip.innerHTML.replace(/_right([^_right]*)$/, "$1")
+
+                            // Position the tooltip
+                            tooltip.style.transform = "translate(" +
+                                ((this.getBoundingClientRect().left + this.clientWidth) + 10) + "px, " +
+                                (event.clientY + 10) + "px" +
+                            ")"
+                        }
+                        // Top
+                        if (this.getAttribute("data-title").lastIndexOf("top") >= 0) {
+                            // Remove the "top".
+                            tooltip.innerHTML = tooltip.innerHTML.replace(/top([^top]*)$/, "$1")
+
+                            // Position the tooltip
+                            tooltip.style.transform = "translate(" +
+                                (event.clientX + 10) + "px, " +
+                                ((this.getBoundingClientRect().top - tooltip.clientHeight) - 10) + "px" +
+                            ")"
+                        }
+                            // Top Left
+                            if (
+                                    this.getAttribute("data-title").lastIndexOf("_left") >= 0 &&
+                                    this.getAttribute("data-title").lastIndexOf("_top") >= 0
+                                ) {
+                                // Remove the "_left" and "_top".
+                                tooltip.innerHTML = tooltip.innerHTML.replace("_left", "").replace("_top", "")
+
+                                // Position the tooltip
+                                tooltip.style.transform = "translate(" +
+                                    ((this.getBoundingClientRect().left - tooltip.clientWidth) - 10) + "px, " +
+                                    ((this.getBoundingClientRect().top - tooltip.clientHeight) - 10) + "px" +
+                                ")"
+                            }
+                            // Top Left
+                            if (
+                                    this.getAttribute("data-title").lastIndexOf("_right") >= 0 &&
+                                    this.getAttribute("data-title").lastIndexOf("_top") >= 0
+                                ) {
+                                // Remove the "_right" and "_top".
+                                tooltip.innerHTML = tooltip.innerHTML.replace("_right", "").replace("_top", "")
+
+                                // Position the tooltip
+                                tooltip.style.transform = "translate(" +
+                                    ((this.getBoundingClientRect().left + tooltip.clientWidth) - 10) + "px, " +
+                                    ((this.getBoundingClientRect().top + tooltip.clientHeight) - 10) + "px" +
+                                ")"
+                            }
                 }
 
                 // Hide the tooltip
@@ -2085,12 +2287,6 @@ if (window && !LapysJS.executed) {
 
     /* All HTML Elements */
     for (i = 0; i < all.length; i++) {
-        /* --- NOTE ---
-                Add "description" property for describing elements.
-                This is just to add more detail to an element.
-        */
-        all[i].description = ""
-
         // All elements excluding <html>
         if (all[i] != html) {
             // <lorem> for <input>

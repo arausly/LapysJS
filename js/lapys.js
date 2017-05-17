@@ -2133,6 +2133,31 @@ if (window && !LapysJS.executed) {
                                     ((this.getBoundingClientRect().top + tooltip.clientHeight) - 10) + "px" +
                                 ")"
                             }
+                        // Center
+                        if (this.getAttribute("data-title").lastIndexOf("_center") >= 0) {
+                            // Remove the "_center".
+                            tooltip.innerHTML = tooltip.innerHTML.replace(/_center([^_center]*)$/, "$1")
+
+                            // Position the tooltip
+                            tooltip.style.transform = "translate(" +
+                                (this.getBoundingClientRect().left - (tooltip.clientWidth / 2)) + "px, " +
+                                (this.getBoundingClientRect().top - (tooltip.clientHeight / 2)) + "px" +
+                            ")"
+                        }
+                            // Bottom Center
+                            if (
+                                    this.getAttribute("data-title").lastIndexOf("_bottom") >= 0 &&
+                                    this.getAttribute("data-title").lastIndexOf("_center") >= 0
+                                ) {
+                                // Remove the "_bottom" and "_center".
+                                tooltip.innerHTML = tooltip.innerHTML.replace("_bottom", "").replace("_center", "")
+
+                                // Position the tooltip
+                                tooltip.style.transform = "translate(" +
+                                    (this.getBoundingClientRect().left - (tooltip.clientWidth / 2)) + "px, " +
+                                    ((this.getBoundingClientRect().top + tooltip.clientHeight) + 10) + "px" +
+                                ")"
+                            }
                         // Left
                         if (this.getAttribute("data-title").lastIndexOf("_left") >= 0) {
                             // Remove the "_left".
@@ -2156,9 +2181,9 @@ if (window && !LapysJS.executed) {
                             ")"
                         }
                         // Top
-                        if (this.getAttribute("data-title").lastIndexOf("top") >= 0) {
-                            // Remove the "top".
-                            tooltip.innerHTML = tooltip.innerHTML.replace(/top([^top]*)$/, "$1")
+                        if (this.getAttribute("data-title").lastIndexOf("_top") >= 0) {
+                            // Remove the "_top".
+                            tooltip.innerHTML = tooltip.innerHTML.replace(/_top([^_top]*)$/, "$1")
 
                             // Position the tooltip
                             tooltip.style.transform = "translate(" +
@@ -2180,7 +2205,21 @@ if (window && !LapysJS.executed) {
                                     ((this.getBoundingClientRect().top - tooltip.clientHeight) - 10) + "px" +
                                 ")"
                             }
-                            // Top Left
+                            // Top Center
+                            if (
+                                    this.getAttribute("data-title").lastIndexOf("_top") >= 0 &&
+                                    this.getAttribute("data-title").lastIndexOf("_center") >= 0
+                                ) {
+                                // Remove the "_top" and "_center".
+                                tooltip.innerHTML = tooltip.innerHTML.replace("_top", "").replace("_center", "")
+
+                                // Position the tooltip
+                                tooltip.style.transform = "translate(" +
+                                    (this.getBoundingClientRect().left - (tooltip.clientWidth / 2)) + "px, " +
+                                    ((this.getBoundingClientRect().top - tooltip.clientHeight) - 10) + "px" +
+                                ")"
+                            }
+                            // Top Right
                             if (
                                     this.getAttribute("data-title").lastIndexOf("_right") >= 0 &&
                                     this.getAttribute("data-title").lastIndexOf("_top") >= 0

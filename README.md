@@ -53,4 +53,4 @@ LapysJS is imported via normal means as it comprises of a CSS and Javascript fil
 
 ## Current Updates to this Repository
 - The manual.html file contains all neccesary and common components of the LapysJS framework.
-- For more information, check the documentation at https://lapysnights.github.io/LapysJS/html/documentation.html.
+- For more information, check the documentation at <a href="https://lapysnights.github.io/LapysJS/html/documentation.html">https://lapysnights.github.io/LapysJS/html/documentation.html</a>.

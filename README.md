@@ -1,3 +1,6 @@
+<!-- LapysJS Title -->
+<title> GitHub | LapysJS </title>
+
 <!-- LapysJS Header -->
 <p align="center">
   <!-- LapysJS Logo -->

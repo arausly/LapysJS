@@ -1,13 +1,10 @@
-<!-- LapysJS Title -->
-<title> GitHub | LapysJS </title>
-
 <!-- LapysJS Header -->
 <p align="center">
   <!-- LapysJS Logo -->
   <img alt="Lapys JS Logo" src="https://raw.githubusercontent.com/LapysNights/LapysJS/master/Lapys%20Arts%20(150%20x%20150).png">
 </p>
 
-<h1 align="center"> LapysJS </h1>
+<h1 align="center"> Lapys JS </h1>
 <h2 align="center"> Seamless, Simple Development </h2>
 
 ### What is Lapys JS?

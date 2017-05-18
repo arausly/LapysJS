@@ -91,10 +91,13 @@ if (window && !LapysJS.executed) {
             style : (dataKey, selector, property, atRule) => {
                 // Create a new <style> element.
                 var cssStyle = document.createElement("style")
+                
                 // Uniquely identify the <style> element.
                 cssStyle.setAttribute("data-key", dataKey)
+                
                 // Append the element into the <head> element.
                 document.getElementsByTagName("head")[0].appendChild(cssStyle)
+                
                 // The option for CSS at-rules is given here.
                 if (atRule == undefined)
                     cssStyle.innerHTML += "\n" + selector + " { " + property + " }"
@@ -273,6 +276,35 @@ if (window && !LapysJS.executed) {
             return location.assign(directory)
         },
 
+        // Javascript Function
+        js = {
+            // Link <script>
+            add : (src, type, sync) => {
+                // Append the <script> element within the <body> element.
+                if (sync == undefined)
+                    document.getElementsByTagName("body")[0].innerHTML += (
+                        '<script src="' + src + '" type="' + type + '"> </script>')
+                else
+                    document.getElementsByTagName("body")[0].innerHTML += (
+                        '<script ' + sync + ' src="' + src + '" type="' + type + '"> </script>')
+            },
+
+            // Create <script>
+            script : (dataKey, code) => {
+                // Create a new <script> element.
+                var jsScript = document.createElement("script")
+                
+                // Uniquely identify the <script> element.
+                jsScript.setAttribute("data-key", dataKey)
+                
+                // Append the element into the <body> element.
+                document.getElementsByTagName("body")[0].appendChild(jsScript)
+                
+                // Append the Javascript code into the <script> element.
+                jsScript.innerHTML += "\n" + code 
+            }
+        },
+
         // Log Object
         log = (object) => {
             return console.log(object)
@@ -325,9 +357,19 @@ if (window && !LapysJS.executed) {
                 return object.toString()
         },
 
-        // Reload Function
+        // Reload Document Function
         refresh = () => {
             return location.reload()
+        },
+
+        // Reload Javascript Function
+        scriptReload = () => {
+            // For every <script> element.
+            for (i = document.getElementsByTagName("script").length - 1; i >= 0; i--) {
+                // Re-append them into the <body> tag
+                document.getElementsByTagName("body")[0].appendChild(
+                    document.getElementsByTagName("script")[i])
+            }
         },
 
         // Write Object
@@ -350,6 +392,24 @@ if (window && !LapysJS.executed) {
 
         // Boolean
         var bin = false
+            // Reset boolean if another object calls for it
+            var eventOnce = false
+
+            var currentEventTarget
+            var newEventTarget
+
+            document.html.onclick = function() {
+                if (eventOnce) {
+                    newEventTarget = currentEventTarget
+                }
+
+                currentEventTarget = window.event.target
+
+                eventOnce = true
+
+                if (currentEventTarget != newEventTarget)
+                    bin = false
+            }
         
         // Browser
         var browser = {
@@ -1699,8 +1759,10 @@ if (window && !LapysJS.executed) {
                         media[this.getAttribute("data-index")].setAttribute("data-fullscreen", "")
 
                         // Set the console to fullscreen
-                        if ((document.fullScreenElement && document.fullScreenElement !== null) ||
-                            (!document.mozFullScreen && !document.webkitIsFullScreen))
+                        if (
+                            (document.fullScreenElement && document.fullScreenElement !== null) ||
+                            (!document.mozFullScreen && !document.webkitIsFullScreen)
+                        )
                             if (media[this.getAttribute("data-index")].requestFullScreen)
                                 media[this.getAttribute("data-index")].requestFullScreen()
                         

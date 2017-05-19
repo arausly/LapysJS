@@ -286,7 +286,8 @@
             font-family: Consolas, monospace, monospace;
             height: 0;
             margin: 0 auto;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
             padding: 0 10px;
             transition: .75s ease;
             white-space: pre-line
@@ -312,17 +313,18 @@
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
             bottom: -1000px;
-            box-shadow: 0 0 5px 0 rgba(0, 0, 0, .5), inset 0 0 0 2px rgba(0, 0, 0, .05);
+            box-shadow: 0 0 5px 0 rgba(0, 0, 0, .5), inset 0 0 0 2px rgba(0, 0, 0, .05), inset 0 -12.5px 17.5px 0 rgba(0, 0, 0, .3);
             color: #D5D6DB;
             font-family: Consolas, monospace, monospace;
             font-size: 107.25%;
             height: 150px;
             margin: 0 auto;
-            overflow: hidden;
+            max-height: 425px;
+            overflow: scroll;
             padding: 0 10px;
             position: fixed;
             resize: vertical;
-            transition: .75s ease;
+            transition: all .75s ease, height 0 linear;
             width: 96%
         }
             /* Code Button */

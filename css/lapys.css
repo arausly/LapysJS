@@ -2270,6 +2270,7 @@ xmp {
 }
 /* [contenteditable], :focus, :host, :read-write */
 [contenteditable="false"]:not([default]),
+[psd-focus],
 :focus,
 :host {
     /* --- NOTE ---
@@ -3718,6 +3719,7 @@ xmp {
         box-shadow: 0 0 2.5px 0 #000 !important
     }
     .bx-s-1,
+    .cmpnt.cmpnt-grp.nav,
     .frm {
         box-shadow: 0 0 5px 0 rgba(0, 0, 0, .75) !important
     }
@@ -5113,7 +5115,8 @@ xmp {
 .p-e-inherit {
     pointer-events: inherit !important
 }
-.p-e-n {
+.p-e-n,
+.p-e-none {
     pointer-events: none !important
 }
 .p-e-p {
@@ -5851,6 +5854,31 @@ table.cmpnt *:not(tr),
     li.btn.cmpnt:empty {
         min-height: 20px
     }
+    /* Breadcrumbs */
+    .brdcrmb {
+        display: inline-block
+    }
+        /* List Items */
+        .brdcrmb > * {
+            cursor: pointer;
+            display: inline;
+            margin: 0 7.5px
+        }   
+            /* Disabled */
+            .brdcrmb > *[psd-disabled] {
+                color: #787878;
+                cursor: not-allowed
+            }
+            /* Focused */
+            .brdcrmb > *[psd-focus] {
+                color: #0045FF
+            }
+            /* Separators */
+            .brdcrmb > .brdcrmb-s {
+                margin: 0;
+                pointer-events: none;
+                zoom: 1.1
+            }
     /* Button Groups */
     .cmpnt.cmpnt-grp {
         border-radius: 2.5px;
@@ -5869,37 +5897,136 @@ table.cmpnt *:not(tr),
             outline: 0;
             padding: 5px 10px
         }
+    /* Pagination */
+    .cmpnt.cmpnt-grp.pagination {
+        display: inline-block
+    }
+        /* Pages */
+        .cmpnt.cmpnt-grp > *,
+        .cmpnt.cmpnt-grp .break,
+        .cmpnt.cmpnt-grp .next-pg,
+        .cmpnt.cmpnt-grp .pg,
+        .cmpnt.cmpnt-grp .prev-pg {
+            background: #F7F7F7;
+            border: 1px solid #ACACAC;
+            box-shadow: none;
+            cursor: default;
+            flex-grow: 1;
+            height: inherit;
+            margin: 0;
+            display: inline-block;
+            padding: 5px;
+            text-align: center
+        }
+        .cmpnt.cmpnt-grp > *:hover,
+        .cmpnt.cmpnt-grp .break:hover,
+        .cmpnt.cmpnt-grp .next-pg:hover,
+        .cmpnt.cmpnt-grp .pg:hover,
+        .cmpnt.cmpnt-grp .prev-pg:hover {
+            background: #FFFFFF
+        }
+            /* Page-by-Page Navigation */
+            .next-pg,
+            .prev-pg {
+                cursor: pointer
+            }
+            /* Page Items Group */
+            .cmpnt-grp.pg-grp {
+                border: 0;
+                padding: 0;
+                outline: 1px solid rgba(127, 127, 127, .25);
+                outline-offset: .1px
+            }
+                /* Page Items */
+                .cmpnt-grp.pg-grp > .break,
+                .cmpnt-grp.pg-grp > .pg {
+                    cursor: pointer;
+                    margin: 0;
+                    width: 30px
+                }
+    /* Navigation Bars */
+    .cmpnt.cmpnt-grp.nav {
+        border: 1px solid rgba(0, 0, 0, .5);
+        border-radius: 0
+    }
+        /* Navigation Items */
+        .cmpnt.cmpnt-grp.nav > * {
+            margin: 5px;
+            padding: 5px
+        }
+        .cmpnt.cmpnt-grp.nav > *:focus,
+        .cmpnt.cmpnt-grp.nav > *[psd-focus] {
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, .5);
+            margin: 5px 0
+        }
+        .cmpnt.cmpnt-grp.nav > *:not(input) {
+            cursor: pointer
+        }
+        .cmpnt.cmpnt-grp.nav > *:not(.cmpnt) {
+            padding: 5px 25px
+        }
+        .cmpnt.cmpnt-grp.nav > .main {
+            font-size: 110%;
+            font-weight: bold
+        }
     /* Navigation Panels */
-    .cmpnt.nav {
+    .cmpnt.nav:not(.cmpnt-grp) {
         border: 1px solid rgba(0, 0, 0, .5);
         border-radius: 0;
         display: block
     }
         /* Navigation Styles */
             /* Fill */
-            .cmpnt.nav.fill {
+            .cmpnt.nav.fill:not(.cmpnt-grp) {
                 display: flex
             }
-            .cmpnt.nav.fill > * {
+            .cmpnt.nav.fill:not(.cmpnt-grp) > * {
                 flex-basis: auto;
                 flex-grow: 1
             }
+            /* Pill */
+            .cmpnt.nav.pill:not(.cmpnt-grp),
+            .cmpnt.nav.pill:not(.cmpnt-grp) > * {
+                border: 0
+            }
+            .cmpnt.nav.pill:not(.cmpnt-grp) > * {
+                margin: 0 5px
+            }
+            .cmpnt.nav.pill:not(.cmpnt-grp) > *:focus,
+            .cmpnt.nav.pill:not(.cmpnt-grp) > [psd-focus] {
+                background: #FFFFFF;
+                border: 1px solid rgba(0, 0, 0, .5)
+            }
+            /* Stack(-ed) */
+            .cmpnt.nav.stack:not(.cmpnt-grp) {
+                flex-direction: column
+            }
+            .cmpnt.nav.stack:not(.cmpnt-grp) > *,
+            .cmpnt.nav.stack:not(.cmpnt-grp) > *:first-child,
+            .cmpnt.nav.stack:not(.cmpnt-grp) > *:last-child {
+                border: 1px solid rgba(0, 0, 0, .5);
+                display: block
+            }
             /* Tab */
-            .cmpnt.nav.tab,
-            .cmpnt.nav.tab > * {
+            .cmpnt.nav.tab:not(.cmpnt-grp),
+            .cmpnt.nav.tab:not(.cmpnt-grp) > * {
                 border: 0;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
                 border-radius: 2.5px
             }
-            .cmpnt.nav.tab > *[psd-focus] {
+            .cmpnt.nav.tab:not(.cmpnt-grp) > *:focus,
+            .cmpnt.nav.tab:not(.cmpnt-grp) > *[psd-focus] {
                 background: #FFFFFF;
                 border: 1px solid rgba(0, 0, 0, .5);
                 border-bottom: 0
             }
-            .cmpnt.nav.tab > *:not([psd-focus]) {
+            .cmpnt.nav.tab:not(.cmpnt-grp) > *:not([psd-focus]) {
                 border-bottom: 1px solid rgba(0, 0, 0, .5)
             }
         /* Navigation Items */
-        .cmpnt.nav > * {
+        .cmpnt.nav:not(.cmpnt-grp) > * {
             background: #F7F7F7;
             border-left: 1px solid rgba(0, 0, 0, .5);
             border-right: 1px solid rgba(0, 0, 0, .5);
@@ -5908,13 +6035,13 @@ table.cmpnt *:not(tr),
             margin: 0;
             padding: 7.5px
         }
-        .cmpnt.nav > *:first-child {
+        .cmpnt.nav:not(.cmpnt-grp) > *:first-child {
             border-left: 0
         }
-        .cmpnt.nav > *:hover {
+        .cmpnt.nav:not(.cmpnt-grp) > *:hover {
             background: #FFFFFF
         }
-        .cmpnt.nav > *:last-child {
+        .cmpnt.nav:not(.cmpnt-grp) > *:last-child {
             border-right: 0
         }
     /* Stack Tables */
@@ -7234,6 +7361,7 @@ table.cmpnt *:not(tr),
 
 /* Lapys JS Pseudo Selectors */
 /* :disabled */
+[psd-disabled],
 :disabled {
     filter: alpha(opacity=67.825) brightness(.9675) opacity(.67825)
 }

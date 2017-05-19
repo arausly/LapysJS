@@ -222,6 +222,7 @@
         for (i = 0; i < get.html('.code-content').length; i++) {
             // Add the event
             addEvent(get.html('.code-content', i), "change", editPreview)
+            addEvent(get.html('.code-content', i), "focus", editPreview)
             addEvent(get.html('.code-content', i), "input", editPreview)
             addEvent(get.html('.code-content', i), "keydown", editPreview)
             addEvent(get.html('.code-content', i), "keypress", editPreview)
@@ -261,8 +262,8 @@
     */
     setInterval(function() {
         for (i = 0; i < get.html("#main > .section > .header").length; i++)
-            if (window.scrollY > (get.html("#main > .section > .header", i).parentNode.offsetTop) &&
-                window.scrollY < (get.html("#main > .section > .header", i).parentNode.offsetTop + get.html("#main > .section > .header", i).parentNode.clientHeight))
+            if (window.scrollY > (get.html("#main > .section > .header", i).parentNode.offsetTop - 35) &&
+                window.scrollY < (get.html("#main > .section > .header", i).parentNode.offsetTop + get.html("#main > .section > .header", i).parentNode.clientHeight + 35))
                 attr(
                     get.html("#doc-nav li#" + get.attr(get.html("#main > .section > .header", i), "id"), 0),
                     "psd-hover"

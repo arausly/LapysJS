@@ -35,7 +35,8 @@ var LapysJS = {
     --- NOTE ---
         LapysJS should not have been executed at this point.
 */
-if (window && !LapysJS.executed) {
+if (window && !LapysJS.executed)
+{
 /* Start Main Function */
 
     /* Syntax */

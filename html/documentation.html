@@ -2109,11 +2109,11 @@
 
                 <div class="code html">
                     <div>
-                        ~tab~<div class="frm drpdwn" data-event="over" id="lapysDropdown">
+                        ~tab~<div class="frm drpdwn" data-event="on" id="lapysDropdown0">
                             ~tab~~tab~Dropdown Header
                         ~tab~</div>
                         
-                        ~tab~<ul data-drpdwn="lapysDropdown">
+                        ~tab~<ul data-drpdwn="lapysDropdown0">
                             ~tab~~tab~<li class="btn cmpnt"> Dropdown Content A </li>
                             ~tab~~tab~<li class="btn cmpnt"> Dropdown Content B </li>
                             ~tab~~tab~<li class="btn cmpnt"> Dropdown Content C </li>
@@ -2233,8 +2233,8 @@
 
                 <div class="code html">
                     <div>
-                        <!-- Button Group | Navigation Panel -->
-                        ~tab~<div class="cmpnt fill nav tab">
+                        ~tab~<!-- Button Group | Navigation Panel -->
+                        ~tab~<div class="cmpnt fill nav">
                             ~tab~~tab~<div psd-focus> Link A </div>
                             ~tab~~tab~<div> Link B </div>
                             ~tab~~tab~<div> Link C </div>
@@ -2250,6 +2250,167 @@
                         <br>
                         <b> navigation panels do not.</b>
                     </p>
+                </div>
+            </section>
+
+            <!-- Navigation Bar -->
+            <section class="section">
+                <h2 class="header"> Navigation Bar </h2>
+
+                <p class="description">
+                    Navigation bars (an extension to <a href="#navigationpanel">navigation panels</a>) are responsive meta components that serve as navigation headers for your application or site.
+                </p>
+
+                <div class="usage">
+                    Propagate a class of <code>cmpnt cmpnt-grp</code> and <code>nav</code> to a block-level element (like a generic <code>&lt;div&gt;</code>).
+
+                    <br 2>
+
+                    With a class of <code>main</code>, you could style the navigation item for the logo.
+                    <br>
+                    Components (<code>cmpnt</code>) can also be used to further enunciate for &ndash; <em>you guessed it</em> &ndash; components.
+                </div>
+
+                <div class="code html">
+                    <div>
+                        ~tab~<!-- Navigation Bar -->
+                        ~tab~<div class="cmpnt cmpnt-grp nav">
+                            ~tab~~tab~<!-- Logo -->
+                            ~tab~~tab~<div class="main"> Logo </div>
+                            
+                            ~tab~~tab~<!-- Item -->
+                            ~tab~~tab~<div> Link B </div>
+                            
+                            ~tab~~tab~<!-- Focused Item -->
+                            ~tab~~tab~<div psd-focus> Link C </div>
+                            
+                            ~tab~~tab~<!-- Search Field -->
+                            ~tab~~tab~<input class="btn" placeholder=" Search " type="search">
+
+                            ~tab~~tab~<!-- Submit Button -->
+                            ~tab~~tab~<input class="btn p-e-none" type="submit" value=" Submit ">
+
+                            ~tab~~tab~<!-- Dropdown -->
+                            ~tab~~tab~<div class="cmpnt drpdwn" data-event="on" data-title="Drop Menu here_right" id="lapysDropdown1">
+                            ~tab~~tab~~tab~&#9776;
+                            ~tab~~tab~</div>
+                        ~tab~</div>
+
+                        ~tab~<!-- Navigation Dropdown Container -->
+                        ~tab~<div data-drpdwn="lapysDropdown1">
+                            ~tab~~tab~<!-- Navigation Dropdown -->
+                            ~tab~~tab~<div class="cmpnt nav stack"> 
+                                ~tab~~tab~~tab~<div> Link A </div> 
+                                ~tab~~tab~~tab~<div> Link B </div> 
+                                ~tab~~tab~~tab~<div> Link C </div> 
+                        ~tab~</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Breadcrumbs -->
+            <section class="section">
+                <h2 class="header"> Breadcrumbs </h2>
+
+                <p class="description">
+                    Indicate the page&rsquo;s location within the document&rsquo;s hierarchy.
+                </p>
+
+                <div class="usage">
+                    
+                </div>
+
+                <div class="code html">
+                    <div>
+                        <!-- Breadcrumb -->
+                        ~tab~<ul class="brdcrmb">
+                            ~tab~~tab~<!-- Item 1 -->
+                            ~tab~~tab~<li psd-disabled> Server </li>
+
+                            ~tab~~tab~<!-- Separator 1 -->
+                            ~tab~~tab~<li class="brdcrmb-s"> / </li>
+
+                            ~tab~~tab~<!-- Item 2 -->
+                            ~tab~~tab~<li> Folder </li>
+
+                            ~tab~~tab~<!-- Separator 2 -->
+                            ~tab~~tab~<li class="brdcrmb-s"> / </li>
+                            
+                            ~tab~~tab~<!-- Item 3 -->
+                            ~tab~~tab~<li> Directory </li>
+
+                            ~tab~~tab~<!-- Separator 3 -->
+                            ~tab~~tab~<li class="brdcrmb-s"> / </li>
+                            
+                            ~tab~~tab~<!-- Item 4 -->
+                            ~tab~~tab~<li psd-focus> This Page </li>
+                        ~tab~</ul>
+                    </div>
+                </div>
+
+                <div class="msg-warn">
+                    <h4 class="title"> Separators </h4>
+
+                    <p>
+                        Separators are made via HTML input, not CSS code.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Pagination -->
+            <section class="section">
+                <h2 class="header"> Pagination </h2>
+
+                <p class="description">
+                    Provide pagination links for your page with this component, or use <a href="#buttongroups">button groups</a> instead.
+                </p>
+
+                <div class="usage">
+                    To cycle through pages one-by-one, two buttons &ndash; the previous and the next &ndash; will be required.
+                    
+                    <br 2>
+
+                    For linking to the next page, use a class of <code>next-pg</code> on an element,
+                    <br>
+                    <tab> and for moving to the previous page, place a class attribute of <code>prev-pg</code> on an element. </tab>
+
+                    <br 2>
+
+                    As for referencing a specified page, create a class value of <code>cmpnt-grp</code> and <code>pg-grp</code> on a container element with its children holding a <code>pg</code> class value.
+                </div>
+
+                <div class="code html">
+                    <div>
+                        ~tab~<div class="cmpnt cmpnt-grp pagination">
+                            ~tab~~tab~<!-- Previous Page Button -->
+                            ~tab~~tab~<a class="prev-pg">
+                                ~tab~~tab~~tab~<span class="icn-1-leftarrow"> </span>
+                            ~tab~~tab~</a>
+
+                            ~tab~~tab~<!-- Page Items Group -->
+                            ~tab~~tab~<div class="cmpnt-grp pg-grp">
+                                ~tab~~tab~~tab~<!-- Page Items -->
+                                ~tab~~tab~~tab~<button class="pg"> <a href="#"> 1 </a> </button>
+                                ~tab~~tab~~tab~<button class="pg"> <a href="#"> 2 </a> </button>
+                                ~tab~~tab~~tab~<button class="pg"> <a href="#"> 3 </a> </button>
+                                ~tab~~tab~~tab~<button class="pg"> <a href="#"> 4 </a> </button>
+                                ~tab~~tab~~tab~<button class="pg"> <a href="#"> 5 </a> </button>
+                                ~tab~~tab~~tab~<button class="pg"> <a href="#"> 6 </a> </button>
+                                ~tab~~tab~~tab~<button class="pg"> <a href="#"> 7 </a> </button>
+                                ~tab~~tab~~tab~<button class="pg"> <a href="#"> 8 </a> </button>
+                                ~tab~~tab~~tab~<!-- Page Items Break -->
+                                ~tab~~tab~~tab~<div class="break"> &hellip; </div>
+                                ~tab~~tab~~tab~<!-- Page Items (Continued) -->
+                                ~tab~~tab~~tab~<button class="pg"> <a href="#"> 11 </a> </button>
+                                ~tab~~tab~~tab~<button class="pg"> <a href="#"> 12 </a> </button>
+                            ~tab~~tab~</div>
+
+                            ~tab~~tab~<!-- Next Page Button -->
+                            ~tab~~tab~<a class="next-pg">
+                                ~tab~~tab~~tab~<span class="icn-1-rightarrow"> </span>
+                            ~tab~~tab~</a>
+                        ~tab~</div>
+                    </div>
                 </div>
             </section>
         </article>

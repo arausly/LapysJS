@@ -32,6 +32,8 @@
                         /--<span class="code-color-default">&gt;<_span> <_span> <span class="code-color-default"> /g,
                         '--&gt;</span>'
 
+                // Replace all "</"
+                ).replace(/<_span> <span class="code-color-red"> <span class="code-color-default">&lt;<_span>\//g, '</span> <span class="code-color-red"> <span class="code-color-default">&lt;/</span>'
                 // Replace all "<"
                 ).replace(/<_span> <span class="code-color-red"> <span class="code-color-default">&lt;<_span>/g, '</span> <span class="code-color-red"> <span class="code-color-default">&lt;</span>'
                 // Replace all ">"
@@ -49,10 +51,14 @@
                 ).replace(/data-quantity<span class="code-color-default">=/g, '<span class="code-color-green">data-quantity</span><span class="code-color-default">='
                 // Replace all "data-title="
                 ).replace(/data-title<span class="code-color-default">=/g, '<span class="code-color-green">data-title</span><span class="code-color-default">='
+                // Replace all "href="
+                ).replace(/href<span class="code-color-default">=/g, '<span class="code-color-green">href</span><span class="code-color-default">='
                 // Replace all "id="
                 ).replace(/id<span class="code-color-default">=/g, '<span class="code-color-orange">id</span><span class="code-color-default">='
                 // Replace all "placeholder="
                 ).replace(/placeholder<span class="code-color-default">=/g, '<span class="code-color-green">placeholder</span><span class="code-color-default">='
+                // Replace all "psd-disabled="
+                ).replace(/psd-disabled<span class="code-color-default">=/g, '<span class="code-color-green">psd-disabled</span><span class="code-color-default">='
                 // Replace all "psd-focus="
                 ).replace(/psd-focus<span class="code-color-default">=/g, '<span class="code-color-green">psd-focus</span><span class="code-color-default">='
                 // Replace all "type="
@@ -61,6 +67,8 @@
                 ).replace(/src<span class="code-color-default">=/g, '<span class="code-color-green">src</span><span class="code-color-default">='
                 // Replace all "style="
                 ).replace(/style<span class="code-color-default">=/g, '<span class="code-color-blue">style<_span><span class="code-color-default">='
+                // Replace all "value="
+                ).replace(/value<span class="code-color-default">=/g, '<span class="code-color-green">value</span><span class="code-color-default">='
                 // Replace all "1="
                 ).replace(/1<span class="code-color-default">=/g, '<span class="code-color-green code-color-override">1</span><span class="code-color-default">='
                 // Replace all "2="

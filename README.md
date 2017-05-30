@@ -1,6 +1,6 @@
-<big align="center"> LapysJS v3.0.0 </big>
-
 <p align="center">
+    # LapysJS v3.0.0
+    
     <img src="https://github.com/LapysNights/LapysJS/blob/master/assets/img/png/lapysJS.png">
 </p>
 

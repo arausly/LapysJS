@@ -1,0 +1,51 @@
+/* Components */
+    /* Icon Frame Container */
+    .icon-frame {
+        height: 110px;
+        margin: 10px auto;
+        overflow: hidden;
+        transition: height .675s
+    }
+        /* Icon Class Textarea */
+        textarea.pos-fix {
+            user-select: none
+        }
+        /* Icon Frame */
+        .icon-frame .icon {
+            background: #FFFFFF;
+            border: 5px solid transparent;
+            cursor: pointer;
+            display: inline-block;
+            height: 150px;
+            margin: 10px 2.5px;
+            outline: 1px solid #CFCFCF;
+            overflow: hidden;
+            text-align: center;
+            transition: .5s;
+            width: 175px;
+            zoom: .6
+        }
+        .icon-frame .icon:hover {
+            box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .5);
+            color: #0000FF
+        }
+        .icon-frame .icon:active {
+            box-shadow: 0 2.5px 2.5px 0 rgba(0, 0, 0, .5);
+            filter: brightness(.9825)
+        }
+            /* Content */
+            .icon-frame .icon > * {
+                margin: 10px auto
+            }
+
+            /* Icon */
+            .icon-frame .icon [class*="icn-"] {
+                zoom: 3
+            }
+
+            /* Caption */
+            .icon-frame .icon [class*="icn-"] + * {
+                font-size: xx-large;
+                text-overflow: ellipsis;
+                white-space: pre
+            }

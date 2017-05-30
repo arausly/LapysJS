@@ -1,343 +1,265 @@
 /* CSS At-Rules */
-/* @media
-        --- NOTE ---
-            Hide these components.
-*/
-    @media print {
-        #nav,
-        #notify,
-        #notify + #notify-ribbon,
-        #notify + * + #notify-level {
-            display: none !important
-        }
+/* @media */
+    /* Mobile S */
+    @media only screen
+        and (max-width: 320px)
+        and (min-width: 0px) {
+            /* HTML Elements */
+                /* <body> */
+                body {
+                    font-size: 15px !important
+                }
+    }
+
+    /* Mobile & Tablet */
+    @media only screen
+        and (max-width: 1023px)
+        and (min-width: 0px) {
+            /* Navigation */
+                /* Navigation Item */
+                #nav .nav-item {
+                    font-size: 90%
+                }
+                    /* Home */
+                    #nav .nav-item#home {
+                        text-indent: -4%
+                    }
+
+                    /* Download */
+                    #nav .nav-item#download {
+                        display: none
+                    }
+                    
+                    /* Javascript */
+                    #nav .nav-item#javascript::after {
+                        content: "JS" !important
+                    }
+                    
+                    /* Components */
+                    #nav .nav-item#components {
+                        display: none
+                    }
+                    
+                    /* Documentation */
+                    #nav .nav-item#documentation::after {
+                        content: "Docs" !important
+                    }
+                    
+                    /* Themes */
+                    #nav .nav-item#themes {
+                        font-size: 80% !important;
+                        line-height: 155%;
+                        text-indent: -4.5%
+                    }
+    }
+
+    /* Mobile M */
+    @media only screen
+        and (max-width: 375px)
+        and (min-width: 321px) {
+            /* HTML Elements */
+                /* <body> */
+                body {
+                    font-size: 15.5px !important
+                }
+    }
+
+    /* Mobile L */
+    @media only screen
+        and (max-width: 425px)
+        and (min-width: 376px) {
+            /* HTML Elements */
+                /* <body> */
+                body {
+                    font-size: 16px !important
+                }
+    }
+
+    /* Mobile M & Mobile L */
+    @media only screen
+        and (max-width: 767px)
+        and (min-width: 375px) {
+            /* Navigation */
+                /* Navigation Item */
+                    /* Home */
+                    #nav .nav-item#home {
+                        text-indent: -1%
+                    }
+                    
+                    /* Themes */
+                    #nav .nav-item#themes {
+                        text-indent: -2%
+                    }
+    }
+    
+    /* Tablet */
+    @media only screen
+        and (max-width: 1023px)
+        and (min-width: 768px) {
+            /* HTML Elements */
+                /* <body> */
+                body {
+                    font-size: 16.5px !important
+                }
+
+            /* Navigation */
+            #nav {
+                zoom: 2.25 !important   
+            }
+    }
+
+    /* Laptop */
+    @media only screen
+        and (max-width: 1024px)
+        and (min-width: 769px) {
+            /* HTML Elements */
+                /* <body> */
+                body {
+                    font-size: 17px !important
+                }
+    }
+
+    /* Laptop L */
+    @media only screen
+        and (max-width: 2559px)
+        and (min-width: 1440px) {
+            /* HTML Elements */
+                /* <body> */
+                body {
+                    font-size: 17.5px !important
+                }
+    }
+
+    /* 4K */
+    @media only screen
+        and (min-width: 2560px) {
+            /* HTML Elements */
+                /* <body> */
+                body {
+                    font-size: 17.5px !important
+                }
+
+            /* Navigation */
+            #nav {
+                zoom: 2.5 !important
+            }
     }
 
 /* HTML Elements */
     /* <body> */
     body {
-        background-blend-mode: hue;
-        background-color: #FFF;
-        background-position: center;
-        background-size: 110%;
-        color: #000;
-        font-family: Calibri, "Calibri Light", Arial, Corbel, "Franklin Gothic Book" !important;
-        font-size: 13.5px;
-        margin: 0;
+        animation-name: colorIn, fadeIn;
+        background: #FFFFFF;
+        color: #333333;
+        font-family: Roboto;
+        font-size: 16.6px;
+        height: 100%;
         max-width: 100%;
-        min-height: 200px;
-        object-fit: contain;
-        object-position: center;
-        overflow-x: hidden;
-        overflow-y: auto;
-        padding: 0;
-        width: 100%
+        overflow-x: hidden
     }
-    /* <img> */
-    img {
-        border: 0;
-        outline: 0
+    
+    /* <h1>, <h2>, <h3>, <h4>, <h5>, <h6> */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 500 !important
     }
 
 /* Components */
-    /* Notifications Bar */
-    #notify {
-        animation: shade .5s ease infinite;
-        background: rgba(0, 0, 0, .825);
-        border-bottom: medium solid;
-        color: #FFF;
-        cursor: default;
-        font-size: 22.5px;  
-        height: 40px;
-        line-height: 30px;
-        margin-left: -5%;
-        max-height: 40px;
-        justify-content: center;
-        position: fixed;
-        top: -40px;
-        text-align: center;
-        transition: .3s ease-out;
-        width: 110%;
-        z-index: 5
-    }
-    #notify:hover {
-        top: 0;
-        transition: .3s ease-in
-    }
-    #notify::selection {
-        background-color: transparent;
-        color: #FFF;
-        text-shadow: none
-    }
-        /* Animation for the Notifications Bar */
-        @keyframes shade {
-            0% {
-                box-shadow: inset 0 -10px 0 10px rgba(255, 255, 255, .05)
-            }
-            to {
-                box-shadow: inset 0 10px 0 10px rgba(255, 255, 255, .05)
-            }
-        }
-
-    /* Notifications Level Container */
-    #notify + * + #notify-level {
-        color: #FFF;
-        height: 20px;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 4
-    }
-        /* Notifications Level Container Components */
-        #notify + * + #notify-level > [class*="level-"] {
-            animation: beacon 1.5s infinite;
-            border: 1px solid rgba(255, 255, 255, .5);
-            border-radius: 50%;
-            box-shadow: 0 0 5px 0 rgba(0, 0, 0, .5);
-            cursor: pointer;
-            height: 15px;
-            opacity: 0;
-            position: fixed;
-            right: 20px;
-            top: 60px;
-            width: 15px
-        }
-        /* Level Info
-                --- NOTE ---
-                    For important changes the user must know.
-        */
-        #notify + * + #notify-level > .level-info {
-            background: rgba(0, 0, 255, .75)
-        }
-        /* Level Warn
-                --- NOTE ---
-                    For drastic changes made to the framework.
-        */
-        #notify + * + #notify-level > .level-warn {
-            background: rgba(255, 255, 0, .75)
-        }
-        /* Level Valid
-                --- NOTE ---
-                    For awesome improvements to the framework.
-        */
-        #notify + * + #notify-level > .level-valid {
-            background: rgba(0, 255, 0, .75)
-        }
-            /* Animation for the Components */
-            @keyframes beacon {
-                50% {
-                    box-shadow: 0 0 0 2.5px rgba(255, 255, 255, .3),
-                                            0 0 0 5.5px rgba(255, 255, 255, .3),
-                                            0 0 0 6px rgba(0, 0, 0, .3)
-                }
-            }
-    /* Notifications Ribbon */
-    #notify + #notify-ribbon {
-        background: rgba(0, 0, 0, .45);
-        border: medium solid;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-        box-shadow: 0 0 5px 0 rgba(0, 0, 0, .5);
-        color: #FFF;
-        cursor: pointer;
-        display: inline-block;
-        font-size: 27px;
-        height: 30px;
-        padding: 5px;
-        position: fixed;
-        right: 50px;
-        text-align: center;
-        top: 0;
-        transition: .75s;
-        width: 30px;
-        z-index: 5
-    }
-    #notify + #notify-ribbon:hover {
-        background: rgba(0, 0, 0, .67)
-    }
-    #notify + #notify-ribbon::selection {
-        background-color: transparent;
-        color: inherit
-    }
     /* Navigation */
     #nav {
-        left: 0;
-        opacity: .25;
-        overflow: hidden;
-        position: fixed;
-        top: 29%;
-        transition: .675s;
-        width: 30px;
-        z-index: 5
+        border-bottom: 1px solid #CFCFCF;
+        border-top: 0;
+        font-size: 17.5px;
+        outline: 0;
+        top: 0;
+        user-select: none;
+        z-index: 5;
+        zoom: 1.25
     }
-    #nav:hover {
-        opacity: 1
-    }
-    #nav[data-show],
-    #nav:hover {
-        width: auto
-    }
-    #nav *::selection {
-        background-color: transparent !important
-    }
-    #nav > div {
-        background: #000;
-        color: #FFF;
-        cursor: pointer;
-        display: inline-block;
-        font-size: 14px;
-        margin-left: -1px;
-        padding: 3px
-    }
-    #nav > div::selection {
-        background-color: transparent;
-        color: inherit
-    }
-    #nav > [class*="nav-"] {
-        background: #00F;
-        border-right: 5px solid transparent;
-        box-shadow: 5px 0 5px 0 rgba(100, 100, 100, .3);
-        color: #FFF !important;
-        cursor: pointer;
-        display: block;
-        font-size: 15px;
-        height: 20px;
-        left: -115px;
-        margin: 5px 0;
-        outline: 1px solid rgba(200, 200, 200, .5);
-        padding: 5px;
-        position: relative;
-        text-transform: uppercase;
-        transition: .1s ease-in;
-        transition-property: border-width, left;
-        width: 130px
-    }
-    #nav > [class*="nav-"][psd-hide] {
-        display: none !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-        position: fixed !important;
-        visibility: hidden !important
-    }
-    #nav > [class*="nav-"][psd-hover],
-    #nav > [class*="nav-"]:hover {
-        border-color: rgba(0, 0, 0, .25);
-        border-width: 0;
-        box-shadow: 5px 0 5px 0 rgba(127, 127, 127, .3), inset 0 0 0 500px rgba(0, 0, 0, .25);
-        left: 0
-    }
-    #nav > [class*="nav-"] > span:first-child {
-        color: #FFF !important;
-        float: left;
-        position: absolute
-    }
-    #nav > [class*="nav-"] > span:last-child {
-        color: #FFF !important;
-        float: right;
-        left: 1.5px;
-        position: relative;
-        zoom: 1.2
-    }
-        /* Navigation Hyperlinks
-            --- NOTE ---
-                Simple animations for the icons.
-        */
-        #nav > .nav-download > span:last-child {
-            animation: drop 1s ease infinite;
-            border-bottom: 1.5px solid #FFF
+        /* Navigation Item */
+        #nav .nav-item {
+            background-color: #FFFFFF;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+            color: #0078FF;
+            cursor: pointer;
+            filter: none;
+            font-size: 80%;
+            outline: 0;
+            user-select: none;
+            transition: .5s ease;
+            white-space: pre
         }
-            @keyframes drop {
-                0% {
-                    top: -2.25px
-                }
-                50% {
-                    top: -.5px
-                }
-                to {
-                    top: -2.25px
-                }
+        #nav .nav-item::after {
+            pointer-events: all !important
+        }
+        #nav .nav-item[href=""],
+        #nav .nav-item[href="#"],
+        #nav .nav-item:focus,
+        #nav .nav-item:hover {
+            background-color: #0078FF;
+            color: #FFFFFF
+        }
+        #nav .nav-item::selection {
+            background-color: transparent
+        }
+            /* Javascript */
+            #nav .nav-item#javascript::after {
+                content: "Javascript"
             }
-        #nav > .nav-documentation > span:last-child::after {
-            content: "2";
-            font-family: Wingdings !important
-        }
-        #nav > .nav-documentation:hover > span:last-child::after {
-            animation: fade .75s ease-in;
-            content: "4"
-        }
-            @keyframes fade {
-                0% {
-                    opacity: 0
-                }
+    
+            /* Documentation */
+            #nav .nav-item#documentation::after {
+                content: "Documentation"
             }
-        #nav > .nav-components > span:last-child {
-            animation: rotate 5s ease infinite
-        }
-            @keyframes rotate {
-                0% {
-                    transform: rotate(0deg)
-                }
-                to {
-                    transform: rotate(360deg)
-                }
-            }
-        #nav > .nav-class-sets:hover > span:last-child {
-            animation: fade .75s ease-in
-        }
-        #nav > .nav-class-sets > span:last-child::after {
-            content: "}"
-        }
-        #nav > .nav-class-sets:hover > span:last-child::after {
-            content: "...}";
-            margin-left: -2.5px
-        }
-        #nav > .nav-javascript:hover > span:last-child {
-            animation: fade .75s ease-in
-        }
-        #nav > .nav-javascript > span:last-child::after {
-            content: ")"
-        }
-        #nav > .nav-javascript:hover > span:last-child::after {
-            content: "...)";
-            margin-left: -2.5px
-        }
-    /* Main Content */
-    #main {
-        height: 100%;
-        width: 100%
-    }
-    /* Main Content Navigation */
-    #main-nav {
-        border-left: thick solid #04F;
-        height: inherit;
-        max-width: 20%;
-        padding: 15px;
-        width: 100%
-    }
-    /* Tooltip */
-    #tooltip {
-        font-size: 14px
-    }
 
-/* Presets */
-    /* Buttons */
-    .button {
-        background-color: #0078FF !important;
-        border: 2px solid #FFFFFF;
-        color: #FFFFFF !important;
-        outline: 1px solid transparent;
-        overflow: hidden !important;
-        padding: 10px 0;
-        text-align: center !important;
-        transition: 1s
+    /* Sections */
+    .section {
+        display: block;
+        margin: 10px auto;
+        overflow: hidden;
+        padding: 5px 10%;
+        width: 80%
     }
-    .button:active {
-        background-color: #0023FF !important;
-        border-color: transparent
-    }
-    .button:focus,
-    .button:hover {
-        background-color: #0045FF !important;
-        border-color: #FFFFFF;
-        box-shadow: 0 0 5px 0 rgba(0, 0, 0, .5);
-        outline: 1px solid #0023FF
-    }
+        /* Headers */
+        .section h1,
+        .section h2,
+        .section h3,
+        .section h4,
+        .section h5,
+        .section h6 {
+            zoom: 1.1
+        }
+
+/* CSS Pseudo Classes */
+    /* Scrollbar */        
+        /* Buttons */
+        ::-webkit-scrollbar-button {
+            display: none
+        }
+
+        /* Corner */
+        ::-webkit-scrollbar-corner {
+            background: rgba(0, 0, 127, .825)
+        }
+
+        /* Thumb */
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, .675)
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, .75)
+        }
+        ::-webkit-scrollbar-thumb:active {
+            background: rgba(255, 255, 255, .825)
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 127, .825)
+        }

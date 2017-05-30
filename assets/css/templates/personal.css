@@ -1,0 +1,66 @@
+/* HTML Elements */
+    /* <main> */
+    main {
+        background-color: rgb(0, 0, 0);
+        font-family: "Calibri Light", Calibri, sans-serif;
+        font-size: 20px
+    }
+
+/* Components */
+    /* Sections */
+    .section {
+        width: 100%
+    }
+    /* Titles */
+    .title {
+        font-size: 30px;
+        text-align: center
+    }
+
+/* Templates */
+    /* Content Section */
+    #contentSection {
+        padding: 15px 0
+    }
+        /* Profile Section */
+            /* Profile Image */
+            #profileImage {
+                height: 150px;
+                width: 150px
+            }
+
+        /* Content Section */
+            /* Recent Events Section */
+                /* Recent Events Gallery */
+                #recentEventsGallery {
+                    padding: 15px
+                }
+                    /* Frames */
+                    #recentEventsGallery .frm {
+                        margin-left: auto;
+                        margin-right: auto;
+                        width: 250px
+                    }
+
+            /* Hobbies & Skills Section */
+                /* Carousel */
+                    /* Slides */
+                    #hobbiesAndSkillsSection .crsl > *:not(span) {
+                        font-size: 22.5px;
+                        padding: 70px 0 !important
+                    }
+                        /* Icons */
+                        #hobbiesAndSkillsSection .crsl > *:not(span) [class*="icn"] {
+                            zoom: 2
+                        }
+
+            /* Friends Section */
+                /* Friends Section Gallery */
+                    /* Grid Container */
+                    /* Pictures */
+                        #friendsSectionGallery > * > * {
+                            background: rgb(127, 127, 127);
+                            border-radius: 50%;
+                            margin-left: 1%;
+                            margin-right: 1%
+                        }

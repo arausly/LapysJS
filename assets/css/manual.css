@@ -1,0 +1,389 @@
+/* HTML Elements */
+    /* <ul> */
+    ul {
+        list-style-position: inside
+    }
+
+ /* Components */
+     /* Sections */
+     .section {
+        margin: 0;
+        padding: 5px;
+        width: 100%
+     }
+
+    /* Jumbotron */
+    #header {
+        background: #0078FF;
+        color: #FFFFFF;
+        margin: 0;
+        padding: 60px 0;
+        text-align: center
+    }
+        /* Headers */
+        #header hgroup {
+            margin: 20px
+        }
+            /* Content */
+            #header hgroup * {
+                font-weight: bold !important
+            }
+            #header hgroup *::selection {
+                background-color: transparent
+            }
+            /* Title */
+            #header hgroup h1 {
+                font-size: 50px;
+                font-weight: 300 !important
+            }
+            /* Subtitle */
+            #header hgroup h2 {
+                font-size: 25px;
+                font-weight: 100 !important;
+                text-indent: 2.5%
+            }
+
+    /* Navigation Links */
+    #navLinks {
+        border-left: 1px solid rgba(0, 0, 0, .5);
+        margin: 5px auto;
+        padding: 10px 1%
+    }
+        /* Header */
+        #navLinks h1,
+        #navLinks h2,
+        #navLinks h3,
+        #navLinks h4,
+        #navLinks h5,
+        #navLinks h6 {
+            border-bottom: 1px solid rgba(0, 0, 0, .5);
+            font-size: 23px;
+            font-weight: lighter !important;
+            margin: 5px auto;
+            padding: 2.5px 1.25px
+        }
+
+        /* List */
+            /* List Item */
+            #navLinks ul li {
+                display: block;
+                height: auto;
+                padding: 0;
+                width: auto
+            }
+                /* List Item Link */
+                #navLinks ul li a,
+                #navLinks ul li a:not(:focus) {
+                    border-left-width: 2px;
+                    display: block;
+                    filter: grayscale(1);
+                    outline: 1px solid;
+                    outline-color: transparent;
+                    text-overflow: ellipsis;
+                    transition: .25s;
+                    white-space: pre;
+                    width: 90%
+                }
+                #navLinks ul li a[psd-focus],
+                #navLinks ul li a:focus {
+                    filter: none;
+                    outline-color: initial
+                }
+                #navLinks ul li a[psd-focus],
+                #navLinks ul li a:hover {
+                    border-left: 1px solid;
+                    filter: none
+                }
+                #navLinks ul li a[psd-focus],
+                #navLinks ul li a:focus,
+                #navLinks ul li a:hover {
+                    padding-left: 6.75px
+                }
+                #navLinks ul li a::selection {
+                    background-color: transparent;
+                    color: inherit
+                }
+                #navLinks ul li .link {
+                    border-left-width: 3px;
+                    margin-top: 10px;
+                    outline-offset: .5px
+                }
+                    /* List Item Sub-Link */
+                    #navLinks ul li a small {
+                        margin-left: 6.75px
+                    }
+                    #navLinks ul li .sub-link {
+                        border-left-width: 1px;
+                        height: 0;
+                        margin-top: 0;
+                        opacity: 0;
+                        outline-offset: -1.3px
+                    }
+                    #navLinks ul li .sub-link:focus {
+                        height: initial !important;
+                        opacity: 1 !important
+                    }
+
+    /* Article */
+    #content {
+        animation: colorIn .5s ease-in 0s normal 1 forwards running;
+        padding: 1% 5%;
+        text-align: left
+    }
+        /* Header */
+        #content [data-header] {
+            border-bottom: 1px solid #CFCFCF;
+            font-size: 48px;
+            font-weight: 100 !important;
+            margin: 10px 5px;
+            width: 100%
+        }
+
+        /* Sub-Header */
+        #content [data-subheader] {
+            border-bottom: 1px solid #CFCFCF;
+            font-size: 28px;
+            margin: 7.5px 50px;
+            width: 100%
+        }
+
+        #content [data-header]:hover::before,
+        #content [data-subheader]:hover::before {
+            content: "☍";
+            cursor: pointer;
+            left: 3.3%;
+            line-height: 150%;
+            position: absolute;
+            user-select: none;
+            zoom: .75
+        }
+
+        /* Description, Usage */
+        .description,
+        .usage {
+            font-size: 15px;
+            margin: 15px auto !important;
+            width: 80%
+        }
+        .description::before,
+        .usage::before {
+            border-bottom: 1px solid #CFCFCF;
+            content: "Header";
+            display: block;
+            font-size: 32px;
+            margin: 7.5px 0;
+            padding: 5px 0
+        }
+        .description::before {
+            content: "Description"
+        }
+        .usage::before {
+            content: "Usage"
+        }
+            .sub-section .description::before,
+            .sub-section .usage::before {
+                font-size: 28px
+            }
+
+        /* Code */
+        .code {
+            height: auto;
+            margin: 0 auto;
+            margin-left: 5%;
+            margin-right: 5%;
+            padding: 15px 5%
+        }
+            /* Content */
+            .code > * {
+                border: 0;
+                display: none;
+                font-family: Consolas, "Liberation Mono", Courier,
+                                        "Lucida Console", monospace !important;
+                opacity: 0;
+                padding: 10px 5px;
+                transition: opacity .675s ease-in;
+                width: 90%
+            }
+
+            /* Buttons */
+            .code-buttons {
+                margin: 0 auto;
+                margin-bottom: -20px;
+                margin-left: 5%;
+                padding: 5px 46.25px
+            }
+                /* Buttons */
+                .code-buttons [class*="-code"] {
+                    border: 1px solid rgba(127, 127, 127, .825);
+                    border-bottom: 0;
+                    border-left: 0;
+                    border-right: 0;
+                    box-shadow: inset 0 0 0 2.5px rgba(255, 255, 255, .025);
+                    cursor: pointer;
+                    font-size: 80%;
+                    outline: 0;
+                    padding: 5px 10px;
+                    transition: .675s;
+                    user-select: none;
+                    width: 100px
+                }
+                .code-buttons [class*="-code"]:active {
+                    box-shadow: inset 0 0 0 500px rgba(255, 255, 255, .25) !important
+                }
+                .code-buttons [class*="-code"]:hover {
+                    box-shadow: inset 0 0 0 500px rgba(0, 0, 0, .25)
+                }
+                .code-buttons [class*="-code"]:first-of-type {
+                    border-left: 1px solid rgba(127, 127, 127, .825);
+                    border-top-left-radius: 3px
+                }
+                .code-buttons [class*="-code"]:last-of-type {
+                    border-right: 1px solid rgba(127, 127, 127, .825);
+                    border-top-right-radius: 3px
+                }
+
+                /* Copy */
+                .code-buttons .copy-code {
+                    background: #0078FF !important;
+                    color: #FFFFFF
+                }
+
+                /* Edit */
+                .code-buttons .edit-code {
+                    background: #0045FF !important;
+                    color: #FFFFFF
+                }
+
+                /* Toggle */
+                .code-buttons .toggle-code {
+                    background: #0078FF !important;
+                    color: #FFFFFF
+                }
+
+            /* Editor */
+            .code .code-editor {
+                background: #25262B;
+                border: 1px solid rgba(255, 255, 255, .3);
+                border-top-right-radius: 3px;
+                color: #D5D6DB;
+                font-size: 90%;
+                user-select: none;
+                white-space: pre-line
+            }
+                /* Content */
+                .code .code-editor * {
+                    display: inline
+                }
+
+                /* Colors */
+                    /* Blue */
+                    .code-color-blue {
+                        color: #7AD1D9 !important
+                    }
+                    /* Comment | Gray */
+                    .code-color-comment,
+                    .code-color-comment .code-color-default,
+                    .code-color-comment .code-color-red {
+                        color: #65666B !important
+                    }
+                    /* Default | White */
+                    .code-color-blue .code-color-default,
+                    .code-color-default,
+                    .code-color-default .code-color-green,
+                    .code-color-yellow .code-color-blue .code-color-default {
+                        color: #D5D6DB !important
+                    }
+                    /* Green */
+                    .code-color-green,
+                    .code-color-green.code-color-override .code-number {
+                        color: #7AD149 !important
+                    }
+                    /* Orange */
+                    .code-color-orange {
+                        color: #D68B30 !important
+                    }
+                    /* Purple */
+                    .code-color-green .code-number,
+                    .code-color-purple {
+                        color: #D17AD9 !important
+                    }
+                    /* Red */
+                    .code-color-green .code-color-red,
+                    .code-color-green .code-string,
+                    .code-color-red {
+                        color: #D42E64 !important
+                    }
+                    /* Yellow */
+                    .code-color-yellow,
+                    .code-color-yellow .code-color-default {
+                        color: #D1D97A !important
+                    }
+                /* Characters */
+                    /* Tab Spacing */
+                    .code-tab {
+                        display: inline-block;
+                        padding: 0 1vh
+                    }
+                    .code-tab::before {
+                        color: rgba(101, 102, 107, .5);
+                        content: "|";
+                        margin-left: -1vh
+                    }
+
+            /* Preview */
+            .code .code-preview {
+                background: #FFFFFF;
+                border: 1px solid rgba(0, 0, 0, .3);
+                color: #000000;
+                display: block;
+                font-family: inherit !important;
+                opacity: 1;
+                overflow-x: hidden
+            }
+            
+            /* Content */
+            .code .code-content {
+                background: #FFFFFF;
+                border: 1px solid rgba(0, 0, 0, .3);
+                border-bottom-left-radius: 3px;
+                border-bottom-right-radius: 3px;
+                color: #333333;
+                font-size: large;
+                max-height: 500px;
+                max-width: 90%;
+                min-height: auto;
+                min-width: 90%;
+                outline: 0 !important;
+                transition: .675s
+            }
+
+    /* Message Boxes */
+    [class*="msg-"] {
+        margin-left: 10%;
+        width: 71%;
+        zoom: .825
+    }
+        /* Header */
+        [class*="msg-"] h1,
+        [class*="msg-"] h2,
+        [class*="msg-"] h3,
+        [class*="msg-"] h4,
+        [class*="msg-"] h5,
+        [class*="msg-"] h6 {
+            font-family: Calibri !important;
+            font-size: 22.5px;
+            font-weight: normal !important;
+            margin: 5px auto
+        }
+
+        /* Content */
+        [class*="msg-"] *:not(
+            code):not(
+            h1):not(
+            h2):not(
+            h3):not(
+            h4):not(
+            h5):not(
+            h6) {
+                margin-left: 2.5%
+        }

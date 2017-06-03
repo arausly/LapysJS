@@ -88,113 +88,8 @@ for (i = 0; i < get.html("*").length; i++)
                                 ' </a>' +
                             ' </li>'
                         )
-
-                        // If the Header indexed exists
-                        if (get.html('#content [data-header]', (i + 1))) {
-                            // Index all SubHeader within the Article
-                            for (j = 0; j < get.html('#content [data-subheader]', '_array').length; j++) {
-                                // Insertion
-                                if (
-                                    get.html('#content [data-subheader]', j).nodeIndex > get.html('#content [data-header]', i).nodeIndex &&
-                                    get.html('#content [data-subheader]', j).nodeIndex < get.html('#content [data-header]', (i + 1)).nodeIndex
-                                ) {
-                                    // Place the SubHeader within an item in the Header list
-                                    for (k = 0; k < get.html('#navLinks ul li', '_array').length; k++) {
-                                        // Modification
-                                        get.html('#content [data-subheader]', j).id = (
-                                            deleteSpecialCharacters(
-                                                get.html('#content [data-subheader]', j).innerText.toLowerCase()
-                                            ) +
-                                            deleteSpecialCharacters(
-                                                parseString(Math.random() * 10)
-                                            )
-                                        )
-
-                                        // Insertion
-                                        get.html('#navLinks ul li', k).innerHTML += (
-                                            '<a ' +
-                                                'class="sub-link"' +
-                                                'data-index="' + i + '"' +
-                                                'href="#' + get.html('#content [data-subheader]', j).id + '" ' +
-                                                'hreflang="html" ' +
-                                                'target="_self"' +
-                                            '> ' +
-                                                '<small> ' +
-                                                    get.html('#content [data-subheader]', j).innerText +
-                                                ' </small>' +
-                                            ' </a>'
-                                        )
-                                    }
-                                }
-                            }
-                        }
                     }
         }
-
-        // Display & Focus
-            for (i = 0; i < get.html("#navLinks ul li .link", "_array").length; i++) {
-                // Add the events
-                set.event(
-                    get.html("#navLinks ul li .link", i),
-                    "blur",
-                    hideSubLinks
-                )
-
-                set.event(
-                    get.html("#navLinks ul li .link", i),
-                    "focus",
-                    showSubLinks
-                )
-            }
-
-            for (i = 0; i < get.html("#navLinks ul li .sub-link", "_array").length; i++) {
-                // Add the events
-                set.event(
-                    get.html("#navLinks ul li .sub-link", i),
-                    "focus",
-                    showLink
-                )
-            }
-
-            // "Focus" on links when the SubLink is focused.
-            function showLink() {
-                for (i = 0; i < get.html("#navLinks ul li .link", "_array").length; i++)
-                    if (get.attr(this, "data-index") == get.attr(get.html("#navLinks ul li .link", i), "data-index")) {
-                        set.attr(get.html("#navLinks ul li .link", i), "psd-focus")
-
-                        for (j = 0; j < get.html("#navLinks ul li .sub-link", "_array").length; j++) {
-                            get.html("#navLinks ul li .sub-link", j).style.filter = "none"
-                        }
-                    }
-            }
-
-            // Hide SubLinks with the same index as the Link interacted.
-            function hideSubLinks() {
-                del.attr(this, "psd-focus")
-
-                for (i = 0; i < get.html('#navLinks ul li .sub-link', '_array').length; i++) {
-                    if (get.attr(this, "data-index") == get.attr(get.html('#navLinks ul li .sub-link', i), "data-index")) {
-                        get.html('#navLinks ul li .sub-link', i).style.filter = "grayscale(1)"
-                        get.html('#navLinks ul li .sub-link', i).style.height = 0
-                        get.html('#navLinks ul li .sub-link', i).style.opacity = 0
-                        del.inlineStyle(get.html('#navLinks ul li .sub-link', i), "outline")
-                    }
-                }
-            }
-
-            // Display SubLinks with the same index as the Link interacted.
-            function showSubLinks() {
-                set.attr(this, "psd-focus")
-
-                for (j = 0; j < get.html('#navLinks ul li .sub-link', '_array').length; j++) {
-                    if (get.attr(this, "data-index") == get.attr(get.html('#navLinks ul li .sub-link', j), "data-index")) {
-                        get.html('#navLinks ul li .sub-link', j).style.filter = "none"
-                        get.html('#navLinks ul li .sub-link', j).style.height = "initial"
-                        get.html('#navLinks ul li .sub-link', j).style.opacity = 1
-                        get.html('#navLinks ul li .sub-link', j).style.outline = 0
-                    }
-                }
-            }
 
         // Organization
             // Definition
@@ -211,10 +106,12 @@ for (i = 0; i < get.html("*").length; i++)
             for (i = 0; i < characters.length; i++)
                 // Index all list items
                 for (j = 0; j < get.html("#navLinks ul li .link", "_array").length; j++) {
-                    // Check if the character and the 1st character of the item match
-                    if (get.html("#navLinks ul li .link", j).innerText.replace(" ", "").toString()[0] == characters[i])
-                        insertBefore(
-                            get.html("#navLinks ul li .link", j),
+                    // Index all list items
+                    for (k = 0; k < get.html("#navLinks ul li .link", "_array").length; k++)
+                        // Check if the character and the 1st character of the item match
+                        if (get.html("#navLinks ul li .link", k).innerText.replace(" ", "").toString()[0] == characters[i])
+                            insertBefore(
+                            get.html("#navLinks ul li .link", k),
                             get.html("#navLinks ul li .link", 0)
                         )
                 }
@@ -312,45 +209,91 @@ for (i = 0; i < get.html("*").length; i++)
 
         // Code Content
         for (i = 0; i < codeContent.length; i++) {
-            // Add the events
+            // If "no-edit" is enabled
             if (!codePreview[i].hasAttribute("no-edit"))
+                // Add the events
                 codeContent[i].oninput = function() {
                     // Modification
                         // Code Preview
-                        for (i = 0; i < codePreview.length; i++)
-                            codePreview[i].innerHTML = this.value
+                        codePreview[get.attr(this, "data-index")].innerHTML = this.value
 
                         // Code Editor
-                        for (i = 0; i < codeEditor.length; i++)
-                            codeEditor[i].innerHTML = codifyHTML(parseString(this.value).replace("\n", "").replace(/    /g, ""))
+                            // HTML Syntax
+                            if (codePreview[get.attr(this, "data-index")].className.indexOf("html") >= 0)
+                            codeEditor[get.attr(this, "data-index")].innerHTML = codifyHTML(parseString(this.value).replace(/    /g, ""))
+
+                            // Javascript Syntax
+                            else if (codePreview[get.attr(this, "data-index")].className.indexOf("javascript") >= 0)
+                                codeEditor[get.attr(this, "data-index")].innerHTML = codifyJavascript(parseString(this.value).replace(/    /g, ""))
 
                         // Code Content
                         this.value = this.value
                 }
 
-                else
-                    get.html('.code-buttons .edit-code[data-index="' + i + '"]').style.display = "none"
+            // else if "no-edit" is undefined
+            else {
+                // Hide the Code Content
+                codeContent[i].style.left = "-1000px"
+                codeContent[i].style.position = "fixed"
+                
+                // Hide the Edit Code Button
+                get.html('.code-buttons .edit-code[data-index="' + i + '"]').style.display = "none"
+
+                // If "show-toggle" is enabled
+                if (codePreview[i].hasAttribute("show-edit")) {
+                    codeContent[i].style.display = "block"
+                    codeContent[i].style.opacity = 1
+                }
+            }
 
             // Copy Code Preview's HTML
             codeContent[i].value = codePreview[i].innerHTML.replace("\n", "").replace(/    /g, "")
         }
 
         // Code Preview
-        for (i = 0; i < codePreview.length; i++)
-            // Copy Code Preview's HTML
-            if (!codePreview[i].hasAttribute("no-edit"))
-                codePreview[i].innerHTML = codePreview[i].innerHTML
+        for (i = 0; i < codePreview.length; i++) {
+            codePreview[i].innerHTML = codePreview[i].innerHTML
+
+            // If "no-copy" is enabled
+            if (codePreview[i].hasAttribute("no-copy"))
+                // Hide the Copy Code Button
+                get.html('.code-buttons .copy-code[data-index="' + i + '"]').style.display = "none"
+
+            // If "no-preview" is enabled
+            if (codePreview[i].hasAttribute("no-preview"))
+                // Hide the Code Preview
+                codePreview[i].style.display = "none"
+        }
 
         // Code Editor
-        for (i = 0; i < codeEditor.length; i++)
-            // HTML Syntax
-            if (codePreview[i].className.indexOf("html") >= 0) {
-                // Copy Code Preview's Parsed HTML
-                codeEditor[i].innerHTML = parseString(codePreview[i].innerHTML.replace("\n", "").replace(/    /g, ""))
+        for (i = 0; i < codeEditor.length; i++) {
+            // Copy Code Preview's Parsed HTML
+            codeEditor[i].innerHTML = parseString(codePreview[i].innerHTML.replace("\n", "").replace(/    /g, ""))
 
-                // Codify
-                codeEditor[i].innerHTML = codifyHTML(codeEditor[i].innerHTML)
+            // If "no-toggle" is enabled
+            if (codePreview[i].hasAttribute("no-toggle")) {
+                // Hide the Code Editor
+                codeEditor[i].style.display = "none"
+
+                // Hide the Toggle Code Button
+                get.html('.code-buttons .toggle-code[data-index="' + i + '"]').style.display = "none"
+
+                // If "show-toggle" is enabled
+                if (codePreview[i].hasAttribute("show-toggle")) {
+                    codeEditor[i].style.display = "block"
+                    codeEditor[i].style.opacity = 1
+                }
             }
+
+            // Syntax Coloring
+                // HTML
+                if (codePreview[i].className.indexOf("html") >= 0)
+                    codeEditor[i].innerHTML = codifyHTML(codeEditor[i].innerHTML)
+
+                // Javascript
+                else if (codePreview[i].className.indexOf("javascript") >= 0)
+                    codeEditor[i].innerHTML = codifyJavascript(codeEditor[i].innerHTML)
+        }
 
 /* Functions */
     // Code Editor
@@ -358,153 +301,382 @@ for (i = 0; i < get.html("*").length; i++)
         function codifyHTML(string) {
             return (string
                 // Quotes
-                    // Replace all quotes
+                    // '
                     ).replace(/'/g, '"'
                 
                 // Attribute Content
-                    // Replace all "'"
+                    // "
                     ).replace(/"/g, '"<_span>'
-                    // Replace all "='"
+                    // ="
                     ).replace(/="<_span>/g, '<span class="code-color-default">=<_span><span class="code-color-yellow">"'
-                    // Replace all "'<_span>"
+                    // <_span>
                     ).replace(/"<_span>/g, '"</span>'
                 
                 // Elements
-                    // Replace all "<"
+                    // <
                     ).replace(/&lt;/g, '<_span> <span class="code-color-red"> <span class="code-color-default">&lt;<_span>'
-                    // Replace all ">"
+                    // >
                     ).replace(/&gt;/g, '<span class="code-color-default">&gt;<_span> <_span> <span class="code-color-default"> '
 
                     // Comments
-                        // Replace all "<"
+                        // <
                         ).replace(
                             /<_span> <span class="code-color-red"> <span class="code-color-default">&lt;<_span>!--/g,
                             '<span class="code-color-comment">&lt;!--'
-                        // Replace all ">"
+                        // >
                         ).replace(
                             /--<span class="code-color-default">&gt;<_span> <_span> <span class="code-color-default"> /g,
                             '--&gt;</span>'
 
-                    // Replace all "<!"
+                    // <!
                     ).replace(/<_span> <span class="code-color-red"> <span class="code-color-default">&lt;<_span>!/g, '</span> <span class="code-color-red"> <span class="code-color-default">&lt;!</span>'
-                    // Replace all "</"
+                    // </
                     ).replace(/<_span> <span class="code-color-red"> <span class="code-color-default">&lt;<_span>\//g, '</span> <span class="code-color-red"> <span class="code-color-default">&lt;/</span>'
-                    // Replace all "<"
+                    // <
                     ).replace(/<_span> <span class="code-color-red"> <span class="code-color-default">&lt;<_span>/g, '</span> <span class="code-color-red"> <span class="code-color-default">&lt;</span>'
-                    // Replace all ">"
+                    // >
                     ).replace(/<span class="code-color-default">&gt;<_span> <_span> <span class="code-color-default"> /g, '<span class="code-color-default">&gt;</span> </span> <span class="code-color-default"> '
+                
                 // Attribute Name
-                    // Replace all "alt="
+                    // accesskey=
+                    ).replace(/accesskey<span class="code-color-default">=/g, '<span class="code-color-green">accesskey</span><span class="code-color-default">='
+                    // alt=
                     ).replace(/alt<span class="code-color-default">=/g, '<span class="code-color-green">alt</span><span class="code-color-default">='
-                    // Replace all "class="
+                    // async=
+                    ).replace(/async<span class="code-color-default">=/g, '<span class="code-color-green">async</span><span class="code-color-default">='
+                    // b=
+                    ).replace(/b<span class="code-color-default">=/g, '<span class="code-color-green">b</span><span class="code-color-default">='
+                    // big=
+                    ).replace(/big<span class="code-color-default">=/g, '<span class="code-color-green">big</span><span class="code-color-default">='
+                    // class=
                     ).replace(/class<span class="code-color-default">=/g, '<span class="code-color-blue">class</span><span class="code-color-default">='
-                    // Replace all "colspan="
+                    // colspan=
                     ).replace(/colspan<span class="code-color-default">=/g, '<span class="code-color-green">colspan</span><span class="code-color-default">='
-                    // Replace all "content="
+                    // content=
                     ).replace(/content<span class="code-color-default">=/g, '<span class="code-color-green">content</span><span class="code-color-default">='
-                    // Replace all "data-drpdwn="
+                    // data-drpdwn=
                     ).replace(/data-drpdwn<span class="code-color-default">=/g, '<span class="code-color-green">data-drpdwn</span><span class="code-color-default">='
-                    // Replace all "data-event="
+                    // data-event=
                     ).replace(/data-event<span class="code-color-default">=/g, '<span class="code-color-green">data-event</span><span class="code-color-default">='
-                    // Replace all "data-id="
+                    // data-header=
+                    ).replace(/data-header<span class="code-color-default">=/g, '<span class="code-color-green">data-header</span><span class="code-color-default">='
+                    // data-id=
                     ).replace(/data-id<span class="code-color-default">=/g, '<span class="code-color-green">data-id</span><span class="code-color-default">='
-                    // Replace all "data-index="
+                    // data-index=
                     ).replace(/data-index<span class="code-color-default">=/g, '<span class="code-color-green">data-index</span><span class="code-color-default">='
-                    // Replace all "data-quantity="
+                    // data-key=
+                    ).replace(/data-key<span class="code-color-default">=/g, '<span class="code-color-green">data-key</span><span class="code-color-default">='
+                    // data-quantity=
                     ).replace(/data-quantity<span class="code-color-default">=/g, '<span class="code-color-green">data-quantity</span><span class="code-color-default">='
-                    // Replace all "data-title="
+                    // data-subheader=
+                    ).replace(/data-subheader<span class="code-color-default">=/g, '<span class="code-color-green">data-subheader</span><span class="code-color-default">='
+                    // data-subsubheader=
+                    ).replace(/data-subsubheader<span class="code-color-default">=/g, '<span class="code-color-green">data-subsubheader</span><span class="code-color-default">='
+                    // data-title=
                     ).replace(/data-title<span class="code-color-default">=/g, '<span class="code-color-green">data-title</span><span class="code-color-default">='
-                    // Replace all "href="
+                    // href=
                     ).replace(/href<span class="code-color-default">=/g, '<span class="code-color-green">href</span><span class="code-color-default">='
-                    // Replace all "i="
-                    ).replace(/i<span class="code-color-default">=/g, '<span class="code-color-orange">i</span><span class="code-color-default">='
-                    // Replace all "id="
+                    // i=
+                    ).replace(/i<span class="code-color-default">=/g, '<span class="code-color-green">i</span><span class="code-color-default">='
+                    // id=
                     ).replace(/id<span class="code-color-default">=/g, '<span class="code-color-orange">id</span><span class="code-color-default">='
-                    // Replace all "name="
+                    // language=
+                    ).replace(/language<span class="code-color-default">=/g, '<span class="code-color-orange">language</span><span class="code-color-default">='
+                    // media=
+                    ).replace(/media<span class="code-color-default">=/g, '<span class="code-color-green">media</span><span class="code-color-default">='
+                    // name=
                     ).replace(/name<span class="code-color-default">=/g, '<span class="code-color-green">name</span><span class="code-color-default">='
-                    // Replace all "no-psd="
+                    // no-before=
+                    ).replace(/no-before<span class="code-color-default">=/g, '<span class="code-color-green">no-before</span><span class="code-color-default">='
+                    // no-copy=
+                    ).replace(/no-copy<span class="code-color-default">=/g, '<span class="code-color-green">no-copy</span><span class="code-color-default">='
+                    // no-preview=
+                    ).replace(/no-preview<span class="code-color-default">=/g, '<span class="code-color-green">no-preview</span><span class="code-color-default">='
+                    // no-psd=
                     ).replace(/no-psd<span class="code-color-default">=/g, '<span class="code-color-green">no-psd</span><span class="code-color-default">='
-                    // Replace all "placeholder="
+                    // placeholder=
                     ).replace(/placeholder<span class="code-color-default">=/g, '<span class="code-color-green">placeholder</span><span class="code-color-default">='
-                    // Replace all "psd-disabled="
+                    // psd-disabled=
                     ).replace(/psd-disabled<span class="code-color-default">=/g, '<span class="code-color-green">psd-disabled</span><span class="code-color-default">='
-                    // Replace all "psd-focus="
+                    // psd-focus=
                     ).replace(/psd-focus<span class="code-color-default">=/g, '<span class="code-color-green">psd-focus</span><span class="code-color-default">='
-                    // Replace all "small="
+                    // q=
+                    ).replace(/q<span class="code-color-default">=/g, '<span class="code-color-green">q</span><span class="code-color-default">='
+                    // rel=
+                    ).replace(/rel<span class="code-color-default">=/g, '<span class="code-color-green">rel</span><span class="code-color-default">='
+                    // show-preview=
+                    ).replace(/show-preview<span class="code-color-default">=/g, '<span class="code-color-green">show-preview</span><span class="code-color-default">='
+                    // show-toggle=
+                    ).replace(/show-toggle<span class="code-color-default">=/g, '<span class="code-color-green">show-toggle</span><span class="code-color-default">='
+                    // small=
                     ).replace(/small<span class="code-color-default">=/g, '<span class="code-color-green">small</span><span class="code-color-default">='
-                    // Replace all "target-densitydpi="
-                    ).replace(/target-densitydpi<span class="code-color-default">=/g, '<span class="code-color-green">target-densitydpi</span><span class="code-color-default">='
-                    // Replace all "type="
-                    ).replace(/type<span class="code-color-default">=/g, '<span class="code-color-green">type</span><span class="code-color-default">='
-                    // Replace all "src="
+                    // src=
                     ).replace(/src<span class="code-color-default">=/g, '<span class="code-color-green">src</span><span class="code-color-default">='
-                    // Replace all "style="
+                    // style=
                     ).replace(/style<span class="code-color-default">=/g, '<span class="code-color-blue">style<_span><span class="code-color-default">='
-                    // Replace all "value="
+                    // target-densitydpi=
+                    ).replace(/target-densitydpi<span class="code-color-default">=/g, '<span class="code-color-green">target-densitydpi</span><span class="code-color-default">='
+                    // translate=
+                    ).replace(/translate<span class="code-color-default">=/g, '<span class="code-color-green">translate</span><span class="code-color-default">='
+                    // type=
+                    ).replace(/type<span class="code-color-default">=/g, '<span class="code-color-green">type</span><span class="code-color-default">='
+                    // u=
+                    ).replace(/u<span class="code-color-default">=/g, '<span class="code-color-green">u</span><span class="code-color-default">='
+                    // value=
                     ).replace(/value<span class="code-color-default">=/g, '<span class="code-color-green">value</span><span class="code-color-default">='
-                    // Replace all "1="
+                    // 1=
                     ).replace(/1<span class="code-color-default">=/g, '<span class="code-color-green code-color-override">1</span><span class="code-color-default">='
-                    // Replace all "2="
+                    // 2=
                     ).replace(/2<span class="code-color-default">=/g, '<span class="code-color-green code-color-override">2</span><span class="code-color-default">='
-                    // Replace all "3="
+                    // 3=
                     ).replace(/3<span class="code-color-default">=/g, '<span class="code-color-green code-color-override">3</span><span class="code-color-default">='
-                    // Replace all "4="
+                    // 4=
                     ).replace(/4<span class="code-color-default">=/g, '<span class="code-color-green code-color-override">4</span><span class="code-color-default">='
-                    // Replace all "5="
+                    // 5=
                     ).replace(/5<span class="code-color-default">=/g, '<span class="code-color-green code-color-override">5</span><span class="code-color-default">='
+                
                 // Inline Styles
-                    // Replace all "style='"
+                    // style="
                     ).replace(
                         /<span class="code-color-blue">style<_span><span class="code-color-default">=<_span><span class="code-color-yellow">"/g,
                         '<span class="code-color-blue">style</span><span class="code-color-default">=</span><span class="code-color-yellow">"<span class="code-color-blue">'
-                    // Replace all ":"
+                    // :
                     ).replace(/:/g, '<span class="code-color-default">:</span><span class="code-color-green">'
-                    // Replace all "%;"
+                    // %;
                     ).replace(/%;/g, '<span class="code-color-red">%</span>;'
-                    // Replace all ";'"
+                    // ;"
                     ).replace(/;"/g, '</span><span class="code-color-default">;</span></span>"'
-                    // Replace all "; "
+                    // ;
                     ).replace(/; /g, '</span><span class="code-color-default">;</span> '
+                
                 // Empty Attributes
-                    // Replace all "=''"
+                    // ="
                     ).replace(/<span class="code-color-default">=<_span><span class="code-color-yellow">""/g, ''
+                
                 // Attribute Assignment Operator
-                    // Replace all "="
+                    // =
                     ).replace(/<span class="code-color-default">=<_span>/g, '<span class="code-color-default">=</span>'
+                
                 // Numbers
-                    // Replace all "0"
+                    // 0
                     ).replace(/0/g, '<span class="code-number">0</span>'
-                    // Replace all "1"
+                    // 1
                     ).replace(/1/g, '<span class="code-number">1</span>'
-                    // Replace all "2"
+                    // 2
                     ).replace(/2/g, '<span class="code-number">2</span>'
-                    // Replace all "3"
+                    // 3
                     ).replace(/3/g, '<span class="code-number">3</span>'
-                    // Replace all "4"
+                    // 4
                     ).replace(/4/g, '<span class="code-number">4</span>'
-                    // Replace all "5"
+                    // 5
                     ).replace(/5/g, '<span class="code-number">5</span>'
-                    // Replace all "6"
+                    // 6
                     ).replace(/6/g, '<span class="code-number">6</span>'
-                    // Replace all "7"
+                    // 7
                     ).replace(/7/g, '<span class="code-number">7</span>'
-                    // Replace all "8"
+                    // 8
                     ).replace(/8/g, '<span class="code-number">8</span>'
-                    // Replace all "9"
+                    // 9
                     ).replace(/9/g, '<span class="code-number">9</span>'
+
                 // Special Strings
-                    // Replace all "deg"
+                    // deg
                     ).replace(/deg/g, '<span class="code-string">deg</span>'
-                    // Replace all "px"
+                    // px
                     ).replace(/px/g, '<span class="code-string">px</span>'
-                    // Replace all "rgba"
+                    // rgba
                     ).replace(/rgba/g, '<span class="code-string">rgba</span>'
+                
                 // Special Characters
-                    // Replace all ","
+                    // ,
                     ).replace(/,/g, '<span class="code-color-default">,</span>'
-                    // Replace all "."
+                    // .
                     ).replace(/[.]/g, '<span class="code-color-default">.</span>'
+                    // Lesser Than
+                    ).replace(/_lt_/g, '&lt;'
+                    // Greater Than
+                    ).replace(/_gt_/g, '&gt;'
+                    // _q_
+                    ).replace(/_q_/g, '<span class="code-color-default">"</span>'
                 )
+
+                codify(string)
+        }
+
+        // Javascript
+        function codifyJavascript(string) {
+            return (string
+
+            // Color Control
+                // End
+                ).replace(/_end_/g, '</span>'
+
+            // Replace Special Characters
+                // '
+                    ).replace(/'/g, '"'
+                // "
+                    ).replace(/"/g, '_first_"'
+                    ).replace(/([^"]*"[^"]*)"/gm, '$1_last_"</span>'
+                    ).replace(/_first_"/g, '<span class="code-color-yellow">"'
+                    ).replace(/_first__last_"/g, '"</span>'
+
+                // +
+                ).replace(/[+]/g, '<span class="code-color-red">+</span>'
+                // -
+                    ).replace(/ -/g, '<span class="code-color-red"> -</span>'
+                    ).replace(/- /g, '<span class="code-color-red">- </span>'
+                // *
+                ).replace(/ \* /g, '<span class="code-color-red"> * </span>'
+                // /
+                ).replace(/ \/ /g, '<span class="code-color-red"> / </span>'
+                // <
+                ).replace(/ \< /g, '<span class="code-color-red"> < </span>'
+                // >
+                ).replace(/ \> /g, '<span class="code-color-red"> > </span>'
+                // %
+                ).replace(/[%]/g, '<span class="code-color-red">%</span>'
+                // !
+                ).replace(/[!]/g, '<span class="code-color-red">!</span>'
+                // =
+                    ).replace(/\ =/g, '<span class="code-color-red"> =</span>'
+                    ).replace(/\= /g, '<span class="code-color-red">= </span>'
+
+            // Comments
+                // Single-Line Comments
+                ).replace(/\/\//g, '<span class="code-color-comment">//'
+                // Multi-Line Comments
+                    // /*
+                    ).replace(/\/\*/g, '<span class="code-color-comment">/*'
+                    // */
+                    ).replace(/\*\//g, '*/</span>'
+
+            // Replace Keywords
+                // do
+                ).replace(/do/g, '<span class="code-color-red">do</span>'
+                // if
+                ).replace(/if/g, '<span class="code-color-red">if</span>'
+                // else
+                ).replace(/else/g, '<span class="code-color-red">else</span>'
+                // for
+                ).replace(/for/g, '<span class="code-color-red">for</span>'
+                // return
+                ).replace(/return/g, '<span class="code-color-red">return</span>'
+                // while
+                ).replace(/while/g, '<span class="code-color-red">while</span>'
+
+            // Javascript Objects
+                // document.
+                ).replace(/<span class="code-color-red">do<\/span>cument[.]/g, '<span class="code-color-blue">document</span>.'
+                    // .getElementsByClassName
+                    ).replace(/[.]getElementsByClassName/g, '.<span class="code-color-green">getElementsByClassName</span>'
+                    // .getElementById
+                    ).replace(/[.]getElementById/g, '.<span class="code-color-green">getElementById</span>'
+                    // .getElementsByTagName
+                    ).replace(/[.]getElementsByTagName/g, '.<span class="code-color-green">getElementsByTagName</span>'
+                    // .querySelectorAll
+                    ).replace(/[.]querySelectorAll/g, '.<span class="code-color-green">querySelectorAll</span>'
+
+            // LapysJS Syntax
+                // Functions
+                    // create(
+                    ).replace(/create\(/g, '<span class="code-color-blue">create</span>('
+                    // css.
+                    ).replace(/css[.]/g, '<span class="code-color-blue">css</span>.'
+                        // .add
+                        ).replace(/[.]add/g, '.<span class="code-color-green">add</span>'
+                        // .style
+                        ).replace(/[.]style/g, '.<span class="code-color-green">style</span>'
+                    // del.
+                    ).replace(/del[.]/g, '<span class="code-color-blue">del</span>.'
+                        // .attr
+                        ).replace(/[.]attr/g, '.<span class="code-color-green">attr</span>'
+                        // .class
+                        ).replace(/[.]class/g, '.<span class="code-color-green">class</span>'
+                        // .event
+                        ).replace(/[.]event/g, '.<span class="code-color-green">event</span>'
+                        // .link
+                        ).replace(/[.]link/g, '.<span class="code-color-green">link</span>'
+                        // .html
+                        ).replace(/[.]html/g, '.<span class="code-color-green">html</span>'
+                        // .inlineStyle
+                        ).replace(/[.]inlineStyle/g, '.<span class="code-color-green">inlineStyle</span>'
+                        // .style
+                        ).replace(/[.]style/g, '.<span class="code-color-green">style</span>'
+                    // file.
+                    ).replace(/file[.]/g, '<span class="code-color-blue">file</span>.'
+                        // .close
+                        ).replace(/[.]close/g, '.<span class="code-color-green">close</span>'
+                        // .open
+                        ).replace(/[.]open/g, '.<span class="code-color-green">open</span>'
+                        // .read
+                        ).replace(/[.]read/g, '.<span class="code-color-green">read</span>'
+                        // .write
+                        ).replace(/[.]write/g, '.<span class="code-color-green">write</span>'
+                    // insertAfter(
+                    ).replace(/insertAfter\(/g, '<span class="code-color-green">insertAfter</span>('
+                    // insertBefore(
+                    ).replace(/insertBe<span class="code-color-red">for<\/span>e\(/g, '<span class="code-color-green">insertBefore</span>('
+                    // get.
+                    ).replace(/get[.]/g, '<span class="code-color-blue">get</span>.'
+                        // .attr
+                        ).replace(/[.]attr/g, '.<span class="code-color-green">attr</span>'
+                        // .class
+                        ).replace(/[.]class/g, '.<span class="code-color-green">class</span>'
+                        // .css
+                        ).replace(/[.]css/g, '.<span class="code-color-green">css</span>'
+                        // .html
+                        ).replace(/[.]html/g, '.<span class="code-color-green">html</span>'
+                    // goTo(
+                    ).replace(/goTo\(/g, '<span class="code-color-green">goTo</span>('
+                    // js.
+                    ).replace(/js[.]/g, '<span class="code-color-blue">js</span>.'
+                        // .add
+                        ).replace(/[.]add/g, '.<span class="code-color-green">add</span>'
+                        // .script
+                        ).replace(/[.]script/g, '.<span class="code-color-green">script</span>'
+                    // log(
+                    ).replace(/log\(/g, '<span class="code-color-green">log</span>('
+                    // parseBool(
+                    ).replace(/parseBool\(/g, '<span class="code-color-green">parseBool</span>('
+
+            // Functions
+                    // (
+                    ).replace(/\(/g, '<span class="code-color-default">(</span><span class="code-color-orange code-color-override">'
+                    // )
+                    ).replace(/\)/g, '</span><span class="code-color-default">)</span>'
+
+            // Numbers
+                // 0
+                ).replace(/0/g, '<span class="code-number">0</span>'
+                // 1
+                ).replace(/1/g, '<span class="code-number">1</span>'
+                // 2
+                ).replace(/2/g, '<span class="code-number">2</span>'
+                // 3
+                ).replace(/3/g, '<span class="code-number">3</span>'
+                // 4
+                ).replace(/4/g, '<span class="code-number">4</span>'
+                // 5
+                ).replace(/5/g, '<span class="code-number">5</span>'
+                // 6
+                ).replace(/6/g, '<span class="code-number">6</span>'
+                // 7
+                ).replace(/7/g, '<span class="code-number">7</span>'
+                // 8
+                ).replace(/8/g, '<span class="code-number">8</span>'
+                // 9
+                ).replace(/9/g, '<span class="code-number">9</span>'
+
+            // Special Characters
+                // ,
+                ).replace(/,/g, '<span class="code-color-default">,</span>'
+                // .
+                ).replace(/[.]/g, '<span class="code-color-default">.</span>'
+                // _q_
+                ).replace(/_q_/g, '<span class="code-color-default">"</span>'
+            )
+
+            codify(string)
         }
 
         // All Languages

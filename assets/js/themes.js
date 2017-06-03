@@ -11,3 +11,11 @@
                 nav.documentation.href = "documentation.html"
                 nav.themes.href = ""
             }
+
+    // Footer
+        // Children
+            // Extra Options
+                // Updates
+                setTimeout(function() {
+                    extra.updates.href = "../pages/updates.html"
+                })            

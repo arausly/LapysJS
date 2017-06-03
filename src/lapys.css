@@ -2406,283 +2406,348 @@ xmp {
         For common & useful CSS declarations only.
 */
 /* All Preset */
-.a-initial {
+.a-initial,
+.all-initial {
     all: initial !important
 }
-.a-inherit {
+.a-inherit,
+.all-inherit {
     all: inherit !important
 }
-.a-unset {
+.a-unset,
+.all-unset {
     all: unset !important
 }
 
 /* Align Preset */
     /* Align Content Preset */
-    .al-c-cntr {
+    .al-c-cntr,
+    .align-content-center {
         align-content: center !important
     }
-    .al-c-flxe {
+    .al-c-flxe,
+    .align-content-flex-end {
         align-content: flex-end !important
     }
-    .al-c-flxs {
+    .al-c-flxs,
+    .align-content-flex-start {
         align-content: flex-start !important
     }
-    .al-c-inherit {
+    .al-c-inherit,
+    .align-content-inherit {
         align-content: inherit !important
     }
-    .al-c-strc {
+    .al-c-strc,
+    .align-content-stretch {
         align-content: stretch !important
     }
-    .al-c-spar {
+    .al-c-spar,
+    .align-content-space-around {
         align-content: space-around !important
     }
-    .al-c-spbt {
+    .al-c-spbt,
+    .align-content-space-between {
         align-content: space-between !important
     }
 
     /* Align Items Preset */
-    .al-i-cntr {
+    .al-i-cntr,
+    .align-items-center {
         align-items: center !important
     }
-    .al-i-flxe {
+    .al-i-flxe,
+    .align-items-flex-end {
         align-items: flex-end !important
     }
-    .al-i-flxs {
+    .al-i-flxs,
+    .align-items-flex-start {
         align-items: flex-start !important
     }
-    .al-i-inherit {
+    .al-i-inherit,
+    .align-items-inherit {
         align-items: inherit !important
     }
-    .al-i-strc {
+    .al-i-strc,
+    .align-items-stretch {
         align-items: stretch !important
     }
 
     /* Align Self Preset */
-    .al-s-bsln {
+    .al-s-bsln,
+    .align-self-baseline {
         align-self: baseline !important
     }
-    .al-s-cntr {
+    .al-s-cntr,
+    .align-self-center {
         align-self: center !important
     }
-    .al-s-flxe {
+    .al-s-flxe,
+    .align-self-flex-end {
         align-self: flex-end !important
     }
-    .al-s-flxs {
+    .al-s-flxs,
+    .align-self-flex-start {
         align-self: flex-start !important
     }
-    .al-s-inherit {
+    .al-s-inherit,
+    .align-self-inherit {
         align-self: inherit !important
     }
-    .al-s-strc {
+    .al-s-strc,
+    .align-self-stretch {
         align-self: stretch !important
     }
 
 /* Animation Preset */
     /* Animation Delay Preset */
-    .an-d-inherit {
+    .an-d-inherit,
+    .animation-delay-inherit {
         animation-delay: inherit !important
     }
-    .an-d-initial {
+    .an-d-initial,
+    .animation-delay-initial {
         animation-delay: initial !important
     }
-    .an-d-0 {
+    .an-d-0,
+    .animation-delay-0s {
         animation-delay: 0s !important
     }
-    .an-d-1 {
+    .an-d-1,
+    .animation-delay-1s {
         animation-delay: .5s !important
     }
-    .an-d-2 {
+    .an-d-2,
+    .animation-delay-2s {
         animation-delay: 1s !important
     }
-    .an-d-3 {
+    .an-d-3,
+    .animation-delay-3s {
         animation-delay: 1.5s !important
     }
-    .an-d-4 {
+    .an-d-4,
+    .animation-delay-4s {
         animation-delay: 2s !important
     }
-    .an-d-5 {
+    .an-d-5,
+    .animation-delay-5s {
         animation-delay: 2.5s !important
     }
 
     /* Animation Direction Preset */
-    .an-dir-a {
+    .an-dir-a,
+    .animation-direction-alternate {
         animation-direction: alternate !important 
     }
-    .an-dir-ar {
+    .an-dir-ar,
+    .animation-direction-alternate-reverse {
         animation-direction: alternate-reverse !important
     }
-    .an-dir-inherit {
+    .an-dir-inherit,
+    .animation-direction-inherit {
         animation-direction: inherit !important
     }
-    .an-dir-initial {
+    .an-dir-initial,
+    .animation-direction-initial {
         animation-direction: initial !important
     }
-    .an-dir-r {
+    .an-dir-r,
+    .animation-direction-reverse {
         animation-direction: reverse !important
     }
 
     /* Animation Fill-Mode Preset */
-    .an-f-b {
+    .an-f-b,
+    .animation-fill-mode-backwards {
         animation-fill-mode: backwards !important
     }
-    .an-f-f {
+    .an-f-f,
+    .animation-fill-mode-forwards {
         animation-fill-mode: forwards !important
     }
-    .an-f-inherit {
+    .an-f-inherit,
+    .animation-fill-mode-inherit {
         animation-fill-mode: inherit !important
     }
-    .an-f-initial {
+    .an-f-initial,
+    .animation-fill-mode-initial {
         animation-fill-mode: initial !important
     }
 
     /* Animation Play-State Preset */
-    .an-p-inherit {
+    .an-p-inherit,
+    .animation-play-state-inherit {
         animation-play-state: inherit !important
     }
-    .an-p-initial {
+    .an-p-initial,
+    .animation-play-state-initial {
         animation-play-state: initial !important
     }
-    .an-p-p {
+    .an-p-p,
+    .animation-play-state-paused {
         animation-play-state: paused !important
     }
-    .an-p-r {
+    .an-p-r,
+    .animation-play-state-running {
         animation-play-state: running !important
     }
 
     /* Animation Timing-Function Preset */
-    .an-s-e {
+    .an-s-e,
+    .animation-timing-function-ease {
         /* --- NOTE ---
                 Animation style is ease.
         */
         animation-timing-function: ease !important
     }
-    .an-s-ei {
+    .an-s-ei,
+    .animation-timing-function-ease-in {
         /* --- NOTE ---
                 Animation style is ease-in.
         */
         animation-timing-function: ease-in !important
     }
-    .an-s-eo {
+    .an-s-eo,
+    .animation-timing-function-ease-out {
         /* --- NOTE ---
                 Animation style is ease-out.
         */
         animation-timing-function: ease-out !important
     }
-    .an-s-eio {
+    .an-s-eio,
+    .animation-timing-function-ease-in-out {
         /* --- NOTE ---
                 Animation style is ease-in-out.
         */
         animation-timing-function: ease-in-out !important
     }
-    .an-s-foli {
+    .an-s-foli,
+    .animation-timing-function-fast-out-linear-in {
         /* --- NOTE ---
                 Animation style is fast-out-linear-in.
         */
         animation-timing-function: cubic-bezier(.4, 0, 1, 1) !important
     }
-    .an-s-fosi {
+    .an-s-fosi,
+    .animation-timing-function-fast-out-slow-in {
         /* --- NOTE ---
                 Animation style is fast-out-slow-in.
         */
         animation-timing-function: cubic-bezier(.4, 0, .2, 1) !important
     }
-    .an-s-ib {
+    .an-s-ib,
+    .animation-timing-function-in-back {
         /* --- NOTE ---
                 Animation style is in-back.
         */
         animation-timing-function: cubic-bezier(.6, -.28, .74, .05) !important
     }
-    .an-s-ic {
+    .an-s-ic,
+    .animation-timing-function-in-cubic {
         /* --- NOTE ---
                 Animation style is in-cubic.
         */
         animation-timing-function: cubic-bezier(.55, .06, .68, .19) !important
     }
-    .an-s-inherit {
+    .an-s-inherit,
+    .animation-timing-function-inherit {
         /* --- NOTE ---
                 Animation style is inherited.
         */
         animation-timing-function: inherit !important
     }
-    .an-s-iob {
+    .an-s-iob,
+    .animation-timing-function-in-out-back {
         /* --- NOTE ---
-                Animation style is ease in-out-back.
+                Animation style is in-out-back.
         */
         animation-timing-function: cubic-bezier(.68, -.55, .27, 1.55) !important
     }
-    .an-s-ioc {
+    .an-s-ioc,
+    .animation-timing-function-in-out-cubic {
         /* --- NOTE ---
                 Animation style is in-out-cubic.
         */
         animation-timing-function: cubic-bezier(.65, .05, .36, 1) !important
     }
-    .an-s-ioq {
+    .an-s-ioq,
+    .animation-timing-function-in-out-quadratic {
         /* --- NOTE ---
                 Animation style is in-out-quadratic.
         */
         animation-timing-function: cubic-bezier(.46, .03, .52, .96) !important
     }
-    .an-s-ios {
+    .an-s-ios,
+    .animation-timing-function-in-out-sine {
         /* --- NOTE ---
                 Animation style is in-out-sine.
         */
         animation-timing-function: cubic-bezier(.45, .05, .55, .95) !important
     }
-    .an-s-iq {
+    .an-s-iq,
+    .animation-timing-function-in-quadratic {
         /* --- NOTE ---
                 Animation style is in-quadratic.
         */
         animation-timing-function: cubic-bezier(.55, .09, .68, .53) !important
     }
-    .an-s-is {
+    .an-s-is,
+    .animation-timing-function-in-sine {
         /* --- NOTE ---
                 Animation style is in-sine.
         */
         animation-timing-function: cubic-bezier(.47, 0, .75, .72) !important
     }
-    .an-s-lnr {
+    .an-s-lnr,
+    .animation-timing-function-linear {
         /* --- NOTE ---
                 Animation style is linear.
         */
         animation-timing-function: linear !important
     }
-    .an-s-losi {
+    .an-s-losi,
+    .animation-timing-function-linear-out-sine-in {
         /* --- NOTE ---
                 Animation style is linear-out-sine-in.
         */
         animation-timing-function: cubic-bezier(0, 0, .2, 1) !important
     }
-    .an-s-none {
+    .an-s-none,
+    .animation-timing-function-none {
         /* --- NOTE ---
                 Animation style is null.
         */
         animation-timing-function: none !important
     }
-    .an-s-ob {
+    .an-s-ob,
+    .animation-timing-function-out-back {
         /* --- NOTE ---
                 Animation style is out-back.
         */
         animation-timing-function: cubic-bezier(.18, .89, .32, 1.28) !important
     }
-    .an-s-oc {
+    .an-s-oc,
+    .animation-timing-function-out-cubic {
         /* --- NOTE ---
                 Animation style is out-cubic.
         */
         animation-timing-function: cubic-bezier(.22, .61, .36, 1) !important
     }
-    .an-s-oq {
+    .an-s-oq,
+    .animation-timing-function-out-quadratic {
         /* --- NOTE ---
                 Animation style is out-quadratic.
         */
         animation-timing-function: cubic-bezier(.25, .46, .45, .94) !important
     }
-    .an-s-os {
+    .an-s-os,
+    .animation-timing-function-out-sine {
         /* --- NOTE ---
                 Animation style is out-sine.
         */
         animation-timing-function: cubic-bezier(.39, .58, .57, 1) !important
     }
-    .an-s-q {
+    .an-s-q,
+    .animation-timing-function-quartic {
         /* --- NOTE ---
                 Animation style is quartic.
         */
@@ -2690,69 +2755,86 @@ xmp {
     }
 
     /* Animation Duration Preset */
-    .an-time-0 {
+    .an-time-0,
+    .animation-duration-0s {
         animation-duration: 0s !important
     }
-    .an-time-1 {
+    .an-time-1,
+    .animation-duration--5s {
         animation-duration: .5s !important
     }
-    .an-time-2 {
+    .an-time-2,
+    .animation-duration-1s {
         animation-duration: 1s !important
     }
-    .an-time-3 {
+    .an-time-3,
+    .animation-duration-1-5s {
         animation-duration: 1.5s !important
     }
-    .an-time-4 {
+    .an-time-4,
+    .animation-duration-2s {
         animation-duration: 2s !important
     }
-    .an-time-5 {
+    .an-time-5,
+    .animation-duration-2-5s {
         animation-duration: 2.5s !important
     }
-    .an-time-inherit {
+    .an-time-inherit,
+    .animation-duration-inherit {
         animation-duration: inherit !important
     }
-    .an-time-initial {
+    .an-time-initial,
+    .animation-duration-initial {
         animation-duration: initial !important
     }
 
 /* Block Preset */
-.b-inherit {
+.b-inherit,
+.block-inherit {
     block: inherit !important
 }
     /* Block Size Preset */
-    .b-s-inherit {
+    .b-s-inherit,
+    .block-size-inherit {
         block-size: inherit !important
     }
 
 /* Bottom Preset */
-.b-0 {
+.b-0,
+.bottom-0 {
     bottom: 0 !important
 }
 
 /* Border Preset */
-.bdr {
+.bdr,
+.border {
     border: 1px solid;
     border-image: initial;
     border-radius: 0;
     border-spacing: 0
 }
-.bdr-inherit {
+.bdr-inherit,
+.border-inherit {
     border: inherit !important;
     border-image: inherit !important;
     border-radius: inherit !important;
     border-spacing: inherit !important
 }
-.bdr-none {
-    border: 0 !important;
+.bdr-none,
+.border-none {
     border-image: initial !important;
     border-radius: 0 !important;
     border-spacing: 0 !important
 }
-.bdr-0 {
+.bdr-none,
+.bdr-0,
+.border-none,
+.border-0 {
     border: 0 !important
 }
     /* Border Bottom Preset */
-    .bdr-b-inherit {
+    .bdr-b-inherit,
+    .border-bottom-inherit {
         border-bottom-color: inherit !important;
         border-bottom-style: inherit !important;
         border-bottom-width: inherit !important
@@ -2760,71 +2842,91 @@ xmp {
         /* Border Bottom Radius Preset */
             /* Border Bottom-Left Radius Preset */
             .bdr-bl-rd,
-            .bdr-bl-rd-50 {
+            .bdr-bl-rd-50,
+            .border-bottom-left-radius-50 {
                 border-bottom-left-radius: 50% !important
             }
-            .bdr-bl-rd-inherit {
+            .bdr-bl-rd-inherit,
+            .border-bottom-left-radius-inherit {
                 border-bottom-left-radius: inherit !important
             }
-            .bdr-bl-rd-0 {
+            .bdr-bl-rd-0,
+            .border-bottom-left-radius-0 {
                 border-bottom-left-radius: 0 !important
             }
 
             /* Border Bottom-Right Radius Preset */
             .bdr-br-rd,
-            .bdr-br-rd-50 {
+            .bdr-br-rd-50,
+            .border-bottom-right-radius-50 {
                 border-bottom-right-radius: 50% !important
             }
-            .bdr-br-rd-inherit {
+            .bdr-br-rd-inherit,
+            .border-bottom-right-radius-inherit {
                 border-bottom-right-radius: inherit !important
             }
-            .bdr-br-rd-0 {
+            .bdr-br-rd-0,
+            .border-bottom-right-radius-0 {
                 border-bottom-right-radius: 0 !important
             }
 
         /* Border Bottom Style Preset */
-        .bdr-b-s-dsh {
+        .bdr-b-s-dsh,
+        .border-bottom-style-dashed {
             border-bottom-style: dashed !important
         }
-        .bdr-b-s-dot {
+        .bdr-b-s-dot,
+        .border-bottom-style-dotted {
             border-bottom-style: dotted !important
         }
-        .bdr-b-s-dbl {
+        .bdr-b-s-dbl,
+        .border-bottom-style-double {
             border-bottom-style: double !important
         }
-        .bdr-b-s-grv {
+        .bdr-b-s-grv,
+        .border-bottom-style-groove {
             border-bottom-style: groove !important
         }
-        .bdr-b-s-hid {
+        .bdr-b-s-hid,
+        .border-bottom-style-hidden {
             border-bottom-style: hidden !important
         }
-        .bdr-b-s-inherit {
+        .bdr-b-s-inherit,
+        .border-bottom-style-inherit {
             border-bottom-style: inherit !important
         }
-        .bdr-b-s-ins {
+        .bdr-b-s-ins,
+        .border-bottom-style-inset {
             border-bottom-style: inset !important
         }
-        .bdr-b-s-out {
+        .bdr-b-s-out,
+        .border-bottom-style-outset {
             border-bottom-style: outset !important
         }
-        .bdr-b-s-rdg {
+        .bdr-b-s-rdg,
+        .border-bottom-style-ridge {
             border-bottom-style: ridge !important
         }
-        .bdr-b-s-sld {
+        .bdr-b-s-sld,
+        .border-bottom-style-solid {
             border-bottom-style: solid !important
         }
 
         /* Border Bottom Width Preset */
-        .bdr-b-w-inherit {
+        .bdr-b-w-inherit,
+        .border-bottom-width-inherit {
             border-bottom-width: inherit !important
         }
-        .bdr-b-w-m {
+        .bdr-b-w-m,
+        .border-bottom-width-medium {
             border-bottom-width: medium !important
         }
-        .bdr-b-w-tk {
-            border-bottom-width: thin !important
+        .bdr-b-w-tk,
+        .border-bottom-width-thick {
+            border-bottom-width: thick !important
         }
-        .bdr-b-w-tn {
+        .bdr-b-w-tn,
+        .border-bottom-width-thin {
             border-bottom-width: thin !important
         }
 
@@ -2835,32 +2937,38 @@ xmp {
     */
         /* Aqua */
         .bdr-c-aq,
-        .bdr-c-aqua {
+        .bdr-c-aqua,
+        .border-color-aqua {
             border-color: #0078FF !important
         }
 
         /* Beige */
         .bdr-c-bge,
-        .bdr-c-beige {
+        .bdr-c-beige,
+        .border-color-beige {
             border-color: #F9ECC4 !important
         }
 
         /* Black */
         .bdr-c-black,
-        .bdr-c-k {
+        .bdr-c-k,
+        .border-color-black {
             border-color: #000000 !important
         }
 
         /* Blood Red */
         .bdr-c-bld,
         .bdr-c-blood,
-        .bdr-c-blud {
+        .bdr-c-blud,
+        .border-color-blood,
+        .border-color-blud {
             border-color: #CC0000 !important
         }
 
         /* Blue */
         .bdr-c-b,
-        .bdr-c-blue {
+        .bdr-c-blue,
+        .border-color-blue {
             border-color: #0000FF !important
         }
 
@@ -2869,7 +2977,9 @@ xmp {
         .bdr-c-gb,
         .bdr-c-lgtb,
         .bdr-c-skyb,
-        .bdr-c-skyblue {
+        .bdr-c-skyblue,
+        .border-color-lightblue,
+        .border-color-skyblue {
             border-color: #00FFFF !important
         }
 
@@ -2905,7 +3015,8 @@ xmp {
         .bdr-c-ykcm,
         .bdr-c-ykmc,
         .bdr-c-ymck,
-        .bdr-c-ymkc {
+        .bdr-c-ymkc,
+        .border-color-white {
             border-color: #FFFFFF !important
         }
 
@@ -2914,32 +3025,38 @@ xmp {
         .bdr-c-lgtr,
         .bdr-c-m,
         .bdr-c-pink,
-        .bdr-c-rb {
+        .bdr-c-rb,
+        .border-color-pink {
             border-color: #FF00FF !important
         }
 
         /* Brown */
         .bdr-c-brwn,
-        .bdr-c-brown {
+        .bdr-c-brown,
+        .border-color-brown {
             border-color: #996633 !important
         }
 
         /* Cyan */
         .bdr-c-c,
-        .bdr-c-cyan {
+        .bdr-c-cyan,
+        .border-color-cyan {
             border-color: #00FFCC !important
         }
 
         /* Dark Blue */
         .bdr-c-darkblue,
-        .bdr-c-dkb {
+        .bdr-c-dkb,
+        .border-color-darkblue {
             border-color: #000078 !important
         }
 
         /* Dark Grey */
         .bdr-c-darkgray,
         .bdr-c-darkgrey,
-        .bdr-c-dkgry {
+        .bdr-c-dkgry,
+        .border-color-darkgray,
+        .border-color-darkgrey {
             border-color: #555555 !important
         
         }
@@ -2948,43 +3065,52 @@ xmp {
         .bdr-c-darkgreen,
         .bdr-c-dkg,
         .bdr-c-dkgrn,
-        .bdr-c-marsh {
+        .bdr-c-marsh,
+        .border-color-darkgreen,
+        .border-color-marsh {
             border-color: #336600 !important
         }
 
         /* Dark Red */
         .bdr-c-darkred,
         .bdr-c-dkr,
-        .bdr-c-wine {
+        .bdr-c-wine,
+        .border-color-darkred,
+        .border-color-wine {
             border-color: #780000 !important
         }
         /* Whitish-Gray */
         .bdr-c-egg,
         .bdr-c-whtesmk,
-        .bdr-c-whitesmoke {
+        .bdr-c-whitesmoke,
+        .border-color-whitesmoke {
             border-color: #EEEEEE !important
         }
 
         /* Forest Green */
-        .bdr-c-forest {
+        .bdr-c-forest,
+        .border-color-forest {
             border-color: #007800 !important
         }
 
         /* Gold */
         .bdr-c-gld,
-        .bdr-c-gold {
+        .bdr-c-gold,
+        .border-color-gold {
            border-color: #EEEE00 !important
         }
 
         /* Granite Gray */
         .bdr-c-grnte,
-        .bdr-c-granite {
+        .bdr-c-granite,
+        .border-color-granite {
             border-color: #E5E4E2 !important
         }
 
         /* Green */
         .bdr-c-g,
-        .bdr-c-green {
+        .bdr-c-green,
+        .border-color-green {
             border-color: #00FF00 !important
         }
 
@@ -2993,328 +3119,409 @@ xmp {
         .bdr-c-rg,
         .bdr-c-simpson,
         .bdr-c-y,
-        .bdr-c-yellow {
+        .bdr-c-yellow,
+        .border-color-simpson,
+        .border-color-yellow {
             border-color: #FFFF00 !important
         }
 
         /* Gray */
         .bdr-c-gray,
         .bdr-c-grey,
-        .bdr-c-gry {
+        .bdr-c-gry,
+        .border-color-gray,
+        .border-color-grey {
             border-color: #787878 !important
         }
 
         /* Hot Pink */
         .bdr-c-htpnk,
-        .bdr-c-hotpink {
+        .bdr-c-hotpink,
+        .border-color-hotpink {
             border-color: #FF34FF !important
         }
 
         /* --- NOTE ---
             Inherited value.
         */
-        .bdr-c-inherit {
+        .bdr-c-inherit,
+        .border-color-inherit {
             border-color: inherit !important
         }
 
         /* Indigo */
         .bdr-c-indg,
-        .bdr-c-indigo {
+        .bdr-c-indigo,
+        .border-color-indigo {
             border-color: #3F48CC !important
         }
 
         /* Lapis Lazuli Blue */
         .bdr-c-l,
-        .bdr-c-lapis {
+        .bdr-c-lapis,
+        .border-color-lapis {
             border-color: #0023FF !important
         }
 
         /* Light Green */
-        .bdr-c-lgtg {
+        .bdr-c-lgtg,
+        .border-color-lightgreen {
             border-color: #A6FFA6 !important
         }
 
         /* Lime */
-        .bdr-c-lime {
+        .bdr-c-lime,
+        .border-color-lime {
             border-color: #B5E61D !important
         }
 
         /* Light Gray */
         .bdr-c-lightgray,
         .bdr-c-lightgrey,
-        .bdr-c-lgtgry {
+        .bdr-c-lgtgry,
+        .border-color-lightgray,
+        .border-color-lightgrey {
             border-color: #AAAAAA !important
         }
 
         /* Magenta */
         .bdr-c-mgnt,
-        .bdr-c-magenta {
+        .bdr-c-magenta,
+        .border-color-magenta {
             border-color: #CC00CC !important
         }
 
         /* Navy Blue */
         .bdr-c-nvy,
-        .bdr-c-navy {
+        .bdr-c-navy,
+        .border-color-navy {
             border-color: #342D7E !important
         }
 
         /* Olive Green */
         .bdr-c-olv,
-        .bdr-c-olive {
+        .bdr-c-olive,
+        .border-color-olive {
             border-color: #787800 !important
         }
 
         /* Orange */
         .bdr-c-orng,
-        .bdr-c-orange {
+        .bdr-c-orange,
+        .border-color-orange {
             border-color: #FF7800 !important
         }
 
         /* Platinum Gray */
         .bdr-c-pltn,
-        .bdr-c-platinum {
+        .bdr-c-platinum,
+        .border-color-platinum {
             border-color: #BCC6CC !important
         }
 
         /* Purple */
         .bdr-c-purple,
         .bdr-c-vlt,
-        .bdr-c-violet {
+        .bdr-c-violet,
+        .border-color-purple,
+        .border-color-violet {
             border-color: #7800FF !important
         }
 
         /* Red */
         .bdr-c-r,
-        .bdr-c-red {
+        .bdr-c-red,
+        .border-color-red {
             border-color: #FF0000 !important
         }
 
         /* Rose Pink */
-        .bdr-c-rose {
+        .bdr-c-rose,
+        .border-color-rose {
             border-color: #FFAEC9 !important
         }
 
         /* Slate Gray*/
-        .bdr-c-slate {
+        .bdr-c-slate,
+        .border-color-slate {
             border-color: #646D7E !important
         }
 
         /* Teal */
         .bdr-c-tl,
-        .bdr-c-teal {
+        .bdr-c-teal,
+        .border-color-teal {
             border-color: #00AAAA !important
         }
 
         /* Transparent */
-        .bdr-c-trns {
+        .bdr-c-trns,
+        .border-color-transparent {
             border-color: transparent !important
         }
 
         /* Turquoise */
         .bdr-c-trquois,
-        .bdr-c-turquoise {
+        .bdr-c-turquoise,
+        .border-color-turquoise {
             border-color: #00A2E8 !important
         }
 
         /*  "Violent" */
         .bdr-c-vlnt,
-        .bdr-c-violent {
+        .bdr-c-violent,
+        .border-color-violent {
             border-color: #CC0078 !important
         }
 
     /* Border Left Preset */
-    .bdr-l {
+    .bdr-l,
+    .border-left {
         border-left-style: solid;
         border-left-width: 1px
     }
-    .bdr-l-inherit {
+    .bdr-l-inherit,
+    .border-left-inherit {
         border-left-color: inherit !important;
         border-left-style: inherit !important;
         border-left-width: inherit !important
     }
         /* Border Left Style Preset */
-        .bdr-l-s-dsh {
+        .bdr-l-s-dsh,
+        .border-left-style-dashed {
             border-left-style: dashed !important
         }
-        .bdr-l-s-dot {
+        .bdr-l-s-dot,
+        .border-left-style-dotted {
             border-left-style: dotted !important
         }
-        .bdr-l-s-dbl {
+        .bdr-l-s-dbl,
+        .border-left-style-double {
             border-left-style: double !important
         }
-        .bdr-l-s-grv {
+        .bdr-l-s-grv,
+        .border-left-style-groove {
             border-left-style: groove !important
         }
-        .bdr-l-s-hid {
+        .bdr-l-s-hid,
+        .border-left-style-hidden {
             border-left-style: hidden !important
         }
-        .bdr-l-s-inherit {
+        .bdr-l-s-inherit,
+        .border-left-style-inherit {
             border-left-style: inherit !important
         }
-        .bdr-l-s-ins {
+        .bdr-l-s-ins,
+        .border-left-style-inset {
             border-left-style: inset !important
         }
-        .bdr-l-s-out {
+        .bdr-l-s-out,
+        .border-left-style-outset {
             border-left-style: outset !important
         }
-        .bdr-l-s-rdg {
+        .bdr-l-s-rdg,
+        .border-left-style-ridge {
             border-left-style: ridge !important
         }
-        .bdr-l-s-sld {
+        .bdr-l-s-sld,
+        .border-left-style-solid {
             border-left-style: solid !important
         }
 
         /* Border Left Width Preset */
-        .bdr-l-w-inherit {
+        .bdr-l-w-inherit,
+        .border-left-width-inherit {
             border-left-width: inherit !important
         }
-        .bdr-l-w-m {
+        .bdr-l-w-m,
+        .border-left-width-medium {
             border-left-width: medium !important
         }
-        .bdr-l-w-tk {
-            border-left-width: thin !important
+        .bdr-l-w-tk,
+        .border-left-width-thick {
+            border-left-width: thick !important
         }
-        .bdr-l-w-tn {
+        .bdr-l-w-tn,
+        .border-left-width-thin {
             border-left-width: thin !important
         }
 
     /* Border Inline Preset */
-    .bdr-i-inherit {
+    .bdr-i-inherit,
+    .border-inline-inherit {
         border-inline: inherit !important
     }
         /* Border Inline End Preset */
-            .bdr-i-s-inherit {
-                border-inline-start: inherit !important
+            .bdr-i-e-inherit,
+            .border-inline-end-inherit {
+                border-inline-end: inherit !important
             }
                 /* Border Inline End Width */
-                .bdr-i-s-w-inherit {
-                    border-inline-start-width: inherit !important
+                .bdr-i-e-w-inherit,
+                .border-inline-end-wiidth-inherit {
+                    border-inline-end-width: inherit !important
                 }
 
         /* Border Inline Start Preset */
-        .bdr-i-s-inherit {
+        .bdr-i-s-inherit,
+        .border-inline-start-inherit {
             border-inline-start: inherit !important
         }
             /* Border Inline Start Width */
-            .bdr-i-s-w-inherit {
+            .bdr-i-s-w-inherit,
+            .border-inline-start-width-inherit {
                 border-inline-start-width: inherit !important
             }
 
     /* Border Right Preset */
-    .bdr-r {
+    .bdr-r,
+    .border-right {
         border-right-width: 1px;
         border-right-style: solid
     }
-    .bdr-r-inherit {
+    .bdr-r-inherit, 
+    .border-right-inherit {
         border-right-color: inherit !important;
         border-right-style: inherit !important;
         border-right-width: inherit !important
     }
         /* Border Right Style Preset */
-        .bdr-r-s-dsh {
+        .bdr-r-s-dsh,
+        .border-right-style-dashed {
             border-right-style: dashed !important
         }
-        .bdr-r-s-dot {
+        .bdr-r-s-dot,
+        .border-right-style-dotted {
             border-right-style: dotted !important
         }
-        .bdr-r-s-dbl {
+        .bdr-r-s-dbl,
+        .border-right-style-double {
             border-right-style: double !important
         }
-        .bdr-r-s-grv {
+        .bdr-r-s-grv,
+        .border-right-style-groove {
             border-right-style: groove !important
         }
-        .bdr-r-s-hid {
+        .bdr-r-s-hid,
+        .border-right-style-hidden {
             border-right-style: hidden !important
         }
-        .bdr-r-s-inherit {
+        .bdr-r-s-inherit,
+        .border-right-style-inherit {
             border-right-style: inherit !important
         }
-        .bdr-r-s-ins {
+        .bdr-r-s-ins,
+        .border-right-style-inset {
             border-right-style: inset !important
         }
-        .bdr-r-s-out {
+        .bdr-r-s-out,
+        .border-right-style-outset {
             border-right-style: outset !important
         }
-        .bdr-r-s-rdg {
+        .bdr-r-s-rdg, 
+        .border-right-style-ridge {
             border-right-style: ridge !important
         }
-        .bdr-r-s-sld {
+        .bdr-r-s-sld,
+        .border-right-style-solid {
             border-right-style: solid !important
         }
 
         /* Border Right Width Preset */
-        .bdr-r-w-inherit {
+        .bdr-r-w-inherit,
+        .border-right-width-inherit {
             border-right-width: inherit !important
         }
-        .bdr-r-w-m {
+        .bdr-r-w-m,
+        .border-right-width-medium {
             border-right-width: medium !important
         }
-        .bdr-r-w-tk {
-            border-right-width: thin !important
+        .bdr-r-w-tk,
+        .border-right-width-thick {
+            border-right-width: thick !important
         }
-        .bdr-r-w-tn {
+        .bdr-r-w-tn,
+        .border-right-width-thin {
             border-right-width: thin !important
         }
 
     /* Border Radius Preset */
     .bdr-rd,
-    .bdr-rd-50 {
+    .bdr-rd-50,
+    .border-radius-50 {
         border-radius: 50% !important
     }
-    .bdr-rd-inherit {
+    .bdr-rd-inherit, 
+    .border-radius-inherit {
         border-radius: inherit !important
     }
-    .bdr-rd-l {
+    .bdr-rd-l,
+    .border-radius-large {
         border-radius: 6px !important
     }
-    .bdr-rd-m {
+    .bdr-rd-m,
+    .border-radius-medium {
         border-radius: 4px !important
     }
-    .bdr-rd-s {
+    .bdr-rd-s,
+    .border-radius-small {
         border-radius: 2px !important
     }
-    .bdr-rd-0 {
+    .bdr-rd-0,
+    .border-radius-0 {
         border-radius: 0 !important
     }
 
     /* Border Style Preset */
-    .bdr-s-dsh {
+    .bdr-s-dsh,
+    .border-style-dashed {
         border-style: dashed !important
     }
-    .bdr-s-dot {
+    .bdr-s-dot,
+    .border-style-dotted {
         border-style: dotted !important
     }
-    .bdr-s-dbl {
+    .bdr-s-dbl,
+    .border-style-double {
         border-style: double !important
     }
-    .bdr-s-grv {
+    .bdr-s-grv,
+    .border-style-groove {
         border-style: groove !important
     }
-    .bdr-s-hid {
+    .bdr-s-hid,
+    .border-style-hidden {
         border-style: hidden !important
     }
-    .bdr-s-inherit {
+    .bdr-s-inherit,
+    .border-style-inherit {
         border-style: inherit !important
     }
-    .bdr-s-ins {
+    .bdr-s-ins,
+    .border-style-inset {
         border-style: inset !important
     }
-    .bdr-s-out {
+    .bdr-s-out,
+    .border-style-outset {
         border-style: outset !important
     }
-    .bdr-s-rdg {
+    .bdr-s-rdg,
+    .border-style-ridge {
         border-style: ridge !important
     }
-    .bdr-s-sld {
+    .bdr-s-sld,
+    .border-style-solid {
         border-style: solid !important
     }
 
     /* Border Top */
-    .bdr-t {
+    .bdr-t,
+    .border-top {
         border-top-width: 1px;
         border-top-style: solid
     }
-    .bdr-t-inherit {
+    .bdr-t-inherit,
+    .border-top-inherit {
         border-top-color: inherit !important;
         border-top-style: inherit !important;
         border-top-width: inherit !important
@@ -3322,162 +3529,212 @@ xmp {
         /* Border Top Radius Preset */
             /* Border Top-Left Radius Preset */
             .bdr-tl-rd,
-            .bdr-tl-rd-50 {
+            .bdr-tl-rd-50,
+            .border-top-left-radius-50 {
                 border-top-left-radius: 50% !important
             }
-            .bdr-tl-rd-inherit {
+            .bdr-tl-rd-inherit,
+            .border-top-left-radius-inherit {
                 border-top-left-radius: inherit !important
             }
-            .bdr-tl-rd-0 {
+            .bdr-tl-rd-0,
+            .border-top-left-radius-0 {
                 border-top-left-radius: 0 !important
             }
 
             /* Border Top-Right Radius Preset */
             .bdr-tr-rd,
-            .bdr-tr-rd-50 {
+            .bdr-tr-rd-50,
+            .border-top-right-radius-50 {
                 border-top-right-radius: 50% !important
             }
-            .bdr-tr-rd-inherit {
+            .bdr-tr-rd-inherit,
+            .border-top-right-radius-inherit {
                 border-top-right-radius: inherit !important
             }
-            .bdr-tr-rd-0 {
+            .bdr-tr-rd-0,
+            .border-top-right-radius-0 {
                 border-top-right-radius: 0 !important
             }
 
         /* Border Top Style Preset */
-        .bdr-t-s-dsh {
+        .bdr-t-s-dsh,
+        .border-top-style-dashed {
             border-top-style: dashed !important
         }
-        .bdr-t-s-dot {
+        .bdr-t-s-dot,
+        .border-top-style-dotted {
             border-top-style: dotted !important
         }
-        .bdr-t-s-dbl {
+        .bdr-t-s-dbl,
+        .border-top-style-double {
             border-top-style: double !important
         }
-        .bdr-t-s-grv {
+        .bdr-t-s-grv,
+        .border-top-style-groove {
             border-top-style: groove !important
         }
-        .bdr-t-s-hid {
+        .bdr-t-s-hid,
+        .border-top-style-hidden {
             border-top-style: hidden !important
         }
-        .bdr-t-s-inherit {
+        .bdr-t-s-inherit,
+        .border-top-style-inherit {
             border-top-style: inherit !important
         }
-        .bdr-t-s-ins {
+        .bdr-t-s-ins,
+        .border-top-style-inset {
             border-top-style: inset !important
         }
-        .bdr-t-s-out {
+        .bdr-t-s-out,
+        .border-top-style-outset {
             border-top-style: outset !important
         }
-        .bdr-t-s-rdg {
+        .bdr-t-s-rdg,
+        .border-top-style-ridge {
             border-top-style: ridge !important
         }
-        .bdr-t-s-sld {
+        .bdr-t-s-sld,
+        .border-top-style-solid {
             border-top-style: solid !important
         }
 
         /* Border Top Width Preset */
-        .bdr-t-w-inherit {
+        .bdr-t-w-inherit,
+        .border-top-width-inherit {
             border-top: inherit !important
         }
-        .bdr-t-w-m {
+        .bdr-t-w-m,
+        .border-top-width-medium {
             border-top-width: medium !important
         }
-        .bdr-t-w-tk {
+        .bdr-t-w-tk,
+        .border-top-width-thick {
             border-top-width: thick !important
         }
-        .bdr-t-w-tn {
+        .bdr-t-w-tn,
+        .border-top-width-thin {
             border-top-width: thin !important
         }
 
     /* Border Width Preset */
-    .bdr-w-inherit {
+    .bdr-w-inherit,
+    .border-width-inherit {
         border-width: inherit !important
     }
-    .bdr-w-m {
+    .bdr-w-m,
+    .border-width-medium {
         border-width: medium !important
     }
-    .bdr-w-tk {
-        border-width: thin !important
+    .bdr-w-tk,
+    .border-width-thick {
+        border-width: thick !important
     }
-    .bdr-w-tn {
+    .bdr-w-tn,
+    .border-width-thin {
         border-width: thin !important
     }
 
 /* Background Preset */
-.bg {
-    background: transparent none no-repeat scroll center / cover padding-box border-box;
-    /* --- CONSIDER ---
-            background-blend-mode: soft-light;
-    */
+.bg,
+.background {
+    background-attachment: scroll;
+    background-blend-mode: inherit;
+    background-clip: padding-box;
+    background-color: transparent;
+    background-origin: border-box;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     box-sizing: border-box;
     object-fit: contain;
     object-position: center
 }
     /* Background Attachment Preset */
-    .bg-a-f {
+    .bg-a-f,
+    .background-attachment-fixed {
         background-attachment: fixed !important
     }
-    .bg-a-inherit {
+    .bg-a-inherit,
+    .background-attachment-inherit {
         background-attachment: inherit !important
     }
-    .bg-a-l {
+    .bg-a-l,
+    .background-attachment-local {
         background-attachment: local !important
     }
-    .bg-a-s {
+    .bg-a-s,
+    .background-attachment-scroll {
         background-attachment: scroll !important
     }
 
     /* Background Blend-Mode Preset */
-    .bg-b-c {
+    .bg-b-c,
+    .background-blend-mode-color {
         background-blend-mode: color !important
     }
-    .bg-b-cb {
+    .bg-b-cb,
+    .background-blend-mode-color-burn {
         background-blend-mode: color-burn !important
     }
-    .bg-b-cd {
+    .bg-b-cd,
+    .background-blend-mode-color-dodge {
         background-blend-mode: color-dodge !important
     }
-    .bg-b-dif {
+    .bg-b-dif,
+    .background-blend-mode-difference {
         background-blend-mode: difference !important
     }
-    .bg-b-drk {
+    .bg-b-drk,
+    .background-blend-mode-darken {
         background-blend-mode: darken !important
     }
-    .bg-b-e {
+    .bg-b-e,
+    .background-blend-mode-exclusion {
         background-blend-mode: exclusion !important
     }
-    .bg-b-hl {
+    .bg-b-hl,
+    .background-blend-mode-hard-light {
         background-blend-mode: hard-light !important
     }
-    .bg-b-h {
+    .bg-b-h,
+    .background-blend-mode-hue {
         background-blend-mode: hue !important
     }
-    .bg-b-inherit {
+    .bg-b-inherit,
+    .background-blend-mode-inherit {
         background-blend-mode: inherit !important
     }
-    .bg-b-lig {
+    .bg-b-lig,
+    .background-blend-mode-lighten {
         background-blend-mode: lighten !important
     }
-    .bg-b-lum {
+    .bg-b-lum,
+    .background-blend-mode-luminosity {
         background-blend-mode: luminosity !important
     }
-    .bg-b-m {
+    .bg-b-m,
+    .background-blend-mode-multiply {
         background-blend-mode: multiply !important
     }
-    .bg-b-n {
+    .bg-b-n,
+    .background-blend-mode-normal {
         background-blend-mode: normal !important
     }
-    .bg-b-o {
+    .bg-b-o,
+    .background-blend-mode-overlay {
         background-blend-mode: overlay !important
     }
-    .bg-b-sat {
+    .bg-b-sat,
+    .background-blend-mode-saturation {
         background-blend-mode: saturation !important
     }
-    .bg-b-scr {
+    .bg-b-scr,
+    .background-blend-mode-screen {
         background-blend-mode: screen !important
     }
-    .bg-b-sl {
+    .bg-b-sl,
+    .background-blend-mode-soft-light {
         background-blend-mode: soft-light !important
     }
 
@@ -3489,21 +3746,24 @@ xmp {
     */
         /* Aqua */
         .bg-c-aq,
-        .bg-c-aqua {
+        .bg-c-aqua,
+        .background-color-aqua {
             background-color: #0078FF !important;
             color: #FFF
         }
 
         /* Beige */
         .bg-c-bge,
-        .bg-c-beige {
+        .bg-c-beige,
+        .background-color-beige {
             background-color: #F9ECC4 !important;
             color: #000
         }
 
         /* Black */
         .bg-c-black,
-        .bg-c-k {
+        .bg-c-k,
+        .background-color-black {
             background-color: #000000 !important;
             color: #FFF
         }
@@ -3511,14 +3771,17 @@ xmp {
         /* Blood Red */
         .bg-c-bld,
         .bg-c-blood,
-        .bg-c-blud {
+        .bg-c-blud,
+        .background-color-blood,
+        .background-color-blud {
             background-color: #CC0000 !important;
             color: #FFF
         }
 
         /* Blue */
         .bg-c-b,
-        .bg-c-blue {
+        .bg-c-blue,
+        .background-color-blue {
             background-color: #0000FF !important;
             color: #FFF
         }
@@ -3528,7 +3791,9 @@ xmp {
         .bg-c-gb,
         .bg-c-lgtb,
         .bg-c-skyb,
-        .bg-c-skyblue {
+        .bg-c-skyblue,
+        .background-color-lightblue,
+        .background-color-skyblue {
             background-color: #00FFFF !important;
             color: #000
         }
@@ -3565,7 +3830,8 @@ xmp {
         .bg-c-ykcm,
         .bg-c-ykmc,
         .bg-c-ymck,
-        .bg-c-ymkc {
+        .bg-c-ymkc, 
+        .background-color-white {
             background-color: #FFFFFF !important;
             color: #000000
         }
@@ -3575,28 +3841,33 @@ xmp {
         .bg-c-lgtr,
         .bg-c-m,
         .bg-c-pink,
-        .bg-c-rb {
+        .bg-c-rb,
+        .background-color-lightred,
+        .background-color-pink {
             background-color: #FF00FF !important;
             color: #FFFFFF
         }
 
         /* Brown */
         .bg-c-brwn,
-        .bg-c-brown {
+        .bg-c-brown,
+        .background-color-brown {
             background-color: #996633 !important;
             color: #FFFFFF
         }
 
         /* Cyan */
         .bg-c-c,
-        .bg-c-cyan {
+        .bg-c-cyan,
+        .background-color-cyan {
             background-color: #00FFCC !important;
             color: #000000
         }
 
         /* Dark Blue */
         .bg-c-darkblue,
-        .bg-c-dkb {
+        .bg-c-dkb,
+        .background-color-darkblue {
             background-color: #000078 !important;
             color: #000000
         }
@@ -3604,7 +3875,9 @@ xmp {
         /* Dark Grey */
         .bg-c-darkgray,
         .bg-c-darkgrey,
-        .bg-c-dkgry {
+        .bg-c-dkgry,
+        .background-color-darkgray,
+        .background-color-darkgrey {
             background-color: #555555 !important;
             color: #000000
         }
@@ -3613,7 +3886,9 @@ xmp {
         .bg-c-darkgreen,
         .bg-c-dkg,
         .bg-c-dkgrn,
-        .bg-c-marsh {
+        .bg-c-marsh,
+        .background-color-darkgreen,
+        .background-color-marsh {
             background-color: #336600 !important;
             color: #FFFFFF
         }
@@ -3621,7 +3896,9 @@ xmp {
         /* Dark Red */
         .bg-c-darkred,
         .bg-c-dkr,
-        .bg-c-wine {
+        .bg-c-wine,
+        .background-color-darkred,
+        .background-color-wine {
             background-color: #780000 !important;
             color: #FFFFFF
         }
@@ -3629,34 +3906,40 @@ xmp {
         /* Whitish-Gray */
         .bg-c-egg,
         .bg-c-whtesmk,
-        .bg-c-whitesmoke {
+        .bg-c-whitesmoke,
+        .background-color-egg,
+        .background-color-whitesmoke {
             background-color: #EEEEEE !important;
             color: #000000
         }
 
         /* Forest Green */
-        .bg-c-forest {
+        .bg-c-forest,
+        .background-color-forest {
             background-color: #007800 !important;
             color: #FFFFFF
         }
 
         /* Gold */
         .bg-c-gld,
-        .bg-c-gold {
+        .bg-c-gold,
+        .background-color-gold {
            background-color: #EEEE00 !important;
            color: #000000
         }
 
         /* Granite Gray */
         .bg-c-grnte,
-        .bg-c-granite {
+        .bg-c-granite,
+        .background-color-granite {
             background-color: #E5E4E2 !important;
             color: #000000
         }
 
         /* Green */
         .bg-c-g,
-        .bg-c-green {
+        .bg-c-green,
+        .background-color-green {
             background-color: #00FF00 !important;
             color: #000000
         }
@@ -3666,7 +3949,9 @@ xmp {
         .bg-c-rg,
         .bg-c-simpson,
         .bg-c-y,
-        .bg-c-yellow {
+        .bg-c-yellow,
+        .background-color-simpson,
+        .background-color-yellow {
             background-color: #FFFF00 !important;
             color: #000000
         }
@@ -3674,7 +3959,9 @@ xmp {
         /* Gray */
         .bg-c-gray,
         .bg-c-grey,
-        .bg-c-gry {
+        .bg-c-gry,
+        .background-color-gray,
+        .background-color-grey {
             background-color: #787878 !important;
             /* --- NOTE ---
                     The "color" property could either
@@ -3684,7 +3971,8 @@ xmp {
         
         /* Hot Pink */
         .bg-c-htpnk,
-        .bg-c-hotpink {
+        .bg-c-hotpink,
+        .background-color-hotpink {
             background-color: #FF34FF !important;
             color: #FFFFFF
         }
@@ -3692,8 +3980,9 @@ xmp {
         /* --- NOTE ---
             Inherited value.
         */
-        .bg-c-inherit {
-            background-color: inherit !important;
+        .bg-c-inherit,
+        .background-color-inherit {
+            background-color: inherit !important
             /* --- NOTE ---
                     No "color" property needed here.
             */
@@ -3701,26 +3990,30 @@ xmp {
 
         /* Indigo */
         .bg-c-indg,
-        .bg-c-indigo {
+        .bg-c-indigo,
+        .background-color-indigo {
             background-color: #3F48CC !important;
             color: #FFFFFF
         }
 
         /* Lapis Lazuli Blue */
         .bg-c-l,
-        .bg-c-lapis {
+        .bg-c-lapis,
+        .background-color-lapis {
             background-color: #0023FF !important;
             color: #FFFFFF
         }
 
         /* Light Green */
-        .bg-c-lgtg {
+        .bg-c-lgtg,
+        .background-color-lightgreen {
             background-color: #A6FFA6 !important;
             color: #000000
         }
 
         /* Lime */
-        .bg-c-lime {
+        .bg-c-lime,
+        .background-color-lime {
             background-color: #B5E61D !important;
             color: #000000
         }
@@ -3728,42 +4021,49 @@ xmp {
         /* Light Gray */
         .bg-c-lightgray,
         .bg-c-lightgrey,
-        .bg-c-lgtgry {
+        .bg-c-lgtgry,
+        .background-color-lightgray,
+        .background-color-lightgrey {
             background-color: #AAAAAA !important;
             color: #000000
         }
 
         /* Magenta */
         .bg-c-mgnt,
-        .bg-c-magenta {
+        .bg-c-magenta,
+        .background-color-magenta {
             background-color: #CC00CC !important;
             color: #FFFFFF
         }
         
         /* Navy Blue */
         .bg-c-nvy,
-        .bg-c-navy {
+        .bg-c-navy,
+        .background-color-navy {
             background-color: #342D7E !important;
             color: #FFFFFF
         }
 
         /* Olive Green */
         .bg-c-olv,
-        .bg-c-olive {
+        .bg-c-olive,
+        .background-color-olive {
             background-color: #787800 !important;
             color: #FFFFFF
         }
 
         /* Orange */
         .bg-c-orng,
-        .bg-c-orange {
+        .bg-c-orange,
+        .background-color-orange {
             background-color: #FF7800 !important;
             color: #000000
         }
 
         /* Platinum Gray */
         .bg-c-pltn,
-        .bg-c-platinum {
+        .bg-c-platinum,
+        .background-color-platinum {
             background-color: #BCC6CC !important;
             color: #000000
         }
@@ -3771,40 +4071,47 @@ xmp {
         /* Purple */
         .bg-c-purple,
         .bg-c-vlt,
-        .bg-c-violet {
+        .bg-c-violet,
+        .background-color-purple,
+        .background-color-violet {
             background-color: #7800FF !important;
             color: #FFFFFF
         }
 
         /* Red */
         .bg-c-r,
-        .bg-c-red {
+        .bg-c-red,
+        .background-color-red {
             background-color: #FF0000 !important;
             color: #FFFFFF
         }
 
         /* Rose Pink */
-        .bg-c-rose {
+        .bg-c-rose,
+        .background-color-rose {
             background-color: #FFAEC9 !important;
             color: #FFFFFF
         }
 
         /* Slate Gray*/
-        .bg-c-slate {
+        .bg-c-slate,
+        .background-color-slate {
             background-color: #646D7E !important;
             color: #FFFFFF
         }
 
         /* Teal */
         .bg-c-tl,
-        .bg-c-teal {
+        .bg-c-teal,
+        .background-color-teal {
             background-color: #00AAAA !important;
             color: #FFFFFF
         }
 
         /* Transparent */
-        .bg-c-trns {
-            background-color: transparent !important;
+        .bg-c-trns,
+        .background-color-transparent {
+            background-color: transparent !important
             /* --- NOTE ---
                     No "color" property needed here.
             */
@@ -3812,100 +4119,127 @@ xmp {
 
         /* Turquoise */
         .bg-c-trquois,
-        .bg-c-turquoise {
+        .bg-c-turquoise,
+        .background-color-turquoise {
             background-color: #00A2E8 !important;
             color: #FFFFFF
         }
 
         /*  "Violent" */
         .bg-c-vlnt,
-        .bg-c-violent {
+        .bg-c-violent,
+        .background-color-violent {
             background-color: #CC0078 !important;
             color: #FFFFFF
         }
     
     /* Background Clip Preset */
-    .bg-cl-bb {
+    .bg-cl-bb,
+    .background-clip-border-box {
         background-clip: border-box !important
     }
-    .bg-cl-cb {
+    .bg-cl-cb,
+    .background-clip-content-box {
         background-clip: content-box !important
     }
-    .bg-cl-inherit {
+    .bg-cl-inherit,
+    .background-clip-inherit {
         background-clip: inherit !important
     }
-    .bg-cl-pb {
+    .bg-cl-pb,
+    .background-clip-padding-box {
         background-clip: padding-box !important
     }
     
     /* Background Origin Preset */
-    .bg-o-bb {
+    .bg-o-bb,
+    .background-clip-border-box {
         background-origin: border-box !important
     }
-    .bg-o-cb {
+    .bg-o-cb,
+    .background-clip-content-box {
         background-origin: content-box !important
     }
-    .bg-o-inherit {
+    .bg-o-inherit,
+    .background-clip-inherit {
         background-origin: inherit !important
     }
-    .bg-o-pb {
+    .bg-o-pb,
+    .background-clip-padding-box {
         background-origin: padding-box !important
     }
     
     /* Background Position Preset */
-    .bg-p-b {
+    .bg-pos-b,
+    .background-position-bottom {
         background-position: bottom !important
     }
-    .bg-p-bl {
+    .bg-pos-bl,
+    .background-position-bottom-left {
         background-position: bottom left !important
     }
-    .bg-p-br {
+    .bg-pos-br,
+    .background-position-bottom-right {
         background-position: bottom right !important
     }
-    .bg-p-c {
+    .bg-pos-c,
+    .background-position-center {
         background-position: center !important
     }
-    .bg-p-l {
+    .bg-pos-l,
+    .background-position-left {
         background-position: left !important
     }
-    .bg-p-r {
+    .bg-pos-r,
+    .background-position-right {
         background-position: right !important
     }
-    .bg-p-t {
+    .bg-pos-t,
+    .background-position-top {
         background-position: top !important
     }
-    .bg-p-tl {
+    .bg-pos-tl,
+    .background-position-top-left {
         background-position: top left !important
     }
-    .bg-p-tr {
+    .bg-pos-tr,
+    .background-position-top-right {
         background-position: top right !important
     }
     
     /* Background Repeat Preset */
-    .bg-r-nor {
+    .bg-r-nor,
+    .background-repeat-no-repeat {
         background-repeat: no-repeat !important
     }
-    .bg-r-rx {
+    .bg-r-rx,
+    .background-repeat-repeat-x {
         background-repeat: repeat-x !important
     }
-    .bg-r-ry {
+    .bg-r-ry,
+    .background-repeat-repeat-y {
         background-repeat: repeat-y !important
     }
-    .bg-r-r {
+    .bg-r-r,
+    .background-repeat-repeat {
         background-repeat: repeat !important
     }
     
     /* Background Size Preset */
-    .bg-s-cntn {
+    .bg-s-cntn,
+    .background-size-contain {
         background-size: contain !important
     }
-    .bg-s-cvr {
+    .bg-s-cvr,
+    .background-size-cover {
         background-size: cover !important
     }
-    .bg-s-inherit {
+    .bg-s-inherit,
+    .background-size-inherit {
         background-size: inherit !important
     }
-    .bg-s-100 {
+    .bg-s-100,
+    .background-size-100 {
         background-size: 100% !important
     }
 
@@ -3915,10 +4249,12 @@ xmp {
             This Class Set is based on material depth
                 (shadow on the main and center axis from the Z-axis).
     */
-        .bx-s-inherit {
+        .bx-s-inherit,
+        .box-shadow-inherit {
             box-shadow: inherit !important
         }
-        .bx-s-none {
+        .bx-s-none,
+        .box-shadow-none {
             box-shadow: none !important
         }
 
@@ -4116,32 +4452,38 @@ xmp {
 */
     /* Aqua */
     .crt-c-aq,
-    .crt-c-aqua {
+    .crt-c-aqua,
+    .caret-color-aqua {
         caret-color: #0078FF !important
     }
 
     /* Beige */
     .crt-c-bge,
-    .crt-c-beige {
+    .crt-c-beige,
+    .caret-color-beige {
         caret-color: #F9ECC4 !important
     }
 
     /* Black */
     .crt-c-black,
-    .crt-c-k {
+    .crt-c-k,
+    .caret-color-black {
         caret-color: #000000 !important
     }
 
     /* Blood Red */
     .crt-c-bld,
     .crt-c-blood,
-    .crt-c-blud {
+    .crt-c-blud,
+    .caret-color-blood,
+    .caret-color-blud {
         caret-color: #CC0000 !important
     }
 
     /* Blue */
     .crt-c-b,
-    .crt-c-blue {
+    .crt-c-blue,
+    .caret-color-blue {
         caret-color: #0000FF !important
     }
 
@@ -4150,7 +4492,9 @@ xmp {
     .crt-c-gb,
     .crt-c-lgtb,
     .crt-c-skyb,
-    .crt-c-skyblue {
+    .crt-c-skyblue,
+    .caret-color-lightblue,
+    .caret-color-skyblue {
         caret-color: #00FFFF !important
     }
 
@@ -4186,7 +4530,8 @@ xmp {
     .crt-c-ykcm,
     .crt-c-ykmc,
     .crt-c-ymck,
-    .crt-c-ymkc {
+    .crt-c-ymkc,
+    .caret-color-white {
         caret-color: #FFFFFF !important
     }
 
@@ -4195,32 +4540,39 @@ xmp {
     .crt-c-lgtr,
     .crt-c-m,
     .crt-c-pink,
-    .crt-c-rb {
+    .crt-c-rb,
+    .caret-color-lightred,
+    .caret-color-pink {
         caret-color: #FF00FF !important
     }
 
     /* Brown */
     .crt-c-brwn,
-    .crt-c-brown {
+    .crt-c-brown,
+    .caret-color-brown {
         caret-color: #996633 !important
     }
 
     /* Cyan */
     .crt-c-c,
-    .crt-c-cyan {
+    .crt-c-cyan,
+    .caret-color-cyan {
         caret-color: #00FFCC !important
     }
 
     /* Dark Blue */
     .crt-c-darkblue,
-    .crt-c-dkb {
+    .crt-c-dkb,
+    .caret-color-darkblue {
         caret-color: #000078 !important
     }
 
     /* Dark Grey */
     .crt-c-darkgray,
     .crt-c-darkgrey,
-    .crt-c-dkgry {
+    .crt-c-dkgry,
+    .caret-color-darkgray,
+    .caret-color-darkgrey {
         caret-color: #555555 !important
     }
 
@@ -4228,44 +4580,54 @@ xmp {
     .crt-c-darkgreen,
     .crt-c-dkg,
     .crt-c-dkgrn,
-    .crt-c-marsh {
+    .crt-c-marsh,
+    .caret-color-darkgreen,
+    .caret-color-marsh {
         caret-color: #336600 !important
     }
 
     /* Dark Red */
     .crt-c-darkred,
     .crt-c-dkr,
-    .crt-c-wine {
+    .crt-c-wine,
+    .caret-color-darkred,
+    .caret-color-wine {
         caret-color: #780000 !important
     }
 
     /* Whitish-Gray */
     .crt-c-egg,
     .crt-c-whtesmk,
-    .crt-c-whitesmoke {
+    .crt-c-whitesmoke, 
+    .caret-color-egg, 
+    .caret-color-whitesmoke {
         caret-color: #EEEEEE !important
     }
 
     /* Forest Green */
-    .crt-c-forest {
+    .crt-c-forest,
+    .caret-color-forest {
         caret-color: #007800 !important
     }
 
     /* Gold */
     .crt-c-gld,
-    .crt-c-gold {
+    .crt-c-gold,
+    .caret-color-gold {
        caret-color: #EEEE00 !important
     }
 
     /* Granite Gray */
     .crt-c-grnte,
-    .crt-c-granite {
+    .crt-c-granite,
+    .caret-color-granite {
         caret-color: #E5E4E2 !important
     }
 
     /* Green */
     .crt-c-g,
-    .crt-c-green {
+    .crt-c-green,
+    .caret-color-green {
         caret-color: #00FF00 !important
     }
 
@@ -4274,181 +4636,218 @@ xmp {
     .crt-c-rg,
     .crt-c-simpson,
     .crt-c-y,
-    .crt-c-yellow {
+    .crt-c-yellow,
+    .caret-color-simpson,
+    .caret-color-yellow {
         caret-color: #FFFF00 !important
     }
 
     /* Gray */
     .crt-c-gray,
     .crt-c-grey,
-    .crt-c-gry {
+    .crt-c-gry,
+    .caret-color-gray,
+    .caret-color-grey {
         caret-color: #787878 !important
     }
 
     /* Hot Pink */
     .crt-c-htpnk,
-    .crt-c-hotpink {
+    .crt-c-hotpink,
+    .caret-color-hotpink {
         caret-color: #FF34FF !important
     }
 
     /* --- NOTE ---
         Inherited value.
     */
-    .crt-c-inherit {
+    .crt-c-inherit,
+    .caret-color-inherit {
         caret-color: inherit !important
     }
 
     /* Indigo */
     .crt-c-indg,
-    .crt-c-indigo {
+    .crt-c-indigo,
+    .caret-color-indigo {
         caret-color: #3F48CC !important
     }
 
     /* Lapis Lazuli Blue */
     .crt-c-l,
-    .crt-c-lapis {
+    .crt-c-lapis,
+    .caret-color-lapis {
         caret-color: #0023FF !important
     }
 
     /* Light Green */
-    .crt-c-lgtg {
+    .crt-c-lgtg,
+    .caret-color-lightgreen {
         caret-color: #A6FFA6 !important
     }
 
     /* Lime */
-    .crt-c-lime {
+    .crt-c-lime,
+    .caret-color-lime {
         caret-color: #B5E61D !important
     }
 
     /* Light Gray */
     .crt-c-lightgray,
     .crt-c-lightgrey,
-    .crt-c-lgtgry {
+    .crt-c-lgtgry,
+    .caret-color-lightgray,
+    .caret-color-lightgrey {
         caret-color: #AAAAAA !important
     }
 
     /* Magenta */
     .crt-c-mgnt,
-    .crt-c-magenta {
+    .crt-c-magenta,
+    .caret-color-magenta {
         caret-color: #CC00CC !important
     }
 
     /* Navy Blue */
     .crt-c-nvy,
-    .crt-c-navy {
+    .crt-c-navy,
+    .caret-color-navy {
         caret-color: #342D7E !important
     }
 
     /* Olive Green */
     .crt-c-olv,
-    .crt-c-olive {
+    .crt-c-olive,
+    .caret-color-olive {
         caret-color: #787800 !important
     }
 
     /* Orange */
     .crt-c-orng,
-    .crt-c-orange {
+    .crt-c-orange,
+    .caret-color-orange {
         caret-color: #FF7800 !important
     }
 
     /* Platinum Gray */
     .crt-c-pltn,
-    .crt-c-platinum {
+    .crt-c-platinum,
+    .caret-color-platinum {
         caret-color: #BCC6CC !important
     }
 
     /* Purple */
     .crt-c-purple,
     .crt-c-vlt,
-    .crt-c-violet {
+    .crt-c-violet,
+    .caret-color-purple,
+    .caret-color-violet {
         caret-color: #7800FF !important
     }
 
     /* Red */
     .crt-c-r,
-    .crt-c-red {
+    .crt-c-red,
+    .caret-color-red {
         caret-color: #FF0000 !important
     }
 
     /* Rose Red */
-    .crt-c-rose {
+    .crt-c-rose,
+    .caret-color-rose {
         caret-color: #FFAEC9 !important
     }
 
     /* Slate Gray*/
-    .crt-c-slate {
+    .crt-c-slate,
+    .caret-color-slate {
         caret-color: #646D7E !important
     }
 
     /* Teal */
     .crt-c-tl,
-    .crt-c-teal {
+    .crt-c-teal,
+    .caret-color-teal {
         caret-color: #00AAAA !important
     }
 
     /* Transparent */
-    .crt-c-trns {
+    .crt-c-trns,
+    .caret-color-transparent {
         caret-color: transparent !important
     }
 
     /* Turquoise */
     .crt-c-trquois,
-    .crt-c-turquoise {
+    .crt-c-turquoise,
+    .caret-color-turquoise {
         caret-color: #00A2E8 !important
     }
 
     /*  "Violent" */
     .crt-c-vlnt,
-    .crt-c-violent {
+    .crt-c-violent,
+    .caret-color-violent {
         caret-color: #FF7800 !important
     }
 
 /* Clear Preset */
-.clr-b {
+.clr-b,
+.clear-both {
     clear: both !important
 }
-.clr-l {
+.clr-l,
+.clear-left {
     clear: left !important
 }
-.clr-inherit {
+.clr-inherit,
+.clear-inherit {
     clear: inherit !important
 }
-.clr-none {
+.clr-none,
+.clear-none {
     clear: none !important
 }
-.clr-r {
+.clr-r,
+.clear-right {
     clear: right !important
 }
 
 /* Color Preset */
     /* Aqua */
     .c-aq,
-    .c-aqua {
+    .c-aqua,
+    .color-aqua {
         color: #0078FF !important
     }
 
     /* Beige */
     .c-bge,
-    .c-beige {
+    .c-beige,
+    .color-beige {
         color: #F9ECC4 !important
     }
 
     /* Black */
     .c-black,
-    .c-k {
+    .c-k,
+    .color-black {
         color: #000000 !important
     }
 
     /* Blood Red */
     .c-bld,
     .c-blood,
-    .c-blud {
+    .c-blud,
+    .color-blood,
+    .color-blud {
         color: #CC0000 !important
     }
 
     /* Blue */
     .c-b,
-    .c-blue {
+    .c-blue,
+    .color-blue {
         color: #0000FF !important
     }
 
@@ -4457,7 +4856,9 @@ xmp {
     .c-gb,
     .c-lgtb,
     .c-skyb,
-    .c-skyblue {
+    .c-skyblue,
+    .color-lightblue,
+    .color-skyblue {
         color: #00FFFF !important
     }
 
@@ -4493,7 +4894,8 @@ xmp {
     .c-ykcm,
     .c-ykmc,
     .c-ymck,
-    .c-ymkc {
+    .c-ymkc,
+    .color-white {
         color: #FFFFFF !important
     }
 
@@ -4502,32 +4904,39 @@ xmp {
     .c-lgtr,
     .c-m,
     .c-pink,
-    .c-rb {
+    .c-rb,
+    .color-lightred,
+    .color-pink {
         color: #FF00FF !important
     }
 
     /* Brown */
     .c-brwn,
-    .c-brown {
+    .c-brown,
+    .color-brown {
         color: #996633 !important
     }
 
     /* Cyan */
     .c-c,
-    .c-cyan {
+    .c-cyan,
+    .color-cyan {
         color: #00FFCC !important
     }
 
     /* Dark Blue */
     .c-darkblue,
-    .c-dkb {
+    .c-dkb,
+    .color-darkblue {
         color: #000078 !important
     }
 
     /* Dark Grey */
     .c-darkgray,
     .c-darkgrey,
-    .c-dkgry {
+    .c-dkgry,
+    .color-darkgray,
+    .color-darkgrey {
         color: #555555 !important
     }
 
@@ -4535,44 +4944,53 @@ xmp {
     .c-darkgreen,
     .c-dkg,
     .c-dkgrn,
-    .c-marsh {
+    .c-marsh,
+    .color-darkgreen,
+    .color-marsh {
         color: #336600 !important
     }
 
     /* Dark Red */
     .c-darkred,
     .c-dkr,
-    .c-wine {
+    .c-wine,
+    .color-darkred,
+    .color-wine {
         color: #780000 !important
     }
 
     /* Whitish-Gray */
     .c-egg,
     .c-whtesmk,
-    .c-whitesmoke {
+    .c-whitesmoke,
+    .color-whitesmoke {
         color: #EEEEEE !important
     }
 
     /* Forest Green */
-    .c-forest {
+    .c-forest,
+    .color-forest {
         color: #007800 !important
     }
 
     /* Gold */
     .c-gld,
-    .c-gold {
+    .c-gold,
+    .color-gold {
        color: #EEEE00 !important
     }
 
     /* Granite Gray */
     .c-grnte,
-    .c-granite {
+    .c-granite,
+    .color-granite {
         color: #E5E4E2 !important
     }
 
     /* Green */
     .c-g,
-    .c-green {
+    .c-green,
+    .color-green {
         color: #00FF00 !important
     }
 
@@ -4581,338 +4999,428 @@ xmp {
     .c-rg,
     .c-simpson,
     .c-y,
-    .c-yellow {
+    .c-yellow,
+    .color-yellow {
         color: #FFFF00 !important
     }
 
     /* Gray */
     .c-gray,
     .c-grey,
-    .c-gry {
+    .c-gry,
+    .color-gray,
+    .color-grey {
         color: #787878 !important
     }
 
     /* Hot Pink */
     .c-htpnk,
-    .c-hotpink {
+    .c-hotpink,
+    .color-hotpink {
         color: #FF34FF !important
     }
 
     /* --- NOTE ---
         Inherited value.
     */
-    .c-inherit {
+    .c-inherit,
+    .color-inherit {
         color: inherit !important
     }
 
     /* Indigo */
     .c-indg,
-    .c-indigo {
+    .c-indigo,
+    .color-indigo {
         color: #3F48CC !important
     }
 
     /* Lapis Lazuli Blue */
     .c-l,
-    .c-lapis {
+    .c-lapis,
+    .color-lapis {
         color: #0023FF !important
     }
 
     /* Light Green */
-    .c-lgtg {
+    .c-lgtg,
+    .color-lightgreen {
         color: #A6FFA6 !important
     }
 
     /* Lime */
-    .c-lime {
+    .c-lime,
+    .color-lime {
         color: #B5E61D !important
     }
 
     /* Light Gray */
     .c-lightgray,
     .c-lightgrey,
-    .c-lgtgry {
+    .c-lgtgry,
+    .color-lightgray,
+    .color-lightgrey {
         color: #AAAAAA !important
     }
 
     /* Magenta */
     .c-mgnt,
-    .c-magenta {
+    .c-magenta,
+    .color-magenta {
         color: #CC00CC !important
     }
 
     /* Navy Blue */
     .c-nvy,
-    .c-navy {
+    .c-navy,
+    .color-navy {
         color: #342D7E !important
     }
 
     /* Olive Green */
     .c-olv,
-    .c-olive {
+    .c-olive,
+    .color-olive {
         color: #787800 !important
     }
 
     /* Orange */
     .c-orng,
-    .c-orange {
+    .c-orange,
+    .color-orange {
         color: #FF7800 !important
     }
 
     /* Platinum Gray */
     .c-pltn,
-    .c-platinum {
+    .c-platinum,
+    .color-platinum {
         color: #BCC6CC !important
     }
 
     /* Purple */
     .c-purple,
     .c-vlt,
-    .c-violet {
+    .c-violet,
+    .color-purple,
+    .color-violet {
         color: #7800FF !important
     }
 
     /* Red */
     .c-r,
-    .c-red {
+    .c-red,
+    .color-red {
         color: #FF0000 !important
     }
 
     /* Rose Red */
-    .c-rose {
+    .c-rose,
+    .color-rose {
         color: #FFAEC9 !important
     }
 
     /* Slate Gray*/
-    .c-slate {
+    .c-slate,
+    .color-slate {
         color: #646D7E !important
     }
 
     /* Teal */
     .c-tl,
-    .c-teal {
+    .c-teal,
+    .color-teal {
         color: #00AAAA !important
     }
 
     /* Transparent */
-    .c-trns {
+    .c-trns,
+    .color-transparent {
         color: transparent !important
     }
 
     /* Turquoise */
     .c-trquois,
-    .c-turquoise {
+    .c-turquoise,
+    .color-turquoise {
         color: #00A2E8 !important
     }
 
     /*  "Violent" */
     .c-vlnt,
-    .c-violent {
+    .c-violent,
+    .color-violent {
         color: #FF7800 !important
     }
 
 /* Direction Preset */
-.dir-inherit {
+.dir-inherit,
+.direction-inherit {
     direction: inherit !important
 }
-.dir-l {
+.dir-l,
+.direction-ltr {
     direction: ltr !important
 }
-.dir-r {
+.dir-r,
+.direction-rtl {
     direction: rtl !important
 }
 
 /* Display Preset */
-.d-b {
+.d-b,
+.display-block {
     display: block !important
 }
-.d-f {
+.d-f,
+.display-flex {
     display: flex !important
 }
-.d-g {
+.d-g,
+.display-grid {
     display: grid !important
 }
-.d-i {
+.d-i,
+.display-inline {
     display: inline !important
 }
-.d-ib {
+.d-ib,
+.display-inline-block {
     display: inline-block !important
 }
-.d-if {
+.d-if,
+.display-inline-flex {
     display: inline-flex !important
 }
-.d-ig {
+.d-ig,
+.display-inline-grid {
     display: inline-grid !important
 }
-.d-inherit {
+.d-inherit,
+.display-inherit {
     display: inherit !important
 }
-.d-it {
+.d-it,
+.display-inline-table {
     display: inline-table !important
 }
-.d-li {
+.d-li,
+.display-list-item {
     display: list-item !important
 }
-.d-none {
+.d-none,
+.display-none {
     display: none !important
 }
-.d-r {
+.d-r,
+.display-ruby {
     display: ruby !important
 }
-.d-rb {
+.d-rb,
+.display-ruby-base {
     display: ruby-base !important
 }
-.d-rbc {
+.d-rbc,
+.display-ruby-base-container {
     display: ruby-base-container !important
 }
-.d-rt {
+.d-rt,
+.display-ruby-text {
     display: ruby-text !important
 }
-.d-rtc {
+.d-rtc,
+.display-ruby-text-container {
     display: ruby-text-container !important
 }
-.d-t {
+.d-t,
+.display-table {
     display: table !important
 }
 .d-tcap,
-.d-th {
+.d-th,
+.display-table-caption,
+.display-table-head {
     display: table-caption !important
 }
-.d-tcel {
+.d-tcel,
+.display-table-cell {
     display: table-cell !important
 }
-.d-tcol {
+.d-tcol,
+.display-table-column {
     display: table-column !important
 }
-.d-tcolg {
+.d-tcolg,
+.display-table-column-group {
     display: table-column-group !important
 }
-.d-tr {
+.d-tr,
+.display-table-row {
     display: table-row !important
 }
-.d-tfg {
+.d-tfg,
+.display-table-footer-group {
     display: table-footer-group !important
 }
-.d-thg {
+.d-thg,
+.display-table-header-group {
     display: table-header-group !important
 }
-.d-trg {
+.d-trg,
+.display-table-row-group {
     display: table-row-group !important
 }
 
 /* Float Preset */
-.flt-l {
+.flt-l,
+.float-left {
     float: left !important
 }
-.flt-inherit {
+.flt-inherit,
+.float-inherit {
     float: inherit !important
 }
-.flt-none {
+.flt-none,
+.float-none {
     float: none !important
 }
-.flt-r {
+.flt-r,
+.float-right {
     float: right !important
 }
 
 /* Flex Basis Preset */
-.flx-b-auto {
+.flx-b-auto,
+.flex-basis-auto {
     flex-basis: auto !important
 }
-.flx-b-inherit {
+.flx-b-inherit,
+.flex-basis-inherit {
     flex-basis: inherit !important
 }
-.flx-b-5 {
+.flx-b-5,
+.flex-basis-5 {
     flex-basis: 5% !important
 }
-.flx-b-12 {
+.flx-b-12,
+.flex-basis-12,
+.flex-basis-12-5 {
     flex-basis: 12.5% !important
 }
-.flx-b-20 {
+.flx-b-20,
+.flex-basis-20 {
     flex-basis: 20% !important
 }
-.flx-b-25 {
+.flx-b-25,
+.flex-basis-25 {
     flex-basis: 25% !important
 }
-.flx-b-30 {
+.flx-b-30,
+.flex-basis-30 {
     flex-basis: 30% !important
 }
-.flx-b-33 {
+.flx-b-33,
+.flex-basis-33,
+.flex-basis-33-3 {
     flex-basis: 33.3% !important
 }
-.flx-b-40 {
+.flx-b-40,
+.flex-basis-40 {
     flex-basis: 40% !important
 }
-.flx-b-50 {
+.flx-b-50,
+.flex-basis-50 {
     flex-basis: 50% !important
 }
-.flx-b-60 {
+.flx-b-60,
+.flex-basis-60 {
     flex-basis: 60% !important
 }
-.flx-b-66 {
+.flx-b-66,
+.flex-basis-66,
+.flex-basis-66-6 {
     flex-basis: 66.6% !important
 }
-.flx-b-70 {
+.flx-b-70,
+.flex-basis-70 {
     flex-basis: 70% !important
 }
-.flx-b-75 {
+.flx-b-75,
+.flex-basis-75 {
     flex-basis: 75% !important
 }
-.flx-b-80 {
+.flx-b-80,
+.flex-basis-80 {
     flex-basis: 80% !important
 }
-.flx-b-82 {
+.flx-b-82,
+.flex-basis-82,
+.flex-basis-82-5 {
     flex-basis: 82.5% !important
 }
-.flx-b-90 {
+.flx-b-90,
+.flex-basis-90 {
     flex-basis: 90% !important
 }
-.flx-b-100 {
+.flx-b-100,
+.flex-basis-100 {
     flex-basis: 100% !important
 }
 
 /* Flex Direction Preset */
-.flx-dir-c {
+.flx-dir-c,
+.flex-direction-column {
     flex-direction: column !important
 }
-.flx-dir-cr {
+.flx-dir-cr,
+.flex-direction-column-reverse {
     flex-direction: column-reverse !important
 }
-.flx-dir-inherit {
+.flx-dir-inherit,
+.flex-direction-inherit {
     flex-direction: inherit !important
 }
-.flx-dir-r {
+.flx-dir-r,
+.flex-direction-row {
     flex-direction: row !important
 }
-.flx-dir-rr {
+.flx-dir-rr,
+.flex-direction-row-reverse {
     flex-direction: row-reverse !important
 }
 
 /* Font Preset */
     /* Font Family Preset */
-    .fnt-f-c {
+    .fnt-f-c,
+    .font-family-cursive {
         /* --- NOTE ---
                 Font face is cursive.
         */
         font-family: cursive !important
     }
-    .fnt-f-f {
+    .fnt-f-f,
+    .font-family-fantasy {
         /* --- NOTE ---
                 Font face is fantasy.
         */
         font-family: "Comic Sans MS", fantasy !important
     }
-    .fnt-f-m {
+    .fnt-f-m,
+    .font-family-monospace {
         /* --- NOTE ---
                 Font face is monospace.
         */
         font-family: "Lucida Console", monospace, monospace !important
     }
-    .fnt-f-s {
+    .fnt-f-s,
+    .font-family-serif {
         /* --- NOTE ---
                 Font face is serif.
         */
         font-family: "Times New Roman", serif !important
     }
-    .fnt-f-ss {
+    .fnt-f-ss,
+    .font-family-sans-serif {
         /* --- NOTE ---
                 Font face is sans-serif.
         */
@@ -4920,1168 +5428,1532 @@ xmp {
     }
 
     /* Font Size Preset */
-    .fnt-sz-l {
+    .fnt-sz-l,
+    .font-size-large {
         font-size: large !important
     }
-    .fnt-sz-ll {
+    .fnt-sz-ll,
+    .font-size-larger {
         font-size: larger !important
     }
-    .fnt-sz-inherit {
+    .fnt-sz-inherit,
+    .font-size-inherit {
         font-size: inherit !important
     }
-    .fnt-sz-initial {
+    .fnt-sz-initial,
+    .font-size-initial {
         font-size: initial !important
     }
-    .fnt-sz-m {
+    .fnt-sz-m,
+    .font-size-medium {
         font-size: medium !important
     }
-    .fnt-sz-s {
+    .fnt-sz-s,
+    .font-size-small {
         font-size: small !important
     }
-    .fnt-sz-ss {
+    .fnt-sz-ss,
+    .font-size-smaller {
         font-size: smaller !important
     }
-    .fnt-sz-xl {
+    .fnt-sz-xl,
+    .font-size-x-large {
         font-size: x-large !important
     }
-    .fnt-sz-xxl {
+    .fnt-sz-xxl,
+    .font-size-xx-large {
         font-size: xx-large !important
     }
-    .fnt-sz-xxs {
+    .fnt-sz-xxs,
+    .font-size-xx-small {
         font-size: xx-small !important
     }
 
     /* Font Style Preset */
-    .fnt-styl-inherit {
+    .fnt-styl-inherit,
+    .font-style-inherit {
         font-style: inherit !important
     }
-    .fnt-styl-initial {
+    .fnt-styl-initial,
+    .font-style-initial {
         font-style: initial !important
     }
-    .fnt-styl-i {
+    .fnt-styl-i,
+    .font-style-italic {
         font-style: italic !important
     }
-    .fnt-styl-n {
+    .fnt-styl-n,
+    .font-style-normal {
         font-style: normal !important
     }
-    .fnt-styl-o {
+    .fnt-styl-o,
+    .font-style-oblique {
         font-style: oblique !important
     }
 
     /* Font Weight Preset */
-    .fnt-w-inherit {
+    .fnt-w-inherit,
+    .font-weight-inherit {
         font-weight: inherit !important
     }
-    .fnt-w-initial {
+    .fnt-w-initial,
+    .font-weight-initial {
         font-weight: initial !important
     }
     .fnt-w-l,
-    .fnt-w-ll {
+    .fnt-w-ll,
+    .font-weight-lighter {
         font-weight: lighter !important
     }
-    .fnt-w-n {
+    .fnt-w-n,
+    .font-weight-normal {
         font-weight: normal !important
     }
-    .fnt-w-b {
+    .fnt-w-b,
+    .font-weight-bold {
         font-weight: bold !important
     }
-    .fnt-w-bb {
+    .fnt-w-bb,
+    .font-weight-bolder {
         font-weight: bolder !important
     }
         /* Feather-light Text */
         .fnt-w-1,
         .feather,
-        .feather *:not(b):not(strong):not([b]) {
+        .feather *:not(b):not(strong):not([b]),
+        .font-weight-100 {
             font-weight: 100 !important
         }
-    .fnt-w-2 {
+    .fnt-w-2,
+    .font-weight-200 {
         font-weight: 200 !important
     }
-    .fnt-w-3 {
+    .fnt-w-3,
+    .font-weight-300 {
         font-weight: 300 !important
     }
-    .fnt-w-4 {
+    .fnt-w-4,
+    .font-weight-400 {
         font-weight: 400 !important
     }
-    .fnt-w-5 {
+    .fnt-w-5,
+    .font-weight-500 {
         font-weight: 500 !important
     }
-    .fnt-w-6 {
+    .fnt-w-6,
+    .font-weight-600 {
         font-weight: 600 !important
     }
-    .fnt-w-7 {
+    .fnt-w-7,
+    .font-weight-700 {
         font-weight: 700 !important
     }
-    .fnt-w-8 {
+    .fnt-w-8,
+    .font-weight-800 {
         font-weight: 800 !important
     }
-    .fnt-w-9 {
+    .fnt-w-9,
+    .font-weight-900 {
         font-weight: 900 !important
     }
 
 /* Grid Preset */
     /* Grid Auto Preset */
         /* Grid Auto Columns Preset */
-        .g-a-c-inherit {
+        .g-a-c-inherit,
+        .grid-auto-columns-inherit {
             grid-auto-columns: inherit !important
         }
 
         /* Grid Auto Rows Preset */
-        .g-a-r-inherit {
+        .g-a-r-inherit,
+        .grid-auto-rows-inherit {
             grid-auto-rows: inherit !important
         }
 
     /* Grid Column Gap Preset */
-    .g-c-g-inherit {
+    .g-c-g-inherit,
+    .grid-column-gap-inherit {
         grid-column-gap: inherit !important
     }
 
     /* Grid Row Gap Preset */
-    .g-r-g-inherit {
+    .g-r-g-inherit,
+    .grid-row-gap-inherit {
         grid-row-gap: inherit !important
     }
 
     /* Grid Template Preset */
         /* Grid Template Areas Preset */
-        .g-t-a-inherit {
+        .g-t-a-inherit,
+        .grid-template-areas-inherit {
             grid-template-areas: inherit !important
         }
 
         /* Grid Template Columns Preset */
-        .g-t-c-inherit {
+        .g-t-c-inherit,
+        .grid-template-columns-inherit {
             grid-template-columns: inherit !important
         }
 
         /* Grid Template Rows Preset */
-        .g-t-r-inherit {
+        .g-t-r-inherit,
+        .grid-template-rows-inherit {
             grid-template-rows: inherit !important
         }
 
 /* Height Preset */
-.h-auto {
+.h-auto,
+.height-auto {
     height: auto !important
 }
-.h-inherit {
+.h-inherit,
+.height-inherit {
     height: inherit !important
 }
-.h-0 {
+.h-0,
+.height-0 {
     height: 0 !important
 }
-.h-5 {
+.h-5,
+.height-5 {
     height: 5% !important
 }
-.h-12 {
+.h-12,
+.height-12-5 {
     height: 12.5% !important
 }
-.h-20 {
+.h-20,
+.height-20 {
     height: 20% !important
 }
-.h-25 {
+.h-25,
+.height-25 {
     height: 25% !important
 }
-.h-30 {
+.h-30,
+.height-30 {
     height: 30% !important
 }
-.h-33 {
+.h-33,
+.height-33,
+.height-33-3 {
     height: 33.3% !important
 }
-.h-40 {
+.h-40,
+.height-40 {
     height: 40% !important
 }
-.h-50 {
+.h-50,
+.height-50 {
     height: 50% !important
 }
-.h-60 {
+.h-60,
+.height-60 {
     height: 60% !important
 }
-.h-66 {
+.h-66,
+.height-66,
+.height-66-6 {
     height: 66.6% !important
 }
-.h-70 {
+.h-70,
+.height-70 {
     height: 70% !important
 }
-.h-75 {
+.h-75,
+.height-75 {
     height: 75% !important
 }
-.h-80 {
+.h-80,
+.height-80 {
     height: 80% !important
 }
-.h-82 {
+.h-82,
+.height-82,
+.height-82-5 {
     height: 82.5% !important
 }
-.h-90 {
+.h-90,
+.height-90 {
     height: 90% !important
 }
-.h-100 {
+.h-100,
+.height-100 {
     height: 100% !important
 }
 
 /* Justify Preset */
     /* Justify Content Preset */
-    .j-c-c {
+    .j-c-c,
+    .justify-content-center {
         justify-content: center !important
     }
-    .j-c-inherit {
+    .j-c-inherit,
+    .justify-content-inherit {
         justify-content: inherit !important
     }
 
     /* Justify Items Preset */
-    .j-i-inherit {
+    .j-i-inherit,
+    .justify-items-inherit {
         justify-items: inherit !important
     }
 
     /* Justify Self Preset */
-    .j-s-inherit {
+    .j-s-inherit,
+    .justify-self-inherit {
         justify-self: inherit !important
     }
 
 /* Left Preset */
-.l-0 {
+.l-0,
+.left-0 {
     left: 0 !important
 }
 
 /* List Style Preset */
-.l-s-inherit {
+.l-s-inherit,
+.list-style-inherit {
     list-style: inherit !important
 }
-.l-s-none {
+.l-s-none,
+.list-style-none {
     list-style: none !important
 }
     /* List Style Position Preset */
-    .l-s-p-inherit {
+    .l-s-p-inherit,
+    .list-style-position-inherit {
         list-style-position: inherit !important
     }
-    .l-s-p-initial {
+    .l-s-p-initial,
+    .list-style-position-initial {
         list-style-position: initial !important
     }
-    .l-s-p-h {
+    .l-s-p-h,
+    .list-style-position-hanging {
         list-style-position: hanging !important
     }
-    .l-s-p-i {
+    .l-s-p-i,
+    .list-style-position-inside {
         list-style-position: inside !important
     }
-    .l-s-p-o {
+    .l-s-p-o,
+    .list-style-position-outside {
         list-style-position: outside !important
     }
 
     /* List Style Type Preset */
-    .l-s-t-afar {
+    .l-s-t-afar,
+    .list-style-type-afar {
         list-style-type: afar !important
     }
-    .l-s-t-amharic {
+    .l-s-t-amharic,
+    .list-style-type-amharic {
         list-style-type: amharic !important
     }
-    .l-s-t-amharicabegede {
+    .l-s-t-amharicabegede,
+    .list-style-type-amharic-abegede {
         list-style-type: amharic-abegede !important
     }
-    .l-s-t-armenian {
+    .l-s-t-armenian,
+    .list-style-type-armenian {
         list-style-type: armenian !important
     }
-    .l-s-t-asterisks {
+    .l-s-t-asterisks,
+    .list-style-type-asterisks {
         list-style-type: asterisks !important
     }
-    .l-s-t-arabicindic {
+    .l-s-t-arabicindic,
+    .list-style-type-arabic-indic {
         list-style-type: arabic-indic !important
     }
-    .l-s-t-bengali {
+    .l-s-t-bengali,
+    .list-style-type-bengali {
         list-style-type: bengali !important
     }
-    .l-s-t-binary {
+    .l-s-t-binary,
+    .list-style-type-binary {
         list-style-type: binary !important
     }
-    .l-s-t-cambodian {
+    .l-s-t-cambodian,
+    .list-style-type-cambodian {
         list-style-type: cambodian !important
     }
-    .l-s-t-circle {
+    .l-s-t-circle,
+    .list-style-type-circle {
         list-style-type: circle !important
     }
-    .l-s-t-cjkearthlybranch {
+    .l-s-t-cjkearthlybranch,
+    .list-style-type-cjk-earthly-branch {
         list-style-type: cjk-earthly-branch !important
     }
-    .l-s-t-cjkideographic {
+    .l-s-t-cjkideographic,
+    .list-style-type-cjk-ideographic {
         list-style-type: cjk-ideographic !important
     }
-    .l-s-t-cjkheavenlystem {
+    .l-s-t-cjkheavenlystem,
+    .list-style-type-cjk-heavenly-stem {
         list-style-type: cjk-heavenly-stem !important
     }
-    .l-s-t-decimal {
+    .l-s-t-decimal,
+    .list-style-type-decimal {
         list-style-type: decimal !important
     }
-    .l-s-t-decimalleadingzero {
+    .l-s-t-decimalleadingzero,
+    .list-style-type-decimal-leading-zero {
         list-style-type: decimal-leading-zero !important
     }
-    .l-s-t-devanagari {
+    .l-s-t-devanagari,
+    .list-style-type-devanagari {
         list-style-type: devanagari !important
     }
-    .l-s-t-disc {
+    .l-s-t-disc,
+    .list-style-type-disc {
         list-style-type: disc !important
     }
-    .l-s-t-footnotes {
+    .l-s-t-footnotes,
+    .list-style-type-footnotes {
         list-style-type: footnotes !important
     }
-    .l-s-t-ethiopic {
+    .l-s-t-ethiopic,
+    .list-style-type-ethiopic {
         list-style-type: ethiopic !important
     }
-    .l-s-t-ethiopicabegede {
+    .l-s-t-ethiopicabegede,
+    .list-style-type-ethiopic-abegede {
         list-style-type: ethiopic-abegede !important
     }
-    .l-s-t-ethiopicabegedeamet {
+    .l-s-t-ethiopicabegedeamet,
+    .list-style-type-ethiopic-abegede-am-et {
         list-style-type: ethiopic-abegede-am-et !important
     }
-    .l-s-t-ethiopicabegedegez {
+    .l-s-t-ethiopicabegedegez,
+    .list-style-type-ethiopic-abegede-gez {
         list-style-type: ethiopic-abegede-gez !important
     }
-    .l-s-t-ethiopicabegedetier {
+    .l-s-t-ethiopicabegedetier,
+    .list-style-type-ethiopic-abegede-ti-er {
         list-style-type: ethiopic-abegede-ti-er !important
     }
-    .l-s-t-ethiopicabegedetiet {
+    .l-s-t-ethiopicabegedetiet,
+    .list-style-type-ethiopic-abegede-ti-et {
         list-style-type: ethiopic-abegede-ti-et !important
     }
-    .l-s-t-ethiopichalehameaaer {
+    .l-s-t-ethiopichalehameaaer,
+    .list-style-type-ethiopic-halehame-aa-er {
         list-style-type: ethiopic-halehame-aa-er !important
     }
-    .l-s-t-ethiopichalehameaaet {
+    .l-s-t-ethiopichalehameaaet,
+    .list-style-type-ethiopic-halehame-aa-et {
         list-style-type: ethiopic-halehame-aa-et !important
     }
-    .l-s-t-ethiopichalehameamet {
+    .l-s-t-ethiopichalehameamet,
+    .list-style-type-halehame-am-et {
         list-style-type: ethiopic-halehame-am-et !important
     }
-    .l-s-t-ethiopichalehamegez {
+    .l-s-t-ethiopichalehamegez,
+    .list-style-type-ethiopic-halehame-gez {
         list-style-type: ethiopic-halehame-gez !important
     }
-    .l-s-t-ethiopichalehameomet {
+    .l-s-t-ethiopichalehameomet,
+    .list-style-type-ethiopic-halehame-om-et {
         list-style-type: ethiopic-halehame-om-et !important
     }
-    .l-s-t-ethiopichalehamesidet {
+    .l-s-t-ethiopichalehamesidet,
+    .list-style-type-ethiopic-halehame-sid-et {
         list-style-type: ethiopic-halehame-sid-et !important
     }
-    .l-s-t-ethiopichalehamesoet {
+    .l-s-t-ethiopichalehamesoet,
+    .list-style-type-ethiopic-halehame-so-et {
         list-style-type: ethiopic-halehame-so-et !important
     }
-    .l-s-t-ethiopichalehametier {
+    .l-s-t-ethiopichalehametier,
+    .list-style-type-halehame-ti-er {
         list-style-type: ethiopic-halehame-ti-er !important
     }
-    .l-s-t-ethiopichalehametiet {
+    .l-s-t-ethiopichalehametiet,
+    .list-style-type-ethiopic-halehame-ti-et {
         list-style-type: ethiopic-halehame-ti-et !important
     }
-    .l-s-t-georgian {
+    .l-s-t-georgian,
+    .list-style-type-georgian {
         list-style-type: georgian !important
     }
-    .l-s-t-gujarati {
+    .l-s-t-gujarati,
+    .list-style-type-gujarati {
         list-style-type: gujarati !important
     }
-    .l-s-t-gurmukhi {
+    .l-s-t-gurmukhi,
+    .list-style-type-hangul {
         list-style-type: hangul !important
     }
-    .l-s-t-hangulconsonant {
+    .l-s-t-hangulconsonant,
+    .list-style-type-hangul-consonant {
         list-style-type: hangul-consonant !important
     }
-    .l-s-t-hebrew {
+    .l-s-t-hebrew,
+    .list-style-type-hebrew {
         list-style-type: hebrew !important
     }
-    .l-s-t-hiragana {
+    .l-s-t-hiragana,
+    .list-style-type-hiragana {
         list-style-type: hiragana !important
     }
-    .l-s-t-hiraganairoha {
+    .l-s-t-hiraganairoha,
+    .list-style-type-hiragana-iroha {
         list-style-type: hiragana-iroha !important
     }
-    .l-s-t-inherit {
+    .l-s-t-inherit,
+    .list-style-type-inherit {
         list-style-type: inherit !important
     }
-    .l-s-t-initial {
+    .l-s-t-initial,
+    .list-style-type-initial {
         list-style-type: initial !important
     }
-    .l-s-t-kannada {
+    .l-s-t-kannada,
+    .list-style-type-kannada {
         list-style-type: kannada !important
     }
-    .l-s-t-katakana {
+    .l-s-t-katakana,
+    .list-style-type-katakana {
         list-style-type: katakana !important
     }
-    .l-s-t-katakanairoha {
+    .l-s-t-katakanairoha,
+    .list-style-type-katakana-iroha {
         list-style-type: katakana-iroha !important
     }
-    .l-s-t-khmer {
+    .l-s-t-khmer,
+    .list-style-type-khmer {
         list-style-type: khmer !important
     }
-    .l-s-t-loweralpha {
+    .l-s-t-loweralpha,
+    .list-style-type-lower-alpha {
         list-style-type: lower-alpha !important
     }
-    .l-s-t-lowerarmenian {
+    .l-s-t-lowerarmenian,
+    .list-style-type-lower-armenian {
         list-style-type: lower-armenian !important
     }
-    .l-s-t-lowergreek {
+    .l-s-t-lowergreek,
+    .list-style-type-lower-greek {
         list-style-type: lower-greek !important
     }
-    .l-s-t-lowerhexadecimal {
+    .l-s-t-lowerhexadecimal,
+    .list-style-type-lower-hexadecimal {
         list-style-type: lower-hexadecimal !important
     }
-    .l-s-t-lowernorwegian {
+    .l-s-t-lowernorwegian,
+    .list-style-type-lower-norwegian {
         list-style-type: lower-norwegian !important
     }
-    .l-s-t-lowerroman {
+    .l-s-t-lowerroman,
+    .list-style-type-lower-roman {
         list-style-type: lower-roman !important
     }
-    .l-s-t-malayalam {
+    .l-s-t-malayalam,
+    .list-style-type-malayalam {
         list-style-type: malayalam !important
     }
-    .l-s-t-mongolian {
+    .l-s-t-mongolian,
+    .list-style-type-mongolian {
         list-style-type: mongolian !important
     }
-    .l-s-t-myanmar {
+    .l-s-t-myanmar,
+    .list-style-type-myanmar {
         list-style-type: myanmar !important
     }
-    .l-s-t-octal {
+    .l-s-t-octal,
+    .list-style-type-octal {
         list-style-type: octal !important
     }
-    .l-s-t-oriya {
+    .l-s-t-oriya,
+    .list-style-type-oriya {
         list-style-type: oriya !important
     }
-    .l-s-t-oromo {
+    .l-s-t-oromo,
+    .list-style-type-oromo {
         list-style-type: oromo !important
     }
-    .l-s-t-persian {
+    .l-s-t-persian,
+    .list-style-type-persian {
         list-style-type: persian !important
     }
-    .l-s-t-sidama {
+    .l-s-t-sidama,
+    .list-style-type-sidama {
         list-style-type: sidama
     }
-    .l-s-t-smartpolygon {
+    .l-s-t-smartpolygon,
+    .list-style-type-smart-polygon {
         list-style-type: smart-polygon
     }
-    .l-s-t-somali {
+    .l-s-t-somali,
+    .list-style-type-somail {
         list-style-type: somali !important
     }
-    .l-s-t-square {
+    .l-s-t-square,
+    .list-style-type-square {
         list-style-type: square !important
     }
-    .l-s-t-telugu {
+    .l-s-t-telugu,
+    .list-style-type-telugu {
         list-style-type: telugu !important
     }
-    .l-s-t-tibetan {
+    .l-s-t-tibetan,
+    .list-style-type-tibetan {
         list-style-type: tibetan !important
     }
-    .l-s-t-tigre {
+    .l-s-t-tigre,
+    .list-style-type-tigre {
         list-style-type: tigre !important
     }
-    .l-s-t-tigrinyaer {
+    .l-s-t-tigrinyaer,
+    .list-style-type-tigrinya-er {
         list-style-type: tigrinya-er !important
     }
-    .l-s-t-tigrinyaerabegede {
+    .l-s-t-tigrinyaerabegede,
+    .list-style-type-tigrinya-er-abegede {
         list-style-type: tigrinya-er-abegede !important
     }
-    .l-s-t-tigrinyaet {
+    .l-s-t-tigrinyaet,
+    .list-style-type-tigrinya-et {
         list-style-type: tigrinya-et !important
     }
-    .l-s-t-tigrinyaetabegede {
+    .l-s-t-tigrinyaetabegede,
+    .list-style-type-tigtinya-et-abegede {
         list-style-type: tigrinya-et-abegede !important
     }
-    .l-s-t-unset {
+    .l-s-t-unset,
+    .list-style-type-unset {
         list-style-type: unset !important
     }
-    .l-s-t-upperalpha {
+    .l-s-t-upperalpha,
+    .list-style-type-upper-alpha {
         list-style-type: upper-alpha !important
     }
-    .l-s-t-upperarmenian {
+    .l-s-t-upperarmenian,
+    .list-style-type-upper-armenian {
         list-style-type: upper-armenian !important
     }
-    .l-s-t-uppergreek {
+    .l-s-t-uppergreek,
+    .list-style-type-upper-greek {
         list-style-type: upper-greek !important
     }
-    .l-s-t-upperhexadecimal {
+    .l-s-t-upperhexadecimal,
+    .list-style-type-upper-hexadecimal {
         list-style-type: upper-hexadecimal !important
     }
-    .l-s-t-upperlatin {
+    .l-s-t-upperlatin,
+    .list-style-type-upper-latin {
         list-style-type: upper-latin !important
     }
-    .l-s-t-uppernorwegian {
+    .l-s-t-uppernorwegian,
+    .list-style-type-upper-norwegian {
         list-style-type: upper-norwegian !important
     }
-    .l-s-t-upperroman {
+    .l-s-t-upperroman,
+    .list-style-type-upper-roman {
         list-style-type: upper-roman !important
     }
-    .l-s-t-urdu {
+    .l-s-t-urdu,
+    .list-style-type-urdu {
         list-style-type: urdu !important
     }
 
 /* Inline Preset */
-.i-inherit {
+.i-inherit,
+.inline-inherit {
     inline: inherit !important
 }
     /* Inline Size Preset */
-    .i-s-inherit {
+    .i-s-inherit,
+    .inline-size-inherit {
         inline-size: inherit !important
     }
 
 /* Margin Preset */
-.m-auto {
+.m-auto,
+.margin-auto {
     margin: auto !important
 }
-.m-inherit {
+.m-inherit,
+.margin-inherit {
     margin: inherit !important
 }
-.m-0 {
+.m-0,
+.margin-0 {
     margin: 0 !important
 }
-.m-1 {
+.m-1,
+.margin-1 {
     margin: 1% !important
 }
-.m-2 {
+.m-2,
+.margin-2 {
     margin: 2% !important
 }
-.m-3 {
+.m-3,
+.margin-3 {
     margin: 3% !important
 }
-.m-4 {
+.m-4,
+.margin-4 {
     margin: 4% !important
 }
-.m-5 {
+.m-5,
+.margin-5 {
     margin: 5% !important
 }
-.m-6 {
+.m-6,
+.margin-6 {
     margin: 6% !important
 }
-.m-7 {
+.m-7,
+.margin-7 {
     margin: 7% !important
 }
-.m-8 {
+.m-8,
+.margin-8 {
     margin: 8% !important
 }
-.m-9 {
+.m-9,
+.margin-9 {
     margin: 9% !important
 }
-.m-10 {
+.m-10,
+.margin-10 {
     margin: 10% !important
 }
     /* Margin Block Preset */
         /* Margin Block End Preset */
-        .m-b-e-inherit {
+        .m-b-e-inherit,
+        .margin-block-end-inherit {
             margin-block-end: inherit !important
         }
 
         /* Margin Block Start Preset */
-        .m-b-s-inherit {
+        .m-b-s-inherit,
+        .margin-block-start-inherit {
             margin-block-start: inherit !important
         }
 
     /* Margin Bottom Preset */
-    .m-b-auto {
+    .m-b-auto,
+    .margin-bottom-auto {
         margin-bottom: auto !important
     }
-    .m-b-inherit {
+    .m-b-inherit,
+    .margin-bottom-inherit {
         margin-bottom: inherit !important
     }
-    .m-b-0 {
+    .m-b-0,
+    .margin-bottom-0 {
         margin-bottom: 0 !important
     }
-    .m-b-1 {
+    .m-b-1,
+    .margin-bottom-1 {
         margin-bottom: 1% !important
     }
-    .m-b-2 {
+    .m-b-2,
+    .margin-bottom-2 {
         margin-bottom: 2% !important
     }
-    .m-b-3 {
+    .m-b-3,
+    .margin-bottom-3 {
         margin-bottom: 3% !important
     }
-    .m-b-4 {
+    .m-b-4,
+    .margin-bottom-4 {
         margin-bottom: 4% !important
     }
-    .m-b-5 {
+    .m-b-5,
+    .margin-bottom-5 {
         margin-bottom: 5% !important
     }
-    .m-b-6 {
+    .m-b-6,
+    .margin-bottom-6 {
         margin-bottom: 6% !important
     }
-    .m-b-7 {
+    .m-b-7,
+    .margin-bottom-7 {
         margin-bottom: 7% !important
     }
-    .m-b-8 {
+    .m-b-8,
+    .margin-bottom-8 {
         margin-bottom: 8% !important
     }
-    .m-b-9 {
+    .m-b-9,
+    .margin-bottom-9 {
         margin-bottom: 9% !important
     }
-    .m-b-10 {
+    .m-b-10,
+    .margin-bottom-10 {
         margin-bottom: 10% !important
     }
 
     /* Margin Inline Preset */
         /* Margin Inline End Preset */
-        .m-i-e-inherit {
+        .m-i-e-inherit,
+        .margin-inline-end-inherit {
             margin-inline-end: inherit !important
         }
     
         /* Margin Inline Start Preset */
-        .m-i-s-inherit {
+        .m-i-s-inherit,
+        .margin-inline-start-inherit {
             margin-inline-start: inherit !important
         }
     
     /* Margin Left Preset */
-    .m-l-auto {
+    .m-l-auto,
+    .margin-left-auto {
         margin-left: auto !important
     }
-    .m-l-inherit {
+    .m-l-inherit,
+    .margin-left-inherit {
         margin-left: inherit !important
     }
-    .m-l-0 {
+    .m-l-0,
+    .margin-left-0 {
         margin-left: 0 !important
     }
-    .m-l-1 {
+    .m-l-1,
+    .margin-left-1 {
         margin-left: 1% !important
     }
-    .m-l-2 {
+    .m-l-2,
+    .margin-left-2 {
         margin-left: 2% !important
     }
-    .m-l-3 {
+    .m-l-3,
+    .margin-left-3 {
         margin-left: 3% !important
     }
-    .m-l-4 {
+    .m-l-4,
+    .margin-left-4 {
         margin-left: 4% !important
     }
-    .m-l-5 {
+    .m-l-5,
+    .margin-left-5 {
         margin-left: 5% !important
     }
-    .m-l-6 {
+    .m-l-6,
+    .margin-left-6 {
         margin-left: 6% !important
     }
-    .m-l-7 {
+    .m-l-7,
+    .margin-left-7 {
         margin-left: 7% !important
     }
-    .m-l-8 {
+    .m-l-8,
+    .margin-left-8 {
         margin-left: 8% !important
     }
-    .m-l-9 {
+    .m-l-9,
+    .margin-left-9 {
         margin-left: 9% !important
     }
-    .m-l-10 {
+    .m-l-10,
+    .margin-left-10 {
         margin-left: 10% !important
     }
 
     /* Margin Right Preset */
-    .m-r-auto {
+    .m-r-auto,
+    .margin-right-auto {
         margin-right: auto !important
     }
-    .m-r-inherit {
+    .m-r-inherit,
+    .margin-right-inherit {
         margin-right: inherit !important
     }
-    .m-r-0 {
+    .m-r-0,
+    .margin-right-0 {
         margin-right: 0 !important
     }
-    .m-r-1 {
+    .m-r-1,
+    .margin-right-1 {
         margin-right: 1% !important
     }
-    .m-r-2 {
+    .m-r-2,
+    .margin-right-2 {
         margin-right: 2% !important
     }
-    .m-r-3 {
+    .m-r-3,
+    .margin-right-3 {
         margin-right: 3% !important
     }
-    .m-r-4 {
+    .m-r-4,
+    .margin-right-4 {
         margin-right: 4% !important
     }
-    .m-r-5 {
+    .m-r-5,
+    .margin-right-5 {
         margin-right: 5% !important
     }
-    .m-r-6 {
+    .m-r-6,
+    .margin-right-6 {
         margin-right: 6% !important
     }
-    .m-r-7 {
+    .m-r-7,
+    .margin-right-7 {
         margin-right: 7% !important
     }
-    .m-r-8 {
+    .m-r-8,
+    .margin-right-8 {
         margin-right: 8% !important
     }
-    .m-r-9 {
+    .m-r-9,
+    .margin-right-9 {
         margin-right: 9% !important
     }
-    .m-r-10 {
+    .m-r-10,
+    .margin-right-10 {
         margin-right: 10% !important
     }
 
     /* Margin Top Preset */
-    .m-t-auto {
+    .m-t-auto,
+    .margin-top-auto {
         margin-top: auto !important
     }
-    .m-t-inherit {
+    .m-t-inherit,
+    .margin-top-inherit {
         margin-top: inherit !important
     }
-    .m-t-0 {
+    .m-t-0,
+    .margin-top-0 {
         margin-top: 0 !important
     }
-    .m-t-1 {
+    .m-t-1,
+    .margin-top-1 {
         margin-top: 1% !important
     }
-    .m-t-2 {
+    .m-t-2,
+    .margin-top-2 {
         margin-top: 2% !important
     }
-    .m-t-3 {
+    .m-t-3,
+    .margin-top-3 {
         margin-top: 3% !important
     }
-    .m-t-4 {
+    .m-t-4,
+    .margin-top-4 {
         margin-top: 4% !important
     }
-    .m-t-5 {
+    .m-t-5,
+    .margin-top-5 {
         margin-top: 5% !important
     }
-    .m-t-6 {
+    .m-t-6,
+    .margin-top-6 {
         margin-top: 6% !important
     }
-    .m-t-7 {
+    .m-t-7,
+    .margin-top-7 {
         margin-top: 7% !important
     }
-    .m-t-8 {
+    .m-t-8,
+    .margin-top-8 {
         margin-top: 8% !important
     }
-    .m-t-9 {
+    .m-t-9,
+    .margin-top-9 {
         margin-top: 9% !important
     }
-    .m-t-10 {
+    .m-t-10,
+    .margin-top-10 {
         margin-top: 10% !important
     }
 
 /* Object Preset */
     /* Object Fit Preset */
-    .obj-f-cntn {
+    .obj-f-cntn,
+    .object-fit-contain {
         object-fit: contain !important
     }
-    .obj-f-cvr {
+    .obj-f-cvr,
+    .object-fit-cover {
         object-fit: cover !important
     }
-    .obj-f-f {
+    .obj-f-f,
+    .object-fit-fill {
         object-fit: fill !important
     }
-    .obj-f-inherit {
+    .obj-f-inherit,
+    .object-fit-inherit {
         object-fit: inherit !important
     }
-    .obj-f-initial {
+    .obj-f-initial,
+    .object-fit-initial {
         object-fit: initial !important
     }
-    .obj-f-none {
+    .obj-f-none,
+    .object-fit-none {
         object-fit: none !important
     }
-    .obj-f-sd {
+    .obj-f-sd,
+    .object-fit-scale-down {
         object-fit: scale-down !important
     }
 
     /* Object Position Preset */
-    .obj-p-b {
+    .obj-p-b,
+    .object-position-bottom {
         object-position: bottom !important
     }
-    .obj-p-c {
+    .obj-p-c,
+    .object-position-center {
         object-position: center !important
     }
-    .obj-p-l {
+    .obj-p-l,
+    .object-position-left {
         object-position: left !important
     }
-    .obj-p-r {
+    .obj-p-r,
+    .object-position-right {
         object-position: right !important
     }
-    .obj-p-t {
+    .obj-p-t,
+    .object-position-top {
         object-position: top !important
     }
 
 /* Opacity Preset */
-.o-inherit {
+.o-inherit,
+.opacity-inherit {
     opacity: inherit !important
 }
-.o-eighth {
+.o-eighth,
+.opacity-0-125,
+.opacity--125 {
     opacity: .125 !important
 }
-.o-half {
+.o-half,
+.opacity-0-5,
+.opacity--5 {
     opacity: .5 !important
 }
-.o-quart {
+.o-quart,
+.opacity-0-25,
+.opacity--25 {
     opacity: .25 !important
 }
-.o-sixteenth {
+.o-sixteenth,
+.opacity-0-825,
+.opacity--825 {
     opacity: .0825 !important
 }
-.o-0 {
+.o-0,
+.opacity-0 {
     opacity: 0 !important
 }
-.o-1 {
+.o-1,
+.opacity-1 {
     opacity: 1 !important
 }
 
 /* Outline Preset */
-.otln {
+.otln,
+.outline {
     outline-color: inherit !important;
     outline-offset: 0 !important;
     outline-style: solid !important;
     outline-width: 1px !important
 }
-.otln-inherit {
+.otln-inherit,
+.outline-inherit {
     outline-color: inherit !important;
     outline-offset: inherit !important;
     outline-style: inherit !important;
     outline-width: inherit !important
 }
-.otln-none {
+.otln-none,
+.outline-none {
     outline-color: none !important;
     outline-offset: none !important;
     outline-style: none !important;
     outline-width: none !important
 }
-.otln-0 {
+.otln-0,
+.outline-0 {
     outline: 0 !important
 }
 
 /* Overflow Preset */
-.ovfw-h {
+.ovfw-auto,
+.overflow-auto {
+    overflow: auto !important
+}
+.ovfw-h,
+.overflow-hidden {
     overflow: hidden !important
 }
-.ovfw-inherit {
+.ovfw-inherit,
+.overflow-inherit {
     overflow: inherit !important
 }
-.ovfw-s {
+.ovfw-initial,
+.overflow-initial {
+    overflow: initial !important
+}
+.ovfw-s,
+.overflow-scroll {
     overflow: scroll !important
 }
-.ovfw-v {
+.ovfw-v,
+.overflow-visible {
     overflow: visible !important
 }
-    /* Overflow Clip-Box Preset */
-    .ovfw-clp-bx-inherit {
-        overflow-clip-box: inherit !important
-    }
+    /* Overflow Clip Preset */
+        /* Overflow Clip Box Preset */
+        .ovfw-clp-bx-inherit,
+        .overflow-clip-box-inherit {
+            overflow-clip-box: inherit !important
+        }
 
     /* Overflow Wrap Preset */
-    .ovfw-wrp-inherit {
+    .ovfw-wrp-inherit,
+    .overflow-wrap-inherit {
         overflow-wrap: inherit !important
     }
 
     /* Overflow X Preset */
-    .ovfw-x-h {
+    .ovfw-x-h,
+    .overflow-x-hidden {
         overflow-x: hidden !important
     }
-    .ovfw-x-inherit {
+    .ovfw-x-inherit,
+    .overflow-x-inherit {
         overflow-x: inherit !important
     }
-    .ovfw-x-s {
+    .ovfw-x-s,
+    .overflow-x-scroll {
         overflow-x: scroll !important
     }
-    .ovfw-x-v {
+    .ovfw-x-v,
+    .overflow-x-visible {
         overflow-x: visible !important
     }
 
     /* Overflow Y Preset */
-    .ovfw-y-h {
+    .ovfw-y-h,
+    .overflow-y-hidden {
         overflow-y: hidden !important
     }
-    .ovfw-y-inherit {
+    .ovfw-y-inherit,
+    .overflow-y-inherit {
         overflow-y: inherit !important
     }
-    .ovfw-y-s {
+    .ovfw-y-s,
+    .overflow-y-scroll {
         overflow-y: scroll !important
     }
-    .ovfw-y-v {
+    .ovfw-y-v,
+    .overflow-y-visible {
         overflow-y: visible !important
     }
 
 /* Padding Preset */
-.p-inherit {
+.p-inherit,
+.padding-inherit {
     padding: inherit !important
 }
-.p-0 {
+.p-0,
+.padding-0 {
     padding: 0 !important
 }
-.p-1 {
+.p-1,
+.padding-1 {
     padding: 1% !important
 }
-.p-2 {
+.p-2,
+.padding-2 {
     padding: 2% !important
 }
-.p-3 {
+.p-3,
+.padding-3 {
     padding: 3% !important
 }
-.p-4 {
+.p-4,
+.padding-4 {
     padding: 4% !important
 }
-.p-5 {
+.p-5,
+.padding-5 {
     padding: 5% !important
 }
-.p-6 {
+.p-6,
+.padding-6 {
     padding: 6% !important
 }
-.p-7 {
+.p-7,
+.padding-7 {
     padding: 7% !important
 }
-.p-8 {
+.p-8,
+.padding-8 {
     padding: 8% !important
 }
-.p-9 {
+.p-9,
+.padding-9 {
     padding: 9% !important
 }
-.p-10 {
+.p-10,
+.padding-10 {
     padding: 10% !important
 }
     /* Padding Bottom Preset */
-    .p-b-inherit {
+    .p-b-inherit,
+    .padding-bottom-inherit {
         padding-bottom: inherit !important
     }
-    .p-b-0 {
+    .p-b-0,
+    .padding-bottom-0 {
         padding-bottom: 0 !important
     }
-    .p-b-1 {
+    .p-b-1,
+    .padding-bottom-1 {
         padding-bottom: 1% !important
     }
-    .p-b-2 {
+    .p-b-2,
+    .padding-bottom-2 {
         padding-bottom: 2% !important
     }
-    .p-b-3 {
+    .p-b-3,
+    .padding-bottom-3 {
         padding-bottom: 3% !important
     }
-    .p-b-4 {
+    .p-b-4,
+    .padding-bottom-4 {
         padding-bottom: 4% !important
     }
-    .p-b-5 {
+    .p-b-5,
+    .padding-bottom-5 {
         padding-bottom: 5% !important
     }
-    .p-b-6 {
+    .p-b-6,
+    .padding-bottom-6 {
         padding-bottom: 6% !important
     }
-    .p-b-7 {
+    .p-b-7,
+    .padding-bottom-7 {
         padding-bottom: 7% !important
     }
-    .p-b-8 {
+    .p-b-8,
+    .padding-bottom-8 {
         padding-bottom: 8% !important
     }
-    .p-b-9 {
+    .p-b-9,
+    .padding-bottom-9 {
         padding-bottom: 9% !important
     }
-    .p-b-10 {
+    .p-b-10,
+    .padding-bottom-10 {
         padding-bottom: 10% !important
     }
 
     /* Padding Inline Preset */
         /* Padding Block Preset */
             /* Padding Block End */
-            .p-b-e-inherit {
+            .p-b-e-inherit,
+            .padding-block-end-inherit {
                 padding-block-end: inherit !important
             }
 
             /* Padding Block Start */
-            .p-b-s-inherit {
+            .p-b-s-inherit,
+            .padding-block-start-inherit {
                 padding-block-start: inherit !important
             }
 
         /* Padding Inline Preset */
             /* Padding Inline End */
-            .p-i-e-inherit {
+            .p-i-e-inherit,
+            .padding-inline-end-inherit {
                 padding-inline-end: inherit !important
             }
 
             /* Padding Inline Start */
-            .p-i-s-inherit {
+            .p-i-s-inherit,
+            .padding-inline-start-inherit {
                 padding-inline-start: inherit !important
             }
 
     /* Padding Left Preset */
-    .p-l-inherit {
+    .p-l-inherit,
+    .padding-left-inherit {
         padding-left: inherit !important
     }
-    .p-l-0 {
+    .p-l-0,
+    .padding-left-0 {
         padding-left: 0 !important
     }
-    .p-l-1 {
+    .p-l-1,
+    .padding-left-1 {
         padding-left: 1% !important
     }
-    .p-l-2 {
+    .p-l-2,
+    .padding-left-2 {
         padding-left: 2% !important
     }
-    .p-l-3 {
+    .p-l-3,
+    .padding-left-3 {
         padding-left: 3% !important
     }
-    .p-l-4 {
+    .p-l-4,
+    .padding-left-4 {
         padding-left: 4% !important
     }
-    .p-l-5 {
+    .p-l-5,
+    .padding-left-5 {
         padding-left: 5% !important
     }
-    .p-l-6 {
+    .p-l-6,
+    .padding-left-6 {
         padding-left: 6% !important
     }
-    .p-l-7 {
+    .p-l-7,
+    .padding-left-7 {
         padding-left: 7% !important
     }
-    .p-l-8 {
+    .p-l-8,
+    .padding-left-8 {
         padding-left: 8% !important
     }
-    .p-l-9 {
+    .p-l-9,
+    .padding-left-9 {
         padding-left: 9% !important
     }
-    .p-l-10 {
+    .p-l-10,
+    .padding-left-10 {
         padding-left: 10% !important
     }
 
     /* Padding Right Preset */
-    .p-r-inherit {
+    .p-r-inherit,
+    .padding-right-inherit {
         padding-right: inherit !important
     }
-    .p-r-0 {
+    .p-r-0,
+    .padding-right-0 {
         padding-right: 0 !important
     }
-    .p-r-1 {
+    .p-r-1,
+    .padding-right-1 {
         padding-right: 1% !important
     }
-    .p-r-2 {
+    .p-r-2,
+    .padding-right-2 {
         padding-right: 2% !important
     }
-    .p-r-3 {
+    .p-r-3,
+    .padding-right-3 {
         padding-right: 3% !important
     }
-    .p-r-4 {
+    .p-r-4,
+    .padding-right-4 {
         padding-right: 4% !important
     }
-    .p-r-5 {
+    .p-r-5,
+    .padding-right-5 {
         padding-right: 5% !important
     }
-    .p-r-6 {
+    .p-r-6,
+    .padding-right-6 {
         padding-right: 6% !important
     }
-    .p-r-7 {
+    .p-r-7,
+    .padding-right-7 {
         padding-right: 7% !important
     }
-    .p-r-8 {
+    .p-r-8,
+    .padding-right-8 {
         padding-right: 8% !important
     }
-    .p-r-9 {
+    .p-r-9,
+    .padding-right9 {
         padding-right: 9% !important
     }
-    .p-r-10 {
+    .p-r-10,
+    .padding-right-10 {
         padding-right: 10% !important
     }
 
     /* Padding Top Preset */
-    .p-t-inherit {
+    .p-t-inherit,
+    .padding-top-inherit {
         padding-top: inherit !important
     }
-    .p-t-0 {
+    .p-t-0,
+    .padding-top-0 {
         padding-top: 0 !important
     }
-    .p-t-1 {
+    .p-t-1,
+    .padding-top-1 {
         padding-top: 1% !important
     }
-    .p-t-2 {
+    .p-t-2,
+    .padding-top-2 {
         padding-top: 2% !important
     }
-    .p-t-3 {
+    .p-t-3,
+    .padding-top-3 {
         padding-top: 3% !important
     }
-    .p-t-4 {
+    .p-t-4,
+    .padding-top-4 {
         padding-top: 4% !important
     }
-    .p-t-5 {
+    .p-t-5,
+    .padding-top-5 {
         padding-top: 5% !important
     }
-    .p-t-6 {
+    .p-t-6,
+    .padding-top-6 {
         padding-top: 6% !important
     }
-    .p-t-7 {
+    .p-t-7,
+    .padding-top-7 {
         padding-top: 7% !important
     }
-    .p-t-8 {
+    .p-t-8,
+    .padding-top-8 {
         padding-top: 8% !important
     }
-    .p-t-9 {
+    .p-t-9,
+    .padding-top-9 {
         padding-top: 9% !important
     }
-    .p-t-10 {
+    .p-t-10,
+    .padding-top-10 {
         padding-top: 10% !important
     }
 
 /* Pointer Events Preset */
-.p-e-a {
+.p-e-a,
+.pointer-events-all {
     pointer-events: all !important
 }
-.p-e-f {
+.p-e-f,
+.pointer-events-fill {
     pointer-events: fill !important
 }
-.p-e-inherit {
+.p-e-inherit,
+.pointer-events-inherit {
     pointer-events: inherit !important
 }
 .p-e-n,
-.p-e-none {
+.p-e-none,
+.pointer-events-none {
     pointer-events: none !important
 }
-.p-e-p {
+.p-e-p,
+.pointer-events-painted {
     pointer-events: painted !important
 }
-.p-e-s {
+.p-e-s,
+.pointer-events-stroke {
     pointer-events: stroke !important
 }
-.p-e-vF {
+.p-e-vF,
+.pointer-events-visibleFill {
     pointer-events: visibleFill !important
 }
-.p-e-vP {
+.p-e-vP,
+.pointer-events-visiblePainted {
     pointer-events: visiblePainted !important
 }
-.p-e-vS {
+.p-e-vS,
+.pointer-events-visibleStroke {
     pointer-events: visibleStroke !important
 }
 
 /* Position Preset */
-.pos-abs {
+.pos-abs,
+.position-absolute {
     position: absolute !important
 }
-.pos-fix {
+.pos-fix,
+.position-fixed {
     position: fixed !important
 }
-.pos-inherit {
+.pos-inherit,
+.position-inherit {
     position: inherit !important
 }
-.pos-rel {
+.pos-rel,
+.position-relative {
     position: relative !important
 }
-.pos-stat {
+.pos-stat,
+.position-static {
     position: static !important
 }
-.pos-stick {
+.pos-stick,
+.position-sticky {
     position: sticky !important
 }
 
 /* Resize Preset */
 .rsz-both,
-.rsz-x.rsz-y {
+.rsz-x.rsz-y,
+.resize-both,
+.resize-horizontal.resize-vertical {
     resize: both !important
 }
-.rsz-inherit {
+.rsz-inherit,
+.resize-inherit {
     resize: inherit !important
 }
-.rsz-none {
+.rsz-none,
+.resize-none {
     resize: none !important
 }
-.rsz-x {
+.rsz-x,
+.resize-horizontal {
     resize: horizontal !important
 }
-.rsz-y {
+.rsz-y,
+.resize-vertical {
     resize: vertical !important
 }
 
 /* Right Preset */
-.r-0 {
+.r-0,
+.right-0 {
     right: 0 !important
 }
 
 /* Text Preset */
     /* Text Align Preset */
-    .txt-a-c {
+    .txt-a-c,
+    .text-align-center {
         text-align: center !important
     }
-    .txt-a-e {
+    .txt-a-e,
+    .text-align-end {
         text-align: end !important
     }
-    .txt-a-l {
+    .txt-a-l,
+    .text-align-left {
         text-align: left !important
     }
-    .txt-a-j {
+    .txt-a-j,
+    .text-align-justify {
         text-align: justify !important
     }
-    .txt-a-mp {
+    .txt-a-mp,
+    .text-align-match-parent {
         text-align: match-parent !important
     }
-    .txt-a-r {
+    .txt-a-r,
+    .text-align-right {
         text-align: right !important
     }
-    .txt-a-s {
+    .txt-a-s,
+    .text-align-start {
         text-align: start !important
     }
 
@@ -6089,32 +6961,38 @@ xmp {
         /* Text Decoration Color Preset */
             /* Aqua */
             .txt-d-c-aq,
-            .txt-d-c-aqua {
+            .txt-d-c-aqua,
+            .text-decoration-color-aqua {
                 text-decoration-color: #0078FF !important
             }
 
             /* Beige */
             .txt-d-c-bge,
-            .txt-d-c-beige {
+            .txt-d-c-beige,
+            .text-decoration-color-beige {
                 text-decoration-color: #F9ECC4 !important
             }
 
             /* Black */
             .txt-d-c-black,
-            .txt-d-c-k {
+            .txt-d-c-k,
+            .text-decoration-color-black {
                 text-decoration-color: #000000 !important
             }
 
             /* Blood Red */
             .txt-d-c-bld,
             .txt-d-c-blood,
-            .txt-d-c-blud {
+            .txt-d-c-blud,
+            .text-decoration-color-blood,
+            .text-decoration-color-blud {
                 text-decoration-color: #CC0000 !important
             }
 
             /* Blue */
             .txt-d-c-b,
-            .txt-d-c-blue {
+            .txt-d-c-blue,
+            .text-decoration-color-blue {
                 text-decoration-color: #0000FF !important
             }
 
@@ -6123,7 +7001,9 @@ xmp {
             .txt-d-c-gb,
             .txt-d-c-lgtb,
             .txt-d-c-skyb,
-            .txt-d-c-skyblue {
+            .txt-d-c-skyblue,
+            .text-decoration-color-lightblue,
+            .text-decoration-color-skyblue {
                 text-decoration-color: #00FFFF !important
             }
 
@@ -6159,7 +7039,8 @@ xmp {
             .txt-d-c-ykcm,
             .txt-d-c-ykmc,
             .txt-d-c-ymck,
-            .txt-d-c-ymkc {
+            .txt-d-c-ymkc,
+            .text-decoration-color-white {
                 text-decoration-color: #FFFFFF !important
             }
 
@@ -6168,32 +7049,39 @@ xmp {
             .txt-d-c-lgtr,
             .txt-d-c-m,
             .txt-d-c-pink,
-            .txt-d-c-rb {
+            .txt-d-c-rb,
+            .text-decoration-color-lightred,
+            .text-decoration-color-pink {
                 text-decoration-color: #FF00FF !important
             }
 
             /* Brown */
             .txt-d-c-brwn,
-            .txt-d-c-brown {
+            .txt-d-c-brown,
+            .text-decoration-color-brown {
                 text-decoration-color: #996633 !important
             }
 
             /* Cyan */
             .txt-d-c-c,
-            .txt-d-c-cyan {
+            .txt-d-c-cyan,
+            .text-decoration-color-cyan {
                 text-decoration-color: #00FFCC !important
             }
 
             /* Dark Blue */
             .txt-d-c-darkblue,
-            .txt-d-c-dkb {
+            .txt-d-c-dkb,
+            .text-decoration-color-darkblue {
                 text-decoration-color: #000078 !important
             }
 
             /* Dark Grey */
             .txt-d-c-darkgray,
             .txt-d-c-darkgrey,
-            .txt-d-c-dkgry {
+            .txt-d-c-dkgry,
+            .text-decoration-color-darkgray,
+            .text-decoration-color-darkgrey {
                 text-decoration-color: #555555 !important
             
             }
@@ -6202,44 +7090,54 @@ xmp {
             .txt-d-c-darkgreen,
             .txt-d-c-dkg,
             .txt-d-c-dkgrn,
-            .txt-d-c-marsh {
+            .txt-d-c-marsh,
+            .text-decoration-color-darkgreen,
+            .text-decoration-color-marsh {
                 text-decoration-color: #336600 !important
             }
 
             /* Dark Red */
             .txt-d-c-darkred,
             .txt-d-c-dkr,
-            .txt-d-c-wine {
+            .txt-d-c-wine,
+            .text-decoration-color-darkred,
+            .text-decoration-color-wine {
                 text-decoration-color: #780000 !important
             }
 
             /* Whitish-Gray */
             .txt-d-c-egg,
             .txt-d-c-whtesmk,
-            .txt-d-c-whitesmoke {
+            .txt-d-c-whitesmoke,
+            .text-decoration-color-egg,
+            .text-decoration-color-whitesmoke {
                 text-decoration-color: #EEEEEE !important
             }
 
             /* Forest Green */
-            .txt-d-c-forest {
+            .txt-d-c-forest,
+            .text-decoration-color-forest {
                 text-decoration-color: #007800 !important
             }
 
             /* Gold */
             .txt-d-c-gld,
-            .txt-d-c-gold {
+            .txt-d-c-gold,
+            .text-decoration-color-gold {
                text-decoration-color: #EEEE00 !important
             }
 
             /* Granite Gray */
             .txt-d-c-grnte,
-            .txt-d-c-granite {
+            .txt-d-c-granite,
+            .text-decoration-color-granite {
                 text-decoration-color: #E5E4E2 !important
             }
 
             /* Green */
             .txt-d-c-g,
-            .txt-d-c-green {
+            .txt-d-c-green,
+            .text-decoration-color-green {
                 text-decoration-color: #00FF00 !important
             }
 
@@ -6248,374 +7146,451 @@ xmp {
             .txt-d-c-rg,
             .txt-d-c-simpson,
             .txt-d-c-y,
-            .txt-d-c-yellow {
+            .txt-d-c-yellow,
+            .text-decoration-color-simpson,
+            .text-decoration-color-yellow {
                 text-decoration-color: #FFFF00 !important
             }
 
             /* Gray */
             .txt-d-c-gray,
             .txt-d-c-grey,
-            .txt-d-c-gry {
+            .txt-d-c-gry,
+            .text-decoration-color-gray,
+            .text-decoration-color-grey {
                 text-decoration-color: #787878 !important
             }
 
             /* Hot Pink */
             .txt-d-c-htpnk,
-            .txt-d-c-hotpink {
+            .txt-d-c-hotpink,
+            .text-decoration-color-hotpink {
                 text-decoration-color: #FF34FF !important
             }
 
             /* --- NOTE ---
                 Inherited value.
             */
-            .txt-d-c-inherit {
+            .txt-d-c-inherit,
+            .text-decoration-color-inherit {
                 text-decoration-color: inherit !important
             }
 
             /* Indigo */
             .txt-d-c-indg,
-            .txt-d-c-indigo {
+            .txt-d-c-indigo,
+            .text-decoration-color-indigo {
                 text-decoration-color: #3F48CC !important
             }
 
             /* Lapis Lazuli Blue */
             .txt-d-c-l,
-            .txt-d-c-lapis {
+            .txt-d-c-lapis,
+            .text-decoration-color-lapis {
                 text-decoration-color: #0023FF !important
             }
 
             /* Light Green */
-            .txt-d-c-lgtg {
+            .txt-d-c-lgtg,
+            .text-decoration-color-lightgreen {
                 text-decoration-color: #A6FFA6 !important
             }
 
             /* Lime */
-            .txt-d-c-lime {
+            .txt-d-c-lime,
+            .text-decoration-color-lime {
                 text-decoration-color: #B5E61D !important
             }
 
             /* Light Gray */
             .txt-d-c-lightgray,
             .txt-d-c-lightgrey,
-            .txt-d-c-lgtgry {
+            .txt-d-c-lgtgry,
+            .text-decoration-color-lightgray,
+            .text-decoration-color-lightgrey {
                 text-decoration-color: #AAAAAA !important
             }
 
             /* Magenta */
             .txt-d-c-mgnt,
-            .txt-d-c-magenta {
+            .txt-d-c-magenta,
+            .text-decoration-color-magenta {
                 text-decoration-color: #CC00CC !important
             }
 
             /* Navy Blue */
             .txt-d-c-nvy,
-            .txt-d-c-navy {
+            .txt-d-c-navy,
+            .text-decoration-color-navy {
                 text-decoration-color: #342D7E !important
             }
 
             /* Olive Green */
             .txt-d-c-olv,
-            .txt-d-c-olive {
+            .txt-d-c-olive,
+            .text-decoration-color-olive {
                 text-decoration-color: #787800 !important
             }
 
             /* Orange */
             .txt-d-c-orng,
-            .txt-d-c-orange {
+            .txt-d-c-orange,
+            .text-decoration-color-orange {
                 text-decoration-color: #FF7800 !important
             }
             /* Platinum Gray */
             .txt-d-c-pltn,
-            .txt-d-c-platinum {
+            .txt-d-c-platinum,
+            .text-decoration-color-platinum {
                 text-decoration-color: #BCC6CC !important
             }
 
             /* Purple */
             .txt-d-c-purple,
             .txt-d-c-vlt,
-            .txt-d-c-violet {
+            .txt-d-c-violet,
+            .text-decoration-color-purple,
+            .text-decoration-color-violet {
                 text-decoration-color: #7800FF !important
             }
 
             /* Red */
             .txt-d-c-r,
-            .txt-d-c-red {
+            .txt-d-c-red,
+            .text-decoration-color-red {
                 text-decoration-color: #FF0000 !important
             }
 
             /* Rose Pink */
-            .txt-d-c-rose {
+            .txt-d-c-rose,
+            .text-decoration-color-rose {
                 text-decoration-color: #FFAEC9 !important
             }
 
             /* Slate Gray*/
-            .txt-d-c-slate {
+            .txt-d-c-slate,
+            .text-decoration-color-slate {
                 text-decoration-color: #646D7E !important
             }
 
             /* Teal */
             .txt-d-c-tl,
-            .txt-d-c-teal {
+            .txt-d-c-teal,
+            .text-decoration-color-teal {
                 text-decoration-color: #00AAAA !important
             }
 
             /* Transparent */
-            .txt-d-c-trns {
+            .txt-d-c-trns,
+            .text-decoration-color-transparent {
                 text-decoration-color: transparent !important
             }
 
             /* Turquoise */
             .txt-d-c-trquois,
-            .txt-d-c-turquoise {
+            .txt-d-c-turquoise,
+            .text-decoration-color-turquoise {
                 text-decoration-color: #00A2E8 !important
             }
 
             /*  "Violent" */
             .txt-d-c-vlnt,
-            .txt-d-c-violent {
+            .txt-d-c-violent,
+            .text-decoration-color-violent {
                 text-decoration-color: #CC0078 !important
             }
 
-        .txt-d-none {
+        .txt-d-none,
+        .text-decoration-none {
             text-decoration: none !important
         }
 
         /* Text Decoration Line Preset */
-        .txt-d-l-inherit {
+        .txt-d-l-inherit,
+        .text-decoration-line-inherit {
             text-decoration-line: inherit !important
         }
-        .txt-d-l-l {
+        .txt-d-l-l,
+        .text-decoration-line-line-through {
             text-decoration-line: line-through !important
         }
-        .txt-d-l-o {
+        .txt-d-l-o,
+        .text-decoration-line-overline {
             text-decoration-line: overline !important
         }
-        .txt-d-l-u {
+        .txt-d-l-u,
+        .text-decoration-line-underline {
             text-decoration-line: underline !important
         }
 
         /* Text Decoration Style Preset */
-        .txt-d-s-dot {
+        .txt-d-s-dot,
+        .text-decoration-style-dotted {
             text-decoration-style: dotted !important
         }
-        .txt-d-s-dsh {
+        .txt-d-s-dsh,
+        .text-decoration-style-dashed {
             text-decoration-style: dashed !important
         }
-        .txt-d-s-inherit {
+        .txt-d-s-inherit,
+        .text-decoration-style-inherit {
             text-decoration-style: inherit !important
         }
-        .txt-d-s-sld {
+        .txt-d-s-sld,
+        .text-decoration-style-solid {
             text-decoration-style: solid !important
         }
-        .txt-d-u {
+        .txt-d-u,
+        .text-decoration-underline {
             text-decoration: underline !important
         }
 
     /* Text Overflow Preset */
-    .txt-ovfw-clip {
+    .txt-ovfw-clip,
+    .text-overflow-clip {
         text-overflow: clip !important
 
     }
-    .txt-ovfw-elps {
+    .txt-ovfw-elps,
+    .text-overflow-ellipsis {
         text-overflow: ellipsis !important
 
     }
-    .txt-ovfw-inherit {
+    .txt-ovfw-inherit,
+    .text-overflow-inherit {
         text-overflow: inherit !important
 
     }
 
     /* Text Underline Preset */
-    .txt-u-p-inherit {
+    .txt-u-p-inherit,
+    .text-underline-position-inherit {
         text-underline-position: inherit !important
 
     }
-    .txt-u-p-l {
+    .txt-u-p-l,
+    .text-underline-position-left {
         text-underline-position: left !important
 
     }
-    .txt-u-p-r {
+    .txt-u-p-r,
+    .text-underline-position-right {
         text-underline-position: right !important
 
     }
-    .txt-u-p-u {
+    .txt-u-p-u,
+    .text-underline-position-under {
         text-underline-position: under !important
 
     }
 
     /* Text Transform Preset */
-    .txt-t-cap {
+    .txt-t-cap,
+    .text-transform-capitalize {
         text-transform: capitalize !important
 
     }
-    .txt-t-inherit {
+    .txt-t-inherit,
+    .text-transform-inherit {
         text-transform: inherit !important
 
     }
-    .txt-t-l {
+    .txt-t-l,
+    .text-transform-lowercase {
         text-transform: lowercase !important
 
     }
-    .txt-t-none {
+    .txt-t-none,
+    .text-transform-none {
         text-transform: none !important
 
     }
-    .txt-t-u {
+    .txt-t-u,
+    .text-transform-uppercase {
         text-transform: uppercase !important
 
     }
 
 /* Top Preset */
-.t-0 {
+.t-0,
+.top-0 {
     top: 0 !important
 }
 
 /* Transition Preset */
     /* Transition Delay Preset */
-    .trns-d-inherit {
+    .trns-d-inherit,
+    .transition-delay-inherit {
         transition-delay: inherit !important
     }
-    .trns-d-0 {
+    .trns-d-0,
+    .transition-delay-0 {
         transition-delay: 0 !important
     }
-    .trns-d-1 {
+    .trns-d-1,
+    .transition-delay--5 {
         transition-delay: .5s !important
     }
-    .trns-d-2 {
+    .trns-d-2,
+    .transition-delay-1 {
         transition-delay: 1s !important
     }
-    .trns-d-3 {
+    .trns-d-3,
+    .transition-delay-1-5 {
         transition-delay: 1.5s !important
     }
-    .trns-d-4 {
+    .trns-d-4,
+    .transition-delay-2 {
         transition-delay: 2s !important
     }
-    .trns-d-5 {
+    .trns-d-5,
+    .transition-delay-2-5 {
         transition-delay: 2.5s !important
     }
 
     /* Transition Timing Function Preset */
-    .trns-s-e {
+    .trns-s-e,
+    .transition-timing-function-ease {
         /* --- NOTE ---
                 Animation style is ease.
         */
         transition-timing-function: ease
     }
-    .trns-s-ei {
+    .trns-s-ei,
+    .transition-timing-function-ease-in {
         /* --- NOTE ---
                 Animation style is ease-in.
         */
         transition-timing-function: ease-in
     }
-    .trns-s-eio {
+    .trns-s-eio,
+    .transition-timing-function-ease-in-out {
         /* --- NOTE ---
                 Animation style is ease-in-out.
         */
         transition-timing-function: ease-in-out
     }
-    .trns-s-eo {
+    .trns-s-eo,
+    .transition-timing-function-ease-out {
         /* --- NOTE ---
                 Animation style is ease-out.
         */
         transition-timing-function: ease-out
     }
-    .trns-s-foli {
+    .trns-s-foli,
+    .transition-timing-function-fast-out-linear-in {
         /* --- NOTE ---
                 Animation style is fast-out-linear-in.
         */
         transition-timing-function: cubic-bezier(.4, 0, 1, 1) !important
     }
-    .trns-s-fosi {
+    .trns-s-fosi,
+    .transition-timing-function-fast-out-slow-in {
         /* --- NOTE ---
                 Animation style is fast-out-slow-in.
         */
         transition-timing-function: cubic-bezier(.4, 0, .2, 1) !important
     }
-    .trns-s-ib {
+    .trns-s-ib,
+    .transition-timing-function-in-back {
         /* --- NOTE ---
                 Animation style is in-back.
         */
         transition-timing-function: cubic-bezier(.6, -.28, .74, .05) !important
     }
-    .trns-s-ic {
+    .trns-s-ic,
+    .transition-timing-function-in-cubic {
         /* --- NOTE ---
                 Animation style is in-cubic.
         */
         transition-timing-function: cubic-bezier(.55, .06, .68, .19) !important
     }
-    .trns-s-inherit {
+    .trns-s-inherit,
+    .transition-timing-function-inherit {
         /* --- NOTE ---
                 Animation style is inherit.
         */
         transition-timing-function: inherit !important
     }
-    .trns-s-iob {
+    .trns-s-iob,
+    .transition-timing-function-in-out-back {
         /* --- NOTE ---
                 Animation style is in-out-back.
         */
         transition-timing-function: cubic-bezier(.68, -.55, .27, 1.55) !important
     }
-    .trns-s-ioc {
+    .trns-s-ioc,
+    .transition-timing-function-in-out-cubic {
         /* --- NOTE ---
                 Animation style is in-out-cubic.
         */
         transition-timing-function: cubic-bezier(.65, .05, .36, 1) !important
     }
-    .trns-s-ioq {
+    .trns-s-ioq,
+    .transition-timing-function-in-out-quadratic {
         /* --- NOTE ---
                 Animation style is in-out-quadratic.
         */
         transition-timing-function: cubic-bezier(.46, .03, .52, .96) !important
     }
-    .trns-s-ios {
+    .trns-s-ios,
+    .transition-timing-function-in-out-sine {
         /* --- NOTE ---
                 Animation style is in-out-sine.
         */
         transition-timing-function: cubic-bezier(.45, .05, .55, .95) !important
     }
-    .trns-s-iq {
+    .trns-s-iq,
+    .transition-timing-function-in-quadratic {
         /* --- NOTE ---
                 Animation style is in-quadratic.
         */
         transition-timing-function: cubic-bezier(.55, .09, .68, .53) !important
     }
-    .trns-s-is {
+    .trns-s-is,
+    .transition-timing-function-in-sine {
         /* --- NOTE ---
                 Animation style is in-sine.
         */
         transition-timing-function: cubic-bezier(.47, 0, .75, .72) !important
     }
-    .trns-s-losi {
+    .trns-s-losi,
+    .transition-timing-function-linear-out-slow-in {
         /* --- NOTE ---
                 Animation style is linear-out-slow-in.
         */
         transition-timing-function: cubic-bezier(0, 0, .2, 1) !important
     }
-    .trns-s-ob {
+    .trns-s-ob,
+    .transition-timing-function-out-back {
         /* --- NOTE ---
                 Animation style is out-back.
         */
         transition-timing-function: cubic-bezier(.18, .89, .32, 1.28) !important
     }
-    .trns-s-oc {
+    .trns-s-oc,
+    .transition-timing-function-out-cubic {
         /* --- NOTE ---
                 Animation style is out-cubic.
         */
         transition-timing-function: cubic-bezier(.22, .61, .36, 1) !important
     }
-    .trns-s-oq {
+    .trns-s-oq,
+    .transition-timing-function-out-quartic {
         /* --- NOTE ---
                 Animation style is out-quartic.
         */
         transition-timing-function: cubic-bezier(.25, .46, .45, .94) !important
     }
-    .trns-s-os {
+    .trns-s-os,
+    .transition-timing-function-out-sine {
         /* --- NOTE ---
                 Animation style is out-sine.
         */
         transition-timing-function: cubic-bezier(.39, .58, .57, 1.0) !important
     }
-    .trns-s-q {
+    .trns-s-q,
+    .transition-timing-function-quartic {
         /* --- NOTE ---
                 Animation style is quartic.
         */
@@ -6623,143 +7598,282 @@ xmp {
     }
 
     /* Transition Duration Preset */
-    .trns-t-inherit {
+    .trns-t-inherit,
+    .transition-duration-inherit {
         transition-duration: inherit !important
     }
-    .trns-t-0 {
+    .trns-t-0,
+    .transition-duration-0 {
         transition-duration: 0s !important
     }
-    .trns-t-1 {
+    .trns-t-1,
+    .transition-duration-0-5,
+    .transition-duration--5 {
         transition-duration: .5s !important
     }
-    .trns-t-2 {
+    .trns-t-2,
+    .transition-duration-1 {
         transition-duration: 1s !important
     }
-    .trns-t-3 {
+    .trns-t-3,
+    .transition-duration-1-5 {
         transition-duration: 1.5s !important
     }
-    .trns-t-4 {
+    .trns-t-4,
+    .transition-duration-2 {
         transition-duration: 2s !important
     }
-    .trns-t-5 {
+    .trns-t-5,
+    .transition-duration-2-5 {
         transition-duration: 2.5s !important
     }
 
 /* Visibility Preset */
-.v-hidden {
+.v-hidden,
+.visibility-hidden {
     visibility: hidden !important
 }
-.v-inherit {
+.v-inherit,
+.visibility-inherit {
     visibility: inherit !important
 }
-.v-visible {
+.v-visible,
+.visibility-visible {
     visibility: visible !important
 }
 
 /* Width Preset */
-.w-auto {
+.w-auto,
+.width-auto {
     width: auto !important
 }
-.w-inherit {
+.w-inherit,
+.width-inherit {
     width: inherit !important
 }
-.w-0 {
-    width: 0!important
+.w-0,
+.width-0 {
+    width: 0 !important
 }
-.w-5 {
+.w-5,
+.width-5 {
     width: 5% !important
 }
-.w-12 {
+.w-12,
+.width-12,
+.width-12-5 {
     width: 12.5% !important
 }
-.w-20 {
+.w-20,
+.width-20 {
     width: 20% !important
 }
-.w-25 {
+.w-25,
+.width-25 {
     width: 25% !important
 }
-.w-30 {
+.w-30,
+.width-30 {
     width: 30% !important
 }
-.w-33 {
+.w-33,
+.width-33,
+.width-33-3 {
     width: 33.3% !important
 }
-.w-40 {
+.w-40,
+.width-40 {
     width: 40% !important
 }
-.w-50 {
+.w-50,
+.width-50 {
     width: 50% !important
 }
-.w-60 {
+.w-60,
+.width-60 {
     width: 60% !important
 }
-.w-66 {
+.w-66,
+.width-66-6 {
     width: 66.6% !important
 }
-.w-70 {
+.w-70,
+.width-70 {
     width: 70% !important
 }
-.w-75 {
+.w-75,
+.width-75 {
     width: 75% !important
 }
-.w-80 {
+.w-80,
+.width-80 {
     width: 80% !important
 }
-.w-82 {
+.w-82,
+.width-82,
+.width-82-5 {
     width: 82.5% !important
 }
-.w-90 {
+.w-90,
+.width-90 {
     width: 90% !important
 }
-.w-100 {
+.w-100,
+.width-100 {
     width: 100% !important
 }
 
 /* White Space Preset */
-.w-s-inherit {
+.w-s-inherit,
+.white-space-inherit {
     white-space: inherit !important
 }
-.w-s-p {
+.w-s-p,
+.white-space-pre {
     white-space: pre !important
 }
-.w-s-pl {
+.w-s-pl,
+.white-space-pre-line {
     white-space: pre-line !important
 }
-.w-s-pw {
+.w-s-pw,
+.white-space-pre-wrap {
     white-space: pre-wrap !important
 }
 
 /* Zoom Preset */
 .zm,
-.zm-1 {
+.zm-1,
+.zoom-1 {
     zoom: 1 !important
 }
-.zm-eighth {
+.zm-eighth,
+.zm-0-125,
+.zm--125,
+.zoom-0-125,
+.zoom--125 {
     zoom: .125 !important
 }
-.zm-half {
+.zm-half,
+.zm-0-5,
+.zm--5,
+.zoom-0-5,
+.zoom--5 {
     zoom: .5 !important
 }
-.zm-quart {
+.zm-quart,
+.zm-0-25,
+.zm--25,
+.zoom-0-25,
+.zoom--25 {
     zoom: .25 !important
 }
-.zm-sixteenth {
+.zm-sixteenth,
+.zm-0-0825,
+.zm--0825,
+.zoom-0-0825,
+.zoom--0825 {
     zoom: .0825 !important
 }
-.zm-0 {
+.zm-0,
+.zoom-0 {
     zoom: 0 !important
 }
-.zm-2 {
+.zm-1-125,
+.zoom-1-125 {
+    zoom: 1.125 !important
+}
+.zm-1-5,
+.zoom-1-5 {
+    zoom: 1.5 !important
+}
+.zm-1-25,
+.zoom-1-25 {
+    zoom: 1.25 !important
+}
+.zm-1-0825,
+.zoom-1-0825 {
+    zoom: 1.0825 !important
+}
+.zm-2,
+.zoom-2 {
     zoom: 2 !important
 }
-.zm-3 {
+.zm-2-125,
+.zoom-2-125 {
+    zoom: 2.125 !important
+}
+.zm-2-5,
+.zoom-2-5 {
+    zoom: 2.5 !important
+}
+.zm-2-25,
+.zoom-2-25 {
+    zoom: 2.25 !important
+}
+.zm-2-0825,
+.zoom-2-0825 {
+    zoom: 2.0825 !important
+}
+.zm-3,
+.zoom-3 {
     zoom: 3 !important
 }
-.zm-4 {
+.zm-3-125,
+.zoom-3-125 {
+    zoom: 3.125 !important
+}
+.zm-3-5,
+.zoom-3-5 {
+    zoom: 3.5 !important
+}
+.zm-3-25,
+.zoom-3-25 {
+    zoom: 3.25 !important
+}
+.zm-3-0825,
+.zoom-3-0825 {
+    zoom: 3.0825 !important
+}
+.zm-4,
+.zoom-4 {
     zoom: 4 !important
 }
-.zm-5 {
+.zm-4-125,
+.zoom-4-125 {
+    zoom: 4.125 !important
+}
+.zm-4-5,
+.zoom-4-5 {
+    zoom: 4.5 !important
+}
+.zm-4-25,
+.zoom-4-25 {
+    zoom: 4.25 !important
+}
+.zm-4-0825,
+.zoom-4-0825 {
+    zoom: 4.0825 !important
+}
+.zm-5,
+.zoom-5 {
     zoom: 5 !important
+}
+.zm-5-125,
+.zoom-5-125 {
+    zoom: 5.125 !important
+}
+.zm-5-5,
+.zoom-5-5 {
+    zoom: 5.5 !important
+}
+.zm-5-25,
+.zoom-5-25 {
+    zoom: 5.25 !important
+}
+.zm-5-0825,
+.zoom-5-0825 {
+    zoom: 5.0825 !important
 }
 
 /* Lapys JS Components */
@@ -7562,6 +8676,7 @@ table.cmpnt *:not(tr),
     line-height: 1;
     position: relative;
     top: 1px;
+    user-select: none;
     -webkit-font-smoothing: antialiased
 }
 [class*="icn-"]::after {
@@ -8419,6 +9534,21 @@ table.cmpnt *:not(tr),
     }
 
 /* Lapys JS Pseudo Selectors */
+/* ::after, ::before */
+[no-after]::after,
+[no-before]::before {
+    content: "" !important;
+    display: none !important;
+    filter: opacity(0) !important;
+    left: -5000px !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    position: fixed !important;
+    top: -5000px !important;
+    user-select: none !important;
+    visibility: hidden !important
+}
+
 /* :disabled */
 [psd-disabled],
 :disabled {
@@ -8522,8 +9652,18 @@ table.cmpnt *:not(tr),
             Style the -webkit- scrollbar.
 */
 ::-webkit-scrollbar {
+    background: #787878;
     height: 10px;
     padding: 0;
     position: absolute;
     width: 10px
 }
+    /* Thumb */
+    ::-webkit-scrollbar-thumb {
+        background: #787878
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #CFCFCF
+    }

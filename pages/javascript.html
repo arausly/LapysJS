@@ -39,12 +39,1142 @@
             <h1> LapysJS Javascript </h1>
 
             <!-- Subtitle -->
-            <h2> Caption </h2>
+            <h2> Bring LapysJS&rsquo; components to life with already built-in or selected plug-ins. </h2>
         </hgroup>
     </header>
 
     <main>
-        <!-- Code content here... -->
+        <article id="content">
+            <!-- Overview -->
+            <section class="section">
+                <h1 data-header> Overview </h1>
+
+                <!-- Imbed -->
+                <section class="sub-section">
+                    <h2 data-subheader> Imbed </h2>
+
+                    <p class="description">
+                        LapysJS javascript (<code>*.js</code>) files can be included all-in-one or one-by-one.
+
+                        <br 2>
+
+                        In the sense that, the <code>lapys.js</code> or <code>lapys.min.js</code> files include all plug-ins of LapysJS while
+                        <br>
+                        other javascript files include only a portion of the whole.
+                    </p>
+
+                    <div class="msg-warn">
+                        <h4 i> <q> All for One, and One for All </q> </h4>
+
+                        <p>
+                            It is better considered to embed only the specific LapysJS plug-ins needed for a project.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Data Attributes -->
+                <section class="sub-section">
+                    <h2 data-subheader> data-* Attributes </h2>
+
+                    <p class="description">
+                        LapysJS javascript inputs <code>data-*</code> attributes <strong>only</strong> to modify HTML elements.
+                    </p>
+                </section>
+            </section>
+
+            <!-- Variables -->
+            <section class="section">
+                <h1 data-header> Variables </h1>
+
+                <p class="description">
+                    LapysJS was built with a few global variables already accessible.
+
+                    <br 2>
+
+                    All of which are to simplify coding time &amp; development.
+                </p>
+
+                <!-- lapys -->
+                <section class="sub-section">
+                    <h2 data-subheader> lapys </h2>
+
+                    <p class="description">
+                        The <code>lapys</code> variable collects the element using a Javascript function the moment the function is called.
+
+                        <br 2>
+
+                        For example, if a variable assigned to a <code>getElementsByTagName()</code> function is used, <code>lapys</code> stores the variable&rsquo;s value (which is the function).
+
+                        <br 2>
+
+                        However, there a few exceptions to the rules of using the <code>lapys</code> variable.
+                        <br>
+                        For more information. you can check the <a href="#">guide</a> page.
+                    </p>
+
+                    <p class="usage">
+                        Typically when a function is used, <code>lapys</code> updates itself.
+                    </p>
+                </section>
+
+                <!-- LapysJS Object -->
+                <section class="sub-section">
+                    <h2 data-subheader> LapysJS Object </h2>
+
+                    <p class="description">
+                        The LapysJS object embedded within the JS file gives a JSON-level of information about the framework.
+
+                        <br 2>
+
+                        Basic information about LapysJS makes up the object&rsquo;s properties.
+                        
+                        <br 2>
+
+                        Information such as the file&rsquo;s embed element (<code>&lt;script&gt;</code>), the execution date &amp; time, the version of the framework and so on.
+                    </p>
+                </section>
+
+                <!-- create() -->
+                <section class="sub-section">
+                    <h2 data-subheader> create() </h2>
+
+                    <p class="description p-b-1" hr>
+                        LapysJS creates a host of shortened Javascript functions to simplify and prevent the stress in writing code.
+
+                        <br 2>
+
+                        <code>create()</code> is the first of these abbreviated functions.
+
+                    </p>
+
+                    <p class="description" no-before>
+                        The <code>create()</code> method creates the HTML element specified by its <code>tagName</code>,
+                        <br>
+                        or an <code>HTMLUnknownElement</code> if the <code>tagName</code> is not recognized.
+                        
+                        <br 2>
+
+                        In an XUL document, it creates the specified XUL element.
+                        <br>
+                        In other documents, it creates an element with a null namespace URI.
+                    </p>
+
+                    <div class="code">
+                        <div class="javascript" no-edit no-preview no-toggle show-toggle>
+                            create("p") // Creates a &lt;p&gt; element.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- css Object -->
+                <section class="sub-section">
+                    <h2 data-subheader> css Object </h2>
+
+                    <p class="description">
+                        LapysJS&rsquo; <code>css</code> object allows for a variety of function methods
+                        <br> 
+                        relating to CSS and style on the DOM through its properties to be used for dynamic web pages.
+                    </p>
+
+                    <!-- css.add() -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> css.add() </h5>
+
+                        <p class="description">
+                            The <code>add</code> method allows for <code>&lt;link&gt;</code> elements to
+                            <br>
+                            be appended dynamically within the DOM.
+
+                            <br 2>
+
+                            This is useful in changing the theme or styles of a page dynamically, instantly or interactively.
+                        </p>
+
+                        <small class="m-l-10"> Javascript </small>
+                        <div class="code">
+                            <div class="javascript" no-preview no-edit no-toggle show-toggle>
+                                /* The properties of the link must be added into the function as well. */
+                                css.add("lapys.css", "screen", "stylesheet", "text/css")
+                            </div>
+                        </div>
+
+                        <small class="m-l-10"> HTML </small>
+                        <div class="code">
+                            <div class="html" no-copy no-preview no-edit no-toggle show-toggle>
+                                <!-- This _lt_link_gt_ is dynamically added unto the page. -->
+                                &lt;link href="lapys.css" media="screen" rel="stylesheet" type="text/css"&gt;
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- css.style() -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> css.style() </h5>
+
+                        <p class="description">
+                            The <code>style</code> method is used to append <code>&lt;style&gt;</code> elements
+                            <br>
+                            the same way <code>&lt;link&gt;</code>&rsquo;s are added via the <code>css.add()</code> method.
+                        </p>
+
+                        <small class="m-l-10"> Javascript </small>
+                        <div class="code">
+                            <div class="javascript" no-preview no-edit no-toggle show-toggle>
+                                /* The _q_data-key_q_ parameter is used to identify the &lt;style&gt; element */
+                                css.style(
+                                    /* &lt;style&gt; data-key Attribute */
+                                    "customStyle",
+
+                                    /* CSS Selectors */
+                                    "body, html",
+
+                                    /* CSS Properties */
+                                    "background-color: #F7F7F7; " +
+                                    "font-size: 16.6px;",
+
+                                    /* CSS At-Rules (not necessary) */
+                                    "@keyframes fadeIn {" +
+                                        "0% {" +
+                                            "opacity: 0" +
+                                        "}" +
+                                    "}"
+                                )
+                            </div>
+                        </div>
+
+                        <small class="m-l-10"> HTML </small>
+                        <!-- --- UPDATE REQUIRED ---
+                                    Automated syntax coloring for <style> elements.
+                        -->
+                        <div class="code">
+                            <div class="html" no-copy no-preview no-edit no-toggle show-toggle>
+                                <!-- This _lt_style_gt_ is dynamically added unto the page. -->
+                                &lt;style data-key="customStyle"&gt;
+                                    body, html {
+                                        background-color: #F7F7F7;
+                                        font-size: 16.6px;
+                                    }
+
+                                    @keyframes fadeIn {
+                                        0% {
+                                            opacity: 0
+                                        }
+                                    }
+                                &lt;/style&gt;
+                            </div>
+                        </div>
+                    </section>
+                </section>
+
+                <!-- del Object -->
+                <section class="sub-section">
+                    <h2 data-subheader> del Object </h2>
+
+                    <p class="description">
+                        The LapysJS <code>del</code> object much like the <code>css</code> object
+                        <br>
+                        allows the developer to remove key things in the document, such as:
+                        <br>
+                        dynamically added styles, element classes, event listeners, inline-styling and so on&hellip;
+                    </p>
+
+                    <!-- del.attr() -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> del.attr() </h5>
+
+                        <p class="description">
+                            The <code>attr</code> method under the <code>del</code> object removes
+                            attribute nodes from an element.
+
+                            <br 2>
+
+                            <i> Simple as that. </i>
+                        </p>
+
+                        <small class="m-l-10"> Javascript </small>
+                        <div class="code">
+                            <div class="javascript" no-preview no-edit no-toggle show-toggle>
+                                del.attr(document.getElementById("myParagraph"), "style")
+                            </div>
+                        </div>
+
+                        <small class="m-l-10"> HTML </small>
+                        <div class="code">
+                            <div class="html" no-copy no-preview no-edit no-toggle show-toggle>
+                                <!-- This _q_style_q_ attribute is removed from the _lt_p_gt_ element. -->
+                                &lt;p id="myParagraph" <!--style="background-color: whitesmoke;"-->&gt; &lt;/p&gt;
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- del.class() -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> del.class() </h5>
+
+                        <p class="description">
+                            The <code>class</code> method removes a class node from an element.
+                        </p>
+
+                        <small class="m-l-10"> Javascript </small>
+                        <div class="code">
+                            <div class="javascript" no-preview no-edit no-toggle show-toggle>
+                                del.class(document.getElementById("myParagraph"), "classA")
+                            </div>
+                        </div>
+
+                        <small class="m-l-10"> HTML </small>
+                        <div class="code">
+                            <div class="html" no-copy no-preview no-edit no-toggle show-toggle>
+                                <!-- _q_classA_q_ is removed from the element_q_s class nodes. -->
+                                &lt;p class="<!--classA--> classB" id="myParagraph"&gt; &lt;/p&gt;
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- del.event() -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> del.event() </h5>
+
+                        <p class="description">
+                            The <code>event</code> method removes from the <dfn>EventTarget</dfn> an event listener
+                            <br>
+                            previously registered with an <dfn>EventTarget.addEventListener()</dfn> method.
+
+                            <br 2>
+
+                            The event listener to be removed is identified using a combination of the event type,
+                            <br>
+                            the event listener function itself and other functions.
+                        </p>
+
+                        <small class="m-l-10"> Javascript </small>
+                        <div class="code">
+                            <div class="javascript" no-preview no-edit no-toggle show-toggle>
+                                del.event(element, event, function)
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- del.link() -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> del.link() </h5>
+
+                        <p class="description">
+                            The <code>link</code> method removes a specified <code>&lt;link&gt;</code> element
+                            from the DOM.
+                        </p>
+
+                        <small class="m-l-10"> Javascript </small>
+                        <div class="code">
+                            <div class="javascript" no-preview no-edit no-toggle show-toggle>
+                                del.link("lapys.css", "screen", "stylesheet", "text/css")
+                            </div>
+                        </div>
+
+                        <small class="m-l-10"> HTML </small>
+                        <div class="code">
+                            <div class="html" no-copy no-preview no-edit no-toggle show-toggle>
+                                <!-- The _lt_link_gt_ element here is dynamically deleted. -->
+                                <!-- _lt_link href="lapys.css" media="screen" rel="stylesheet" type="text/css"_gt_ -->
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- del.html() -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> del.html() </h5>
+
+                        <p class="description">
+                            The <code>html</code> method removes a specified element from the DOM.
+                        </p>
+
+                        <small class="m-l-10"> Javascript </small>
+                        <div class="code">
+                            <div class="javascript" no-preview no-edit no-toggle show-toggle>
+                                /*
+                                    The element is queried for, then found with the numeric index:
+                                    del.html(element, index).
+                                */
+                                del.html(document.getElementById("myParagraph"), 0)
+                            </div>
+                        </div>
+
+                        <small class="m-l-10"> HTML </small>
+                        <div class="code">
+                            <div class="html" no-copy no-preview no-edit no-toggle show-toggle>
+                                <!-- The _lt_p_gt_ element here is dynamically deleted. -->
+                                <!-- _lt_p id="myParagraph"_gt_ _lt_/p_gt_ -->
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- del.inlineStyle() -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> del.inlineStyle() </h5>
+
+                        <p class="description">
+                            The <code>inlineStyle</code> method removes a specified inline style
+                            from an element in the DOM.
+                        </p>
+
+                        <small class="m-l-10"> Javascript </small>
+                        <div class="code">
+                            <div class="javascript" no-preview no-edit no-toggle show-toggle>
+                                /* del.inlineStyle(element, style) */
+                                del.inlineStyle(document.getElementById("myParagraph"), "height")
+                            </div>
+                        </div>
+
+                        <small class="m-l-10"> HTML </small>
+                        <div class="code">
+                            <div class="html" no-copy no-preview no-edit no-toggle show-toggle>
+                                <!-- The _lt_p_gt_ element_q_s _q_height_q_ within it_q_s _q_style_q_ attribute is removed. -->
+                                &lt;p id="myParagraph" style="font-size: inherit; <!--height: 17px-->;"&gt; &lt;/p&gt;
+                            </div>
+                        </div>
+
+                        <div class="msg-warn">
+                            <h6> Removed Styling </h6>
+
+                            <p>
+                                If the <code>style</code> attribute of an element is null,
+                                it is removed by the <code>inlineStyle</code> function.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- del.style() -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> del.style() </h5>
+
+                        <p class="description">
+                            The <code>style</code> method removes a specified
+                            <code>&lt;style&gt;</code> element from the DOM.
+                        </p>
+
+                        <small class="m-l-10"> Javascript </small>
+                        <div class="code">
+                            <div class="javascript" no-preview no-edit no-toggle show-toggle>
+                                /* The &lt;style&gt; element to be removed is accessed from it_q_s _q_data-key_q_ attribute. */
+                                del.style("customStyle")
+                            </div>
+                        </div>
+
+                        <small class="m-l-10"> HTML </small>
+                        <div class="code">
+                            <div class="html" no-copy no-preview no-edit no-toggle show-toggle>
+                                <!-- The _lt_style_gt_ element here is dynamically deleted. -->
+                                <!-- _lt_style data-key="customStyle"_gt_ _lt_/style_gt_ -->
+                            </div>
+                        </div>
+                    </section>
+                </section>
+
+                <!-- dir Object -->
+                <section class="sub-section">
+                    <h2 data-subheader> dir Object </h2>
+
+                    <p class="description">
+                        The LapysJS <code>dir</code> object allows the developer
+                        <br>
+                        to access specified parts of the document&rsquo;s URL.
+                    </p>
+
+                    <!-- dir.fullPath -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> dir.fullPath </h5>
+
+                        <p class="description">
+                            This property returns the entire URL (of the current page).
+                        </p>
+                    </section>
+
+                    <!-- dir.origin -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> dir.origin </h5>
+
+                        <p class="description">
+                            This property returns the protocol, hostname and port number of the current page&rsquo;s URL.
+                        </p>
+                    </section>
+
+                    <!-- dir.path -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> dir.path </h5>
+
+                        <p class="description">
+                            This property returns the path name of the current URL.
+                        </p>
+                    </section>
+                </section>
+
+                <!-- file Object -->
+                <section class="sub-section">
+                    <h2 data-subheader> file Object </h2>
+
+                    <p class="description">
+                        The LapysJS <code>file</code> object allows the developer
+                        <br>
+                        to access, delete, edit, read and write files on the local disk.
+                    </p>
+
+                    <div class="msg-warn">
+                        <h4> Experimental Technology </h4>
+
+                        <p>
+                            The LapysJS <code>file</code> object is still being developed on
+                            <br>
+                            to fit standards and concur with modern Javascript.
+                        </p>
+                    </div>
+
+                    <!-- file.close -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> file.close </h5>
+
+                        <p class="description">
+                            This property allows the developer to close initially opened files.
+                        </p>
+
+                        <div class="code">
+                            <div class="javascript" no-edit no-preview no-toggle show-toggle>
+                                file.close(directory, type)
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- file.contentType -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> file.contentType </h5>
+
+                        <p class="description">
+                            This property returns the MIME type that the document is being rendered as.
+
+                            <br 2>
+
+                            This may come from HTTP headers or other sources of MIME information,
+                            <br>
+                            and might be affected by automatic type conversions performed by either the browser or extensions.
+                        </p>
+
+                        <div class="msg-error">
+                            <h6> Non-Standard </h6>
+
+                            <p>
+                                This feature is non-standard and is not on a standards track.
+                                <br>
+                                Do not use it on production sites facing the Web: it will not work for every user.
+
+
+                                <br 2>
+
+                                There may also be large incompatibilities between implementations and the behavior may change in the future.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- file.domain -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> file.domain </h5>
+
+                        <p class="description">
+                            Gets/ sets the domain portion of the origin of the current document,
+                            <br>
+                            as used by the 
+                            <a href="https://developer.mozilla.org/en-US/docs/Same_origin_policy_for_JavaScript" targrt="_blank">
+                                same origin policy
+                            </a>.
+                        </p>
+                    </section>
+
+                    <!-- file.inputEncoding -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> file.inputEncoding </h5>
+
+                        <p class="description">
+                            This property returns the character encoding for the document.
+
+                            <br 2>
+
+                            The character encoding is the character set used for rendering the document,
+                            <br>
+                            which may differ from the encoding specified by the page (the user can override the encoding).
+
+                            <br 2>
+
+                            It returns the character encoding at the time of parsing,
+                            <br>
+                            and will return null if the document is created in memory.
+                        </p>
+
+                        <div class="msg-info">
+                            <h6> document.characterSet </h6>
+
+                            <p> This property is an alias of <code>document.characterSet</code>. </p>
+                        </div>
+                    </section>
+
+                    <!-- file.lastModified -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> file.lastModified </h5>
+
+                        <p class="description">
+                            This property returns a string containing the date and time on which the current document was last modified.
+                        </p>
+                    </section>
+
+                    <!-- file.name -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> file.name </h5>
+
+                        <p class="description">
+                            This property returns the document&rsquo;s file name.
+                        </p>
+                    </section>
+
+                    <!-- file.open -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> file.open </h5>
+
+                        <p class="description">
+                            This property allows the developer to open closed files.
+                        </p>
+
+                        <div class="code">
+                            <div class="javascript" no-edit no-preview no-toggle show-toggle>
+                                file.open(directory, type)
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- file.plugIns -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> file.plugIns </h5>
+
+                        <p class="description">
+                            This property returns an HTMLCollection object containing one or more
+                            <br>
+                            HTMLEmbedElements or null which represent the <code>&lt;embed&gt;</code> elements in the current document.
+                        </p>
+
+                        <div class="msg-info">
+                            <h6> NavigatorPlugins.plugins </h6>
+
+                            <p>
+                                One can also refer to the <a href="https://developer.mozilla.org/en-US/docs/Web/API/NavigatorPlugins/plugins" target="_blank"><code>NavigatorPlugins.plugins</code></a> property which
+                                <br>
+                                returns a PluginArray object, listing the Plugin objects describing the plugins installed in the application.
+                            </p>
+                        </div>
+
+                        <div class="msg-warn">
+                            <h6> NavigatorPlugins.plugins (continued) </h6>
+
+                            <p>
+                                Although in Firefox 29 and later, enumeration of the <code>navigator.plugins</code> array may be restricted as a privacy measure.
+
+                                <br 2>
+
+                                Applications that must check for the presence of a browser plugin should query <code>navigator.plugins</code>
+                                <br>
+                                or <code>navigator.mimeTypes</code> by exact name instead of enumerating the <code>navigator.plugins</code>
+                                <br>
+                                array and comparing every plugin's name.
+
+                                <br 2>
+
+                                This privacy change does not disable any plugins; it just hides some plugin names from enumeration.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- file.read -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> file.read </h5>
+
+                        <p class="description">
+                            This property allows the developer to read files on the local disk.
+                        </p>
+
+                        <div class="code">
+                            <div class="javascript" no-edit no-preview no-toggle show-toggle>
+                                file.read(directory, type)
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- file.ready -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> file.ready </h5>
+
+                        <p class="description">
+                            The <code>ready</code> property describes the loading state of the document.
+                        </p>
+                    </section>
+
+                    <!-- file.scripts -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> file.scripts </h5>
+
+                        <p class="description">
+                            This property returns a list of the <code>&lt;script&gt;</code> elements in the document.
+                            
+                            <br 2>
+                            
+                            The returned object is an HTMLCollection.
+                        </p>
+                    </section>
+
+                    <!-- file.stylesheets -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> file.stylesheets </h5>
+
+                        <p class="description">
+                            This read-only property returns a <code>StyleSheetList</code> of <code>CSSStyleSheet</code> objects for stylesheets explicitly linked into or embedded in a document.
+                        </p>
+                    </section>
+
+                    <!-- file.type -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> file.type </h5>
+
+                        <p class="description">
+                            This property returns the document&rsquo;s file type.
+                        </p>
+                    </section>
+
+                    <!-- file.visibility -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> file.visibility </h5>
+
+                        <p class="description">
+                            This read-only property returns the visibility of the document,
+                            <br>
+                            that is in which context this element is now visible.
+
+                            <br 2>
+
+                            It is useful to know if the document is in the background or an invisible tab, or only loaded for pre-rendering.
+                        </p>
+                    </section>
+
+                    <!-- file.write -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> file.write </h5>
+
+                        <p class="description">
+                            This property allows the developer to write files on the local disk.
+                        </p>
+
+                        <div class="code">
+                            <div class="javascript" no-edit no-preview no-toggle show-toggle>
+                                file.write(content, directory, type)
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- file.XML -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> file.XML </h5>
+
+                        <p class="description">
+                            This object property allows the developer to read all information pertaining to XML on the document.
+                        </p>
+                    </section>
+
+                    <!-- file.xmlEncoding -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> file.xmlEncoding </h5>
+
+                        <p class="description">
+                            This property returns the encoding as determined by the XML declaration.
+                            <br>
+                            Should be <code>null</code> if unspecified or <i>unknown</i>.
+                        </p>
+                    </section>
+                </section>
+
+                <!-- insertAfter() -->
+                <section class="sub-section">
+                    <h2 data-subheader> insertAfter() </h2>
+
+                    <p class="description">
+                        LapysJS&rsquo; <code>insertAfter</code> function inserts a specified element node
+                        <br> 
+                        after an element already on the DOM.
+                    </p>
+
+
+                    <small class="m-l-10"> Javascript </small>
+                    <div class="code">
+                        <div class="javascript" no-edit no-preview no-toggle show-toggle>
+                            /* 
+                                Insert a &lt;div&gt; element after an element with ID _q_myParagraph_q_
+
+                                insertAfter(element, sibling)
+                            */
+                            insertAfter(create("div"), document.getElementById("myParagraph"))
+                        </div>
+                    </div>
+
+                    <small class="m-l-10"> HTML </small>
+                    <div class="code">
+                        <div class="html" no-edit no-preview no-toggle show-toggle>
+                            <!-- The _lt_div_gt_ element here is inserted after the element with ID _q_myParagraph_q_ -->
+                            <p id="myParagraph"> lorem ipsum ... </p>
+                            <div></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- insertBefore() -->
+                <section class="sub-section">
+                    <h2 data-subheader> insertBefore() </h2>
+
+                    <p class="description">
+                        LapysJS&rsquo; <code>insertAfter</code> function inserts a specified element node
+                        <br> 
+                        after an element already on the DOM.
+                    </p>
+
+                    <small class="m-l-10"> Javascript </small>
+                    <div class="code">
+                        <div class="javascript" no-edit no-preview no-toggle show-toggle>
+                            /* 
+                                Insert a &lt;div&gt; element before an element with ID _q_myParagraph_q_
+
+                                insertBefore(element, sibling)
+                            */
+                            insertBefore(create("div"), document.getElementById("myParagraph"))
+                        </div>
+                    </div>
+
+                    <small class="m-l-10"> HTML </small>
+                    <div class="code">
+                        <div class="html" no-edit no-preview no-toggle show-toggle>
+                            <!-- The _lt_div_gt_ element here is inserted before the element with ID _q_myParagraph_q_ -->
+                            <div></div>
+                            <p id="myParagraph"> lorem ipsum ... </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- get Object -->
+                <section class="sub-section">
+                    <h2 data-subheader> get Object </h2>
+
+                    <p class="description">
+                        LapysJS&rsquo; <code>get</code> object allows the developer to select
+                        <br> 
+                        specified data from the DOM or elements on the DOM.
+                    </p>
+
+                    <!-- get.attr() -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> get.attr() </h5>
+
+                        <p class="description">
+                            The <code>attr</code> method returns the attribute value of a specified element.
+                        </p>
+
+                        <small class="m-l-10"> HTML </small>
+                        <div class="code">
+                            <div class="html" no-copy no-preview no-edit no-toggle show-toggle>
+                                <p id="myParagraph" translate="no"> lorem ipsum ... </p>
+                            </div>
+                        </div>
+
+                        <small class="m-l-10"> Javascript </small>
+                        <div class="code">
+                            <div class="javascript" no-preview no-edit no-toggle show-toggle>
+                                get.attr(document.getElementById("myParagraph"), "translate") // returns _q_no_q_.
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- get.class() -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> get.class() </h5>
+
+                        <p class="description">
+                            The <code>class</code> method returns the specified element&rsquo;s class attribute&rsquo;s value.
+                        </p>
+
+                        <small class="m-l-10"> HTML </small>
+                        <div class="code">
+                            <div class="html" no-copy no-preview no-edit no-toggle show-toggle>
+                                <p class="inline" id="myParagraph" translate="no"> lorem ipsum ... </p>
+                            </div>
+                        </div>
+
+                        <small class="m-l-10"> Javascript </small>
+                        <div class="code">
+                            <div class="javascript" no-preview no-edit no-toggle show-toggle>
+                                get.class(document.getElementById("myParagraph")) // returns _q_inline_q_.
+                            </div>
+                        </div>
+
+                        <div class="msg-info">
+                            <h6> get.attr() VS get.class() </h6>
+
+                            <p> 
+                                The <code>get.class()</code> method is only used as a shortcut or second option
+                                <br>
+                                for the <code>get.attr()</code> which can also inquire the same function as the <code>get.class()</code> method.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- get.css() -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> get.css() </h5>
+
+                        <p class="description">
+                            The <code>css</code> method gives the specified value of the CSS property of an element after applying the active stylesheets and resolving any basic computation those values may contain.
+                        </p>
+
+                        <small class="m-l-10"> HTML </small>
+                        <div class="code">
+                            <div class="html" no-copy no-preview no-edit no-toggle show-toggle>
+                                <p id="myParagraph" style="display: inline-block;"> lorem ipsum ... </p>
+                            </div>
+                        </div>
+
+                        <small class="m-l-10"> Javascript </small>
+                        <div class="code">
+                            <div class="javascript" no-preview no-edit no-toggle show-toggle>
+                                get.css("display", document.getElementById("myParagraph")) // returns _q_inline-block_q_.
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- get.html() -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> get.html() </h5>
+
+                        <p class="description">
+                            The <code>html</code> method returns a list of the elements within the document
+                            <br>
+                            (using depth-first pre-order traversal of the document&rsquo;s nodes) that match the specified group of selectors.
+
+                            <br 2>
+
+                            The object returned is a NodeList.
+                        </p>
+
+                        <small class="m-l-10"> HTML </small>
+                        <div class="code">
+                            <div class="html" no-copy no-preview no-edit no-toggle show-toggle>
+                                <p id="myParagraph"> lorem ipsum ... </p>
+                            </div>
+                        </div>
+
+                        <small class="m-l-10"> Javascript </small>
+                        <div class="code">
+                            <div class="javascript" no-preview no-edit no-toggle show-toggle>
+                                /* get.html(selector, index) */
+                                get.html(document.getElementById("myParagraph"), 0) // returns _q_p#myParagraph_q_.
+                            </div>
+                        </div>
+
+                        <div class="msg-info">
+                            <h6> Selectors </h6>
+
+                            <p>
+                                The <code>get.html()</code> method selects elements via their CSS selector.
+                            </p>
+                        </div>
+
+                        <div class="msg-info">
+                            <h6> Indexing </h6>
+
+                            <p>
+                                The <code>get.html()</code> method does not need an index to access the element if only one instance of the element specified exists.
+                            </p>
+                        </div>
+
+                        <div class="msg-info">
+                            <h6> Arrays </h6>
+
+                            <p>
+                                If an array or NodeList is required, the index variable be replaced with the <code>"_array"</code> string e.g.:
+
+                                <br 2>
+
+                                <code>get.html(document.getElementById("myParagraph"), "_array")</code>.
+                            </p>
+                        </div>
+                    </section>
+                </section>
+
+                <!-- goTo() -->
+                <section class="sub-section">
+                    <h2 data-subheader> goTo() </h2>
+
+                    <p class="description">
+                        This function allows the developer to change the directory of the current page to another as with hyperlinks.
+                    </p>
+
+                    <div class="code">
+                        <div class="javascript" no-edit no-preview no-toggle show-toggle>
+                            goTo("www.someRandomURL.com./")
+                        </div>
+                    </div>
+                </section>
+
+                <!-- js Object -->
+                <section class="sub-section">
+                    <h2 data-subheader> js Object </h2>
+
+                    <p class="description">
+                        LapysJS&rsquo; <code>js</code> object allows for a variety of function methods
+                        <br> 
+                        relating to Javascript embeds on the DOM through its properties to be used for dynamic web pages.
+                    </p>
+
+                    <!-- js.add() -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> js.add() </h5>
+
+                        <p class="description">
+                            The <code>add</code> method allows for <code>&lt;script&gt;</code> elements to
+                            <br>
+                            be appended dynamically within the DOM.
+
+                            <br 2>
+
+                            This is useful in changing the functionality of a page dynamically, instantly or interactively.
+                        </p>
+
+                        <small class="m-l-10"> Javascript </small>
+                        <div class="code">
+                            <div class="javascript" no-preview no-edit no-toggle show-toggle>
+                                /* The properties of the script must be added into the function as well. */
+                                js.add("lapys.js", "text/javascript", "async")
+                            </div>
+                        </div>
+
+                        <small class="m-l-10"> HTML </small>
+                        <div class="code">
+                            <div class="html" no-copy no-preview no-edit no-toggle show-toggle>
+                                <!-- This _lt_script_gt_ is dynamically added unto the page. -->
+                                &lt;script async="" src="lapys.js" type="text/javascript"&gt; &lt;/script&gt;
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- js.script() -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> js.script() </h5>
+
+                        <p class="description">
+                            The <code>script</code> method is used to append <code>&lt;script&gt;</code> elements into the DOM with some parsed code.
+                        </p>
+
+                        <small class="m-l-10"> Javascript </small>
+                        <div class="code">
+                            <div class="javascript" no-preview no-edit no-toggle show-toggle>
+                                /* The _q_data-key_q_ parameter is used to identify the &lt;script&gt; element */
+                                js.script(
+                                    /* &lt;script&gt; data-key Attribute */
+                                    "customScript",
+
+                                    /* Simple Code */
+                                    "function() {" +
+                                    "// Do something..." +
+                                    "}"
+                                )
+                            </div>
+                        </div>
+
+                        <small class="m-l-10"> HTML </small>
+
+                        <!--  --- UPDATE REQUIRED ---
+                                    Automated syntax coloring for <script> elements.
+                        -->
+                        <div class="code">
+                            <div class="html" no-copy no-preview no-edit no-toggle show-toggle>
+                                <!-- This _lt_script_gt_ is dynamically added unto the page. -->
+                                &lt;script data-key="customScript"&gt;
+                                    function() {
+                                        // Do something...
+                                    }
+                                &lt;/script&gt;
+                            </div>
+                        </div>
+                    </section>
+                </section>
+
+                <!-- log() -->
+                <section class="sub-section">
+                    <h2 data-subheader> log() </h2>
+
+                    <p class="description">
+                        This function allows the developer to print data within the browser&rsquo;s console.
+                    </p>
+
+                    <div class="code">
+                        <div class="javascript" no-edit no-preview no-toggle show-toggle>
+                            log("Some data.") // prints _q_Some data._q_
+                        </div>
+                    </div>
+
+                    <div class="msg-warn">  
+                        <h6> Source Finding </h6>
+
+                        <p>
+                            Though this may be a shorter version of logging data into the console
+                            <br>
+                            finding the line of code where it was executed will always be fixed to a point in the LapysJS script file
+                            <br>
+                            and not the file that used the function method.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- parseBool() -->
+                <section class="sub-section">
+                    <h2 data-subheader> parseBool() </h2>
+
+                    <p class="description">
+                        This function returns either <code>true</code> or <code>false</code> for any data type depending on its primitive boolean value.
+                    </p>
+
+                    <div class="code">
+                        <div class="javascript" no-edit no-preview no-toggle show-toggle>
+                            parseBool("Some data.") // returns _q_true_q_.
+                        </div>
+                    </div>
+
+                    <div class="msg-info">
+                        Although placing a double exclamation mark (<code>!!</code>) before the date to be parsed also does the same.
+                    </div>
+                </section>
+            </section>
+
+            <!-- Something else -->
+            <section class="section">
+                <h3 data-header> Some Header </h3>
+
+                <p class="description">
+                </p>
+
+                <p class="usage">
+                </p>
+
+                <div class="code">
+                    <div class="html">
+                        <p> This is a paragraph. </p>
+                    </div>
+                </div>
+
+                <div class="msg-valid">
+                    <h4> Title </h4>
+
+                    <lorem 3> </lorem>
+                </div>
+            </section>
+        </article>
     </main>
 
     <!-- LapysJS Script -->

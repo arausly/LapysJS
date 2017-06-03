@@ -43,7 +43,7 @@ var LapysJS = {
                 --- NOTE ---
                     The value is based on the number of updates made recently.
         */
-        var versionNumber = 4,
+        var versionNumber = 3,
 
         // Placeholder
         secondaryVersionNumber = 0,
@@ -90,8 +90,9 @@ if (
             // Create <link>
             add : (href, media, rel, type) => {
                 // Append the <link> element within the <head> element.
-                document.getElementsByTagName("head")[0].innerHTML += (
-                    '<link href="' + href + '" media="' + media + '" rel="' + rel + '" type="' + type + '">')
+                if (!document.querySelectorAll('link[href="' + href + '"][media="' + media + '"][rel="' + rel + '"][type="' + type + '"]')[0])
+                    document.getElementsByTagName("head")[0].innerHTML += (
+                        '<link href="' + href + '" media="' + media + '" rel="' + rel + '" type="' + type + '">')
             },
             
             // Create <style>
@@ -103,7 +104,8 @@ if (
                 cssStyle.setAttribute("data-key", dataKey)
                 
                 // Append the element into the <head> element.
-                document.getElementsByTagName("head")[0].appendChild(cssStyle)
+                if (!document.querySelectorAll('style[data-key="' + dataKey + '"]')[0])
+                    document.getElementsByTagName("head")[0].appendChild(cssStyle)
                 
                 // The option for CSS at-rules is given here.
                 if (atRule == undefined)
@@ -240,21 +242,21 @@ if (
             // Complete URL
             fullPath : location.href,
 
-            // URL
-            path : location.pathName,
-
             // Port
-            port : location.port,
+            origin : location.origin,
 
-            // Protocol
-            protocol : location.protocol
+            // URL
+            path : location.pathname
         },
         
         // Files
         file = {
             // Close Files
-            close : (directory) => {
-                var file = new File(directory)
+            close : (directory, type) => {
+                if (type == undefined)
+                    type = "text/plain"
+
+                var file = new File([""], directory, { type: type })
 
                 // Open the file
                 file.close()
@@ -276,11 +278,20 @@ if (
             lastModified : document.lastModified,
 
             // Name
-            name : location.href.slice(location.href.lastIndexOf("/") + 1),
+            name : (function() {
+                if (location.pathname.split("/").pop() != "")
+                    return location.pathname.split("/").pop()
+
+                else
+                    return location.pathname.split("#").shift()
+            })(),
 
             // Open Files
-            open : (directory) => {
-                var file = new File(directory)
+            open : (directory, type) => {
+                if (type == undefined)
+                    type = "text/plain"
+
+                var file = new File([""], directory, { type: type })
 
                 // Open the file
                 file.open()
@@ -290,8 +301,11 @@ if (
             plugIns : document.plugins,
 
             // Read files
-            read : (directory) => {
-                var file = new File(directory)
+            read : (directory, type) => {
+                if (type == undefined)
+                    type = "text/plain"
+
+                var file = new File([""], directory, { type: type })
 
                 // Open the file with "Read" access
                 file.open("r")
@@ -319,17 +333,37 @@ if (
 
             // Type
             type : (function() {
-                var fileType = location.href.slice(location.href.lastIndexOf("/") + 1)
+                return (/[.]/.exec(
+                    (function() {
+                        if (location.pathname.split("/").pop() != "")
+                            return location.pathname.split("/").pop()
 
-                return fileType.slice(fileType.indexOf(".") + 1)
+                        else
+                            return location.pathname.split("#").shift()
+                    })())
+                ) ?
+                    /[^.]+$/.exec(
+                        (function() {
+                            if (location.pathname.split("/").pop() != "")
+                                return location.pathname.split("/").pop()
+
+                            else
+                                return location.pathname.split("#").shift()
+                        })()
+                    )[0] :
+                    
+                    undefined
             })(),
 
             // Visibility
             visibility : document.visibilityState,
 
             // Write files
-            write : (directory, content) => {
-                var file = new File(directory)
+            write : (content, directory, type) => {
+                if (type == undefined)
+                    type = "text/plain"
+
+                var file = new File([""], directory, { type: type })
 
                 // Open the file via "Write" access
                 file.open("w")
@@ -430,10 +464,13 @@ if (
                 // Append the <script> element within the <body> element.
                 if (sync == undefined)
                     document.getElementsByTagName("body")[0].innerHTML += (
-                        '<script src="' + src + '" type="' + type + '"> </script>')
+                        '<script src="' + src + '" type="' + type + '"> </script>'
+                    )
+                
                 else
                     document.getElementsByTagName("body")[0].innerHTML += (
-                        '<script ' + sync + ' src="' + src + '" type="' + type + '"> </script>')
+                        '<script ' + sync + ' src="' + src + '" type="' + type + '"> </script>'
+                    )
             },
 
             // Create <script>
@@ -2371,6 +2408,50 @@ if (
                     tooltipTop = ((event.clientY + (this.getBoundingClientRect().top + (this.getBoundingClientRect().height / 2))) / 2) + tooltipMarginTop
 
                     // Preset Positioning
+                        // Center
+                        if (
+                                this.getAttribute("data-title").search("_center") >= 0 &&
+                            this.getAttribute("data-title").search("_center") <= this.getAttribute("data-title").lastIndexOf("_center")
+                        ) {
+                            // Remove the "_center".
+                            tooltip.innerHTML = tooltip.innerHTML.replace(/_center([^_center]*)$/, "$1")
+
+                            // Position the tooltip.
+                            tooltipLeft = this.getBoundingClientRect().left + (this.getBoundingClientRect().width / 2) - (tooltip.getBoundingClientRect().width / 2)
+                            tooltipTop = this.getBoundingClientRect().top + (this.getBoundingClientRect().height / 2) - (tooltip.getBoundingClientRect().height / 2)
+                        }
+                            // Center Left
+                            if (
+                                    this.getAttribute("data-title").search("_center") >= 0 &&
+                                    this.getAttribute("data-title").search("_center") <= (this.getAttribute("data-title").lastIndexOf("_center") + this.getAttribute("data-title").lastIndexOf("_left"))
+                                        &&
+                                    this.getAttribute("data-title").search("_left") >= 0 &&
+                                    this.getAttribute("data-title").search("_left") <= (this.getAttribute("data-title").lastIndexOf("_left") + this.getAttribute("data-title").lastIndexOf("_center"))
+                            ) {
+                                // Remove the "_center" and "_left".
+                                tooltip.innerHTML = tooltip.innerHTML.replace(/_center_left([^_center_left]*)$/, "$1")
+                                tooltip.innerHTML = tooltip.innerHTML.replace(/_left_center([^_left_center]*)$/, "$1")
+
+                                // Position the tooltip.
+                                tooltipLeft = (this.getBoundingClientRect().left - tooltip.getBoundingClientRect().width) - tooltipMarginLeft
+                                tooltipTop = this.getBoundingClientRect().top + (this.getBoundingClientRect().height / 2) - (tooltip.getBoundingClientRect().height / 2)
+                            }
+                            // Center Right
+                            if (
+                                    this.getAttribute("data-title").search("_center") >= 0 &&
+                                    this.getAttribute("data-title").search("_center") <= (this.getAttribute("data-title").lastIndexOf("_center") + this.getAttribute("data-title").lastIndexOf("_right"))
+                                        &&
+                                    this.getAttribute("data-title").search("_right") >= 0 &&
+                                    this.getAttribute("data-title").search("_right") <= (this.getAttribute("data-title").lastIndexOf("_right") + this.getAttribute("data-title").lastIndexOf("_center"))
+                            ) {
+                                // Remove the "_center" and "_right".
+                                tooltip.innerHTML = tooltip.innerHTML.replace(/_center_right([^_center_right]*)$/, "$1")
+                                tooltip.innerHTML = tooltip.innerHTML.replace(/_right_center([^_right_center]*)$/, "$1")
+
+                                // Position the tooltip.
+                                tooltipLeft = (this.getBoundingClientRect().left + this.getBoundingClientRect().width) + tooltipMarginLeft
+                                tooltipTop = this.getBoundingClientRect().top + (this.getBoundingClientRect().height / 2) - (tooltip.getBoundingClientRect().height / 2)
+                            }
                         // Bottom
                         if (
                             this.getAttribute("data-title").search("_bottom") >= 0 &&
@@ -2429,50 +2510,6 @@ if (
                                 // Position the tooltip.
                                 tooltipLeft = (this.getBoundingClientRect().left + this.getBoundingClientRect().width) + tooltipMarginLeft
                                 tooltipTop = (this.getBoundingClientRect().top + this.getBoundingClientRect().height + tooltip.getBoundingClientRect().height) + tooltipMarginTop
-                            }
-                        // Center
-                        if (
-                                this.getAttribute("data-title").search("_center") >= 0 &&
-                            this.getAttribute("data-title").search("_center") <= this.getAttribute("data-title").lastIndexOf("_center")
-                        ) {
-                            // Remove the "_center".
-                            tooltip.innerHTML = tooltip.innerHTML.replace(/_center([^_center]*)$/, "$1")
-
-                            // Position the tooltip.
-                            tooltipLeft = this.getBoundingClientRect().left + (this.getBoundingClientRect().width / 2) - (tooltip.getBoundingClientRect().width / 2)
-                            tooltipTop = this.getBoundingClientRect().top + (this.getBoundingClientRect().height / 2) - (tooltip.getBoundingClientRect().height / 2)
-                        }
-                            // Center Left
-                            if (
-                                    this.getAttribute("data-title").search("_center") >= 0 &&
-                                    this.getAttribute("data-title").search("_center") <= (this.getAttribute("data-title").lastIndexOf("_center") + this.getAttribute("data-title").lastIndexOf("_left"))
-                                        &&
-                                    this.getAttribute("data-title").search("_left") >= 0 &&
-                                    this.getAttribute("data-title").search("_left") <= (this.getAttribute("data-title").lastIndexOf("_left") + this.getAttribute("data-title").lastIndexOf("_center"))
-                            ) {
-                                // Remove the "_center" and "_left".
-                                tooltip.innerHTML = tooltip.innerHTML.replace(/_center_left([^_center_left]*)$/, "$1")
-                                tooltip.innerHTML = tooltip.innerHTML.replace(/_left_center([^_left_center]*)$/, "$1")
-
-                                // Position the tooltip.
-                                tooltipLeft = (this.getBoundingClientRect().left - tooltip.getBoundingClientRect().width) - tooltipMarginLeft
-                                tooltipTop = this.getBoundingClientRect().top + (this.getBoundingClientRect().height / 2) - (tooltip.getBoundingClientRect().height / 2)
-                            }
-                            // Center Right
-                            if (
-                                    this.getAttribute("data-title").search("_center") >= 0 &&
-                                    this.getAttribute("data-title").search("_center") <= (this.getAttribute("data-title").lastIndexOf("_center") + this.getAttribute("data-title").lastIndexOf("_right"))
-                                        &&
-                                    this.getAttribute("data-title").search("_right") >= 0 &&
-                                    this.getAttribute("data-title").search("_right") <= (this.getAttribute("data-title").lastIndexOf("_right") + this.getAttribute("data-title").lastIndexOf("_center"))
-                            ) {
-                                // Remove the "_center" and "_right".
-                                tooltip.innerHTML = tooltip.innerHTML.replace(/_center_right([^_center_right]*)$/, "$1")
-                                tooltip.innerHTML = tooltip.innerHTML.replace(/_right_center([^_right_center]*)$/, "$1")
-
-                                // Position the tooltip.
-                                tooltipLeft = (this.getBoundingClientRect().left + this.getBoundingClientRect().width) + tooltipMarginLeft
-                                tooltipTop = this.getBoundingClientRect().top + (this.getBoundingClientRect().height / 2) - (tooltip.getBoundingClientRect().height / 2)
                             }
                     // Top
                         if (
@@ -2602,7 +2639,7 @@ if (
                 // Height Preset
                     // h-device-height
                     if (all[i].getAttribute("class").indexOf("h-device-height") >= 0)
-                        all[i].style.height = device.height + "px"
+                        all[i].style.height = window.innerHeight + "px"
                     // h-style
                     if (all[i].getAttribute("class").indexOf("h-style") >= 0)
                         all[i].style.height = all[i].clientHeight + "px"
@@ -2649,7 +2686,7 @@ if (
                 // Width Preset
                     // w-device-width
                     if (all[i].getAttribute("class").indexOf("w-device-width") >= 0)
-                        all[i].style.width = device.width + "px"
+                        all[i].style.width = window.innerWidth + "px"
                     // w-height
                     if (all[i].getAttribute("class").indexOf("w-height") >= 0)
                         all[i].style.width = all[i].clientHeight + "px"

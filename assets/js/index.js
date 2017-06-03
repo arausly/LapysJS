@@ -12,6 +12,14 @@
                 nav.themes.href = "pages/themes.html"
             }
 
+    // Footer
+        // Children
+            // Extra Options
+                // Updates
+                setTimeout(function() {
+                    extra.updates.href = "pages/updates.html"
+                })
+
 /* Trailer */
     // Play Button
         // Definition

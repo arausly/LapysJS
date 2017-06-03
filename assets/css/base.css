@@ -1,148 +1,36 @@
 /* CSS At-Rules */
-/* @media */
-    /* Mobile S */
+/* Media
+        @media
+*/
+    /* Mobile */
     @media only screen
-        and (max-width: 320px)
+        and (max-width: 425px)
         and (min-width: 0px) {
-            /* HTML Elements */
-                /* <body> */
-                body {
-                    font-size: 15px !important
-                }
-    }
-
-    /* Mobile & Tablet */
-    @media only screen
-        and (max-width: 1023px)
-        and (min-width: 0px) {
-            /* Navigation */
+        /* Components */
+            /*Navigation */
                 /* Navigation Item */
                 #nav .nav-item {
-                    font-size: 90%
+                    font-size: 55% !important
                 }
-                    /* Home */
-                    #nav .nav-item#home {
-                        text-indent: -4%
-                    }
-
-                    /* Download */
-                    #nav .nav-item#download {
-                        display: none
-                    }
-                    
                     /* Javascript */
                     #nav .nav-item#javascript::after {
                         content: "JS" !important
                     }
-                    
+
                     /* Components */
-                    #nav .nav-item#components {
+                    #nav .nav-item#components::after {
+                        content: "Comp." !important
+                    }
+
+                    /* Documentation */
+                    #nav .nav-item#documentation {
                         display: none
                     }
-                    
-                    /* Documentation */
-                    #nav .nav-item#documentation::after {
-                        content: "Docs" !important
-                    }
-                    
+
                     /* Themes */
                     #nav .nav-item#themes {
-                        font-size: 80% !important;
-                        line-height: 155%;
-                        text-indent: -4.5%
+                        display: none
                     }
-    }
-
-    /* Mobile M */
-    @media only screen
-        and (max-width: 375px)
-        and (min-width: 321px) {
-            /* HTML Elements */
-                /* <body> */
-                body {
-                    font-size: 15.5px !important
-                }
-    }
-
-    /* Mobile L */
-    @media only screen
-        and (max-width: 425px)
-        and (min-width: 376px) {
-            /* HTML Elements */
-                /* <body> */
-                body {
-                    font-size: 16px !important
-                }
-    }
-
-    /* Mobile M & Mobile L */
-    @media only screen
-        and (max-width: 767px)
-        and (min-width: 375px) {
-            /* Navigation */
-                /* Navigation Item */
-                    /* Home */
-                    #nav .nav-item#home {
-                        text-indent: -1%
-                    }
-                    
-                    /* Themes */
-                    #nav .nav-item#themes {
-                        text-indent: -2%
-                    }
-    }
-    
-    /* Tablet */
-    @media only screen
-        and (max-width: 1023px)
-        and (min-width: 768px) {
-            /* HTML Elements */
-                /* <body> */
-                body {
-                    font-size: 16.5px !important
-                }
-
-            /* Navigation */
-            #nav {
-                zoom: 2.25 !important   
-            }
-    }
-
-    /* Laptop */
-    @media only screen
-        and (max-width: 1024px)
-        and (min-width: 769px) {
-            /* HTML Elements */
-                /* <body> */
-                body {
-                    font-size: 17px !important
-                }
-    }
-
-    /* Laptop L */
-    @media only screen
-        and (max-width: 2559px)
-        and (min-width: 1440px) {
-            /* HTML Elements */
-                /* <body> */
-                body {
-                    font-size: 17.5px !important
-                }
-    }
-
-    /* 4K */
-    @media only screen
-        and (min-width: 2560px) {
-            /* HTML Elements */
-                /* <body> */
-                body {
-                    font-size: 17.5px !important
-                }
-
-            /* Navigation */
-            #nav {
-                zoom: 2.5 !important
-            }
     }
 
 /* HTML Elements */
@@ -212,11 +100,43 @@
             #nav .nav-item#javascript::after {
                 content: "Javascript"
             }
+
+            /* Components */
+            #nav .nav-item#components::after {
+                content: "Components"
+            }
     
             /* Documentation */
             #nav .nav-item#documentation::after {
                 content: "Documentation"
             }
+
+    /* Footer */
+    #footer {
+        background: #FFFFFF;
+        box-shadow: 0 -2.5px 2.5px 0 rgba(0, 0, 0, .25);
+        padding: 10px 0;
+        padding-bottom: 50px
+    }
+        /* Footer Section */
+        .footer-section {
+            border-color: #565656 !important;
+            border-left: .5px solid;
+            border-right: .5px solid;
+            padding: 5px 10px;
+            padding-left: 25px
+        }
+            /* Content */
+            .footer-section > * {
+                display: block;
+                margin: 7.5px auto
+            }
+
+        /* Sponsors */
+        #sponsors > * {
+            display: inline-block;
+            margin: 7.5px
+        }
 
     /* Sections */
     .section {

@@ -171,7 +171,7 @@
     
     /* Mobile M - 375px */
     @media only screen
-        and (max-width: 374px)
+        and (max-width: 375px)
         and (min-width: 321px) {
         /* Columns */
         [class*="col-"] {
@@ -201,8 +201,8 @@
     
     /* Mobile L - 425px */
     @media only screen
-        and (max-width: 424px)
-        and (min-width: 375px) {
+        and (max-width: 425px)
+        and (min-width: 376px) {
         /* Columns */
         [class*="col-"] {
             flex-basis: 100%
@@ -231,8 +231,8 @@
     
     /* Tablet - 768px */
     @media only screen
-        and (max-width: 767px)
-        and (min-width: 425px) {
+        and (max-width: 768px)
+        and (min-width: 426px) {
         /* Tablet Delete */
         .t-del {
             display: none !important
@@ -253,8 +253,8 @@
     
     /* Laptop - 1024px */
     @media only screen
-        and (max-width: 1023px)
-        and (min-width: 768px) {
+        and (max-width: 1024px)
+        and (min-width: 769px) {
         /* Laptop Delete */
         .l-del {
             display: none !important
@@ -275,8 +275,8 @@
     
     /* Laptop L - 1440px */
     @media only screen
-        and (max-width: 1439px)
-        and (min-width: 1024px) {
+        and (max-width: 1440px)
+        and (min-width: 1025px) {
         /* Laptop Delete */
         .ll-del {
             display: none !important
@@ -297,8 +297,8 @@
     
     /* 4K - 2560px */
     @media only screen
-        and (max-width: 2560px)
-        and (min-width: 1440px) {
+        and (max-width: 2561px)
+        and (min-width: 1441px) {
         /* 4K Delete */
         .fourk-del {
             display: none !important

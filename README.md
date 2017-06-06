@@ -2,7 +2,7 @@
     <img src="https://github.com/LapysNights/LapysJS/blob/master/assets/img/png/lapysJS.png">
 </p>
 
-# LapysJS v3.0.0
+# LapysJS v4.0.0
 
 ## What is Lapys JS?
     
@@ -44,4 +44,4 @@ Unlike other frameworks, Lapys JS is supported by a communities of developers wh
 With its fresh new components and use of little codes to make the large parts of everyday web pages, this framework inspires creativity and throws complexity out the window.
 Finally, Lapys JS brings a simple development system into a digital web space of well-defined guidelines and parameters, intuitively conveying how interface should work in the most convenient and simple way.
 
-# Seamless, simple development.
+## Seamless, simple development.

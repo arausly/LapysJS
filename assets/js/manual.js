@@ -61,31 +61,45 @@ for (i = 0; i < get.html("*").length; i++)
                     }
                 }, 1)
 
+                // Headers
+                var header = get.html("#content [data-header]", "_array"),
+                
+                // Sub Headers
+                subheader = get.html("#content [data-subheader]", "_array"),
+                
+                // Sub-Sub Headers 
+                subsubheader = get.html("#content [data-subsubheader]", "_array")
+
                 // List Items
-                    // Index all headers within the Article
-                    for (i = 0; i < get.html('#content [data-header]', '_array').length; i++) {
+                    // Index all Headers within the Article
+                    for (i = 0; i < header.length; i++) {
                         // Modification
-                        get.html('#content [data-header]', i).id = (
-                            deleteSpecialCharacters(
-                                get.html('#content [data-header]', i).innerText.toLowerCase()
-                            ) +
-                            deleteSpecialCharacters(
-                                parseString(Math.random() * 10)
+                            // ID
+                            header[i].id = (
+                                deleteSpecialCharacters(
+                                    header[i].innerText.toLowerCase()
+                                ) +
+                                deleteSpecialCharacters(
+                                    parseString(Math.random() * 10)
+                                )
                             )
-                        )
+                            
+                            // Index
+                            set.attr(header[i], "data-index", i)
 
                         // Insertion
                         get.html('#navLinks ul').innerHTML += (
+                            // List Item
                             '<li>' +
                                 '<a ' +
-                                    'class="link"' +
+                                   'class="link-item" ' +
                                     'data-index="' + i + '"' +
-                                    'href="#' + get.html('#content [data-header]', i).id + '" ' +
+                                    'href="#' + header[i].id + '" ' +
                                     'hreflang="html" ' +
                                     'target="_self"' +
                                 '> ' +
-                                    get.html('#content [data-header]', i).innerText +
-                                ' </a>' +
+                                    header[i].innerText +
+                                ' </a> ' +
                             ' </li>'
                         )
                     }
@@ -354,6 +368,8 @@ for (i = 0; i < get.html("*").length; i++)
                     ).replace(/colspan<span class="code-color-default">=/g, '<span class="code-color-green">colspan</span><span class="code-color-default">='
                     // content=
                     ).replace(/content<span class="code-color-default">=/g, '<span class="code-color-green">content</span><span class="code-color-default">='
+                    // contenteditable=
+                    ).replace(/contenteditable<span class="code-color-default">=/g, '<span class="code-color-green">contenteditable</span><span class="code-color-default">='
                     // data-drpdwn=
                     ).replace(/data-drpdwn<span class="code-color-default">=/g, '<span class="code-color-green">data-drpdwn</span><span class="code-color-default">='
                     // data-event=
@@ -422,6 +438,8 @@ for (i = 0; i < get.html("*").length; i++)
                     ).replace(/type<span class="code-color-default">=/g, '<span class="code-color-green">type</span><span class="code-color-default">='
                     // u=
                     ).replace(/u<span class="code-color-default">=/g, '<span class="code-color-green">u</span><span class="code-color-default">='
+                    // unselectable=
+                    ).replace(/unselectable<span class="code-color-default">=/g, '<span class="code-color-green">unselectable</span><span class="code-color-default">='
                     // value=
                     ).replace(/value<span class="code-color-default">=/g, '<span class="code-color-green">value</span><span class="code-color-default">='
                     // 1=
@@ -499,8 +517,6 @@ for (i = 0; i < get.html("*").length; i++)
                     // _q_
                     ).replace(/_q_/g, '<span class="code-color-default">"</span>'
                 )
-
-                codify(string)
         }
 
         // Javascript
@@ -578,6 +594,8 @@ for (i = 0; i < get.html("*").length; i++)
 
             // LapysJS Syntax
                 // Functions
+                    // app.
+                    ).replace(/app[.]/g, '<span class="code-color-blue">app</span>.'
                     // create(
                     ).replace(/create\(/g, '<span class="code-color-blue">create</span>('
                     // css.
@@ -638,7 +656,18 @@ for (i = 0; i < get.html("*").length; i++)
                     ).replace(/log\(/g, '<span class="code-color-green">log</span>('
                     // parseBool(
                     ).replace(/parseBool\(/g, '<span class="code-color-green">parseBool</span>('
-
+                    // parseIndex(
+                    ).replace(/parseIndex\(/g, '<span class="code-color-green">parseIndex</span>('
+                    // parseString(
+                    ).replace(/parseString\(/g, '<span class="code-color-green">parseString</span>('
+                    // refresh(
+                    ).replace(/refresh\(/g, '<span class="code-color-green">refresh</span>('
+                    // set.
+                    ).replace(/set[.]/g, '<span class="code-color-blue">set</span>.'
+                    // scriptReload(
+                    ).replace(/scriptReload\(/g, '<span class="code-color-green">scriptReload</span>('
+                    // write(
+                    ).replace(/write\(/g, '<span class="code-color-green">write</span>('
             // Functions
                     // (
                     ).replace(/\(/g, '<span class="code-color-default">(</span><span class="code-color-orange code-color-override">'
@@ -674,25 +703,6 @@ for (i = 0; i < get.html("*").length; i++)
                 ).replace(/[.]/g, '<span class="code-color-default">.</span>'
                 // _q_
                 ).replace(/_q_/g, '<span class="code-color-default">"</span>'
-            )
-
-            codify(string)
-        }
-
-        // All Languages
-        function codify(string) {
-            // Code for the editor
-            return (string).replace(
-                // New Line
-                /_n_/g, '\n'
-                // Lesser Than
-                ).replace(/_lt_/g, '&lt;'
-                // Greater Than
-                ).replace(/_gt_/g, '&gt;'
-                // Double Quotes
-                ).replace(/_q_/g, '"'
-                // Tab Spacing
-                ).replace(/_t_/g, '<span class="code-tab">    </span>'
             )
         }
 

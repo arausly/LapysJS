@@ -18,4 +18,4 @@
                 // Updates
                 setTimeout(function() {
                     extra.updates.href = "../pages/updates.html"
-                })            
+                })

@@ -874,7 +874,11 @@
                         <h5 data-subsubheader> get.attr() </h5>
 
                         <p class="description">
-                            The <code>attr</code> method returns the attribute value of a specified element.
+                            <code>get.attr()</code> returns the value of a specified attribute on the element.
+
+                            <br 2>
+
+                            If the given attribute does not exist, the value returned will either be <code>null</code> or <code>""</code> (the empty string).
                         </p>
 
                         <small class="m-l-10"> HTML </small>
@@ -1012,7 +1016,7 @@
                     <h2 data-subheader> goTo() </h2>
 
                     <p class="description">
-                        This function allows the developer to change the directory of the current page to another as with hyperlinks.
+                        The <code>goTo()</code> method causes the window to load and display the document at the URL specified.
                     </p>
 
                     <div class="code">
@@ -1110,7 +1114,7 @@
                     <h2 data-subheader> log() </h2>
 
                     <p class="description">
-                        This function allows the developer to print data within the browser&rsquo;s console.
+                        This function allows the developer to print data to the Web Console.
                     </p>
 
                     <div class="code">
@@ -1149,6 +1153,571 @@
                     <div class="msg-info">
                         Although placing a double exclamation mark (<code>!!</code>) before the date to be parsed also does the same.
                     </div>
+                </section>
+
+                <!-- parseIndex() -->
+                <section class="sub-section">
+                    <h2 data-subheader> parseIndex() </h2>
+
+                    <p class="description">
+                        This function returns returns the argument data with a grammatical position index as a string.
+                    </p>
+
+                    <div class="code">
+                        <div class="javascript" no-edit no-preview no-toggle show-toggle>
+                            parseIndex(0) // returns _q_0th_q_. _end_
+                            parseIndex(1) // returns _q_1st_q_. _end_
+                            parseIndex(2) // returns _q_2ns_q_. _end_
+                            parseIndex(3) // returns _q_3rd_q_.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- parseString() -->
+                <section class="sub-section">
+                    <h2 data-subheader> parseString() </h2>
+
+                    <p class="description">
+                        This method was built for returning converted HTML elements into readable string, similar
+                        <br>
+                        to the PHP <code>htmlspecialchars()</code> function.
+
+                        <br 2>
+
+                        If the data passed in the argument does not contain any HTML syntax, it will
+
+                        <br>
+
+                        simply return a string representing the object.
+                    </p>
+
+                    <div class="code">
+                        <div class="javascript" no-edit no-preview no-toggle show-toggle>
+                            /* When parsing this to the DOM, it will be text only. */
+                            parseString("&lt;h1&gt; I am code&hellip; &lt;/h1&gt;")
+                        </div>
+                    </div>
+                </section>
+
+                <!-- refresh() -->
+                <section class="sub-section">
+                    <h2 data-subheader> refresh() </h2>
+
+                    <p class="description">
+                        The LapysJS <code>reload()</code> method reloads the resource from the current URL.
+                    </p>
+
+                    <div class="code">
+                        <div class="javascript" no-edit no-preview no-toggle show-toggle>
+                            /* Refresh or reload the page. */
+                            refresh()
+                        </div>
+                    </div>
+                </section>
+
+                <!-- set Object -->
+                <section class="sub-section">
+                    <h2 data-subheader> set Object </h2>
+
+                    <p class="description">
+                        LapysJS&rsquo; <code>set</code> object allows the developer append and set a
+                        <br> 
+                        variety of elements and properties from the DOM.
+                    </p>
+
+                    <!-- set.attr() -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> set.attr() </h5>
+
+                        <p class="description">
+                            Sets the value of an attribute on the specified element.
+                            
+                            <br 2>
+
+                            If the attribute already exists, the value is updated;
+                            <br>
+                            otherwise a new attribute is added with the specified name and value.
+                        </p>
+
+                        <small class="m-l-10"> Javascript </small>
+                        <div class="code">
+                            <div class="javascript" no-preview no-edit no-toggle show-toggle>
+                                set.attr(
+                                    document.getElementById("myParagraph"),
+                                    "contenteditable", "false"
+                                )
+                            </div>
+                        </div>
+
+                        <small class="m-l-10"> HTML </small>
+                        <div class="code">
+                            <div class="html" no-preview no-edit no-toggle show-toggle>
+                                <!-- The _q_contenteditable_q_ attribute is dynamically added. -->
+                                <p contenteditable="false" id="myParagraph"> lorem ipsum ... </p> 
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- set.class() -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> set.class() </h5>
+
+                        <p class="description">
+                            Sets a class node value on the specified element.
+
+                            <br 2>
+
+                            If the element has no <code>class</code> attribute, then
+                            a new attribute is created.
+                        </p>
+
+                        <small class="m-l-10"> Javascript </small>
+                        <div class="code">
+                            <div class="javascript" no-preview no-edit no-toggle show-toggle>
+                                set.class(
+                                    document.getElementById("myParagraph"),
+                                    "paragraph"
+                                )
+                            </div>
+                        </div>
+
+                        <small class="m-l-10"> HTML </small>
+                        <div class="code">
+                            <div class="html" no-preview no-edit no-toggle show-toggle>
+                                <!-- The _q_paragraph_q_ class is dynamically added. -->
+                                <p class="paragraph text" id="myParagraph"> lorem ipsum ... </p> 
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- set.event() -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> set.event() </h5>
+
+                        <p class="description">
+                            The <code>set.event()</code> method adds the specified <code>EventListener-compatible</code> object to the list of event listeners for the specified event type on the <code>EventTarget</code> on which it&rsquo;s called.
+
+                            <br 2>
+
+                            The event target may be an element in a document,
+                            the document itself, a window,
+                            or any other object that supports events (such as <code>XMLHttpRequest</code>).
+                        </p>
+
+                        <small class="m-l-10"> Javascript </small>
+                        <div class="code">
+                            <div class="javascript" no-preview no-edit no-toggle show-toggle>
+                                set.event(element, event, function)
+                            </div>
+                        </div>
+                    </section>
+                </section>
+
+                <!-- scriptReload() -->
+                <section class="sub-section">
+                    <h2 data-subheader> scriptReload() </h2>
+
+                    <p class="description">
+                        The LapysJS <code>scriptReload()</code> method 
+
+                        <br 2>
+
+                        reloads embedded scripts within the document.
+                    </p>
+
+                    <div class="code">
+                        <div class="javascript" no-edit no-preview no-toggle show-toggle>
+                            /* Reloads all &lt;script&gt; elements. */
+                            scriptReload()
+
+                            /* Reloads the &lt;script src=_q_lapys.js_q_&gt; element. */
+                            scriptReload("lapys.js")
+                        </div>
+                    </div>
+                </section>
+
+                <!-- write() -->
+                <section class="sub-section">
+                    <h2 data-subheader> write() </h2>
+
+                    <p class="description">
+                        Writes a string of text to a document stream opened by <code>document.open()</code>.
+                    </p>
+
+                    <div class="code">
+                        <div class="javascript" no-edit no-preview no-toggle show-toggle>
+                            write("some text.") // writes _q_some text._q_ into the DOM.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- app Object -->
+                <section class="sub-section">
+                    <h2 data-subheader> app Object </h2>
+
+                    <p class="description">
+                        The LapysJS <code>app</code> object contains a JSON list of information
+                        <br>
+                        about the application that currently renders the document page.
+                    </p>
+
+                    <!-- cache -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> cache </h5>
+
+                        <p class="description">
+                            The <code>cache</code> variable returns a reference to the application cache object for the window.
+                        </p>
+                    </section>
+
+                    <!-- codeName -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> codeName </h5>
+
+                        <p class="description">
+                            The <code>codeName</code> variable always returns <code>'Mozilla'</code>, on any browser.
+
+                            <br 2>
+
+                            This property is kept only for compatibility purposes.
+                        </p>
+                    </section>
+
+                    <!-- designMode -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> designMode </h5>
+
+                        <p class="description">
+                            <code>app.designMode</code> controls whether the entire document is editable.
+
+                            <br 2>
+
+                            Valid values are <code>on</code> and <code>off</code>.
+
+                            <br 2>
+
+                            According to the specification, this property is meant to default to <code>off</code>.
+                            <br>
+                            Firefox follows this standard.
+                            <br>
+                            The earlier versions of Chrome and IE default to <code>inherit</code>.
+                            <br>
+                            Starting in Chrome 43, the default is <code>off</code> and <code>inherit</code> is no longer supported.
+                            <br>
+                            In IE6-10, the value is capitalized. 
+
+                            <br 2>
+                            
+                            This property is kept only for compatibility purposes.
+                        </p>
+
+                        <div class="code">
+                            <div class="javascript" no-edit no-preview no-toggle show-toggle>
+                                app.designMode = "off"
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- language -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> language </h5>
+
+                        <p class="description">
+                            <code>app.language</code> read-only property returns a string representing the preferred language of the user,
+
+                            <br 2>
+
+                            usually the language of the browser UI.
+                        </p>
+                    </section>
+
+                    <!-- mimeTypes -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> mimeTypes </h5>
+
+                        <p class="description">
+                            <code>app.mimeTypes</code> variable returns a MimeTypeArray object,
+                            
+                            <br 2>
+
+                            which contains a list of MimeType objects representing the MIME types recognized by the browser.
+                        </p>
+                    </section>
+
+                    <!-- name -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> name </h5>
+
+                        <p class="description">
+                            <code>app.name</code> variable returns the name of the browser.
+
+                            <br 2>
+
+                            The HTML5 specification also allows any browser to return <code>"Netscape"</code> here, for compatibility reasons.
+                        </p>
+                    </section>
+
+                    <!-- platform -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> platform </h5>
+
+                        <p class="description">
+                            <code>app.platform</code> variable returns a string representing the platform of the browser.
+                        </p>
+                    </section>
+
+                    <!-- product -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> product </h5>
+                    </section>
+
+                    <!-- product -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> product </h5>
+                    </section>
+
+                    <!-- serviceWorker -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> serviceWorker </h5>
+                    </section>
+
+                    <!-- userAgent -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> userAgent </h5>
+                    </section>
+
+                    <!-- version -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> version </h5>
+                    </section>
+                </section>
+
+                <!-- browser Object -->
+                <section class="sub-section">
+                    <h2 data-subheader> browser Object </h2>
+
+                    <p class="description">
+                        The LapysJS <code>browser</code> object also contains information
+                        
+                        <br 2>
+
+                        on the application the DOM is being rendered by and information on the
+                        
+                        <br 2>
+
+                        browser as well.
+                    </p>
+
+                    <!-- appCache -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> appCache </h5>
+
+                        <p class="description">
+                            The <code>appCache</code> variable returns a reference to the application cache object for the window.
+                        </p>
+                    </section>
+
+                    <!-- chrome -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> chrome </h5>
+
+                        <p class="description">
+                            The <code>chrome</code> variable returns a boolean value, <code>true</code> if the browser being operated on is Chrome version 1 and above and <code>false</code> if not.
+                        </p>
+                    </section>
+
+                    <!-- cookies -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> cookies </h5>
+                    </section>
+
+                    <!-- edge -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> edge </h5>
+
+                        <p class="description">
+                            The <code>edge</code> variable returns a boolean value, <code>true</code> if the browser being operated on is Microsoft Edge version 20 and above and <code>false</code> if not.
+                        </p>
+                    </section>
+
+                    <!-- IE -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> IE </h5>
+
+                        <p class="description">
+                            The <code>IE</code> variable returns a boolean value, <code>true</code> if the browser being operated on is Internet Explorer 6-11 and <code>false</code> if not.
+                        </p>
+                    </section>
+
+                    <!-- mozila -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> mozila </h5>
+
+                        <p class="description">
+                            The <code>mozila</code> variable returns a boolean value, <code>true</code> if the browser being operated on is Firefox 1 and above and <code>false</code> if not.
+                        </p>
+                    </section>
+
+                    <!-- navigator -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> navigator </h5>
+                    </section>
+
+                    <!-- online -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> online </h5>
+                    </section>
+
+                    <!-- opera -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> opera </h5>
+
+                        <p class="description">
+                            The <code>opera</code> variable returns a boolean value, <code>true</code> if the browser being operated on is Opera 8 and above and <code>false</code> if not.
+                        </p>
+                    </section>
+
+                    <!-- plugin -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> plugin </h5>
+                    </section>
+
+                    <!-- safari -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> safari </h5>
+
+                        <p class="description">
+                            The <code>safari</code> variable returns a boolean value, <code>true</code> if the browser being operated on is Safari versions 3.0 and higher and <code>false</code> if not.
+                        </p>
+                    </section>
+
+                    <!-- type -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> type </h5>
+
+                        <p class="description">
+                            The <code>type</code> variable returns a reference to the browser currently operated on.
+                        </p>
+                    </section>
+
+                    <!-- vendor -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> vendor </h5>
+                    </section>
+                </section>
+
+                <!-- device Object -->
+                <section class="sub-section">
+                    <h2 data-subheader> device Object </h2>
+
+                    <p class="description">
+                        The LapysJS <code>device</code> object contains information
+                        
+                        <br 2>
+
+                        on the device&rsquo;s physical orientation and measurements.
+                    </p>
+
+                    <!-- availLeft -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> availLeft </h5>
+                    </section>
+
+                    <!-- availHeight -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> availHeight </h5>
+                    </section>
+
+                    <!-- availTop -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> availTop </h5>
+                    </section>
+
+                    <!-- availWidth -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> availWidth </h5>
+                    </section>
+
+                    <!-- colorDepth -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> colorDepth </h5>
+                    </section>
+
+                    <!-- height -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> height </h5>
+                    </section>
+
+                    <!-- pixelRatio -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> pixelRatio </h5>
+                    </section>
+
+                    <!-- screenAngle -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> screenAngle </h5>
+                    </section>
+
+                    <!-- screenOrientation -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> screenOrientation </h5>
+                    </section>
+
+                    <!-- styleMedia -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> styleMedia </h5>
+                    </section>
+
+                    <!-- width -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> width </h5>
+                    </section>
+                </section>
+
+                <!-- OS Object -->
+                <section class="sub-section">
+                    <h2 data-subheader> OS Object </h2>
+
+                    <p class="description">
+                        The LapysJS <code>OS</code> object contains basic information
+                        
+                        <br 2>
+
+                        on the operating system of the user.
+                    </p>
+
+                    <!-- mac -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> mac </h5>
+                    </section>
+
+                    <!-- linux -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> linux </h5>
+                    </section>
+
+                    <!-- type -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> type </h5>
+                    </section>
+
+                    <!-- unix -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> unix </h5>
+                    </section>
+
+                    <!-- windows -->
+                    <section class="sub-sub-section">
+                        <h5 data-subsubheader> windows </h5>
+                    </section>
+                </section>
+
+                <!-- date Object -->
+                <section class="sub-section">
+                    <h2 data-subheader> date Object </h2>
+
+                    <p class="description">
+                    </p>
                 </section>
             </section>
 

@@ -85,7 +85,7 @@
                 // Components
                 '<a id="components"></a>' + 
                 // Documentation
-                '<a id="documentation"></a>' + 
+                '<a id="documentation"> Documentation </a>' + 
                 // Themes
                 '<a id="themes"> Themes </a>'
             )

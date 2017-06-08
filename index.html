@@ -2,27 +2,40 @@
 <html>
 
 <head>
-    <!-- Document Character Encoding Metadata -->
-    <meta charset="UTF-8">
-    
-    <!-- Document http-equiv Compatibility Metadata -->
-    <meta content="chrome=1, IE=Edge" http-equiv="X-UA-Compatible">
-    
-    <!-- Document Viewport Metadata -->
-    <meta content="height=device-height, initial-scale=1.0, maximum-scale=2.0, minimal-ui, minimum-scale=0.1, user-scalable=no, width=device-width" target-densitydpi="92dpi" name="viewport">
-    
-    <!-- Miscellaneous Metadata -->
-    <meta content="The Lapys Dev Team" name="author">
+    <!-- Document Metadata -->
+        <!-- Document Character Encoding Metadata -->
+        <meta charset="UTF-8">
+        
+        <!-- Document http-equiv Compatibility Metadata -->
+        <meta content="chrome=1, IE=Edge" http-equiv="X-UA-Compatible">
+        
+        <!-- Document Viewport Metadata -->
+        <meta
+            content="
+                height=device-height,
+                initial-scale=1.0,
+                maximum-scale=2.0,
+                minimal-ui,
+                minimum-scale=0.1,
+                user-scalable=no,
+                width=device-width"
+            target-densitydpi="92dpi"
+            name="viewport">
+        
+        <!-- Miscellaneous Metadata -->
+            <!-- Author -->
+            <meta content="The Lapys Dev Team" name="author">
 
 
-    <!-- LapysJS Stylesheet -->
-    <link href="src/lapys.css" media="all" rel="stylesheet" type="text/css">
+    <!-- Stylesheets -->
+        <!-- LapysJS Stylesheet -->
+        <link href="src/lapys.css" media="all" rel="stylesheet" type="text/css">
 
-    <!-- Base Stylesheet -->
-    <link href="assets/css/base.css" media="all" rel="stylesheet" type="text/css">
+        <!-- Base Stylesheet -->
+        <link href="assets/css/base.css" media="all" rel="stylesheet" type="text/css">
 
-    <!-- Document Stylesheet -->
-    <link href="assets/css/index.css" media="all" rel="stylesheet" type="text/css">
+        <!-- Document Stylesheet -->
+        <link href="assets/css/index.css" media="all" rel="stylesheet" type="text/css">
 
     <!-- Document Title -->
     <title> LapysJS </title>
@@ -48,7 +61,7 @@
         <!-- Introduction -->
         <section class="section" id="introduction">
             <!-- Title -->
-            <h1 hr> What is Lapys JS? </h1>
+            <h1> What is Lapys JS? </h1>
 
             <!-- Description -->
             <p>
@@ -56,7 +69,7 @@
 
                 <br>
                 
-                to <strong>reduce complexities and aid simplicity in code while on projects</strong>.
+                to <strong>enhance readability and simplicity of code</strong>.
             </p>
         </section>
 
@@ -68,7 +81,13 @@
             </button>
 
             <!-- Video -->
-            <video class="med rspnv" id="vid" src="assets/media/video/webm/trailer.webm">
+            <video
+                class="med rspnv"
+                data-vid-play-html='<span class="icn-1-rightarrow"> </span>'
+                data-vid-stop-html='<span class="icn-2-box"> </span>'
+                id="vid"
+                poster="assets/img/jpg/lapysjs-trailer.jpg"
+                src="assets/media/video/webm/trailer.webm">
                 <source src="assets/media/video/webm/trailer.webm" type="video/webm">
             </video>
         </section>
@@ -83,7 +102,7 @@
                 <!-- Default Download -->
                 <a class="download-option" download="LapysJS" id="default" href="#" target="_self">
                     <!-- Subtitle -->
-                    <h2> DEFAULT DOWNLOAD </h2>
+                    <h2 id="me"> Default Download </h2>
 
                     <!-- Description -->
                     <p>
@@ -94,7 +113,7 @@
                 <!-- Custom Download -->
                 <a class="download-option" id="custom" href="#" hreflang="html" target="_self">
                     <!-- Subtitle -->
-                    <h2> CUSTOM DOWNLOAD </h2>
+                    <h2> Custom Download </h2>
 
                     <p>
                         Bake your own version of <i>LapysJS</i>

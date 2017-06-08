@@ -1,158 +1,45 @@
-/* CSS At-Rules */
-/* @media */
-    /* Mobile S  */
-    @media only screen
-        and (max-width: 320px)
-        and (min-width: 0px) {
-            /* Components */
-                /* Sections */
-                    /* Trailer */
-                        /* Play Button */
-                        #playBtn {
-                            left: 40%;
-                            transform: translateY(20px);
-                            zoom: 1.125
-                        }
-
-                /* Updates */
-                    /* Notifier */
-                    #notifier {
-                        font-size: 15px !important
-                    }
-    }
-    
-    /* Mobile M  */
-    @media only screen
-        and (max-width: 375px)
-        and (min-width: 321px) {
-            /* Components */
-                /* Sections */
-                    /* Trailer */
-                        /* Play Button */
-                        #playBtn {
-                            left: 40%;
-                            transform: translateY(30px);
-                            zoom: 1.25
-                        }
-    }
-    
-    /* Mobile L  */
-    @media only screen
-        and (max-width: 425px)
-        and (min-width: 376px) {
-            /* Components */
-                /* Sections */
-                    /* Trailer */
-                        /* Play Button */
-                        #playBtn {
-                            left: 40%;
-                            transform: translateY(25px);
-                            zoom: 1.5
-                        }
-    }
-    
-    /* Tablet */
-    @media only screen
-        and (max-width: 768px)
-        and (min-width: 426px) {
-            /* Components */
-                /* Sections */
-                    /* Trailer */
-                        /* Play Button */
-                        #playBtn {
-                            left: 45%;
-                            transform: translateY(50px);
-                            zoom: 1.625
-                        }
-    }   
-    
-    /* Laptop  */
-    @media only screen
-        and (max-width: 1024px)
-        and (min-width: 769px) {
-            /* Components */
-                /* Sections */
-                    /* Trailer */
-                        /* Play Button */
-                        #playBtn {
-                            left: 45%;
-                            transform: translateY(50px);
-                            zoom: 1.75
-                        }
-    }
-    
-    /* Laptop L  */
-    @media only screen
-        and (max-width: 1440px)
-        and (min-width: 1025px) {
-            /* Components */
-                /* Sections */
-                    /* Trailer */
-                        /* Play Button */
-                        #playBtn {
-                            left: 46.25%;
-                            transform: translateY(65px);
-                            zoom: 1.825
-                        }
-    }
-    
-    /* 4K  */
-    @media only screen
-        and (max-width: 2560px)
-        and (min-width: 1441px) {
-            /* Components */
-                /* Sections */
-                    /* Trailer */
-                        /* Play Button */
-                        #playBtn {
-                            left: 48.25%;
-                            transform: translateY(57.5px);
-                            zoom: 2
-                        }
-    }
-
 /* Components */
     /* Jumbotron */
     #header {
-        background: #FFFFFF;
-        padding: 16px
+        background-color: #FFFFFF;
+        padding: 30px 0
     }
         /* Content */
         #header * {
-            margin: 0 auto;
+            margin: 15px auto;
             overflow: hidden;
             text-align: center
-        }
-        #header *::selection {
-
         }
 
         /* Logo */
         #header img {
-            margin-bottom: 28.7969px;
+            margin-bottom: 30px;
             pointer-events: none;
             user-select: none
         }
 
-        /* Headers */
-        #header hgroup {  }
+        /* Header Group */
             /* Content */
-            #header hgroup *::selection {
-                background-color: transparent;
-                color: inherit
+            #header hgroup * {
+                font-weight: 300
             }
 
-            /* Title */
+                /* States */
+                    /* Selected */
+                    #header hgroup ::selection {
+                        background-color: transparent;
+                        color: inherit
+                    }
+
+            /* Header */
             #header hgroup h1 {
                 font-size: 60px
             }
 
-            /* Subtitle */
+            /* Sub Header */
             #header hgroup h2 {
                 font-size: 32px;
-                margin-left: -5%;
-                opacity: .9;
-                width: 110%
+                opacity: .75
             }
 
     /* Sections */
@@ -186,10 +73,8 @@
                 padding: 0;
                 position: absolute
             }
-            #playBtn:focus {
-                animation: fadeOut .675s 1;
-                opacity: 0
-            }
+                /* @keyframes */
+                /* Animation for Deletion */
                 @keyframes fadeOut {
                     0% {
                         opacity: 1
@@ -198,18 +83,133 @@
                         opacity: 0
                     }
                 }
+
+                /* @media */
+                    /* Mobile S View */
+                    @media only screen
+                        and (max-width: 320px)
+                        and (min-width: 0px) {
+                            #playBtn {
+                                left: 40%;
+                                transform: translateY(20px);
+                                zoom: 1.125
+                            }
+                    }
+
+                    /* Mobile M View */
+                    @media only screen
+                        and (max-width: 375px)
+                        and (min-width: 321px) {
+                            #playBtn {
+                                left: 40%;
+                                transform: translateY(30px);
+                                zoom: 1.25
+                            }
+                    }
+
+                    /* Mobile L View */
+                    @media only screen
+                        and (max-width: 425px)
+                        and (min-width: 376px) {
+                            #playBtn {
+                                left: 40%;
+                                transform: translateY(25px);
+                                zoom: 1.5
+                            }
+                    }
+
+                    /* Tablet View */
+                    @media only screen
+                        and (max-width: 768px)
+                        and (min-width: 426px) {
+                            #playBtn {
+                                left: 45%;
+                                transform: translateY(50px);
+                                zoom: 1.625
+                            }
+                    }
+
+                    /* Laptop View */
+                    @media only screen
+                        and (max-width: 1024px)
+                        and (min-width: 769px) {
+                            #playBtn {
+                                left: 45%;
+                                transform: translateY(50px);
+                                zoom: 1.75
+                            }
+                    }
+
+                    /* Laptop L View */
+                    @media only screen
+                        and (max-width: 1440px)
+                        and (min-width: 1025px) {
+                            #playBtn {
+                                left: 45%;
+                                transform: translateY(65px);
+                                zoom: 1.825
+                            }
+                    }
+
+                    /* 4K View */
+                    @media only screen
+                        and (max-width: 2560px)
+                        and (min-width: 1441px) {
+                            #playBtn {
+                                left: 45%;
+                                transform: translateY(57.5px);
+                                zoom: 2
+                            }
+                    }
+
+                /* States */
+                    /* Focused */
+                    #playBtn:focus {
+                        animation: fadeOut .675s 1;
+                        opacity: 0
+                    }
             
-            /* Media Console */
+            /* Video Console */
             #vid {
                 height: auto;
                 max-height: 300px;
                 width: 75%
             }
 
-            /* Media Controls */
+            /* Video Controls */
             #vid + nav {
+                background-color: #0078FF;
+                display: flex;
+                justify-content: center;
                 width: 75%
             }
+                /* Components */
+                #vid + nav > * {
+                    background-color: transparent
+                }
+                
+                /* Buttons
+                        Play Button, Stop Button, Volume Button, Fullscreen Button
+                */
+                #vid + nav > [data-vid-play],
+                #vid + nav > [data-vid-stop],
+                #vid + nav > [data-vid-vol],
+                #vid + nav > [data-vid-flscrn] {
+                    border: 0
+                }
+
+                /* Miscellaneous
+                        Download Link, Slow Playback Button, Speed Playback Button, Playback Rate
+
+                        --- NOTE ---
+                            None of these components must show.
+                */
+                #vid + nav > [data-vid-dwnld],
+                #vid + nav > [data-vid-slow],
+                #vid + nav > [data-vid-fast],
+                #vid + nav > [data-vid-rate] {
+                    display: none !important
+                }
 
         /* Download */
         #download {
@@ -236,7 +236,8 @@
                 }
                     /* Headers */
                     #options .download-option h2:first-of-type {
-                        font-size: 125%
+                        font-size: 125%;
+                        text-transform: uppercase
                     }
 
         /* Why */
@@ -276,7 +277,24 @@
             transition: all .5s ease, border-radius 1.67s ease;
             width: 20px
         }
-        #notifier::after {
-            content: "";
-            line-height: 0
-        }
+            /* States */
+                /* Post Content */
+                #notifier::after {
+                    content: "";
+                    line-height: 0
+                }
+
+            /* @media */
+                /* Mobile S View */
+                @media only screen
+                    and (max-width: 320px)
+                    and (min-width: 0px) {
+                        #notifier {
+                            font-size: 15px
+                        }
+                }
+
+    /* Footer */
+    #footer {
+        padding-bottom: 50px
+    }

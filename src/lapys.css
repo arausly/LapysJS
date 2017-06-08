@@ -369,7 +369,7 @@
 
 /* <a> */
 a:not([default]) {
-    color: #0045FF;
+    color: #0023FF;
     cursor: pointer;
     fill: #0023FF;
     line-height: inherit;
@@ -379,7 +379,7 @@ a:not([default]) {
     text-decoration: none;
     -webkit-text-decoration-skip: objects
 }
-*:not(body) a {
+:not(body):not([default]) a {
     /* --- NOTE ---
             <a> elements should inherit the color of their parents.
     */
@@ -682,7 +682,7 @@ figure:not([default]) {
   margin-inline-start: 40px
 }
 
-/* <blockquote>, <hgroup>, <h1>, <h2>, <h3>, <h4>, <h5>, <h6> */
+/* <blockquote>, <hgroup> */
 blockquote:not([default]),
 hgroup:not([default]) {
     font-weight: lighter;
@@ -868,7 +868,7 @@ textarea:not([default]),
 [type="reset"]:not([default]),
 [type="submit"]:not([default]),
 .btn:not([default]) {
-    background: #FFFFFF;
+    background-color: #FFFFFF;
     color: #000000;
     display: inline-block;
     font-family: inherit;
@@ -997,7 +997,7 @@ default * {
 
 /* <del> */
 del {
-    text-decoration: overline
+    text-decoration: line-through
 }
 
 /* <details> */
@@ -1255,17 +1255,13 @@ h6:not([default]) {
     margin: .04125rem 0
 }
 
-/* <h1>, <h2>, <h3>, <h4>, <h5>, <h6>
-        --- NOTE ---
-            Headers are given a lighter font.
-*/
+/* <h1>, <h2>, <h3>, <h4>, <h5>, <h6> */
 h1:not([default]),
 h2:not([default]),
 h3:not([default]),
 h4:not([default]),
 h5:not([default]),
 h6:not([default]) {
-    font-weight: lighter;
     margin-block-end: .67em;
     margin-block-start: .67em
 }
@@ -1719,6 +1715,7 @@ legend {
 /* <li> */
 li {
     display: list-item;
+    list-style: inherit;
     text-align: match-parent
 }
 
@@ -5172,9 +5169,17 @@ xmp {
 .display-block {
     display: block !important
 }
-.d-f,
+.d-c,
+.display-contents {
+    display: contents !important
+}
+.d-flx,
 .display-flex {
     display: flex !important
+}
+.d-flw,
+.display-flow-root {
+    display: flow-root !important
 }
 .d-g,
 .display-grid {
@@ -5231,6 +5236,10 @@ xmp {
 .d-rtc,
 .display-ruby-text-container {
     display: ruby-text-container !important
+}
+.d-ri,
+.display-ruby-in {
+    display: ruby-in !important
 }
 .d-t,
 .display-table {
@@ -6426,21 +6435,29 @@ xmp {
     opacity: inherit !important
 }
 .o-eighth,
+.o-0-125,
+.o--125,
 .opacity-0-125,
 .opacity--125 {
     opacity: .125 !important
 }
 .o-half,
+.o-0-5,
+.o--5,
 .opacity-0-5,
 .opacity--5 {
     opacity: .5 !important
 }
 .o-quart,
+.o-0-25,
+.o--25,
 .opacity-0-25,
 .opacity--25 {
     opacity: .25 !important
 }
 .o-sixteenth,
+.o-0-825,
+.o--825,
 .opacity-0-825,
 .opacity--825 {
     opacity: .0825 !important
@@ -6448,6 +6465,42 @@ xmp {
 .o-0,
 .opacity-0 {
     opacity: 0 !important
+}
+.o-0-9,
+.o--9 {
+    opacity: .9 !important
+}
+.o-0-8,
+.o--8 {
+    opacity: .8 !important
+}
+.o-0-7,
+.o--7 {
+    opacity: .7 !important
+}
+.o-0-6,
+.o--6 {
+    opacity: .6 !important
+}
+.o-0-5,
+.o--5 {
+    opacity: .5 !important
+}
+.o-0-4,
+.o--4 {
+    opacity: .4 !important
+}
+.o-0-3,
+.o--3 {
+    opacity: .3 !important
+}
+.o-0-2,
+.o--2 {
+    opacity: .2 !important
+}
+.o-0-1,
+.o--1 {
+    opacity: .1 !important
 }
 .o-1,
 .opacity-1 {

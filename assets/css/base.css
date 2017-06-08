@@ -1,133 +1,128 @@
-/* CSS At-Rules */
-/* Media
-        @media
-*/
-    /* Mobile */
-    @media only screen
-        and (max-width: 425px)
-        and (min-width: 0px) {
-        /* Components */
-            /*Navigation */
-                /* Navigation Item */
-                #nav .nav-item {
-                    font-size: 55% !important
-                }
-                    /* Javascript */
-                    #nav .nav-item#javascript::after {
-                        content: "JS" !important
-                    }
-
-                    /* Components */
-                    #nav .nav-item#components::after {
-                        content: "Comp." !important
-                    }
-
-                    /* Documentation */
-                    #nav .nav-item#documentation {
-                        display: none
-                    }
-
-                    /* Themes */
-                    #nav .nav-item#themes {
-                        display: none
-                    }
+/* HTML Elements */
+    /* Hyperlinks
+            <a>
+    */
+    a {
+        color: #0023FF
     }
 
-/* HTML Elements */
-    /* <body> */
+    /* Container Elements
+            <body>
+    */
     body {
-        animation-name: colorIn, fadeIn;
-        background: #FFFFFF;
+        background-color: #FFFFFF;
         color: #333333;
-        font-family: Roboto;
+        font-family: Roboto, "Calibri Light", Calibri, Arial, sans-serif;
         font-size: 16.6px;
         height: 100%;
         max-width: 100%;
         overflow-x: hidden
     }
-    
-    /* <h1>, <h2>, <h3>, <h4>, <h5>, <h6> */
+
+    /* Headers
+            <h1>, <h2>, <h3>, <h4>, <h5>, <h6>
+    */
     h1,
     h2,
     h3,
     h4,
     h5,
     h6 {
-        font-weight: 500 !important
+        font-weight: 300
     }
 
 /* Components */
     /* Navigation */
     #nav {
-        border-bottom: 1px solid #CFCFCF;
-        border-top: 0;
-        font-size: 17.5px;
-        outline: 0;
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .5);
+        font-size: 18.5px;
         top: 0;
         user-select: none;
-        z-index: 5;
-        zoom: 1.25
+        z-index: 5
     }
+    /* @media */
+        /* Mobile View */
+        @media only screen
+            and (max-width: 425px)
+            and (min-width: 0px) {
+                #nav {
+                    font-size: 15px
+                }
+        }
+
         /* Navigation Item */
         #nav .nav-item {
             background-color: #FFFFFF;
             border: 0;
-            border-radius: 0;
-            box-shadow: none;
-            color: #0078FF;
+            color: #0023FF;
             cursor: pointer;
-            filter: none;
-            font-size: 80%;
-            outline: 0;
-            user-select: none;
             transition: .5s ease;
             white-space: pre
         }
-        #nav .nav-item::after {
-            pointer-events: all !important
-        }
-        #nav .nav-item[href=""],
-        #nav .nav-item[href="#"],
-        #nav .nav-item:focus,
-        #nav .nav-item:hover {
-            background-color: #0078FF;
-            color: #FFFFFF
-        }
-        #nav .nav-item::selection {
-            background-color: transparent
-        }
+            /* States */
+                /* Empty Links, Focused, Hovered */
+                #nav .nav-item[href=""],
+                #nav .nav-item[href="#"],
+                #nav .nav-item:focus,
+                #nav .nav-item:hover {
+                    background-color: #0023FF;
+                    color: #FFFFFF
+                }
+
             /* Javascript */
             #nav .nav-item#javascript::after {
                 content: "Javascript"
             }
+                /* @media */
+                    /* Mobile View */
+                    @media only screen
+                        and (max-width: 425px)
+                        and (min-width: 0px) {
+                            #nav .nav-item#javascript::after {
+                                content: "JS"
+                            }
+                    }
 
             /* Components */
             #nav .nav-item#components::after {
                 content: "Components"
             }
-    
-            /* Documentation */
-            #nav .nav-item#documentation::after {
-                content: "Documentation"
-            }
+                /* @media */
+                    /* Mobile View */
+                    @media only screen
+                        and (max-width: 425px)
+                        and (min-width: 0px) {
+                            #nav .nav-item#components::after {
+                                content: "Comp."
+                            }
+                    }
+
+            /* Documentation, Themes */
+                /* @media */
+                    /* Mobile View */
+                    @media only screen
+                        and (max-width: 425px)
+                        and (min-width: 0px) {
+                            #nav .nav-item#documentation,
+                            #nav .nav-item#themes {
+                                display: none
+                            }
+                    }
 
     /* Footer */
     #footer {
-        background: #FFFFFF;
-        box-shadow: 0 -2.5px 2.5px 0 rgba(0, 0, 0, .25);
-        padding: 10px 0;
-        padding-bottom: 50px
+        background-color: #FFFFFF;
+        box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, .5);
+        padding: 10px 0
     }
         /* Footer Section */
         .footer-section {
-            border-color: #565656 !important;
-            border-left: .5px solid;
-            border-right: .5px solid;
             padding: 5px 10px;
             padding-left: 25px
         }
             /* Content */
             .footer-section > * {
+                color: #0023FF !important;
                 display: block;
                 margin: 7.5px auto
             }
@@ -138,6 +133,7 @@
             margin: 7.5px
         }
 
+/* Assets */
     /* Sections */
     .section {
         display: block;
@@ -156,30 +152,33 @@
             zoom: 1.1
         }
 
-/* CSS Pseudo Classes */
+/* Pseudo */
     /* Scrollbar */        
         /* Buttons */
         ::-webkit-scrollbar-button {
-            display: none
+            background-color: #EFEFEF;
+            display: block;
+            height: 5px;
+            width: 5px
         }
 
         /* Corner */
         ::-webkit-scrollbar-corner {
-            background: rgba(0, 0, 127, .825)
+            background-color: rgba(0, 0, 127, .825)
         }
 
         /* Thumb */
         ::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, .675)
+            background-color: rgba(255, 255, 255, .675)
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, .75)
+            background-color: rgba(255, 255, 255, .75)
         }
         ::-webkit-scrollbar-thumb:active {
-            background: rgba(255, 255, 255, .825)
+            background-color: rgba(255, 255, 255, .825)
         }
 
         /* Track */
         ::-webkit-scrollbar-track {
-            background: rgba(0, 0, 127, .825)
+            background-color: rgba(0, 0, 127, .825)
         }

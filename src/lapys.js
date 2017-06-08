@@ -39,7 +39,7 @@ var LapysJS = {
 
     // Version
     version : (function() {
-        /* Initialization
+        /* Instauration
                 --- NOTE ---
                     The value is based on the number of updates made recently.
         */
@@ -389,6 +389,39 @@ if (
 
             // XML Encoding
             XMLEncoding : document.xmlEncoding
+        },
+
+        // has Functions
+        has = {
+            // Has Attribute Node
+            attr : (attribute, element, index) => {
+                if (index == undefined)
+                    if (element.hasAttribute(attribute))
+                        return true
+                    else
+                        return false
+
+                else
+                    if (element[index].hasAttribute(attribute))
+                        return true
+                    else
+                        return false
+            },
+
+            // Has Class Node
+            class : (className, element, index) => {
+                if (index == undefined)
+                    if (element.className.indexOf(className) >= 0)
+                        return true
+                    else
+                        return false
+
+                else
+                    if (element[index].className.indexOf(className) >= 0)
+                        return true
+                    else
+                        return false
+            }
         },
 
         // insertAfter Function
@@ -926,7 +959,7 @@ if (
 
 (function() {
     /* HTML Elements */
-        // Initialization
+        // Instauration
             // <abbr> 
             var abbr = document.querySelectorAll("abbr"),
             
@@ -1048,7 +1081,7 @@ if (
                 // <br>
                     // Index all <br>
                     for (i = 0; i < br.length; i++) {
-                        // Initialization
+                        // Instauration
                             // If <br> has an attribute of 2
                             if (br[i].hasAttribute("2"))
                                 br[i].insertAdjacentHTML("afterend", " <br>")
@@ -1501,7 +1534,7 @@ if (
                 for (j = 0; j < carousel[i].children.length; j++)
                     carousel[i].children[j].setAttribute("data-key", j)
                 
-                // If "data-controls" attribute is enabled, append a control button.
+                // If "data-controls" attribute is enabled, append a control button..
                 if (carousel[i].hasAttribute("data-controls"))
                     carousel[i].insertAdjacentHTML(
                         'afterend',
@@ -1654,7 +1687,7 @@ if (
 
             // Toggle the active (displayed) slide on the Carousel
             function carouselToggle() {
-                // Initialization
+                // Instauration
                 var carouselContent = document.querySelectorAll('.crsl[data-index="' + this.getAttribute("data-index") + '"] > *:not(span)'),
                     carouselSlide = document.querySelectorAll('.crsl[data-index="' + this.getAttribute("data-id") + '"] > *:not(span)[data-key="' + this.getAttribute("data-list") + '"]')
                     
@@ -1970,15 +2003,16 @@ if (
             // Definition
             var media = document.getElementsByClassName("med")
         
-            // If a "med" class element exists
+            // If a "med" class element exists.
             if (media[0]) {
-                // Run this function for all <audio> and <video> consoles
+                // Index all "med" class elements.
                 for (i = 0; i < media.length; i++) {
+                    // If the element is an <audio> or <video> element.
                     if (media[i].tagName == "AUDIO" || media[i].tagName == "VIDEO") {
                         /* --- NOTE ---
                                 Update the media source
                                     and
-                                give time for the Javascript to run
+                                give time for other modules to run.
                         */
                         setTimeout(function() {
                             // Re-index all consoles
@@ -1997,7 +2031,7 @@ if (
                                         if (media[i].childNodes[j].tagName == "SOURCE"
                                             && media[i].duration != NaN)
 
-                                            media[i].setAttribute("src", media[i].childNodes[j].getAttribute("src"))
+                                            media[i].src = media[i].childNodes[j].getAttribute("src")
                         }, 1250)
                
                         // Create the console controller
@@ -2018,29 +2052,54 @@ if (
                 for (i = 0; i < mediaController.length; i++) {
                     mediaController[i].innerHTML = (
                         // Pause/ Play Button
-                        '<input data-vid-play type="button" value="&blacktriangleright;">' +
+                        '<button data-vid-play type="button">' +
+                            (media[i].getAttribute('data-vid-play-html') || '&blacktriangleright;') +
+                        '</button>' +
+                        
                         // Stop Button
-                        '<input data-vid-stop type="button" value="&blacksquare;">' +
+                        '<button data-vid-stop type="button">' +
+                            (media[i].getAttribute('data-vid-stop-html') || '&blacksquare;') +
+                        '</button>' +
+                        
                         // Playback Current Time
                         '<div data-vid-currenttime> 00:00:00 </div>' +
+                        
                         // Playback Duration
                         '<div data-vid-duration> 00:00:00 </div>' +
+                        
                         // Playback Seeker
                         '<input data-vid-seek min="0" step="1" type="range" value="0">' +
+                        
                         // Volume Button
-                        '<input data-vid-vol type="button" value="&lescc;">' +
+                        '<button data-vid-vol type="button">' +
+                            (media[i].getAttribute('data-vid-vol-html') || '&lescc;') +
+                        '</button>' +
+                        
                         // Mute/ Volume Range
                         '<input data-vid-volRange max="100" min="0" step="1" type="range" value="100">' +
+                        
                         // Download Button
-                        '<a data-vid-dwnld download> &darr; </a>' +
+                        '<button data-vid-dwnld type="button">' +
+                            (media[i].getAttribute('data-vid-dwnld-html') || '&darr;') +
+                        '</button>' +
+                        
                         // Slow Button
-                        '<input data-vid-slow type="button" value="&#8672;">' +
+                        '<button data-vid-slow type="button">' +
+                            (media[i].getAttribute('data-vid-slow-html') || '&#8672;') +
+                        '</button>' +
+                        
                         // Fast Button
-                        '<input data-vid-fast type="button" value="&#8674;">' +
+                        '<button data-vid-fast type="button">' +
+                            (media[i].getAttribute('data-vid-fast-html') || '&#8674;') +
+                        '</button>' +
+                        
                         // Playback Rate
                         '<div data-vid-rate> </div>' +
+                        
                         // Fullscreen Button
-                        '<input data-vid-flscrn type="button" value="&#9635;">'
+                        '<button data-vid-flscrn type="button">' +
+                            (media[i].getAttribute('data-vid-flscrn-html') || '&#9635;') +
+                        '</button>'
                     )
 
                     // Index every controller
@@ -2174,7 +2233,7 @@ if (
                         mediaControllerSeek[i].addEventListener("input", seekMedia)
                         
                         // Scale the "max" attribute to the console playback duration
-                        mediaControllerSeek[i].setAttribute("max", parseInt(media[i].duration))
+                        mediaControllerSeek[i].max = parseInt(media[i].duration)
                     }
                     
                     // Change the current time of the playback on the value of the seeker
@@ -2185,7 +2244,7 @@ if (
                     // Update the value of the seeker
                     setInterval(function() {
                         for (i = 0; i < mediaControllerSeek.length; i++) {
-                            mediaControllerSeek[i].setAttribute("value", parseInt(media[i].currentTime))
+                            mediaControllerSeek[i].value = parseInt(media[i].currentTime)
                             mediaControllerSeek[i].value = media[i].currentTime
                         }
                     }, 1)
@@ -2245,7 +2304,7 @@ if (
                         // Update the value of the seeker
                         setInterval(function() {
                             for (i = 0; i < mediaControllerVolumeRange.length; i++) {
-                                mediaControllerVolumeRange[i].setAttribute("value", (media[i].volume * 100))
+                                mediaControllerVolumeRange[i].value = (media[i].volume * 100)
                                 mediaControllerVolumeRange[i].value = (media[i].volume * 100)
                             }
                         }, 1)
@@ -2256,7 +2315,7 @@ if (
                     // Make a download button from the media "src" path
                     for (i = 0; i < mediaControllerDownload.length; i++)
                         if (media[i].getAttribute("src") != undefined)
-                            mediaControllerDownload[i].setAttribute("href", media[i].getAttribute("src"))
+                            mediaControllerDownload[i].href = media[i].getAttribute("src")
                 
                 // Playback Rate
                 var mediaPlaybackRate = [  ]
@@ -2361,7 +2420,7 @@ if (
             
             // Identify and mark the tooltip
             tooltip.insertAdjacentHTML("beforebegin", "<!-- Tooltip -->")
-            tooltip.setAttribute("id", "tooltip")
+            tooltip.id = "tooltip"
 
             // Hide the tooltip on received input
             body.addEventListener("click", hideTooltip)
@@ -2580,7 +2639,7 @@ if (
                         if (this.hasAttribute("required") ||
                             this.required) {
                             this.removeAttribute("required")
-                            this.setAttribute("title", "")
+                            this.title = ""
 
                             this.tooltipBefore = this.getAttribute("title")
                                 if (!this.tooltipBefore || this.tooltipBefore == "")
@@ -2617,10 +2676,10 @@ if (
                     // Correct any alterations made from corrections
                         // Required Elements
                         if (this.onceRequired) {
-                            this.setAttribute("required", "")
+                            this.required = ""
                             
                             if (this.tooltipBefore)
-                                this.setAttribute("title", this.tooltipBefore)
+                                this.title = this.tooltipBefore
                             
                             this.onceRequired = false
                         }

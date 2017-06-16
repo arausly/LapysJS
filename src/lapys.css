@@ -1569,6 +1569,7 @@ input:not([default]) {
     /* --- NOTE ---
             Regular <input> tags.
     */
+    border-color: #CFCFCF;
     letter-spacing: normal;
     line-height: normal;
     overflow-clip-box: content-box;
@@ -4239,6 +4240,10 @@ xmp {
     .background-size-100 {
         background-size: 100% !important
     }
+    .bg-s-100-100,
+    .background-size-100-100 {
+        background-size: 100% 100% !important
+    }
 
 /* Box Preset */
     /* Box Shadow Preset
@@ -6376,6 +6381,330 @@ xmp {
         margin-top: 10% !important
     }
 
+/* Max Height Preset */
+.max-h-auto,
+.max-height-auto {
+    max-height: auto !important
+}
+.max-h-inherit,
+.max-height-inherit {
+    max-height: inherit !important
+}
+.max-h-0,
+.max-height-0 {
+    max-height: 0 !important
+}
+.max-h-5,
+.max-height-5 {
+    max-height: 5% !important
+}
+.max-h-12,
+.max-height-12,
+.max-height-12-5 {
+    max-height: 12.5% !important
+}
+.max-h-20,
+.max-height-20 {
+    max-height: 20% !important
+}
+.max-h-25,
+.max-height-25 {
+    max-height: 25% !important
+}
+.max-h-30,
+.max-height-30 {
+    max-height: 30% !important
+}
+.max-h-33,
+.max-height-33,
+.max-height-33-3 {
+    max-height: 33.3% !important
+}
+.max-h-40,
+.max-height-40 {
+    max-height: 40% !important
+}
+.max-h-50,
+.max-height-50 {
+    max-height: 50% !important
+}
+.max-h-60,
+.max-height-60 {
+    max-height: 60% !important
+}
+.max-h-66,
+.max-height-66-6 {
+    max-height: 66.6% !important
+}
+.max-h-70,
+.max-height-70 {
+    max-height: 70% !important
+}
+.max-h-75,
+.max-height-75 {
+    max-height: 75% !important
+}
+.max-h-80,
+.max-height-80 {
+    max-height: 80% !important
+}
+.max-h-82,
+.max-height-82,
+.max-height-82-5 {
+    max-height: 82.5% !important
+}
+.max-h-90,
+.max-height-90 {
+    max-height: 90% !important
+}
+.max-h-100,
+.max-height-100 {
+    max-height: 100% !important
+}
+
+/* Max Width Preset */
+.max-w-auto,
+.max-width-auto {
+    max-width: auto !important
+}
+.max-w-inherit,
+.max-width-inherit {
+    max-width: inherit !important
+}
+.max-w-0,
+.max-width-0 {
+    max-width: 0 !important
+}
+.max-w-5,
+.max-width-5 {
+    max-width: 5% !important
+}
+.max-w-12,
+.max-width-12,
+.max-width-12-5 {
+    max-width: 12.5% !important
+}
+.max-w-20,
+.max-width-20 {
+    max-width: 20% !important
+}
+.max-w-25,
+.max-width-25 {
+    max-width: 25% !important
+}
+.max-w-30,
+.max-width-30 {
+    max-width: 30% !important
+}
+.max-w-33,
+.max-width-33,
+.max-width-33-3 {
+    max-width: 33.3% !important
+}
+.max-w-40,
+.max-width-40 {
+    max-width: 40% !important
+}
+.max-w-50,
+.max-width-50 {
+    max-width: 50% !important
+}
+.max-w-60,
+.max-width-60 {
+    max-width: 60% !important
+}
+.max-w-66,
+.max-width-66-6 {
+    max-width: 66.6% !important
+}
+.max-w-70,
+.max-width-70 {
+    max-width: 70% !important
+}
+.max-w-75,
+.max-width-75 {
+    max-width: 75% !important
+}
+.max-w-80,
+.max-width-80 {
+    max-width: 80% !important
+}
+.max-w-82,
+.max-width-82,
+.max-width-82-5 {
+    max-width: 82.5% !important
+}
+.max-w-90,
+.max-width-90 {
+    max-width: 90% !important
+}
+.max-w-100,
+.max-width-100 {
+    max-width: 100% !important
+}
+
+/* Min Height Preset */
+.min-h-auto,
+.min-height-auto {
+    min-height: auto !important
+}
+.min-h-inherit,
+.min-height-inherit {
+    min-height: inherit !important
+}
+.min-h-0,
+.min-height-0 {
+    min-height: 0 !important
+}
+.min-h-5,
+.min-height-5 {
+    min-height: 5% !important
+}
+.min-h-12,
+.min-height-12,
+.min-height-12-5 {
+    min-height: 12.5% !important
+}
+.min-h-20,
+.min-height-20 {
+    min-height: 20% !important
+}
+.min-h-25,
+.min-height-25 {
+    min-height: 25% !important
+}
+.min-h-30,
+.min-height-30 {
+    min-height: 30% !important
+}
+.min-h-33,
+.min-height-33,
+.min-height-33-3 {
+    min-height: 33.3% !important
+}
+.min-h-40,
+.min-height-40 {
+    min-height: 40% !important
+}
+.min-h-50,
+.min-height-50 {
+    min-height: 50% !important
+}
+.min-h-60,
+.min-height-60 {
+    min-height: 60% !important
+}
+.min-h-66,
+.min-height-66-6 {
+    min-height: 66.6% !important
+}
+.min-h-70,
+.min-height-70 {
+    min-height: 70% !important
+}
+.min-h-75,
+.min-height-75 {
+    min-height: 75% !important
+}
+.min-h-80,
+.min-height-80 {
+    min-height: 80% !important
+}
+.min-h-82,
+.min-height-82,
+.min-height-82-5 {
+    min-height: 82.5% !important
+}
+.min-h-90,
+.min-height-90 {
+    min-height: 90% !important
+}
+.min-h-100,
+.min-height-100 {
+    min-height: 100% !important
+}
+
+/* Min Width Preset */
+.min-w-auto,
+.min-width-auto {
+    min-width: auto !important
+}
+.min-w-inherit,
+.min-width-inherit {
+    min-width: inherit !important
+}
+.min-w-0,
+.min-width-0 {
+    min-width: 0 !important
+}
+.min-w-5,
+.min-width-5 {
+    min-width: 5% !important
+}
+.min-w-12,
+.min-width-12,
+.min-width-12-5 {
+    min-width: 12.5% !important
+}
+.min-w-20,
+.min-width-20 {
+    min-width: 20% !important
+}
+.min-w-25,
+.min-width-25 {
+    min-width: 25% !important
+}
+.min-w-30,
+.min-width-30 {
+    min-width: 30% !important
+}
+.min-w-33,
+.min-width-33,
+.min-width-33-3 {
+    min-width: 33.3% !important
+}
+.min-w-40,
+.min-width-40 {
+    min-width: 40% !important
+}
+.min-w-50,
+.min-width-50 {
+    min-width: 50% !important
+}
+.min-w-60,
+.min-width-60 {
+    min-width: 60% !important
+}
+.min-w-66,
+.min-width-66-6 {
+    min-width: 66.6% !important
+}
+.min-w-70,
+.min-width-70 {
+    min-width: 70% !important
+}
+.min-w-75,
+.min-width-75 {
+    min-width: 75% !important
+}
+.min-w-80,
+.min-width-80 {
+    min-width: 80% !important
+}
+.min-w-82,
+.min-width-82,
+.min-width-82-5 {
+    min-width: 82.5% !important
+}
+.min-w-90,
+.min-width-90 {
+    min-width: 90% !important
+}
+.min-w-100,
+.min-width-100 {
+    min-width: 100% !important
+}
+
 /* Object Preset */
     /* Object Fit Preset */
     .obj-f-cntn,
@@ -8001,6 +8330,7 @@ table.cmpnt *:not(tr),
             }
 
     /* Button Groups */
+    .btn-grp,
     .cmpnt.cmpnt-grp {
         border-radius: 2.5px;
         display: inline-flex;
@@ -8008,10 +8338,13 @@ table.cmpnt *:not(tr),
         width: auto
     }
         /* Buttons */
+        .btn-grp .btn,
+        .btn-grp button.btn,
+        .btn-grp input.btn,
         .cmpnt.cmpnt-grp .btn,
         .cmpnt.cmpnt-grp button.btn,
         .cmpnt.cmpnt-grp input.btn {
-            border: 1px solid rgba(0, 0, 0, .5);
+            border: 1px solid #CFCFCF;
             font-size: inherit;
             margin-left: 0 !important;
             margin-right: 0 !important;
@@ -8028,7 +8361,7 @@ table.cmpnt *:not(tr),
     .pager .next-pg,
     .pager .prev-pg {
         background: #F7F7F7;
-        border: 1px solid rgba(0, 0, 0, .5);
+        border: 1px solid #CFCFCF;
         border-radius: 20px;
         cursor: pointer;
         font-size: 17.5px;
@@ -8050,7 +8383,7 @@ table.cmpnt *:not(tr),
         .cmpnt.cmpnt-grp .pg,
         .cmpnt.cmpnt-grp .prev-pg {
             background: #F7F7F7;
-            border: 1px solid #ACACAC;
+            border: 1px solid #CFCFCF;
             box-shadow: none;
             cursor: default;
             flex-grow: 1;
@@ -8098,7 +8431,7 @@ table.cmpnt *:not(tr),
         font-weight: bold
     }
     .cmpnt.cmpnt-grp.nav {
-        border: 1px solid rgba(0, 0, 0, .5);
+        border: 1px solid #CFCFCF;
         border-radius: 0;
         box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .75)
     }
@@ -8110,7 +8443,7 @@ table.cmpnt *:not(tr),
         .cmpnt.cmpnt-grp.nav > :focus,
         .cmpnt.cmpnt-grp.nav > [psd-focus] {
             background: #FFFFFF;
-            border: 1px solid rgba(0, 0, 0, .5);
+            border: 1px solid #CFCFCF;
             margin: 5px 0
         }
         .cmpnt.cmpnt-grp.nav > :not(input) {
@@ -8122,7 +8455,7 @@ table.cmpnt *:not(tr),
 
     /* Navigation Panels */
     .cmpnt.nav:not(.cmpnt-grp) {
-        border: 1px solid rgba(0, 0, 0, .5);
+        border: 1px solid #CFCFCF;
         border-radius: 0;
         display: block
     }
@@ -8147,7 +8480,7 @@ table.cmpnt *:not(tr),
             .cmpnt.nav.pill:not(.cmpnt-grp) > :focus,
             .cmpnt.nav.pill:not(.cmpnt-grp) > [psd-focus] {
                 background: #FFFFFF;
-                border: 1px solid rgba(0, 0, 0, .5)
+                border: 1px solid #CFCFCF
             }
 
             /* Stack(-ed) */
@@ -8157,7 +8490,7 @@ table.cmpnt *:not(tr),
             .cmpnt.nav.stack:not(.cmpnt-grp) > *,
             .cmpnt.nav.stack:not(.cmpnt-grp) > :first-child,
             .cmpnt.nav.stack:not(.cmpnt-grp) > :last-child {
-                border: 1px solid rgba(0, 0, 0, .5);
+                border: 1px solid #CFCFCF;
                 display: block
             }
 
@@ -8172,18 +8505,18 @@ table.cmpnt *:not(tr),
             .cmpnt.nav.tab:not(.cmpnt-grp) > :focus,
             .cmpnt.nav.tab:not(.cmpnt-grp) > [psd-focus] {
                 background: #FFFFFF;
-                border: 1px solid rgba(0, 0, 0, .5);
+                border: 1px solid #CFCFCF;
                 border-bottom: 0
             }
             .cmpnt.nav.tab:not(.cmpnt-grp) > :not([psd-focus]) {
-                border-bottom: 1px solid rgba(0, 0, 0, .5)
+                border-bottom: 1px solid #CFCFCF
             }
 
         /* Navigation Items */
         .cmpnt.nav:not(.cmpnt-grp) > * {
             background: #F7F7F7;
-            border-left: 1px solid rgba(0, 0, 0, .5);
-            border-right: 1px solid rgba(0, 0, 0, .5);
+            border-left: 1px solid #CFCFCF;
+            border-right: 1px solid #CFCFCF;
             cursor: pointer;
             display: inline-block;
             margin: 0;
@@ -8253,7 +8586,7 @@ table.cmpnt *:not(tr),
     .btnA,
     button.btnA {
         border: 0;
-        border-bottom-color: rgba(0, 0, 0, .3);
+        border-bottom-color: #CFCFCF;
         border-bottom-style: solid;
         border-bottom-width: 4.25px;
         box-shadow: 0 0 1px 0 rgba(0, 0, 0, .25);
@@ -8265,7 +8598,7 @@ table.cmpnt *:not(tr),
     .btnA:hover,
     button.btnA:focus,
     button.btnA:hover {
-        border-bottom-color: rgba(0, 0, 0, .6)
+        border-bottom-color: #CFCFCF
     }
 
     /* Button Type B | Transparent */
@@ -9601,6 +9934,13 @@ table.cmpnt *:not(tr),
     user-select: none !important;
     visibility: hidden !important
 }
+::after,
+::before {
+  filter: inherit;
+  font: inherit;
+  line-height: inherit;
+  opacity: 1
+}
 
 /* :disabled */
 [psd-disabled],
@@ -9608,7 +9948,6 @@ table.cmpnt *:not(tr),
     filter: alpha(opacity=67.825) brightness(.9675) opacity(.67825)
 }
 
-/* :disabled */
 :disabled:not([default]) {
     opacity: .9
 }
@@ -9649,8 +9988,8 @@ table.cmpnt *:not(tr),
 }
 
 /* :-moz-placeholder, ::-moz-placeholder, :-ms-input-placeholder, ::-webkit-input-placeholder
-        --- NOTE ---
-            Style the form field placeholder text.
+    --- NOTE ---
+        Style the form field placeholder text.
 */
 :-moz-placeholder {
     color: rgba(0, 0, 0, .5)
@@ -9659,6 +9998,9 @@ table.cmpnt *:not(tr),
     color: rgba(0, 0, 0, .5)
 }
 :-ms-input-placeholder {
+    color: rgba(0, 0, 0, .5)
+}
+::placeholder {
     color: rgba(0, 0, 0, .5)
 }
 ::-webkit-input-placeholder {
@@ -9670,9 +10012,16 @@ table.cmpnt *:not(tr),
     -moz-user-modify: read-write !important
 }
 
+/* ::placeholder */
+::placeholder {
+    text-indent: 0;
+    user-select: none;
+    -webkit-text-security: none
+}
+
 /* ::-webkit-clear-button, ::-webkit-search-cancel-button, ::-webkit-search-decoration
-        --- NOTE ---
-            Style the form field cancel button.
+    --- NOTE ---
+        Style the form field cancel button.
 */
 ::-webkit-clear-button,
 ::-webkit-search-cancel-button,
@@ -9681,8 +10030,8 @@ table.cmpnt *:not(tr),
 }
 
 /* ::-webkit-file-upload-button
-        --- NOTE ---
-            Style the form field file upload button.
+    --- NOTE ---
+        Style the form field file upload button.
 */
 ::-webkit-file-upload-button {
     background: none;
@@ -9700,9 +10049,20 @@ table.cmpnt *:not(tr),
     -webkit-appearance: button
 }
 
+/* ::webkit-inner-spin-button
+    --- NOTE ---
+        Style the form field inner spin button.
+
+*/
+::-webkit-inner-spin-button {
+    box-shadow: 0 1.5px 1.5px 0 rgba(0, 0, 0, .15);
+    outline: 1px solid #CFCFCF;
+    zoom: .9
+}
+
 /* ::-webkit-scrollbar
-        --- NOTE ---
-            Style the -webkit- scrollbar.
+    --- NOTE ---
+        Style the -webkit- scrollbar.
 */
 ::-webkit-scrollbar {
     background: #787878;

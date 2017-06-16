@@ -1364,7 +1364,17 @@ if (
                     if (carousel[i].hasAttribute("data-controls"))
                         carousel[i].insertAdjacentHTML(
                             'afterend',
-                            '<button class="crsl-btn-l"> < </button>'
+                            '<button class="crsl-btn-l" ' +
+                                (function() {
+                                    if (carousel[i].hasAttribute("data-theme"))
+                                        return 'data-theme="' + carousel[i].getAttribute("data-theme") + '"'
+                                })() +
+
+                                (function() {
+                                    if (carousel[i].hasAttribute("data-theme"))
+                                        return ' style="top: ' + (carousel[i].getBoundingClientRect().top + (carousel[i].clientHeight / 2)) + 'px"'
+                                })() +
+                            '> < </button>'
                         )
                     
                     // If "data-duration" attribute is disabled, set the attribute to "0".
@@ -1397,7 +1407,18 @@ if (
                                     // Initialize a new checkbox.
                                     carousel[i].insertAdjacentHTML(
                                         'afterend',
-                                        '<input class="crsl-nav" data-id="' + i + '" data-list="' + j + '" type="checkbox">'
+                                        '<input class="crsl-nav" ' +
+                                            'data-id="' + i + '"' +
+                                            ' data-list="' + j + '"' +
+                                            (function() {
+                                                if (carousel[i].hasAttribute("data-theme"))
+                                                    return ' data-theme="' + carousel[i].getAttribute("data-theme") + '" ' }
+                                            )() +
+                                            (function() {
+                                                if (carousel[i].hasAttribute("data-theme"))
+                                                    return 'style="top: ' + (carousel[i].getBoundingClientRect().bottom - 40) + 'px" '
+                                            })() +
+                                            'type="checkbox">'
                                     )
                         }, 750)
                     }
@@ -1457,10 +1478,23 @@ if (
                         carouselButtonsLeft[i].addEventListener("click", carouselL)
 
                         // Accept custom HTML from the "data-left-button" attribute.
-                        carouselButtonsLeft[i].innerHTML = carousel[i].getAttribute("data-left-button") || "<"
+                        carouselButtonsLeft[i].innerHTML = (" " + carousel[i].getAttribute("data-left-button") + " ") || " < "
 
                         // Create the Right Carousel Buttons
-                        carouselButtonsLeft[i].insertAdjacentHTML('afterend', '<button class="crsl-btn-r"> > </button>')
+                        carouselButtonsLeft[i].insertAdjacentHTML(
+                            'afterend',
+                            '<button class="crsl-btn-r" ' +
+                                (function() {
+                                    if (carousel[i].hasAttribute("data-theme"))
+                                        return 'data-theme="' + carousel[i].getAttribute("data-theme") + '"'
+                                })() +
+
+                                (function() {
+                                    if (carousel[i].hasAttribute("data-theme"))
+                                        return ' style="top: ' + (carousel[i].getBoundingClientRect().top + (carousel[i].clientHeight / 2)) + 'px"'
+                                })() +
+                            '> > </button>'
+                        )
 
                         // Index all Left Carousel Buttons
                         carouselButtonsLeft[i].setAttribute("data-index", i)
@@ -1475,7 +1509,7 @@ if (
                         carouselButtonsRight[i].addEventListener("click", carouselR)
 
                         // Accept custom HTML from the "data-right-button" attribute.
-                        carouselButtonsRight[i].innerHTML = carousel[i].getAttribute("data-right-button") || ">"
+                        carouselButtonsRight[i].innerHTML = (" " + carousel[i].getAttribute("data-right-button") + " ") || " > "
 
                         // Index all Right Carousel Buttons
                         carouselButtonsRight[i].setAttribute("data-index", i)

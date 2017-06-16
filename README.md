@@ -2,7 +2,7 @@
     <img src="https://github.com/LapysNights/LapysJS/blob/master/assets/img/png/lapysJS.png">
 </p>
 
-# LapysJS v4.0.0
+# LapysJS v0.0.4
 
 ## What is Lapys JS?
     

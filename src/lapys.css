@@ -8838,37 +8838,37 @@ table.cmpnt *:not(tr),
     .crsl[psd-focus] {
         outline: 1px solid #0045FF
     }
+        /* Slides */
+        .crsl > :not(span) {
+            animation-delay: 0s;
+            animation-duration: inherit;
+            animation-fill-mode: backwards;
+            animation-iteration-count: 1;
+            animation-name: toggle_carousel;
+            animation-play-state: running;
+            animation-timing-function: ease-in;
+            display: none;
+            height: 100%;
+            padding: 0 !important;
+            position: relative !important;
+            width: 100%;
+            z-index: 3
+        }
+        .crsl > *:not(span):not(.m-parent-center) {
+            margin: 0 !important
+        }
+        .crsl > *:not(span):first-child {
+            display: block
+        }
 
-    /* Carousel Slides */
-    .crsl > :not(span) {
-        animation-delay: 0s;
-        animation-duration: inherit;
-        animation-fill-mode: backwards;
-        animation-iteration-count: 1;
-        animation-name: toggle_carousel;
-        animation-play-state: running;
-        animation-timing-function: ease-in;
-        display: none;
-        height: 100%;
-        padding: 0 !important;
-        position: relative !important;
-        width: 100%;
-        z-index: 3
-    }
-    .crsl > *:not(span):not(.m-parent-center) {
-        margin: 0 !important
-    }
-    .crsl > *:not(span):first-child {
-        display: block
-    }
-        /* Carousel Buttons */
+        /* Buttons */
         .crsl-btn-l,
         .crsl-btn-r {
             outline: 0 !important;
             z-index: 4
         }
 
-        /* Carousel Indicators */
+        /* Indicators */
         .crsl-nav {
             animation: fadeIn .75s;
             background: rgba(0, 0, 0, .25) !important;
@@ -8881,6 +8881,120 @@ table.cmpnt *:not(tr),
             background: #FFFFFF;
             border-color: #FFFFFF
         }
+
+        /* Themes */
+        .crsl[data-theme] {
+            background-color: #000000;
+            margin: 0;
+            padding: 0
+        }
+            /* Buttons */
+            [class*="crsl-btn"][data-theme] {
+                border: 0;
+                border-radius: 50%;
+                box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .3);
+                color: #0078FF;
+                cursor: pointer;
+                font-size: 20px;
+                font-weight: 100;
+                line-height: 20px;
+                padding: 10px;
+                position: absolute;
+                height: 40px;
+                transition: .675s ease;
+                width: 40px
+            }
+                /* States */
+                    /* Active */
+                    [class*="crsl-btn"][data-theme]:active {
+                        animation: crsl-btn-basic_click .5s ease 0s 1 backwards;
+                        box-shadow: 0 0 3px 0 rgba(0, 0, 0, .3)
+                    }
+                        /* @keyframes */
+                            /* Click */
+                            @keyframes crsl-btn-basic_click {
+                                50% {
+                                    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .1)
+                                }
+                            }
+
+                    /* Focus, Hover */
+                    [class*="crsl-btn"][data-theme]:focus,
+                    [class*="crsl-btn"][data-theme]:hover {
+                        background: #F7F7F7;
+                        box-shadow: 0 6px 3px 0 rgba(0, 0, 0, .3)
+                    }
+
+                /* Left */
+                .crsl-btn-l[data-theme] {
+                    left: 5%
+                }
+
+                /* Right */
+                .crsl-btn-r[data-theme] {
+                    right: 5%
+                }
+
+            /* Indicators */
+            .crsl-nav[data-theme],
+            .crsl-nav[data-theme]:checked {
+                background-color: rgba(0, 0, 0, .75) !important;
+                border: 2px solid #FFFFFF !important;
+                border-radius: 50% !important;
+                box-shadow: none !important;
+                left: 35%;
+                padding: 7.5px !important;
+                position: absolute;
+                transition: .675s ease
+            }
+                /* Siblings */
+                .crsl-nav[data-theme] + .crsl-nav[data-theme] {
+                    left: 40%
+                }
+                .crsl-nav[data-theme] +
+                .crsl-nav[data-theme] +
+                .crsl-nav[data-theme] {
+                    left: 45%
+                }
+                .crsl-nav[data-theme] + .crsl-nav[data-theme] +
+                .crsl-nav[data-theme] + .crsl-nav[data-theme] {
+                    left: 50%
+                }
+                .crsl-nav[data-theme] + .crsl-nav[data-theme] +
+                .crsl-nav[data-theme] + .crsl-nav[data-theme] +
+                .crsl-nav[data-theme] {
+                    left: 55%
+                }
+                .crsl-nav[data-theme] + .crsl-nav[data-theme] +
+                .crsl-nav[data-theme] + .crsl-nav[data-theme] +
+                .crsl-nav[data-theme] + .crsl-nav[data-theme] {
+                    left: 60%
+                }
+                .crsl-nav[data-theme] + .crsl-nav[data-theme] +
+                .crsl-nav[data-theme] + .crsl-nav[data-theme] +
+                .crsl-nav[data-theme] + .crsl-nav[data-theme] +
+                .crsl-nav[data-theme] {
+                    left: 65%
+                }
+                .crsl-nav[data-theme] + .crsl-nav[data-theme] +
+                .crsl-nav[data-theme] + .crsl-nav[data-theme] +
+                .crsl-nav[data-theme] + .crsl-nav[data-theme] +
+                .crsl-nav[data-theme] + .crsl-nav[data-theme] {
+                    left: 70%
+                }
+                .crsl-nav[data-theme] + .crsl-nav[data-theme] +
+                .crsl-nav[data-theme] + .crsl-nav[data-theme] +
+                .crsl-nav[data-theme] + .crsl-nav[data-theme] +
+                .crsl-nav[data-theme] + .crsl-nav[data-theme] +
+                .crsl-nav[data-theme] {
+                    left: 75%
+                }
+
+                /* States */
+                    /* Focus */
+                    .crsl-nav[data-theme]:focus {
+                        background-color: rgba(255, 255, 255, .75) !important
+                    }
 
     /* Dropdown */
     .drpdwn {

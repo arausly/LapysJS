@@ -49,4 +49,4 @@ Finally, Lapys JS brings a simple development system into a digital web space of
 # Latest Release
 "Horizontal Scroller" added.
  side-scrollable section fixed to a specified width.
- <b>(Implemented via the <code>.hr-scr</code>)</b>
+ <b>(Implemented via the </b><code color="red">.hr-scr</code><b>)</b>

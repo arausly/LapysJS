@@ -245,7 +245,7 @@ if (
 
                     URLQuery.length = i + 1
                 }
-
+                
                 return URLQuery
             })(),
 
@@ -590,6 +590,156 @@ if (
 
                 else
                     return element.classList.value += " " + value
+            },
+
+            /* Set CSS Nodes
+                --- UPDATE REQUIRED ---
+                    Clean up code.
+            */
+            cssAttr : function(element, elementCSSSelector) {
+                // Correction
+                if (elementCSSSelector.indexOf(".") <= -1)
+                    elementCSSSelector = "." + elementCSSSelector
+
+                // CSS Selector
+                elementCSSSelector = elementCSSSelector.replace(
+                    // Class Node
+                    /\./g, "_end__class_"
+                ).replace(
+                    // Class Attribute
+                    /\[class/g, "_end__class_"
+
+                ).replace(
+                    // ID Node
+                    /\#/g, "_end__id_"
+                ).replace(
+                    // ID Attribute
+                    /\[id/g, "_end__id-attr_"
+
+                ).replace(
+                    // Attribute
+                    /\[/g, "_end__attr_"
+
+                ).replace(
+                    // [End]
+                    /\]/g, "_end_"
+
+                // Miscellaneous
+                ).replace(
+                    /\*/g, ""
+                ).replace(
+                    /\+/g, ""
+                ).replace(
+                    /\'/g, ""
+                ).replace(
+                    /\"/g, ""
+                ).replace(
+                    /\¬/g, ""
+                ).replace(
+                    /\>/g, ""
+                ).replace(
+                    /\:/g, "_delete_"
+                ) + "_end_"
+
+                elementCSSSelector = elementCSSSelector.slice(elementCSSSelector.indexOf("_end_") + "_end_".length)
+
+                elementCSSSelector = elementCSSSelector.replace(
+                    elementCSSSelector.slice(
+                        elementCSSSelector.indexOf("_delete_"),
+                        (elementCSSSelector.lastIndexOf("_end_") + "_end_".length)
+                    ),
+                    ""
+                )                
+
+                // Class
+                if (elementCSSSelector.indexOf("class_") >= 0)
+                    element.className = (function() {
+                        var elementClass
+
+                        elementClass = elementCSSSelector
+
+                        elementClass = elementClass.replace(/_class_/g, "")
+                        elementClass = elementClass.replace("class_", "")
+                        elementClass = elementClass.replace(/_end_/g, " ")
+                        elementClass = elementClass.replace("end_", " ")
+                        if (
+                            elementClass.indexOf("attr_") != 0 &&
+                            elementClass.indexOf("id_") != 0
+                        )
+                            elementClass = elementClass.slice(0, elementClass.indexOf("_"))
+                        else
+                            elementClass = elementClass.slice(elementClass.indexOf("  "))
+
+                        if (elementClass[0] == " ")
+                            elementClass = elementClass.slice(1)
+
+                        if (elementClass[elementClass.length - 1] == " ") {
+                            elementClass = elementClass.slice(0, -1)
+
+                            if (elementClass[elementClass.length - 1] == " ")
+                                elementClass = elementClass.slice(0, -1)
+                        }
+
+                        setTimeout(function() {
+                            if (!element.classList[1])
+                                elementClass = elementClass.replace(/ /g, "")
+                        })
+
+                        return elementClass.replace("  ", " ")
+                    })()
+
+                if (
+                    element.className.indexOf("=") >= 0 ||
+                    element.className.indexOf("_") >= 0
+                )
+                    element.className = element.className.replace("=", "").replace(/_/g, "")
+
+                if (element.className == "")
+                    element.removeAttribute("class")
+
+                // ID
+                if (elementCSSSelector.indexOf("_id_") >= 0)
+                    element.id = (function() {
+                        var elementID
+
+                        elementID = elementCSSSelector
+
+                        elementID = elementID.slice(elementID.indexOf("_id_") + "_id_".length)
+                        elementID = elementID.slice(0, elementID.indexOf("_end_"))
+
+                        return elementID
+                    })()
+
+                if (
+                    element.id.indexOf("end") >= 0 ||
+                    element.id.indexOf("#id") >= 0 ||
+                    element.id.indexOf("_") >= 0
+                )
+                    element.id = element.id.replace("end", "").replace("#id", "").replace(/_/g, "")
+
+                if (
+                    element.id == "" ||
+                    element.id.indexOf("=") >= 0
+                )
+                    element.removeAttribute("id")
+
+                // Attribute
+                var elementAttr = [ ]
+                var elementAttrValue = elementCSSSelector
+
+                if (elementCSSSelector.indexOf("_attr_") >= 0)
+                    for (i = 0; i < (elementCSSSelector.match(/_attr_/g) || []).length; i++) {
+                        elementAttr[i] = elementAttrValue.slice(elementAttrValue.indexOf("_attr_") + "_attr_".length)
+                        elementAttr[i] = elementAttr[i].slice(0, elementAttr[i].indexOf("_end_"))
+
+                        elementAttrValue = elementAttrValue.replace("_attr_" + elementAttr[i] + "_end_", "")
+
+                        element.setAttribute(
+                            elementAttr[i].slice(0, elementAttr[i].indexOf("=")),
+
+                            elementAttr[i].slice(elementAttr[i].indexOf("=") + 1)
+                        )
+                    }
             },
             
             // Set Event
@@ -1193,7 +1343,7 @@ if (
                 setInterval(timeHTML, 1000)
             }, 50)
 
-        // Web Applications
+        /* Web Applications */
             /* Accordion */
                 // Definition
                     // Accordion
@@ -1372,7 +1522,7 @@ if (
 
                                 (function() {
                                     if (carousel[i].hasAttribute("data-theme"))
-                                        return ' style="top: ' + (carousel[i].getBoundingClientRect().top + (carousel[i].clientHeight / 2)) + 'px"'
+                                        return ' style="top: ' + (carousel[i].offsetTop + (carousel[i].clientHeight / 2)) + 'px"'
                                 })() +
                             '> < </button>'
                         )
@@ -1416,7 +1566,7 @@ if (
                                             )() +
                                             (function() {
                                                 if (carousel[i].hasAttribute("data-theme"))
-                                                    return 'style="top: ' + (carousel[i].getBoundingClientRect().bottom - 40) + 'px" '
+                                                    return 'style="top: ' + (carousel[i].clientHeight - 40) + 'px" '
                                             })() +
                                             'type="checkbox">'
                                     )
@@ -1491,7 +1641,7 @@ if (
 
                                 (function() {
                                     if (carousel[i].hasAttribute("data-theme"))
-                                        return ' style="top: ' + (carousel[i].getBoundingClientRect().top + (carousel[i].clientHeight / 2)) + 'px"'
+                                        return ' style="top: ' + (carousel[i].offsetTop + (carousel[i].clientHeight / 2)) + 'px"'
                                 })() +
                             '> > </button>'
                         )
@@ -1763,7 +1913,7 @@ if (
 
                     // If <paste> is a child <copy> or <cut>.
                     else 
-                        console.error("%c The <paste> element is not supposed to be within a <copy> or <cut> element.", "font-family: 'Calibri Light'")
+                        console.error("The <paste> element is not supposed to be within a <copy> or <cut> element.")
 
                 /* --- NOTE ---
                     Delete "cut" content.
@@ -2794,7 +2944,7 @@ if (
                 // Useful but deprecated elements
                 if (all[i].tagName == "BIG" || all[i].tagName == "CENTER")
                     console.warn(
-                        "%c The <" + all[i].localName + "> element is useful but still deprecated."
+                        "The <" + all[i].localName + "> element is useful but still deprecated."
                     )
             }
                 // Multiple elements

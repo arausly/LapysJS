@@ -6086,6 +6086,33 @@ xmp {
         inline-size: inherit !important
     }
 
+/* Image Rendering Preset */
+.img-r-auto,
+.image-rendering-auto {
+    image-rendering: auto !important
+}
+.img-r-inherit,
+.image-rendering-inherit {
+    image-rendering: inherit !important
+}
+.img-r-crsp,
+.image-rendering-crisp-edges {
+    image-rendering: crisp-edges !important;
+    image-rendering: -webkit-optimize-contrast !important;
+    -ms-interpolation-mode: nearest-neighbor !important
+}
+.img-r-lapys,
+.image-rendering-lapys {
+    filter: blur(1px);
+    image-rendering: auto
+    transform: scale(.9) !important
+}
+.img-r-px,
+.image-rendering-pixelated {
+    image-rendering: pixelated !important
+    -ms-interpolation-mode: nearest-neighbor !important
+}
+
 /* Margin Preset */
 .m-auto,
 .margin-auto {

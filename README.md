@@ -2,7 +2,7 @@
     <img src="https://github.com/LapysNights/LapysJS/blob/master/assets/img/png/lapysJS.png">
 </p>
 
-# LapysJS v0.0.4
+# LapysJS v0.0.5
 
 ## What is Lapys JS?
     
@@ -44,4 +44,9 @@ Unlike other frameworks, Lapys JS is supported by a communities of developers wh
 With its fresh new components and use of little codes to make the large parts of everyday web pages, this framework inspires creativity and throws complexity out the window.
 Finally, Lapys JS brings a simple development system into a digital web space of well-defined guidelines and parameters, intuitively conveying how interface should work in the most convenient and simple way.
 
-## Seamless, simple development.
+### Seamless, simple development.
+
+# Latest Release
+"Horizontal Scroller" added.
+ side-scrollable section fixed to a specified width.
+ <b>(Implemented via the <code>.hr-scr</code>)</b>

@@ -38,7 +38,7 @@ var LapysJS = {
     })(),
 
     // Version
-    version : "0.0.4"
+    version : "0.0.5"
 }
 
 /* Global Object Test */
@@ -2011,6 +2011,108 @@ if (
                             hideDropdownMenu()
                         }
                     }
+
+            /* Horizontal Scroller */
+                // Definition
+                    // Horizontal Scroller
+                    var horizontalScroller = document.getElementsByClassName("hr-scr")
+
+                // Index all Horizontal Scrollers
+                for (i = 0; i < horizontalScroller.length; i++) {
+                    // Modification
+                        // "data-childshow" Attribute
+                        if (!horizontalScroller[i].hasAttribute("data-childshow"))
+                            horizontalScroller[i].setAttribute("data-childshow", 3)
+
+                        horizontalScroller[i].setAttribute(
+                            "data-childshow",
+                            parseInt(horizontalScroller[i].getAttribute("data-childshow"))
+                        )
+
+                    // Children
+                        // Initialization
+                            // Horizontal Scroller "data-childshow" attribute
+                            var horizontalScrollerChildIndex = horizontalScroller[i].getAttribute("data-childshow")
+
+                        // Style
+                            /* Border-Left Width, Border-Right Width & Width
+                                --- NOTE ---
+                                    Index the Horizontal Scroller's width divided by
+                                    its "data-childshow" attribute for the
+                                    width of its children.
+
+                                --- WARN ---
+                                    This process must be repeated over.
+                            */
+                            setInterval(function() {
+                                horizontalScroller = document.getElementsByClassName("hr-scr")
+
+                                // Index all Horizontal Scrollers
+                                for (i = 0; i < horizontalScroller.length; i++)
+                                    // Index all Horizontal Scroller children elements
+                                    for (j = 0; j < horizontalScroller[i].children.length; j++) {
+                                        // Border Left Width
+                                        horizontalScroller[i].children[j].style.borderLeftWidth = (
+                                            (
+                                                (
+                                                    body.clientWidth /
+                                                    horizontalScroller[i].getAttribute("data-childshow")
+                                                ) - (
+                                                    (parseInt(window.getComputedStyle(horizontalScroller[i].children[j]).getPropertyValue("marginLeft").replace("px", "")) || 0) +
+                                                    (parseInt(window.getComputedStyle(horizontalScroller[i].children[j]).getPropertyValue("marginRight").replace("px", "")) || 0) +
+                                                    (parseInt(window.getComputedStyle(horizontalScroller[i].children[j]).getPropertyValue("paddingLeft").replace("px", "")) || 0) +
+                                                    (parseInt(window.getComputedStyle(horizontalScroller[i].children[j]).getPropertyValue("paddingRight").replace("px", "")) || 0)
+                                                ) - (
+                                                    5
+                                                )
+                                            ) /
+                                            8
+                                        ) + "px"
+
+                                        // Border Right Width
+                                        horizontalScroller[i].children[j].style.borderRightWidth = (
+                                            (
+                                                (
+                                                    body.clientWidth /
+                                                    horizontalScroller[i].getAttribute("data-childshow")
+                                                ) - (
+                                                    (parseInt(window.getComputedStyle(horizontalScroller[i].children[j]).getPropertyValue("marginLeft").replace("px", "")) || 0) +
+                                                    (parseInt(window.getComputedStyle(horizontalScroller[i].children[j]).getPropertyValue("marginRight").replace("px", "")) || 0) +
+                                                    (parseInt(window.getComputedStyle(horizontalScroller[i].children[j]).getPropertyValue("paddingLeft").replace("px", "")) || 0) +
+                                                    (parseInt(window.getComputedStyle(horizontalScroller[i].children[j]).getPropertyValue("paddingRight").replace("px", "")) || 0)
+                                                ) - (
+                                                    5
+                                                )
+                                            ) /
+                                            8
+                                        ) + "px"
+
+                                        // Width
+                                        horizontalScroller[i].children[j].style.width = (
+                                            (
+                                                (
+                                                    body.clientWidth /
+                                                    horizontalScroller[i].getAttribute("data-childshow")
+                                                ) - (
+                                                    (parseInt(window.getComputedStyle(horizontalScroller[i].children[j]).getPropertyValue("marginLeft").replace("px", "")) || 0) +
+                                                    (parseInt(window.getComputedStyle(horizontalScroller[i].children[j]).getPropertyValue("marginRight").replace("px", "")) || 0) +
+                                                    (parseInt(window.getComputedStyle(horizontalScroller[i].children[j]).getPropertyValue("paddingLeft").replace("px", "")) || 0) +
+                                                    (parseInt(window.getComputedStyle(horizontalScroller[i].children[j]).getPropertyValue("paddingRight").replace("px", "")) || 0)
+                                                ) - (
+                                                    5
+                                                )
+                                            ) /
+                                            2
+                                        ) + "px"
+
+                                        // Children
+                                        for (k = 0; k < horizontalScroller[i].children[j].children.length; k++)
+                                            // Style
+                                                // Right
+                                                horizontalScroller[i].children[j].children[k].style.right = horizontalScroller[i].children[j].style.borderLeftWidth
+                                    }
+                            }, 100)
+                }
 
             /* Media 
                 --- UPDATE REQUIRED ---

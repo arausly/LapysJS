@@ -1092,6 +1092,9 @@ if (
                 
                 // <br>
                 var br = document.getElementsByTagName("br")
+
+                // <favicon>
+                var favicon = document.getElementsByTagName("favicon")
                 
                 // <head> 
                 var head = document.getElementsByTagName("head")[0] || document.head
@@ -1109,6 +1112,22 @@ if (
                 var time = document.getElementsByTagName("time")
             
             // Special Elements
+                // <favicon>
+                    // If the first element exists.
+                    if (favicon[0])
+                        // If the element has the "src" attribute.
+                        if (favicon[0].hasAttribute("src")) {
+                            head.insertAdjacentHTML(
+                                'beforeend',
+
+                                '<!-- Document Favicon -->' +
+                                '<link href="' + favicon[0].getAttribute("src") + '" rel="icon" type="image/png">' +
+                                '<link href="' + favicon[0].getAttribute("src") + '" rel="shortcut icon">'
+                            )
+
+                            favicon[0].parentNode.removeChild(favicon[0])
+                        }
+
                 // <lorem>
                     // Dummy Text Level 1
                     if (rand <= 2.5)

@@ -8849,7 +8849,7 @@ table.cmpnt *:not(tr),
             animation-timing-function: ease-in;
             display: none;
             height: 100%;
-            padding: 0 !important;
+            padding: 0;
             position: relative !important;
             width: 100%;
             z-index: 3
@@ -9221,6 +9221,16 @@ table.cmpnt *:not(tr),
         .icn-2-aquarius::after {
             content: "h"
         }
+
+        /* Ampersand */
+        .icn-5-ampersand::after {
+            content: "\0026"
+        }
+
+        /* Angle */
+        .icn-5-angle::after {
+            content: "\2221"
+        }
         
         /* Reload Arrows | Square with Shadow | Circled "8" */
         .icn-1-arrowreload::after,
@@ -9228,6 +9238,11 @@ table.cmpnt *:not(tr),
         .icn-2-squarewithshadow1::after,
         .icn-3-circled8::after {
             content: "q"
+        }
+
+        /* At */
+        .icn-5-at::after {
+            content: "\0040"
         }
         
         /* Ball | Memory Disk */
@@ -9276,6 +9291,11 @@ table.cmpnt *:not(tr),
         .icn-3-circled2_fill::after {
             content: "v"
         }
+
+        /* Caret */
+        .icn-5-caret::after {
+            content: "\0302"
+        }
         
         /* Chili | Mailbox | Computer File | Pointer Arrow with Break */
         .icn-1-chili::after,
@@ -9283,6 +9303,26 @@ table.cmpnt *:not(tr),
         .icn-3-computerfile::after,
         .icn-4-arrowwithbreak::after {
             content: ","
+        }
+
+        /* Chinese Character */
+        .icn-5-chinesecharacter2::after {
+            content: "\4444"
+        }
+        .icn-5-chinesecharacter3::after {
+            content: "\5555"
+        }
+        .icn-5-chinesecharacter4::after {
+            content: "\6666"
+        }
+        .icn-5-chinesecharacter5::after {
+            content: "\7777"
+        }
+        .icn-5-chinesecharacter6::after {
+            content: "\8888"
+        }
+        .icn-5-chinesecharacter7::after {
+            content: "\9999"
         }
         
         /* Circle_Fill | Box | Circled "5" | Double-Head Pointer Arrow */
@@ -9334,6 +9374,16 @@ table.cmpnt *:not(tr),
         .icn-3-handpointright_fill2::after {
             content: "E"
         }
+
+        /* Diamond */
+        .icn-5-dotdiamond::after {
+            content: "\0700"
+        }
+
+        /* Dollar */
+        .icn-5-dollar::after {
+            content: "\0024"
+        }
         
         /* Double Left Pointer Arrow | Computer Keyboard */
         .icn-1-doubleleftarrow::after,
@@ -9367,19 +9417,25 @@ table.cmpnt *:not(tr),
         .icn-2-hourglass::after {
             content: "6"
         }
-        
-        /* Electronic High-Speed Train | Diamond | Circled "0"_Fill */
-        .icn-1-electronictrain::after,
-        .icn-2-diamond::after,
-        .icn-3-circled0_fill::after {
-            content: "t"
-        }
-        
+
         /* Ear | Flag | Cross */
         .icn-1-ear::after,
         .icn-2-flag::after,
         .icn-3-cross::after {
             content: "O"
+        }
+        
+        /* Electronic High-Speed Train | 
+         | Circled "0"_Fill */
+        .icn-1-electronictrain::after,
+        .icn-2-diamond::after,
+        .icn-3-circled0_fill::after {
+            content: "t"
+        }
+
+        /* Exclamation Mark */
+        .icn-5-exclamation::after {
+            content: "\0021"
         }
         
         /* Eye | Skull and Crossed Bones | Hand Wave */
@@ -9458,13 +9514,20 @@ table.cmpnt *:not(tr),
         .icn-2-letter::after {
             content: "+"
         }
+
+        /* Hash */
+        .icn-5-hash::after {
+            content: "\0023"
+        }
         
         /* Heavy Backslash | Chinese Character | Ampersand */
         .icn-1-heavybackslash::after,
         .icn-2-chinesecharacter::after,
+        .icn-2-chinesecharacter1::after,
         .icn-3-ampersand2::after {
             content: "\\"
         }
+
         /* Heavy Forward Slash | Mailbox | File | Double-Crossed Pointer Arrow */
         .icn-1-heavyforwardslash::after,
         .icn-2-mailbox4::after,
@@ -9546,6 +9609,11 @@ table.cmpnt *:not(tr),
         .icn-3-circled1_fill::after {
             content: "u"
         }
+
+        /* N.. Dash */
+        .icn-5-ndash::after {
+            content: "\0332"
+        }
         
         /* Out of Range | Box with X | Circled "4"_Fill | Right-Angled Triangle_Fill */
         .icn-1-noaccess::after,
@@ -9586,6 +9654,11 @@ table.cmpnt *:not(tr),
         .icn-4-edgedarrow::after {
             content: ";"
         }
+
+        /* Percent */
+        .icn-5-percent::after {
+            content: "\0025"
+        }
         
         /* Pipe | Flower_Fill | Circled "8"_Fill */
         .icn-1-pipe::after,
@@ -9607,6 +9680,11 @@ table.cmpnt *:not(tr),
         .icn-2-smalldiamond::after,
         .icn-3-circled10::after {
             content: "s"
+        }
+
+        /* Double Quote */
+        .icn-5-quote::after {
+            content: "\0022"
         }
         
         /* Railway | Sun | Square with Tick | Circle with Pointer Arrow */

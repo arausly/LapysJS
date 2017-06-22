@@ -23,8 +23,8 @@ var LapysJS = {
 
     // Script Element "src" Attribute
     jsURL :
-        document.querySelectorAll('script[src*="lapys.js"]')[0].getAttribute("src").toString() ||
-        document.querySelectorAll('script[src*="lapys.min.js"]')[0].getAttribute("src").toString(),
+        document.querySelectorAll('script[src*="lapys.js"]')[0].src ||
+        document.querySelectorAll('script[src*="lapys.min.js"]')[0].src,
 
     // Execution Time
     lastExecuted : "Last executed on: " + Date(),
@@ -41,6 +41,12 @@ var LapysJS = {
     version : "0.0.5"
 }
 
+/* Function */
+    // Document Loader
+    function documentLoader() {
+        /* Do Something… */ 
+    }
+
 /* Global Object Test */
 if (
     window &&
@@ -48,8 +54,15 @@ if (
     !LapysJS.executed
 ) {
     /* Syntax */
+        // Clear Console
+        var clear = function() {
+            // Return
+            return console.clear()
+        }
+
         // Create Element
         var create = function(element) {
+            // Return
             return document.createElement(element)
         }
 
@@ -57,27 +70,34 @@ if (
         var css = {
             // Create <link>
             add : function(href, media, rel, type) {
-                // Append the <link> element within the <head> element.
+                // Insertion
                 if (!document.querySelectorAll('link[href="' + href + '"][media="' + media + '"][rel="' + rel + '"][type="' + type + '"]')[0])
                     document.getElementsByTagName("head")[0].innerHTML += (
-                        '<link href="' + href + '" media="' + media + '" rel="' + rel + '" type="' + type + '">')
+                        '<link href="' + href + '" media="' + media + '" rel="' + rel + '" type="' + type + '">'
+                    )
             },
             
             // Create <style>
             style : function(dataKey, selector, property, atRule) {
-                // Create a new <style> element.
+                // Initialization
                 var cssStyle = document.createElement("style")
                 
-                // Uniquely identify the <style> element.
-                cssStyle.setAttribute("data-key", dataKey)
+                // Modification
+                    // [data-key]
+                    cssStyle.setAttribute("data-key", dataKey)
                 
-                // Append the element into the <head> element.
+                // Insertion
                 if (!document.querySelectorAll('style[data-key="' + dataKey + '"]')[0])
                     document.getElementsByTagName("head")[0].appendChild(cssStyle)
                 
-                // The option for CSS at-rules is given here.
+                /* --- NOTE ---
+                        If
+                            "atRule" is "undefined".
+                */
                 if (atRule == undefined)
                     cssStyle.innerHTML += "\n" + selector + " { " + property + " }"
+
+                // …else
                 else
                     cssStyle.innerHTML += "\n" + selector + " { " + property + " } " + atRule
             }
@@ -87,25 +107,45 @@ if (
         var del = {
             // Delete Attribute
             attr : function(element, attribute) {
+                // Return
                 return element.removeAttribute(attribute)
             },
             
             // Delete Element Class
             class : function(element, className) {
+                /* --- NOTE ---
+                        If
+                            the element does not have a
+                            class value.
+                */
                 if (element.className == "") {
                     // Do nothing…
-                } else {
+                }
+
+                // …else
+                else {
                     // Index all the element's class values.
                     for (i = 0; i < element.classList.length; i++)
-                        // If a match is found, remove the class given.
+                        /* --- NOTE ---
+                                If
+                                    a match is found, remove the class given.
+                        */
                         if (className == element.classList[i])
                             element.classList.value = element.classList.value.replace(className, "")
 
-                    // If there are only two classes, remove all white-spaces.
+                    /* --- NOTE ---
+                            If
+                                there is only one class,
+                                remove all white-spaces.
+                    */
                     if (element.classList[1] == undefined)
                         element.classList.value = element.classList.value.replace(/ /g, "")
 
-                    // If there is white-space before any class value, remove it.
+                    /* --- NOTE ---
+                            If
+                                there is white-space before
+                                any class value, remove it.
+                    */
                     if (element.classList.value.indexOf(" ") == 0)
                         element.classList.value = element.classList.value.replace(" ", "")                    
                 }
@@ -113,18 +153,27 @@ if (
 
             // Delete event
             event : function(element, event, func) {
+                // Return
                 return element.removeEventListener(event, func)
             },
 
             // Delete <link>
             link : function(href, media, rel, type) {
+                /* --- NOTE ---
+                        If
+                            the element exists.
+                */
                 if (document.querySelectorAll('link[href="' + href + '"][media="' + media + '"][rel="' + rel + '"]')[0])
-                    // If the "type" attribute is specified.
+                    /* --- NOTE ---
+                            If
+                                the "type" attribute is specified.
+                    */
                     if (type != undefined)
                         document.getElementsByTagName("head")[0].removeChild(
                             document.querySelectorAll('link[href="' + href + '"][media="' + media + '"][rel="' + rel + '"][type="' + type + '"]')[0]
                         )
                     
+                    // …else
                     else
                         document.getElementsByTagName("head")[0].removeChild(
                             document.querySelectorAll('link[href="' + href + '"][media="' + media + '"][rel="' + rel + '"]')[0]
@@ -133,72 +182,137 @@ if (
             
             // Delete HTML
             html : function(element, index) {
-                // If "index" is defined.
+                // If "index" is "undefined".
                 if (index == undefined)
+                    // If the element exists.
                     if (element)
+                        // Return
                         return element.parentNode.removeChild(element)
+
+                    // …else
                     else {
                         // Do nothing…
                     }
 
+                // …else
                 else
+                    // If the elem element exists.
                     if (element[index])
+                        // Return
                         return element[index].parentNode.removeChild(element[index])
             },
 
             // Delete inline CSS
             inlineStyle : function(element, style) {
-                // If the element has the "style" attribute.
+                /* --- NOTE ---
+                        If
+                            the element has the "style" attribute.
+                */
                 if (element.hasAttribute("style"))
                     // Replace the CSS style and its value with "''".
                     element.style = element.getAttribute("style").replace(
                         // Collect the CSS style and its value.
                         element.getAttribute("style").slice(
                             // The first instance of the style.
-                                // property
+                                // [property]
                                 element.getAttribute("style").indexOf(style),
                             
                             // The length of the style and its value.
-                                // property: value
+                                // [property: value]
                                 (function() {
-                                    if (element.getAttribute("style").indexOf(style + ": " + element.style[style]) >= 0)
-                                        return (element.getAttribute("style").indexOf(style) + (style + ": " + element.style[style]).toString().length)
+                                    /* --- NOTE ---
+                                            If
+                                                [property: value]
+                                    */
+                                    if (element.getAttribute("style").indexOf(style + ": " + element.getAttribute("style")[style]) >= 0)
+                                        // Return
+                                        return (element.getAttribute("style").indexOf(style) + (style + ": " + element.getAttribute("style")[style]).toString().length)
                                     
-                                    else if (element.getAttribute("style").indexOf(style + ":" + element.style[style]) >= 0)
-                                        return (element.getAttribute("style").indexOf(style) + (style + ":" + element.style[style]).toString().length)
+                                    /* --- NOTE ---
+                                            else if
+                                                [property:value]
+                                    */
+                                    else if (element.getAttribute("style").indexOf(style + ":" + element.getAttribute("style")[style]) >= 0)
+                                        // Return
+                                        return (element.getAttribute("style").indexOf(style) + (style + ":" + element.getAttribute("style")[style]).toString().length)
 
-                                    else if (element.getAttribute("style").indexOf(style + " :" + element.style[style]) >= 0)
-                                        return (element.getAttribute("style").indexOf(style) + (style + " :" + element.style[style]).toString().length)
+                                    /* --- NOTE ---
+                                            else if
+                                                [property :value]
+                                    */
+                                    else if (element.getAttribute("style").indexOf(style + " :" + element.getAttribute("style")[style]) >= 0)
+                                        // Return
+                                        return (element.getAttribute("style").indexOf(style) + (style + " :" + element.getAttribute("style")[style]).toString().length)
 
+                                    /* --- NOTE ---
+                                            else if
+                                                [property : value]
+                                    */
+                                    else if (element.getAttribute("style").indexOf(style + " : " + element.getAttribute("style")[style]) >= 0)
+                                        // Return
+                                        return (element.getAttribute("style").indexOf(style) + (style + " : " + element.getAttribute("style")[style]).toString().length)
+
+                                    // …else
                                     else
                                         return 0
                                 })() +
 
-                                // value;
+                                // [value;]
                                 (function() {
-                                    if (element.getAttribute("style").indexOf(element.style[style] + "; ") >= 0)
+                                    /* --- NOTE ---
+                                            If
+                                                [value; ]
+                                    */
+                                    if (element.getAttribute("style").indexOf(element.getAttribute("style")[style] + "; ") >= 0)
+                                        // Return
                                         return (element.getAttribute("style").indexOf(style) + "; ".length)
                                     
-                                    else if (element.getAttribute("style").indexOf(element.style[style] + " ;") >= 0)
+                                    /* --- NOTE ---
+                                            else if
+                                                [value ;]
+                                    */
+                                    else if (element.getAttribute("style").indexOf(element.getAttribute("style")[style] + " ;") >= 0)
+                                        // Return
                                         return (element.getAttribute("style").indexOf(style) + " ;".length)
 
-                                    else if (element.getAttribute("style").indexOf(element.style[style] + ";") >= 0)
+                                    /* --- NOTE ---
+                                            else if
+                                                [value;]
+                                    */
+                                    else if (element.getAttribute("style").indexOf(element.getAttribute("style")[style] + ";") >= 0)
+                                        // Return
                                         return (element.getAttribute("style").indexOf(style) + ";".length)
 
+                                    /* --- NOTE ---
+                                            else if
+                                                [value ; ]
+                                    */
+                                    else if (element.getAttribute("style").indexOf(element.getAttribute("style")[style] + " ; ") >= 0)
+                                        // Return
+                                        return (element.getAttribute("style").indexOf(style) + " ; ".length)
+
+                                    // …else
                                     else
+                                        // Return
                                         return 0
                                 })()
                         ),
+
+                        // Replace with nothing.
                         ""
                     )
 
-                // Remove the "style" attribute if it becomes "empty".
+                // Remove the "style" attribute if it becomes 'empty'.
                 if (element.getAttribute("style") == "")
                     element.removeAttribute("style")
             },
 
             // Delete <style>
             style : function(dataKey) {
+                /* --- NOTE ---
+                        If 
+                            the element exists.
+                */
                 if (document.querySelectorAll('style[data-key="' + dataKey + '"]')[0])
                     document.querySelectorAll('style[data-key="' + dataKey + '"]')[0].parentNode.removeChild(
                         document.querySelectorAll('style[data-key="' + dataKey + '"]')[0]
@@ -219,33 +333,88 @@ if (
 
             // Query Strings
             qs : (function() {
-                var URL = location.search
-                var URLQuery = { }
-                var URLQueryOnce = false
+                // Initialization
+                    // URL
+                    var URL = location.search
 
+                    // URL Query
+                    var URLQuery = { }
+
+                    // URL Query Toggle
+                    var URLQueryOnce = false
+
+                // For the number of "=" in the "search" property of "location".
                 for (i = 0; i < (location.search.match(/=/g) || []).length; i++) {
+                    /* --- NOTE ---
+                            If
+                                "URLQueryOnce" is "false".
+                    */
                     if (!URLQueryOnce) {
+                        /* --- NOTE ---
+                                If
+                                    "URL" has "&" in it.
+                        */
                         if (URL.indexOf("&") >= 0)
-                            URLQuery[URL.slice(1, URL.indexOf("="))] = URL.slice(1, URL.indexOf("&")).slice(URL.indexOf("="))
-                        else
-                            URLQuery[URL.slice(1, URL.indexOf("="))] = URL.slice(URL.indexOf("="))
+                            // Create a new member in the "URLQuery" object.
+                            URLQuery[
+                                URL.slice(1, URL.indexOf("="))
+                            ] = URL.slice(
+                                    1,
+                                    URL.indexOf("&")
+                                ).slice(URL.indexOf("="))
 
+                        // …else
+                        else
+                            // Create a new member in the "URLQuery" object.
+                            URLQuery[
+                                URL.slice(1, URL.indexOf("="))
+                            ] = URL.slice(URL.indexOf("="))
+
+                        // Toggle
                         URLQueryOnce = true
                     }
-                    else
-                        if (URL.indexOf("&") >= 0)
-                            URLQuery[URL.slice(0, URL.indexOf("="))] = URL.slice(0, URL.indexOf("&")).slice(URL.indexOf("=") + 1)
-                        else
-                            URLQuery[URL.slice(0, URL.indexOf("="))] = URL.slice(URL.indexOf("=") + 1)
 
-                    if (URL.indexOf("&") >= 0)
-                        URL = URL.slice(URL.indexOf("&") + 1)
+                    // …else
                     else
+                        /* --- NOTE ---
+                                If
+                                    "URL" has "&" in it.
+                        */
+                        if (URL.indexOf("&") >= 0)
+                            // Create a new member in the "URLQuery" object.
+                            URLQuery[
+                                URL.slice(0, URL.indexOf("="))
+                            ] = URL.slice(
+                                    0,
+                                    URL.indexOf("&")
+                                ).slice(URL.indexOf("=") + "=".length)
+
+                        // …else
+                        else
+                            // Create a new member in the "URLQuery" object.
+                            URLQuery[URL.slice(0, URL.indexOf("="))] = URL.slice(URL.indexOf("=") + "=".length)
+
+                    /* --- NOTE ---
+                            If
+                                "URL" has "&" in it.
+                    */
+                    if (URL.indexOf("&") >= 0)
+                        // Modification
+                        URL = URL.slice(URL.indexOf("&") + "&".length)
+
+                    // …else
+                    else
+                        // Modification
                         URL = ""
 
+                    /* --- NOTE ---
+                            Add a "length" property to "URLQuery" to
+                            count the length of members in the object.
+                    */
                     URLQuery.length = i + 1
                 }
                 
+                // Return
                 return URLQuery
             })(),
 
@@ -278,10 +447,18 @@ if (
 
             // Name
             name : (function() {
+                /* --- NOTE ---
+                        If
+                            the "pathname" property modified
+                            is not "''".
+                */
                 if (location.pathname.split("/").pop() != "")
+                    // Return
                     return location.pathname.split("/").pop()
 
+                // …else
                 else
+                    // Return
                     return location.pathname.split("#").shift()
             })(),
 
@@ -297,28 +474,42 @@ if (
             // Stylesheets
             stylesheets : document.styleSheets,
 
+            // File System
+            system : {
+                // Request
+                request : (window.requestFileSystem || window.webkitRequestFileSystem)
+            },
+
             // Type
             type : (function() {
-                return (/[.]/.exec(
-                    (function() {
-                        if (location.pathname.split("/").pop() != "")
-                            return location.pathname.split("/").pop()
-
-                        else
-                            return location.pathname.split("#").shift()
-                    })())
-                ) ?
-                    /[^.]+$/.exec(
+                // Return
+                return (
+                    // [If]
+                    /[.]/.exec(
                         (function() {
                             if (location.pathname.split("/").pop() != "")
                                 return location.pathname.split("/").pop()
 
                             else
                                 return location.pathname.split("#").shift()
-                        })()
-                    )[0] :
+                        })())
+                    ) ?
+
+                        // [(true)]
+                        /[^.]+$/.exec(
+                            (function() {
+                                if (location.pathname.split("/").pop() != "")
+                                    return location.pathname.split("/").pop()
+
+                                else
+                                    return location.pathname.split("#").shift()
+                            })()
+                        )[0]
+
+                        :
                     
-                    undefined
+                        // [(false)]
+                        undefined
             })(),
 
             // Visibility
@@ -344,37 +535,64 @@ if (
         var has = {
             // Has Attribute Node
             attr : function(attribute, element, index) {
-                // If "index" is defined.
+                /* --- NOTE ---
+                        If
+                            "index" is "undefined".
+                */
                 if (index == undefined)
-                    // If the element has the "attribute".
+                    // If the element has the "attribute" specified.
                     if (element.hasAttribute(attribute))
+                        // Return
                         return true
+
+                    // …else
                     else
+                        // Return
                         return false
 
+                // …else
                 else
-                    // If the element has the "attribute".
+                    // If the element has the "attribute" specified.
                     if (element[index].hasAttribute(attribute))
+                        // Return
                         return true
+
+                    // …else
                     else
+                        // Return
                         return false
             },
 
             // Has Class Node
             class : function(className, element, index) {
-                // If "index" is defined.
+                /* --- NOTE ---
+                        If
+                            "index" is "undefined".
+                */
                 if (index == undefined)
-                    // If the element has the class node.
+                    /* --- NOTE ---
+                            If
+                                the element has the class node.
+                    */
                     if (element.className.indexOf(className) >= 0)
+                        // Return
                         return true
+
+                    // …else
                     else
+                        // Return
                         return false
 
+                // …else
                 else
                     // If the element has the class node.
                     if (element[index].className.indexOf(className) >= 0)
+                        // Return
                         return true
+
+                    // …else
                     else
+                        // Return
                         return false
             }
         }
@@ -383,15 +601,17 @@ if (
         var insertAfter = function(element, nextSibling) {
             /* --- NOTE ---
                     The "nextSibling" has to defined in the DOM
-                        before it can be placed after the "element".
+                    before it can be placed after the "element".
             */
             nextSibling.parentNode.insertBefore(element, nextSibling)
 
+            // Return
             return nextSibling.parentNode.insertBefore(nextSibling, element)
         }
 
         // insertBefore Function
         var insertBefore = function(element, previousSibling) {
+            // Return
             return previousSibling.parentNode.insertBefore(element, previousSibling)
         }
 
@@ -399,55 +619,255 @@ if (
         var get = {
             // Get Attribute
             attr : function(element, attribute, index) {
-                // If "index" is not defined.
+                // If "index" is "undefined".
                 if (index == undefined)
+                    // Return
                     return element.getAttribute(attribute)
 
+                // …else
                 else
+                    // Return
                     return element[index].getAttribute(attribute)
             },
 
             // Get Class Attribute
             class : function(element, index) {
-                // If "index" is not defined.
+                // If "index" is "undefined".
                 if (index == undefined)
+                    // Return
                     return element.classList
 
+                // …else
                 else
+                    // Return
                     return element[index].classList
             },
 
             // Get CSS
             css : function(property, element, index) {
-                // If "index" is not defined.
+                // If "index" is "undefined".
                 if (index == undefined)
-                    return window.getComputedStyle(element).getPropertyValue(property)
+                    /* --- NOTE ---
+                            If
+                                the element has the specified "property".
+                    */
+                    if (element.style[property])
+                        // Return
+                        return element.style[property]
 
+                    // …else
+                    else
+                        // Return
+                        return window.getComputedStyle(element).getPropertyValue(property)
+
+                // …else
                 else
-                    return window.getComputedStyle(element[index]).getPropertyValue(property)
+                    /* --- NOTE ---
+                            If
+                                the element has the specified "property".
+                    */
+                    if (element[index].style[property])
+                        // Return
+                        return element[index].style[property]
+
+                    // …else
+                    else
+                        // Return
+                        return window.getComputedStyle(element[index]).getPropertyValue(property)
+            },
+
+            // Get CSS Nodes
+            cssAttr : function(element, index) {
+                // Initialization
+                var elementCSSSelector
+
+                /* --- NOTE ---
+                        If
+                            "index" is "undefined".
+                */
+                if (index == undefined) {
+                    /* --- NOTE ---
+                            If
+                                the element has a "class" attribute.
+                    */
+                    if (element.hasAttribute("class"))
+                        // Modification
+                        elementCSSSelector += " ." + element.className.replace(/ /g, ".")
+
+                    /* --- NOTE ---
+                            If
+                                the element has an "id" attribute.
+                    */
+                    if (element.hasAttribute("id"))
+                        // Modification
+                        elementCSSSelector += " " + "#" + element.id
+
+                    /* --- NOTE ---
+                            For
+                                the number of attributes the
+                                element has.
+                    */
+                    for (var i = 0; i < element.attributes.length; i++)
+                        /* --- NOTE ---
+                                If
+                                    the attribute is
+                                        not "class"
+                                            and
+                                        "id".
+                        */
+                        if (
+                            element.attributes[i].name != "class" &&
+                            element.attributes[i].name != "id"
+                        )
+                            // Modification
+                            elementCSSSelector += ' ' + '[' + element.attributes[i].name + '="' + element.attributes[i].value + '"]'
+
+                    // Modification
+                        /* --- NOTE ---
+                                If
+                                    "elementCSSSelector" is
+                                    still "undefined".
+                        */
+                        if (elementCSSSelector)
+                            elementCSSSelector = elementCSSSelector.replace(
+                                "undefined ", "").replace(
+                                " #", "#").replace(
+                                / \[/g, "["
+                            )
+
+                        return elementCSSSelector
+                }
+
+                // ...else
+                else {
+                    /* --- NOTE ---
+                            If
+                                the element has a "class" attribute.
+                    */
+                    if (element[index].hasAttribute("class"))
+                        // Modification
+                        elementCSSSelector += " ." + element[index].className.replace(/ /g, ".")
+
+                    /* --- NOTE ---
+                            If
+                                the element has an "id" attribute.
+                    */
+                    if (element[index].hasAttribute("id"))
+                        // Modification
+                        elementCSSSelector += " " + "#" + element[index].id
+
+                    /* --- NOTE ---
+                            For
+                                the number of attributes the
+                                element has.
+                    */
+                    for (var i = 0; i < element[index].attributes.length; i++)
+                        /* --- NOTE ---
+                                If
+                                    the attribute is
+                                        not "class"
+                                            and
+                                        "id".
+                        */
+                        if (
+                            element[index].attributes[i].name != "class" &&
+                            element[index].attributes[i].name != "id"
+                        )
+                            // Modification
+                            elementCSSSelector += ' ' + '[' + element[index].attributes[i].name + '="' + element[index].attributes[i].value + '"]'
+
+                    // Modification
+                        /* --- NOTE ---
+                                If
+                                    "elementCSSSelector" is
+                                    still "undefined".
+                        */
+                        if (elementCSSSelector)
+                            elementCSSSelector = elementCSSSelector.replace(
+                                "undefined ", "").replace(
+                                " #", "#").replace(
+                                / \[/g, "["
+                            )
+
+                        return elementCSSSelector
+                }
             },
 
             // Get HTML
             html : function(element, index) {
-                // If "index" is not defined.
+                /* --- NOTE ---
+                        If
+                            "index" is "undefined".
+                */
                 if (index == undefined)
-                    // If a second element in the NodeList is undefined.
+                    /* --- NOTE ---
+                            If
+                                a second element in the NodeList
+                                does not exist.
+                    */
                     if (!document.querySelectorAll(element)[1])
+                        // Return
                         return document.querySelectorAll(element)[0]
+
+                    // …else
                     else
+                        // Return
                         return document.querySelectorAll(element)
 
-                // If "index" is "_array", give the NodeList.
+                /* --- NOTE ---
+                        else if
+                            "index" is "_array",
+                            give the array NodeList.
+                */
                 else if (index == "_array")
+                    // Return
                     return document.querySelectorAll(element)
 
+                // …else
                 else
+                    // Return
                     return document.querySelectorAll(element)[index]
+            },
+
+            // Get Screen Position
+            screenPosition : function(element, position) {
+                /* --- NOTE ---
+                        If
+                            "position" is "_bottom".
+                */
+                if (position == "_bottom")
+                    // Return
+                    return element.getBoundingClientRect().bottom
+
+                /* --- NOTE ---
+                        else if
+                            "position" is "_left".
+                */
+                if (position == "_left")
+                    // Return
+                    return element.getBoundingClientRect().left
+
+                /* --- NOTE ---
+                        else if
+                            "position" is "_right".
+                */
+                if (position == "_right")
+                    // Return
+                    return element.getBoundingClientRect().right
+
+                /* --- NOTE ---
+                        else if
+                            "position" is "_top".
+                */
+                if (position == "_top")
+                    // Return
+                    return element.getBoundingClientRect().top
             }
         }
 
         // Assign Directory
         var goTo = function(directory) {
+            // Return
             return location.assign(directory)
         }
 
@@ -455,12 +875,13 @@ if (
         var js = {
             // Link <script>
             add : function(src, type, sync) {
-                // Append the <script> element within the <body> element.
+                // If "sync" is "undefined".
                 if (sync == undefined)
                     document.getElementsByTagName("body")[0].innerHTML += (
                         '<script src="' + src + '" type="' + type + '"> </script>'
                     )
-                
+
+                // …else
                 else
                     document.getElementsByTagName("body")[0].innerHTML += (
                         '<script ' + sync + ' src="' + src + '" type="' + type + '"> </script>'
@@ -469,32 +890,31 @@ if (
 
             // Create <script>
             script : function(dataKey, code) {
-                // Create a new <script> element.
+                // Initialization
                 var jsScript = document.createElement("script")
                 
-                // Uniquely identify the <script> element.
-                jsScript.setAttribute("data-key", dataKey)
+                // Modification
+                    // [data-key]
+                    jsScript.setAttribute("data-key", dataKey)
                 
-                // Append the element into the <body> element.
+                // Insertion
                 document.getElementsByTagName("body")[0].appendChild(jsScript)
                 
-                // Append the Javascript code into the <script> element.
+                // Content
                 jsScript.innerHTML += "\n" + code + "\n"
             }
         }
 
         // Log Object
-        var log = function(object) {
-            return console.log(object)
+        var log = function(data) {
+            // Return
+            return console.log(data)
         }
 
         // Boolean Conversion
-        var parseBool = function(object) {
-            if (object)
-                return true
-           
-            else
-                return false
+        var parseBool = function(data) {
+            // Return
+            return !!data
         }
 
         /* Indexing Order
@@ -518,19 +938,33 @@ if (
                 data.toString()[1] != "0")
                 return data + "th"
 
-            // If its last character is "1".
+            /* --- NOTE ---
+                    else if
+                        its last character is "1".
+            */
             else if (data.toString().lastIndexOf("1") == (data.toString().length - 1))
+                // Return
                 return data + "st"
             
-            // If its last character is "2".
+            /* --- NOTE ---
+                    else if
+                        its last character is "2".
+            */
             else if (data.toString().lastIndexOf("2") == (data.toString().length - 1))
+                // Return
                 return data + "nd"
             
-            // If its last character is "3".
+            /* --- NOTE ---
+                    else if
+                        its last character is "3".
+            */
             else if (data.toString().lastIndexOf("3") == (data.toString().length - 1))
+                // Return
                 return data + "rd"
             
+            // …else
             else
+                // Return
                 return data + "th"
         }
 
@@ -544,18 +978,28 @@ if (
                 "data" must be defined.
             */
             if (data[0] != undefined)
-                // If the "data" has a tag name (is an element).
+                /* --- NOTE ---
+                        If
+                            the "data" has a tag name (is an element).
+                */
                 if (data[0].tagName !== "ELEMENT")
+                    // Return
                     return data.toString().replace(/</g, "&lt;").replace(/>/g, "&gt;")
+
+                // …else
                 else
+                    // Return
                     return console.warn("Object data not found.")
 
+            // …else
             else
+                // Return
                 return data.toString()
         }
 
         // Reload Document Function
         var refresh = function() {
+            // Return
             return location.reload()
         }
 
@@ -564,40 +1008,47 @@ if (
             // Set Attribute
             attr : function(element, attribute, value) {
                 /* --- NOTE ---
-                    If
-                        no value is given, append an empty value ("") to fulfill
-                        both arguments of the setAttribute() function.
+                        If
+                            no value is given, append an empty value ("") to fulfill
+                            both arguments of the setAttribute() function.
                 */
                 if (value == undefined)
+                    // Return
                     return element.setAttribute(attribute, "")
 
+                // …else
                 else
+                    // Return
                     return element.setAttribute(attribute, value)
             },
 
             // Set Class Attribute
             class : function(element, value) {
                 /* --- NOTE ---
-                    If
-                        there is no class for the element,
-                        append the given value directly
-                    else
-                        add white-space before appending
-                        the given value.
+                        If
+                            there is no class for the element,
+                            append the given value directly.
                 */
                 if (element.className == "")
+                    // Return
                     return element.classList.value = value
 
+                // …else
                 else
+                    // Return
                     return element.classList.value += " " + value
             },
 
             /* Set CSS Nodes
-                --- UPDATE REQUIRED ---
-                    Clean up code.
+                    --- UPDATE REQUIRED ---
+                        Clean up code.
             */
             cssAttr : function(element, elementCSSSelector) {
-                // Correction
+                /* --- NOTE ---
+                        If
+                            the "elementCSSSelector" does not have a ".",
+                            add a ".".
+                */
                 if (elementCSSSelector.indexOf(".") <= -1)
                     elementCSSSelector = "." + elementCSSSelector
 
@@ -744,27 +1195,35 @@ if (
             
             // Set Event
             event : function(element, event, func) {
+                // Return
                 return element.addEventListener(event, func)
             }
         }
 
         // Reload Javascript Function
         var scriptReload = function(element) {
+            /* --- NOTE ---
+                    If
+                        element is "undefined".
+            */
             if (element == undefined)
                 // For every <script> element.
                 for (var i = document.getElementsByTagName("script").length - 1; i >= 0; i--)
-                    // Re-append them into the <body> tag
+                    // Insertion
                     document.getElementsByTagName("body")[0].appendChild(
                         document.getElementsByTagName("script")[i]
                     )
 
+            // ...else
             else
+                // Insertion
                 element.parentNode.insertBefore(element, element)
         }
 
         // Write Object
-        var write = function(object) {
-            return document.write(object)
+        var write = function(data) {
+            // Return
+            return document.write(data)
         }
 
         // Directory
@@ -782,6 +1241,7 @@ if (
             document.getElementsByTagName("html")[0] ||
             document.body.parentNode ||
             document.head.parentNode ||
+            document.children[0] ||
             document
         )
 
@@ -872,9 +1332,11 @@ if (
             vendor : window.navigator.vendor
         }
             // Opera 8.0+
-            if ((!!window.opr && !!opr.addons) ||
-                !!window.opera ||
-                navigator.userAgent.indexOf("OPR/") >= 0) {
+            if (
+                    (!!window.opr && !!opr.addons) ||
+                    !!window.opera ||
+                    navigator.userAgent.indexOf("OPR/") >= 0
+            ) {
                 browser.opera = true
                 browser.type = "Opera 8.0+"
             }
@@ -886,29 +1348,40 @@ if (
             }
             
             // Safari 3.0+
-            if (/constructor/i.test(window.HTMLElement) ||
-                (function(p) { return p.toString() === "[object SafariRemoteNotification]" })(!window["safari"] || safari.pushNotification)) {
+            if (
+                /constructor/i.test(window.HTMLElement) ||
+
+                (function(p) {
+                    return p.toString() === "[object SafariRemoteNotification]" 
+                })(!window["safari"] || safari.pushNotification)
+            ) {
                 browser.safari = true
                 browser.type = "Safari 3.0+"
             }
             
             // Internet Explorer 6-11
-            if ( /*@cc_on!@*/ false ||
-                !!document.documentMode) {
+            if (
+                /*@cc_on!@*/ false ||
+                !!document.documentMode
+            ) {
                 browser.IE = true
                 browser.type = "Internet Explorer 6-11"
             }
             
             // Microsoft Edge 20+
-            if (!( /*@cc_on!@*/ false || !!document.documentMode) &&
-                !window.StyleMedia) {
+            if (
+                !( /*@cc_on!@*/ false || !!document.documentMode) &&
+                !window.StyleMedia
+            ) {
                 browser.edge = true
                 browser.type = "Edge 20+"
             }
             
             // Google Chrome 1+
-            if (!!window.chrome &&
-                !!window.chrome.webstore) {
+            if (
+                !!window.chrome &&
+                !!window.chrome.webstore
+            ) {
                 browser.chrome = true
                 browser.type = "Chrome 1+"
             }
@@ -1113,10 +1586,17 @@ if (
             
             // Special Elements
                 // <favicon>
-                    // If the first element exists.
+                    /* --- NOTE ---
+                            If
+                                the first element exists.
+                    */
                     if (favicon[0])
-                        // If the element has the "src" attribute.
+                        /* --- NOTE ---
+                                If
+                                    "src" attribute is present.
+                        */
                         if (favicon[0].hasAttribute("src")) {
+                            // Insertion
                             head.insertAdjacentHTML(
                                 'beforeend',
 
@@ -1125,6 +1605,7 @@ if (
                                 '<link href="' + favicon[0].getAttribute("src") + '" rel="shortcut icon">'
                             )
 
+                            // Deletion
                             favicon[0].parentNode.removeChild(favicon[0])
                         }
 
@@ -1219,14 +1700,14 @@ if (
             */
             setTimeout(function() {
                 // <br>
-                    // Index all <br>
+                    // Index all <br> elements.
                     for (i = 0; i < br.length; i++) {
                         // Initialization
-                            // If <br> has an attribute of 2
+                            // If <br> has an attribute of "2".
                             if (br[i].hasAttribute("2"))
                                 br[i].insertAdjacentHTML("afterend", " <br>")
 
-                            // If <br> has an attribute of 3
+                            // If <br> has an attribute of "3".
                             if (br[i].hasAttribute("3")) {
                                 br[i].insertAdjacentHTML("afterend", " <br>")
                                 br[i].insertAdjacentHTML("afterend", " <br>")
@@ -1241,6 +1722,7 @@ if (
 
                 // <time> 
                 function timeHTML() {
+                    // Index all <time> elements.
                     for (i = 0; i < time.length; i++) {
                         // Day
                         if (time[i].className.indexOf("dy") >= 0) {
@@ -1363,6 +1845,7 @@ if (
             }, 50)
 
         /* Web Applications */
+        setTimeout(function() {
             /* Accordion */
                 // Definition
                     // Accordion
@@ -1380,39 +1863,62 @@ if (
                     // Accordion ID
                     var accordionIdentity = [  ]
                 
-                // Index all Accordions
+                // Index all Accordions.
                 for (i = 0; i < accordion.length; i++) {
-                    // Create toggles
-                    accordionBin[i] = false
+                    // Modification
+                        // Accordion Boolean
+                        accordionBin[i] = false
 
-                    // Close the Accordion
+                    // 'Close' the Accordion.
                     accordion[i].open = false
                 
-                    // Create a unique ID for each Accordion
-                    accordionIdentity[i] = "#" + Math.random().toString().slice(2)
+                    // Create a unique ID for each Accordion.
+                    accordionIdentity[i] = "#" + Math.random().toString().slice(3)
                 
-                    // Index all Accordions
-                    accordion[i].setAttribute("data-index", i)
-                    accordion[i].setAttribute("data-id", accordionIdentity[i])
+                    // Modification
+                        // [data-index]
+                        accordion[i].setAttribute("data-index", i)
+
+                        // [data-id]
+                        accordion[i].setAttribute("data-id", accordionIdentity[i])
                 
-                    // Reset the "open" attribute
-                    if (accordion[i].hasAttribute("open") && accordion[i].tagName == "DETAILS") {
-                        accordion[i].removeAttribute("open")
-                        accordion[i].setAttribute("data-open", "")
-                    }
+                        /* --- NOTE ---
+                                If
+                                    the element is a <details>.
+                        */
+                        if (accordion[i].hasAttribute("open") && accordion[i].tagName == "DETAILS") {
+                            // Modification
+                                // [data-open]
+                                accordion[i].setAttribute("data-open", "")
+
+                                // [open]
+                                accordion[i].removeAttribute("open")
+                        }
                 
-                    // Open the Accordion if the attribute "data-open" is defined
+                    /* --- NOTE ---
+                            If
+                                the attribute "data-open" is defined,
+                                open the Accordion.
+                    */
                     if (accordion[i].hasAttribute("data-open"))
                         accordion[i].open = true
                 }
                 
-                // Index all Accordion Headers
+                // Index all Accordion Headers.
                 for (i = 0; i < accordionHeader.length; i++) {
-                    // Index all Accordion Headers
-                    accordionHeader[i].setAttribute("data-index", i)
+                    // Modification
+                        // [data-index]
+                        accordionHeader[i].setAttribute("data-index", i)
 
-                    // Add the events
-                    accordionHeader[i].onclick = function() {
+                    // Add the events.
+                    accordionHeader[i].addEventListener("click", openAccordionContent)
+
+                    // Function
+                    function openAccordionContent() {
+                        /* --- NOTE ---
+                                If
+                                    the element exists.
+                        */
                         if (!accordionBin[this.getAttribute("data-index")]) {
                             // Open the Accordion
                             document.querySelectorAll(this.parentNode.localName + '.accr[data-id="' + this.parentNode.getAttribute("data-id") + '"] > .accr-c[data-index="' + this.getAttribute("data-index") + '"]')[0].parentNode.open = true
@@ -1422,6 +1928,7 @@ if (
                             document.querySelectorAll(this.parentNode.localName + '.accr[data-id="' + this.parentNode.getAttribute("data-id") + '"] > .accr-c[data-index="' + this.getAttribute("data-index") + '"]')[0].style.display = "block"
                         }
 
+                        // ...else
                         else {
                             // Un-open the Accordion
                             document.querySelectorAll(this.parentNode.localName + '.accr[data-id="' + this.parentNode.getAttribute("data-id") + '"] > .accr-c[data-index="' + this.getAttribute("data-index") + '"]')[0].parentNode.open = false
@@ -1431,68 +1938,124 @@ if (
                             document.querySelectorAll(this.parentNode.localName + '.accr[data-id="' + this.parentNode.getAttribute("data-id") + '"] > .accr-c[data-index="' + this.getAttribute("data-index") + '"]')[0].style.display = "none"
                         }
 
+                        // Toggle
                         accordionBin[this.getAttribute("data-index")] = !accordionBin[this.getAttribute("data-index")]
                     }
                 }
                 
-                // Index all Accordion Content
+                // Index all Accordion Contents.
                 for (i = 0; i < accordionContent.length; i++) {
-                    // Index all Accordion Content
-                    accordionContent[i].setAttribute("data-index", i)
+                    // Modification
+                        // [data-index]
+                        accordionContent[i].setAttribute("data-index", i)
 
-                    // If the Accordion is open, show the Accordion Content
+                    /* --- NOTE ---
+                            If
+                                the Accordion is open,
+                                show the Accordion Content.
+                    */
                     if (
                         accordionContent[i].parentNode.open ||
                         accordionContent[i].parentNode.hasAttribute("data-open")
                     )
                         accordionContent[i].style.display = "block"
 
-                    // else do not display the Accordion Content
+                    // ...else do not display the Accordion Content
                     else
                         accordionContent[i].style.display = "none"
                 }
                 
-                // For Javascript-functioned Accordions
+                // For Javascript-functioned Accordions.
                 setInterval(function() {
-                    // Index all Accordions
+                    // Index all Accordions.
                     for (i = 0; i < accordion.length; i++) {
                         // If the Accordion has the "data-open" attribute, it opens
-                        if (accordion[i].open || accordion[i].hasAttribute("data-open")) {
-                            // Set the "data-open" attribute to "true".
+                        if (
+                            accordion[i].open ||
+                            accordion[i].hasAttribute("data-open")
+                        ) {
+                            // Set the "data-open" attribute to 'true'.
                             accordion[i].setAttribute("data-open", "")
 
-                            // If the second child of the Accordion is the Accordion Content, display it.
+                            /* --- NOTE ---
+                                    If
+                                        the second child of the Accordion
+                                        is the Accordion Content,
+                                        display it.
+                            */
                             if (accordion[i].children[1].className.indexOf("accr-c") >= 0)
                                 accordion[i].children[1].style.display = "block"
                             
-                            // else if the first child of the Accordion is the Accordion Content, display it.
+                            /* --- NOTE ---
+                                    ...else if
+                                        the first child of the Accordion
+                                        is the Accordion Content,
+                                        display it.
+                            */
                             else if ((accordion[i].children[0].className.indexOf("accr-c") >= 0))
                                 accordion[i].children[0].style.display = "block"
                             
-                            // else if any child of the Accordion is the Accordion Content, display it.
+                            /* --- NOTE ---
+                                    ...else
+                                        if any child of the Accordion is the
+                                        Accordion Content,
+                                        display it.
+                            */
                             else
+                                // Index all Accordion child elements.
                                 for (j = 0; j < accordion[i].children.length; j++)
+                                    /* --- NOTE ---
+                                            if
+                                                the Accordion child element
+                                                has a class of "accr-c".
+                                    */
                                     if (accordion[i].children[j].className.indexOf("accr-c") >= 0)
                                         accordion[i].children[j].style.display = "block"
 
                         }
                         
-                        // If the Accordion does not have the "data-open" attribute, it closes
+                        /* --- NOTE ---
+                                ...else
+                                    if the Accordion does not have
+                                    the "data-open" attribute,
+                                    it closes.
+                        */
                         else {
                             // Remove the "data-open" attribute.
                             accordion[i].removeAttribute("data-open")
 
-                            // If the second child of the Accordion is the Accordion Content, hide it
+                            /* --- NOTE ---
+                                    if
+                                    the second child of the Accordion
+                                    is the Accordion Content,
+                                    hide it.
+                            */
                             if (accordion[i].children[1].className.indexOf("accr-c") >= 0)
                                 accordion[i].children[1].style.display = "none"
 
-                            // else if the first child of the Accordion is the Accordion Content, hide it
+                            /*
+                                ...else
+                                    if the first child of the Accordion
+                                    is the Accordion Content,
+                                    hide it.
+                            */
                             else if ((accordion[i].children[0].className.indexOf("accr-c") >= 0))
                                 accordion[i].children[0].style.display = "none"
 
-                            // else if any child of the Accordion is the Accordion Content, hide it
+                            /*
+                                ...else
+                                    if any child of the Accordion
+                                    is the Accordion Content,
+                                    hide it.
+                            */
                             else
+                                // Index all Accordion child elements.
                                 for (j = 0; j < accordion[i].children.length; j++)
+                                    /* --- NOTE ---
+                                            if
+                                                the Accordion child element
+                                                has a class of "accr-c".
+                                    */
                                     if (accordion[i].children[j].className.indexOf("accr-c") >= 0)
                                         accordion[i].children[j].style.display = "none"
                         }
@@ -1501,15 +2064,18 @@ if (
 
             /* Carousel 
                 --- UPDATE REQUIRED ---
-                    Code here needs clean-up.
+                    Clean-up code here.
             */
                 // Definition
                     // Carousel
                     var carousel = document.getElementsByClassName("crsl")
 
                     // Carousel Buttons
-                    var carouselButtonsLeft
-                    var carouselButtonsRight
+                        // Left Carousel Button
+                        var carouselButtonsLeft
+
+                        // Right Carousel Button
+                        var carouselButtonsRight
                     
                     // Carousel Indicators
                     var carouselIndicators
@@ -1520,19 +2086,29 @@ if (
                     // (Individual) Carousel Counter
                     var carouselElementCounter = [  ]
                 
-                // Index all Carousels
+                // Index all Carousels.
                 for (i = 0; i < carousel.length; i++) {
-                    // Index all Carousels
-                    carousel[i].setAttribute("data-index", i)
+                    // Modification
+                        // [data-index]
+                        carousel[i].setAttribute("data-index", i)
 
-                    // Index the Carousel Slides
-                    for (j = 0; j < carousel[i].children.length; j++)
-                        carousel[i].children[j].setAttribute("data-key", j)
+                    // Children
+                        // Index all Carousel child elements.
+                        for (j = 0; j < carousel[i].children.length; j++)
+                            // Modification
+                                // [data-key]
+                                carousel[i].children[j].setAttribute("data-key", j)
                     
-                    // If "data-controls" attribute is enabled, append a control button..
+                    /* --- NOTE ---
+                            If
+                                "data-controls" attribute is enabled,
+                                append a control button.
+                    */
                     if (carousel[i].hasAttribute("data-controls"))
+                        // Insertion
                         carousel[i].insertAdjacentHTML(
                             'afterend',
+
                             '<button class="crsl-btn-l" ' +
                                 (function() {
                                     if (carousel[i].hasAttribute("data-theme"))
@@ -1546,36 +2122,54 @@ if (
                             '> < </button>'
                         )
                     
-                    // If "data-duration" attribute is disabled, set the attribute to "0".
+                    /* --- NOTE ---
+                            If
+                                "data-duration" attribute is disabled,
+                                set the attribute to "0".
+                    */
                     if (!carousel[i].hasAttribute("data-duration"))
-                        carousel[i].setAttribute("data-duration", 0)
+                        // Modifcation
+                            // [data-duration]
+                            carousel[i].setAttribute("data-duration", 0)
                     
-                    // If "data-duration" attribute is enabled
+                    /* --- NOTE ---
+                            If
+                                "data-duration" attribute is enabled.
+                    */
                     if (carousel[i].hasAttribute("data-duration"))
-                        // Index all Carousel Slides
+                        // Index all Carousel child elements.
                         for (j = 0; j < carousel[i].children.length; j++)
-                            // Set the CSS "animation-duration".
+                            // Style
                             carousel[i].children[j].style.animationDuration = (
-                                (carousel[i].children[j].parentNode.getAttribute("data-duration") + "s").toString()
+                                carousel[i].getAttribute("data-duration") + "s"
                             )
                     
-                    // If "data-interval" attribute is disabled, set the attribute to "3".
+                    /* --- NOTE ---
+                            If
+                                "data-interval" attribute is disabled, set the attribute to "3"..
+                    */
                     if (!carousel[i].hasAttribute("data-interval"))
-                        carousel[i].setAttribute("data-interval", 3)
+                        // Modification
+                            // [data-interval]
+                            carousel[i].setAttribute("data-interval", 3)
                     
-                    // If "data-navigation" attribute is enabled
+                    /* --- NOTE ---
+                            If
+                                "data-navigation" attribute is enabled.
+                    */
                     if (carousel[i].hasAttribute("data-navigation")) {
                         /* --- NOTE ---
-                                Give the carousel buttons time to load if they are present.
+                                Give the Carousel Buttons time to load if they are present.
                         */
                         setTimeout(function() {
-                            // Index all Carousels
+                            // Index all Carousels.
                             for (i = 0; i < carousel.length; i++)
-                                // Repeat for the number of Carousel Slides present
+                                // For the number of Carousel child elements.
                                 for (j = carousel[i].children.length - 1; j >= 0; j--)
-                                    // Initialize a new checkbox.
+                                    // Initialization
                                     carousel[i].insertAdjacentHTML(
                                         'afterend',
+
                                         '<input class="crsl-nav" ' +
                                             'data-id="' + i + '"' +
                                             ' data-list="' + j + '"' +
@@ -1592,284 +2186,361 @@ if (
                         }, 750)
                     }
 
-                    // If "data-slide" attribute is enabled
+                    /* --- NOTE ---
+                            If
+                                "data-slide" attribute is enabled.
+                    */
                     if (carousel[i].hasAttribute("data-slide"))
+                        // Index all Carousel element children -- that are not <span>.
                         for (j = 0; j < document.querySelectorAll(".crsl[data-index] > *:not(span)").length; j++)
-                            document.querySelectorAll(".crsl[data-index] > *:not(span)")[j].style.animationName = "" +
-                                document.querySelectorAll(".crsl[data-index] > *:not(span)")[j].parentNode.getAttribute("data-slide") + "_carousel"
+                            // Style
+                            document.querySelectorAll(".crsl[data-index] > *:not(span)")[j].style.animationName = (
+                                carousel[i].getAttribute("data-slide") + "_carousel"
+                            )
                     
-                    // If "data-marquee" attribute is enabled
+                    /* --- NOTE ---
+                            If
+                                "data-marquee" attribute is enabled.
+                    */
                     if (carousel[i].hasAttribute("data-marquee"))
-                        // Toggle the Carousel Slides to the right every 1 second.
+                        // Run this function every 1 second.
                         setInterval(carouselRight, 1000)
 
-                    // Set a focus status for Carousels
-                    document.body.onclick = function() {
-                        // If what was clicked is a Carousel, focus on it.
-                        if (window.event.target.className.indexOf("crsl") >= 0)
-                            window.event.target.isFocused = true
-                        
-                        // else if what was clicked's parent is a Carousel, focus on it.
-                        else if (window.event.target.parentNode.className.indexOf("crsl") >= 0)
-                            window.event.target.parentNode.isFocused = true
-                        
-                        // else if what was clicked's parent's parent is a Carousel, focus on it.
-                        else if (window.event.target.parentNode.parentNode.className.indexOf("crsl") >= 0)
-                            window.event.target.parentNode.parentNode.isFocused = true
+                    // Add the events.
+                    document.body.addEventListener("click", focusCarousel)
 
-                        // else un-select all Carousels
-                        else if (window.event.target)
-                            for (i = 0; i < carousel.length; i++)
-                                carousel[i].isFocused = false
+                    // Function
+                    function focusCarousel() {
+                        // Index all Carousels.
+                        for (i = 0; i < carousel.length; i++)
+                            carousel[i].isFocused = false
+
+                        // Index all targeted elements.
+                        for (i = 0; i < window.event.path.length; i++)
+                            /* --- NOTE ---
+                                    If
+                                        the target is an element.
+                            */
+                            if (window.event.path[i].tagName != undefined)
+                                /* --- NOTE ---
+                                        If
+                                            the element has a "class" attribute.
+                                */
+                                if (window.event.path[i].hasAttribute("class"))
+                                    // Index all class nodes for the target elements.
+                                    for (j = 0; j < window.event.path[i].classList.length; j++)
+                                        // If any of the nodes are "crsl".
+                                        if (window.event.path[i].classList[j] == "crsl")
+                                                window.event.path[i].isFocused = true
                     }
                 }
 
                 // Stylize the carousel if it is "focused"
                 setInterval(function() {
+                    // Index all Carousels.
                     for (i = 0; i < carousel.length; i++)
+                        /* --- NOTE ---
+                                If
+                                    the Carousel 'is focused'.
+                        */
                         if (carousel[i].isFocused)
-                            carousel[i].setAttribute("psd-focus", "")
+                            // Modification
+                                // [psd-focus]
+                                carousel[i].setAttribute("psd-focus", "")
+
+                        // ...else
                         else
                             carousel[i].removeAttribute("psd-focus")
                 }, 100)
 
-                // Accept keyboard input for toggling slides
+                // Add the events.
                 document.body.addEventListener("keydown", carouselKey)
                 document.body.addEventListener("keypress", carouselKey)
 
                 // Set the buttons
                     // Left Carousel Buttons
-                    carouselButtonsLeft = document.querySelectorAll(".crsl + .crsl-btn-l")
-
-                    // Index all Left Carousel Buttons
-                    for (i = 0; i < carouselButtonsLeft.length; i++) {
-                        // Add the events
-                        carouselButtonsLeft[i].addEventListener("click", carouselL)
-
-                        // Accept custom HTML from the "data-left-button" attribute.
-                        carouselButtonsLeft[i].innerHTML = (" " + carousel[i].getAttribute("data-left-button") + " ") || " < "
-
-                        // Create the Right Carousel Buttons
-                        carouselButtonsLeft[i].insertAdjacentHTML(
-                            'afterend',
-                            '<button class="crsl-btn-r" ' +
-                                (function() {
-                                    if (carousel[i].hasAttribute("data-theme"))
-                                        return 'data-theme="' + carousel[i].getAttribute("data-theme") + '"'
-                                })() +
-
-                                (function() {
-                                    if (carousel[i].hasAttribute("data-theme"))
-                                        return ' style="top: ' + (carousel[i].offsetTop + (carousel[i].clientHeight / 2)) + 'px"'
-                                })() +
-                            '> > </button>'
-                        )
+                        // Defintion
+                        carouselButtonsLeft = document.querySelectorAll(".crsl + .crsl-btn-l")
 
                         // Index all Left Carousel Buttons
-                        carouselButtonsLeft[i].setAttribute("data-index", i)
-                    }
+                        for (i = 0; i < carouselButtonsLeft.length; i++) {
+                            // Add the events
+                            carouselButtonsLeft[i].addEventListener("click", carouselL)
+
+                            // Content
+                            carouselButtonsLeft[i].innerHTML = (carousel[i].getAttribute("data-left-button") || " < ")
+
+                            // Adjacent Initialization
+                            carouselButtonsLeft[i].insertAdjacentHTML(
+                                'afterend',
+
+                                '<button class="crsl-btn-r" ' +
+                                    (function() {
+                                        if (carousel[i].hasAttribute("data-theme"))
+                                            return 'data-theme="' + carousel[i].getAttribute("data-theme") + '"'
+                                    })() +
+
+                                    (function() {
+                                        if (carousel[i].hasAttribute("data-theme"))
+                                            return ' style="top: ' + (carousel[i].offsetTop + (carousel[i].clientHeight / 2)) + 'px"'
+                                    })() +
+                                '> > </button>'
+                            )
+
+                            // Modification
+                                // [data-index]
+                                carouselButtonsLeft[i].setAttribute("data-index", i)
+                        }
                     
-                    // Right Carousel Buttons
-                    carouselButtonsRight = document.querySelectorAll(".crsl-btn-l + .crsl-btn-r")
+                    // Right Carousel buttons
+                        // Defintion
+                        carouselButtonsRight = document.querySelectorAll(".crsl-btn-l + .crsl-btn-r")
 
-                    // Index all Right Carousel Buttons
-                    for (i = 0; i < carouselButtonsRight.length; i++) {
-                        // Add the events
-                        carouselButtonsRight[i].addEventListener("click", carouselR)
+                        // Index all Right Carousel Buttons.
+                        for (i = 0; i < carouselButtonsRight.length; i++) {
+                            // Add the events.
+                            carouselButtonsRight[i].addEventListener("click", carouselR)
 
-                        // Accept custom HTML from the "data-right-button" attribute.
-                        carouselButtonsRight[i].innerHTML = (" " + carousel[i].getAttribute("data-right-button") + " ") || " > "
+                            // Content
+                            carouselButtonsRight[i].innerHTML = (carousel[i].getAttribute("data-right-button") || " > ")
 
-                        // Index all Right Carousel Buttons
-                        carouselButtonsRight[i].setAttribute("data-index", i)
-                    }
+                            // Modification
+                                // [data-index]
+                                carouselButtonsRight[i].setAttribute("data-index", i)
+                        }
 
                 // Carousel Indicators
-                    // Catch the navigation elements
+                    // Catch the navigation elements.
                     setTimeout(function() {
                         // Definition
                         carouselIndicators = document.querySelectorAll(".crsl-nav[data-list]")
 
-                        // Index all Carousel Indicators
+                        // Index all Carousel Indicators.
                         for (i = 0; i < carouselIndicators.length; i++)
-                            // Add the events
+                            // Add the events.
                             carouselIndicators[i].addEventListener("click", carouselToggle)
                     }, 825)
                 
                 /* --- NOTE ---
-                    Append a "data-count" attribute to count the seconds and
-                    add new properties to the carousel array.
+                        For
+                            all Carousels
+                            append a "data-count" attribute to count the seconds and
+                            add new properties to the carousel array.
                 */
                 for (i = 0; i < carousel.length; i++)
                     carouselElementCounter[i] = 0
                 
-                // The counter property
-                setInterval(function() {
-                    for (i = 0; i < carousel.length; i++) {
-                        // Increment the values of each property
-                        carouselElementCounter[i]++
-                        
-                        // Append the attribute
-                        carousel[i].setAttribute("data-count", carouselElementCounter[i])
-                    }
-                }, 1000)
+                // Carousel Counter (Individual)
+                    // This function runs every 1 second.
+                    setInterval(function() {
+                        // Index all Carousels.
+                        for (i = 0; i < carousel.length; i++)                       
+                            // Modification
+                                // [data-count]
+                                carousel[i].setAttribute("data-count", carouselElementCounter[i]++)
+                    }, 1000)
 
-                // Toggle the active (displayed) slide on the Carousel
-                function carouselToggle() {
-                    // Initialization
-                    var carouselContent = document.querySelectorAll('.crsl[data-index="' + this.getAttribute("data-index") + '"] > *:not(span)'),
-                        carouselSlide = document.querySelectorAll('.crsl[data-index="' + this.getAttribute("data-id") + '"] > *:not(span)[data-key="' + this.getAttribute("data-list") + '"]')
-                        
-                    // Hide all Carousel Slides
-                    for (i = 0; i < carouselContent.length; i++)
-                        carouselContent[i].style.display = "none"
-
-                    // Show the first Carousel Slide
-                    carouselSlide[0].style.display = "block"
-
-                    // Place the last Carousel Slide before the first.
-                    carouselSlide[0].parentNode.insertBefore(
-                        carouselSlide[0], 
-                        carouselSlide[0].parentNode.childNodes[1]
-                    )
-                }
-                
-                // Reverse the rotary
-                function carouselLeft() {
-                    // Call this function when the "data-count" attribute matches the ("data-duration" + "data-interval") attribute
-                    for (i = 0; i < carousel.length; i++) {
-                        if (
-                            carousel[i].getAttribute("data-count") ==
-                            (
-                                parseInt(parseInt(carousel[i].getAttribute("data-duration")) +
-                                parseInt(carousel[i].getAttribute("data-interval")))
-                            )
-                        ) {
-                            // Hide all Carousel Slides
-                            for (j = 0; j < document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)').length; j++)
-                                document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)')[j].style.display = "none"
+                // Function
+                    // Toggle the active (displayed) slide on the Carousel
+                    function carouselToggle() {
+                        // Initialization
+                        var carouselContent = document.querySelectorAll('.crsl[data-index="' + this.getAttribute("data-index") + '"] > *:not(span)'),
+                            carouselSlide = document.querySelectorAll('.crsl[data-index="' + this.getAttribute("data-id") + '"] > *:not(span)[data-key="' + this.getAttribute("data-list") + '"]')
                             
-                            // Show the first Carousel Slide
-                            document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)')[0].style.display = "block"
+                        // Index all Carousel Content.
+                        for (i = 0; i < carouselContent.length; i++)
+                            carouselContent[i].style.display = "none"
 
-                            // Place the first Carousel Slide before the last.
-                            document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)')[0].parentNode.insertBefore(
-                                document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)')[document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)').length - 1],
-                                document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)')[0]
-                            )
-                        
-                            // Reset the "data-count" attribute for the specified Carousel
-                            carouselElementCounter[i] = 0
-                            carousel[i].setAttribute("data-count", 0)
-                        }
+                        // Show the first Carousel Content.
+                        carouselSlide[0].style.display = "block"
+
+                        // Insertion
+                        carouselSlide[0].parentNode.insertBefore(
+                            carouselSlide[0], 
+                            carouselSlide[0].parentNode.childNodes[1]
+                        )
                     }
-                }
-
-                // Reverse a rotary
-                function carouselL() {
-                    // Definition
-                    var carouselLContent = document.querySelectorAll('.crsl[data-index="' + this.getAttribute("data-index") + '"] > *:not(span)')
                     
-                    // Hide all Carousel Slides
-                    for (i = 0; i < carouselLContent.length; i++)
-                        carouselLContent[i].style.display = "none"
-                    
-                    // Show the first Carousel Slide
-                    carouselLContent[0].style.display = "block"
-
-                    // Place the first Carousel Slide before the last.
-                    carouselLContent[0].parentNode.insertBefore(
-                        carouselLContent[carouselLContent.length - 1],
-                        carouselLContent[0]
-                    )
-                }
-
-                // Play the rotary
-                function carouselRight() {
-                    // Call this function when the "data-count" attribute matches the ("data-duration" + "data-interval") attribute
-                    for (i = 0; i < carousel.length; i++) {
-                        if (
-                            carousel[i].getAttribute("data-count") ==
-                            (
-                                parseInt(parseInt(carousel[i].getAttribute("data-duration")) +  
-                                parseInt(carousel[i].getAttribute("data-interval")))
-                            )
-                        ) {
-                            // Hide all Carousel Slides
-                            for (j = 0; j < document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)').length; j++)
-                                document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)')[j].style.display = "none"
-                            
-                            // Show the last Carousel Slide
-                            document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)')[document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)').length - 1].style.display = "block"
-
-                            // Place the first Carousel Slide after the last.
-                            document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)')[0].parentNode.appendChild(document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)')[0])
-
-                            // Reset the "data-count" attribute for the specified Carousel
-                            carouselElementCounter[i] = 0
-                            carousel[i].setAttribute("data-count", 0)
-                        }
-                    }
-                }
-
-                // Play a rotary
-                function carouselR() {
-                    // Definition
-                    var carouselLContent = document.querySelectorAll('.crsl[data-index="' + this.getAttribute("data-index") + '"] > *:not(span)')
-                    
-                    // Hide all Carousel Slides
-                    for (i = 0; i < carouselLContent.length; i++)
-                        carouselLContent[i].style.display = "none"
-                    
-                    // Show the first Carousel Slide
-                    carouselLContent[0].style.display = "block"
-
-                    // Place the first Carousel Slide after the last.
-                    carouselLContent[0].parentNode.appendChild(carouselLContent[0])
-                }
-
-                // Toggle the rotary via keyboard input when the carousel is "focused"
-                function carouselKey() {
-                    // Left Arrow Key
-                    if (event.keyCode == 37) {
-                        // Index all Carousels
-                        for (i = 0; i < carousel.length; i++)
-                            // If a Carousel is focused
-                            if (carousel[i].isFocused) {
-                                // Hide all the Carousel's children
-                                for (j = 0; j < carousel[i].children.length; j++)
-                                    carousel[i].children[j].style.display = "none"
-
-                                // Hide all carousel children
-                                for (j = 0; j < carousel[i].children.length; j++)
-                                    carousel[i].children[j].style.display = "block"
-
-                                // Place the first Carousel Slide before the last.
-                                carousel[i].insertBefore(
-                                    carousel[i].children[carousel[i].children.length - 1],
-                                    carousel[i].children[0]
+                    // Reverse the rotary
+                    function carouselLeft() {
+                        // Index all Carousels.
+                        for (i = 0; i < carousel.length; i++) {
+                            /* --- NOTE ---
+                                    If
+                                        the "data-count" attribute matches
+                                        the "data-duration" and "data-interval" attribute.
+                            */
+                            if (
+                                carousel[i].getAttribute("data-count") ==
+                                (
+                                    parseInt(parseInt(carousel[i].getAttribute("data-duration")) +
+                                    parseInt(carousel[i].getAttribute("data-interval")))
                                 )
+                            ) {
+                                // Index all Carousel child element.
+                                for (j = 0; j < document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)').length; j++)
+                                    document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)')[j].style.display = "none"
+                                
+                                // Children
+                                    // First Child
+                                        // Style
+                                        document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)')[0].style.display = "block"
+
+                                // Insertion
+                                document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)')[0].parentNode.insertBefore(
+                                    document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)')[document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)').length - 1],
+                                    document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)')[0]
+                                )
+                            
+                                // Reset the "data-count" attribute for the specified Carousel.
+                                carouselElementCounter[i] = 0
+
+                                // Modification
+                                    // [data-count]
+                                    carousel[i].setAttribute("data-count", 0)
                             }
+                        }
                     }
 
-                    // Right Arrow Key
-                    if (event.keyCode == 39) {
-                        // Index all Carousels
-                        for (i = 0; i < carousel.length; i++)
-                            // If a Carousel is focused
-                            if (carousel[i].isFocused) {
-                                // Hide all Carousel children
-                                for (j = 0; j < carousel[i].children.length; j++)
-                                    carousel[i].children[j].style.display = "none"
+                    // Reverse a rotary
+                    function carouselL() {
+                        // Definition
+                        var carouselLContent = document.querySelectorAll('.crsl[data-index="' + this.getAttribute("data-index") + '"] > *:not(span)')
+                        
+                        // Index all Carousel child elements
+                        for (i = 0; i < carouselLContent.length; i++)
+                            carouselLContent[i].style.display = "none"
+                        
+                        // Children
+                            // First Child
+                                // Style
+                                carouselLContent[0].style.display = "block"
 
-                                // Show the first Carousel child
-                                carousel[i].children[0].style.display = "block"
-
-                                // Place the first Carousel Slide after the last.
-                                carousel[i].appendChild(carousel[i].children[0])
-                            }
+                        // Insertion
+                        carouselLContent[0].parentNode.insertBefore(
+                            carouselLContent[carouselLContent.length - 1],
+                            carouselLContent[0]
+                        )
                     }
-                }
+
+                    // Play the rotary
+                    function carouselRight() {
+                        // Index all Carousels.
+                        for (i = 0; i < carousel.length; i++) {
+                            /* --- NOTE ---
+                                    If
+                                        the "data-count" attribute matches
+                                        the "data-duration" + "data-interval" attribute.
+                            */
+                            if (
+                                carousel[i].getAttribute("data-count") ==
+                                (
+                                    parseInt(parseInt(carousel[i].getAttribute("data-duration")) +  
+                                    parseInt(carousel[i].getAttribute("data-interval")))
+                                )
+                            ) {
+                                // Index all Carousel child elements.
+                                for (j = 0; j < document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)').length; j++)
+                                    document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)')[j].style.display = "none"
+                                
+                                // Children
+                                    // Last Child
+                                        // Style
+                                        document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)')[
+                                            document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)').length - 1
+                                        ].style.display = "block"
+
+                                // Insertion
+                                document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)')[0].parentNode.appendChild(
+                                    document.querySelectorAll('.crsl[data-index="' + i + '"] > *:not(span)')[0]
+                                )
+
+                                // Reset the "data-count" attribute for the specified Carousel.
+                                carouselElementCounter[i] = 0
+
+                                // Modification
+                                    // [data-count]
+                                    carousel[i].setAttribute("data-count", 0)
+                            }
+                        }
+                    }
+
+                    // Play a rotary
+                    function carouselR() {
+                        // Definition
+                        var carouselLContent = document.querySelectorAll('.crsl[data-index="' + this.getAttribute("data-index") + '"] > *:not(span)')
+                        
+                        // Index all Carousel child elements.
+                        for (i = 0; i < carouselLContent.length; i++)
+                            carouselLContent[i].style.display = "none"
+                        
+                        // Children
+                            // First Child
+                                // Style
+                                carouselLContent[0].style.display = "block"
+
+                        // Insertion
+                        carouselLContent[0].parentNode.appendChild(carouselLContent[0])
+                    }
+
+                    // Toggle the rotary via keyboard input when the carousel is "focused"
+                    function carouselKey() {
+                        /* --- NOTE ---
+                                If
+                                    Left Arrow Key.
+                        */
+                        if (
+                            event.keyCode == 37 ||
+                            event.keyCode == 65 ||
+                            event.keyCode == 97
+                        ) {
+                            // Index all Carousels.
+                            for (i = 0; i < carousel.length; i++)
+                                // If a Carousel 'is focused'.
+                                if (carousel[i].isFocused) {
+                                    // Index all Carousel child elements.
+                                    for (j = 0; j < carousel[i].children.length; j++)
+                                        carousel[i].children[j].style.display = "none"
+
+                                    // Index all Carousel child elements.
+                                    for (j = 0; j < carousel[i].children.length; j++)
+                                        carousel[i].children[j].style.display = "block"
+
+                                    // Insertion
+                                    carousel[i].insertBefore(
+                                        carousel[i].children[carousel[i].children.length - 1],
+                                        carousel[i].children[0]
+                                    )
+                                }
+                        }
+
+                        /* --- NOTE ---
+                                If
+                                    Right Arrow Key.
+                        */
+                        if (
+                            event.keyCode == 39 ||
+                            event.keyCode == 68 ||
+                            event.keyCode == 100
+                        ) {
+                            // Index all Carousels.
+                            for (i = 0; i < carousel.length; i++)
+                                // If a Carousel 'is focused'.
+                                if (carousel[i].isFocused) {
+                                    // Index all Carousel child elements.
+                                    for (j = 0; j < carousel[i].children.length; j++)
+                                        carousel[i].children[j].style.display = "none"
+
+                                    // Children
+                                        // First Child
+                                            // Style
+                                            carousel[i].children[0].style.display = "block"
+
+                                    // Insertion
+                                    carousel[i].appendChild(carousel[i].children[0])
+                                }
+                        }
+                    }
 
             /* Code Editor */
                 // Definition
@@ -1879,24 +2550,33 @@ if (
                     // Editor Boolean
                     var codeEditorBin = [false]
 
-                // Index all Editors
+                // Index all Editors.
                 for (i = 0; i < codeEditor.length; i++) {
-                    // Create toggles
-                    codeEditorBin[i] = false
+                    // Defintion
+                        // Editor Boolean
+                        codeEditorBin[i] = false
 
-                    // Index all Editors
-                    codeEditor[i].setAttribute("data-index", i)
+                    // Modification
+                        // [data-index]
+                        codeEditor[i].setAttribute("data-index", i)
 
                     // Add the events
-                    codeEditor[i].ondblclick = function() {
-                        // Convert to string
+                    codeEditor[i].addEventListener("ondblclick", parseHTML)
+
+                    // Function
+                    function parseHTML() {
+                        /*  --- NOTE ---
+                                If
+                                    the element exists.
+                        */
                         if (!codeEditorBin[this.getAttribute("data-index")])
                             this.innerHTML = this.innerHTML.replace(/</gi, "&lt;").replace(/>/gi, "&gt;")
 
-                        // Convert to HTML
+                        // ...else
                         else
                             this.innerHTML = this.innerHTML.replace(/&lt;/gi, "<").replace(/&gt;/gi, ">")
 
+                        // Toggle
                         codeEditorBin[this.getAttribute("data-index")] = !codeEditorBin[this.getAttribute("data-index")]
                     }
                 }
@@ -1913,8 +2593,10 @@ if (
                     var paste = document.getElementsByTagName("paste")
 
                 /* --- NOTE ---
-                    Paste content referenced from a <copy> element
-                    within a <paste> element.
+                        Index all <paste> elements.
+
+                        Paste content referenced from a <copy> element
+                        within a <paste> element.
                 */
                 for (i = 0; i < paste.length; i++)
                     // If <paste> is not a child <copy> or <cut>.
@@ -1932,7 +2614,7 @@ if (
 
                     // If <paste> is a child <copy> or <cut>.
                     else 
-                        console.error("The <paste> element is not supposed to be within a <copy> or <cut> element.")
+                        throw new Error("The <paste> element is not supposed to be within a <copy> or <cut> element.")
 
                 /* --- NOTE ---
                     Delete "cut" content.
@@ -1954,80 +2636,213 @@ if (
                     // Dropdown Content CSS Display Value
                     var dropdownContentCSSDisplay = {  }
 
-                // Index all headers
-                for (i = 0; i < dropdownHeader.length; i++) {
-                    // Create toggles
-                    dropdownBin[i] = false
+                // Dropdown Header
+                    // Index all Dropdown Headers.
+                    for (i = 0; i < dropdownHeader.length; i++) {
+                        // Modification
+                            // Dropdown Boolean
+                            dropdownBin[i] = false
 
-                    // Index the headers
-                    dropdownHeader[i].setAttribute("data-index", i)
-                }
-                    
-                // Index all contents
-                for (i = 0; i < dropdownContent.length; i++) {
-                    // Store the content's CSS "display"
-                    dropdownContentCSSDisplay[dropdownContent[i].getAttribute("data-drpdwn").toString()] = window.getComputedStyle(dropdownContent[i]).getPropertyValue("display")
+                        // Index the Dropdown Headers.
+                        dropdownHeader[i].setAttribute("data-index", i)
 
-                    // Hide the content
-                    dropdownContent[i].style.display = "none"
-                }
+                        /* Logic
+                                How the following events are going to
+                                take place are dependent on the
+                                Dropdown Header's "data-event" attribute value
+                        */
+                            /* --- NOTE ---
+                                    If
+                                        "data-event" is "on",
+                                        set a activate event.
+                            */
+                            if (dropdownHeader[i].getAttribute("data-event") == "on") {
+                                // Add the event
+                                dropdownHeader[i].addEventListener("click", showDropdownMenuOn)
 
-                // Hide the content
-                function hideDropdownMenu() {
-                    if (document.querySelectorAll('[data-drpdwn="' + window.event.target.getAttribute("id") + '"]')[0])
-                        document.querySelectorAll('[data-drpdwn="' + window.event.target.getAttribute("id") + '"]')[0].style.display = "none"
-                }
-                // Show the content
-                function showDropdownMenu() {
-                    if (document.querySelectorAll('[data-drpdwn="' + window.event.target.getAttribute("id") + '"]')[0])
-                        document.querySelectorAll('[data-drpdwn="' + window.event.target.getAttribute("id") + '"]')[0].style.display = dropdownContentCSSDisplay[document.querySelectorAll('[data-drpdwn="' + window.event.target.getAttribute("id") + '"]')[0].getAttribute("data-drpdwn")]
-                }
+                                function showDropdownMenuOn() {
+                                    // Show the corresponding Dropdown Content.
+                                    if (!dropdownBin[this.getAttribute("data-index")])
+                                        showDropdownMenu()
 
-                // Index all headers
-                for (i = 0; i < dropdownHeader.length; i++)
-                    /* --- NOTE ---
-                        How the following events are going to
-                        take place are dependent on the
-                        header's "data-event" attribute value
-                    */
-                    // Click event
-                    if (dropdownHeader[i].getAttribute("data-event") == "on")
-                        // Add the event
-                        dropdownHeader[i].onclick = function() {
-                            // Show the corresponding content
-                            if (!dropdownBin[this.getAttribute("data-index")])
-                                showDropdownMenu()
-                            // Hide the corresponding content
-                            else
-                                hideDropdownMenu()
+                                    // Hide the corresponding Dropdown Content.
+                                    else
+                                        hideDropdownMenu()
 
-                            dropdownBin[this.getAttribute("data-index")] = !dropdownBin[this.getAttribute("data-index")]
+                                    // Toggle the Dropdown Boolean.
+                                    dropdownBin[this.getAttribute("data-index")] = !dropdownBin[this.getAttribute("data-index")]
+                                }
+                            }
+
+                            /* --- NOTE ---
+                                    If
+                                        "data-event" is "on",
+                                        set a hover event.
+                            */
+                            else if (dropdownHeader[i].getAttribute("data-event") == "over")
+                                // Add the event
+                                dropdownHeader[i].onmouseover = function() {
+                                    // Show the corresponding content
+                                    if (!dropdownBin[this.getAttribute("data-index")])
+                                        showDropdownMenu()
+
+                                    // Hide the corresponding content
+                                    else
+                                        hideDropdownMenu()
+
+                                    dropdownBin[this.getAttribute("data-index")] = !dropdownBin[this.getAttribute("data-index")]
+                                }
+
+                            /* --- NOTE ---
+                                    If
+                                        "data-event" is "on",
+                                        set a focus-hover and blur event.
+                            */
+                            else if (dropdownHeader[i].getAttribute("data-event") == "over_toggle") {
+                                // Add the events.
+                                dropdownHeader[i].onmouseover = function() {
+                                    // Show the corresponding content
+                                    showDropdownMenu()
+                                }
+
+                                dropdownHeader[i].onmouseleave = function() {
+                                    // Hide the corresponding content
+                                    hideDropdownMenu()
+                                }
+                            }
+                    }
+
+                // Dropdown Content
+                    // Index all Dropdown Contents.
+                    for (i = 0; i < dropdownContent.length; i++) {
+                        // Modification
+                            // Dropdown Content CSS Display Value
+                            dropdownContentCSSDisplay[
+                                dropdownContent[i].getAttribute("data-drpdwn")
+                            ] = window.getComputedStyle(dropdownContent[i]).getPropertyValue("display")
+
+                        // Style
+                        dropdownContent[i].style.display = "none"
+
+                        // Function
+                            // Show the Dropdown Content.
+                                // Add the events.
+                            dropdownContent[i].addEventListener("mouseover", defaultShowDropdownMenu)
+
+                                // Show the Dropdown Content.
+                                function defaultShowDropdownMenu() {
+                                    // Definition
+                                    var dropdownEventElement = this
+                                    
+                                    // Set a timeout.
+                                    setTimeout(function() {
+                                        dropdownEventElement.style.display = dropdownContentCSSDisplay[dropdownEventElement.getAttribute("data-drpdwn")]
+                                    }, 250)
+                                }
+
+                            // Hide the Dropdown Content.
+                                // Add the events.
+                                dropdownContent[i].addEventListener("mouseover", defaultHideDropdownMenu)
+
+                                // Hide the Dropdown Content.
+                                function defaultHideDropdownMenu() {
+                                    // Definition
+                                    var dropdownEventElement = this
+                                    
+                                    // Set a timeout.
+                                    setTimeout(function() {
+                                        dropdownEventElement.style.display = "none"
+                                    }, 250)
+                                }
+                    }
+
+                    // Modification
+                        // This function runs near realtime.
+                        setInterval(function() {
+                            // Index all Dropdown Contents.
+                            for (i = 0; i < dropdownContent.length; i++) {
+                                /* --- NOTE ---
+                                        If
+                                            the Dropdown Content's "open" property is "undefined".
+                                */
+                                if (!dropdownContent[i].open) {
+                                    dropdownContent[i].removeAttribute("data-show")
+                                    dropdownContent[i].setAttribute("data-hide", "")
+                                    dropdownContent[i].style.display = "none"
+                                }
+                                else {
+                                    dropdownContent[i].removeAttribute("data-hide")
+                                    dropdownContent[i].setAttribute("data-show", "")
+                                    dropdownContent[i].style.display = dropdownContentCSSDisplay[dropdownContent[i].getAttribute("data-drpdwn").toString()]
+                                }
+                            }
+                        }, 1)
+
+                // Function
+                    // Hide the Dropdown Content.
+                    function hideDropdownMenu() {
+                        // Definition
+                        var dropdownEventTarget = window.event.target
+
+                        // Modification
+                            /* --- NOTE ---
+                                    For
+                                        as many parent elements
+                                        the event target element has.
+                            */
+                            for (i = 0; i < window.event.path.length; i++)
+                                /* --- NOTE ---
+                                        If
+                                            the event target element does not
+                                            have a "drpdwn" class.
+                                */
+                                if (dropdownEventTarget.className.indexOf("drpdwn") <= -1)
+                                    dropdownEventTarget = dropdownEventTarget.parentNode
+
+                        /*  --- NOTE ---
+                                If
+                                    the target element exists,
+                                    hide it.
+                        */
+                        if (document.querySelectorAll('[data-drpdwn="' + dropdownEventTarget.id + '"]')[0]) {
+                            document.querySelectorAll('[data-drpdwn="' + dropdownEventTarget.id + '"]')[0].open = false
+                            document.querySelectorAll('[data-drpdwn="' + dropdownEventTarget.id + '"]')[0].removeAttribute("data-show")
+                            document.querySelectorAll('[data-drpdwn="' + dropdownEventTarget.id + '"]')[0].setAttribute("data-hidden", "")
+                            document.querySelectorAll('[data-drpdwn="' + dropdownEventTarget.id + '"]')[0].style.display = "none"
                         }
+                    }
 
-                    // Mouseover event
-                    else if (dropdownHeader[i].getAttribute("data-event") == "over")
-                        // Add the event
-                        dropdownHeader[i].onmouseover = function() {
-                            // Show the corresponding content
-                            if (!dropdownBin[this.getAttribute("data-index")])
-                                showDropdownMenu()
-                            // Hide the corresponding content
-                            else
-                                hideDropdownMenu()
+                    // Show the Dropdown Content.
+                    function showDropdownMenu() {
+                        // Definition
+                        var dropdownEventTarget = window.event.target
 
-                            dropdownBin[this.getAttribute("data-index")] = !dropdownBin[this.getAttribute("data-index")]
-                        }
+                        // Modification
+                            /* --- NOTE ---
+                                    For
+                                        as many parent elements
+                                        the event target element has.
+                            */
+                            for (i = 0; i < window.event.path.length; i++)
+                                /* --- NOTE ---
+                                        If
+                                            the event target element does not
+                                            have a "drpdwn" class.
+                                */
+                                if (dropdownEventTarget.className.indexOf("drpdwn") <= -1)
+                                    dropdownEventTarget = dropdownEventTarget.parentNode
 
-                    // Mouseover and mouseleave event
-                    else if (dropdownHeader[i].getAttribute("data-event") == "over_toggle") {
-                        // Add the event
-                        dropdownHeader[i].onmouseover = function() {
-                            // Show the corresponding content
-                            showDropdownMenu()
-                        }
-                        dropdownHeader[i].onmouseleave = function() {
-                            // Hide the corresponding content
-                            hideDropdownMenu()
+
+                        /* --- NOTE ---
+                                If
+                                    the target element exists,
+                                    show it.
+                        */
+                        if (document.querySelectorAll('[data-drpdwn="' + dropdownEventTarget.id + '"]')[0]) {
+                            document.querySelectorAll('[data-drpdwn="' + dropdownEventTarget.id + '"]')[0].open = true
+                            document.querySelectorAll('[data-drpdwn="' + dropdownEventTarget.id + '"]')[0].removeAttribute("data-hidden")
+                            document.querySelectorAll('[data-drpdwn="' + dropdownEventTarget.id + '"]')[0].setAttribute("data-show", "")
+                            document.querySelectorAll('[data-drpdwn="' + dropdownEventTarget.id + '"]')[0].style.display = dropdownContentCSSDisplay[document.querySelectorAll('[data-drpdwn="' + dropdownEventTarget.id + '"]')[0].getAttribute("data-drpdwn")]
                         }
                     }
 
@@ -2039,14 +2854,18 @@ if (
                 // Index all Horizontal Scrollers
                 for (i = 0; i < horizontalScroller.length; i++) {
                     // Modification
-                        // "data-childshow" Attribute
-                        if (!horizontalScroller[i].hasAttribute("data-childshow"))
-                            horizontalScroller[i].setAttribute("data-childshow", 3)
+                        // [data-childshow]
+                            /* --- NOTE ---
+                                    if
+                                        the "data-childshow" attribute is "undefined".
+                            */
+                            if (!horizontalScroller[i].hasAttribute("data-childshow"))
+                                horizontalScroller[i].setAttribute("data-childshow", 3)
 
-                        horizontalScroller[i].setAttribute(
-                            "data-childshow",
-                            parseInt(horizontalScroller[i].getAttribute("data-childshow"))
-                        )
+                            horizontalScroller[i].setAttribute(
+                                "data-childshow",
+                                parseInt(horizontalScroller[i].getAttribute("data-childshow"))
+                            )
 
                     // Children
                         // Initialization
@@ -2561,12 +3380,12 @@ if (
                 tooltip.id = "tooltip"
 
                 // Hide the tooltip on received input
-                body.addEventListener("click", hideTooltip)
-                body.addEventListener("keydown", hideTooltip)
-                body.addEventListener("keypress", hideTooltip)
-                body.addEventListener("mousedown", hideTooltip)
+                body.addEventListener("click", removeTooltip)
+                body.addEventListener("keydown", removeTooltip)
+                body.addEventListener("keypress", removeTooltip)
+                body.addEventListener("mousedown", removeTooltip)
 
-                function hideTooltip() {
+                function removeTooltip() {
                     setTimeout(function() {
                         tooltip.style.display = "none"
                     }, 500)
@@ -2575,12 +3394,21 @@ if (
                 // Mark all elements with the tooltip element
                 for (i = 0; i < tooltipElements.length; i++) {
                     // Add the event
-                    tooltipElements[i].onmouseover = function() {
+                    tooltipElements[i].addEventListener("mouseover", showTooltip)
+
+                    function showTooltip() {
                         // Show the tooltip and position it
                         tooltip.innerHTML = this.getAttribute("data-title")
 
                         tooltip.style.display = "inline"
                         tooltip.style.opacity = "1"
+
+                        // Class
+                        tooltip.className = tooltip.innerHTML.slice(
+                            tooltip.innerHTML.indexOf("_class=") + "_class=".length,
+                            -1
+                        ).replace("'", "")
+                        tooltip.innerHTML = tooltip.innerHTML.replace("_class='" + tooltip.className + "'", "")
 
                         // Create variables for the tooltip's positioning
                         var tooltipLeft = 0,
@@ -2626,8 +3454,8 @@ if (
                                         this.getAttribute("data-title").search("_left") <= (this.getAttribute("data-title").lastIndexOf("_left") + this.getAttribute("data-title").lastIndexOf("_center"))
                                 ) {
                                     // Remove the "_center" and "_left".
-                                    tooltip.innerHTML = tooltip.innerHTML.replace(/_center_left([^_center_left]*)$/, "$1")
-                                    tooltip.innerHTML = tooltip.innerHTML.replace(/_left_center([^_left_center]*)$/, "$1")
+                                    tooltip.innerHTML = tooltip.innerHTML.replace("_center", "")
+                                    tooltip.innerHTML = tooltip.innerHTML.replace("_left", "")
 
                                     // Position the tooltip.
                                     tooltipLeft = (this.getBoundingClientRect().left - tooltip.getBoundingClientRect().width) - tooltipMarginLeft
@@ -2642,8 +3470,8 @@ if (
                                         this.getAttribute("data-title").search("_right") <= (this.getAttribute("data-title").lastIndexOf("_right") + this.getAttribute("data-title").lastIndexOf("_center"))
                                 ) {
                                     // Remove the "_center" and "_right".
-                                    tooltip.innerHTML = tooltip.innerHTML.replace(/_center_right([^_center_right]*)$/, "$1")
-                                    tooltip.innerHTML = tooltip.innerHTML.replace(/_right_center([^_right_center]*)$/, "$1")
+                                    tooltip.innerHTML = tooltip.innerHTML.replace("_center", "")
+                                    tooltip.innerHTML = tooltip.innerHTML.replace("_right", "")
 
                                     // Position the tooltip.
                                     tooltipLeft = (this.getBoundingClientRect().left + this.getBoundingClientRect().width) + tooltipMarginLeft
@@ -2669,8 +3497,8 @@ if (
                                         this.getAttribute("data-title").search("_left") <= (this.getAttribute("data-title").lastIndexOf("_left") + this.getAttribute("data-title").lastIndexOf("_bottom"))
                                 ) {
                                     // Remove the "_bottom" and "_left".
-                                    tooltip.innerHTML = tooltip.innerHTML.replace(/_bottom_left([^_bottom_left]*)$/, "$1")
-                                    tooltip.innerHTML = tooltip.innerHTML.replace(/_left_bottom([^_left_bottom]*)$/, "$1")
+                                    tooltip.innerHTML = tooltip.innerHTML.replace("_bottom", "")
+                                    tooltip.innerHTML = tooltip.innerHTML.replace("_left", "")
 
                                     // Position the tooltip.
                                     tooltipLeft = (this.getBoundingClientRect().left - tooltip.getBoundingClientRect().width) - tooltipMarginLeft
@@ -2685,8 +3513,8 @@ if (
                                         this.getAttribute("data-title").search("_center") <= (this.getAttribute("data-title").lastIndexOf("_center") + this.getAttribute("data-title").lastIndexOf("_bottom"))
                                 ) {
                                     // Remove the "_bottom" and "_center".
-                                    tooltip.innerHTML = tooltip.innerHTML.replace(/_bottom_center([^_bottom_center]*)$/, "$1")
-                                    tooltip.innerHTML = tooltip.innerHTML.replace(/_center_bottom([^_center_bottom]*)$/, "$1")
+                                    tooltip.innerHTML = tooltip.innerHTML.replace("_bottom", "")
+                                    tooltip.innerHTML = tooltip.innerHTML.replace("_center", "")
 
                                     // Position the tooltip.
                                     tooltipLeft = this.getBoundingClientRect().left + (this.getBoundingClientRect().width / 2) - (tooltip.getBoundingClientRect().width / 2)
@@ -2701,8 +3529,8 @@ if (
                                         this.getAttribute("data-title").search("_right") <= (this.getAttribute("data-title").lastIndexOf("_right") + this.getAttribute("data-title").lastIndexOf("_bottom"))
                                 ) {
                                     // Remove the "_bottom" and "_right".
-                                    tooltip.innerHTML = tooltip.innerHTML.replace(/_bottom_right([^_bottom_right]*)$/, "$1")
-                                    tooltip.innerHTML = tooltip.innerHTML.replace(/_right_bottom([^_right_bottom]*)$/, "$1")
+                                    tooltip.innerHTML = tooltip.innerHTML.replace("_bottom", "")
+                                    tooltip.innerHTML = tooltip.innerHTML.replace("_right", "")
 
                                     // Position the tooltip.
                                     tooltipLeft = (this.getBoundingClientRect().left + this.getBoundingClientRect().width) + tooltipMarginLeft
@@ -2728,8 +3556,8 @@ if (
                                         this.getAttribute("data-title").search("_left") <= (this.getAttribute("data-title").lastIndexOf("_left") + this.getAttribute("data-title").lastIndexOf("_top"))
                                 ) {
                                     // Remove the "_top" and "_left".
-                                    tooltip.innerHTML = tooltip.innerHTML.replace(/_top_left([^_top_left]*)$/, "$1")
-                                    tooltip.innerHTML = tooltip.innerHTML.replace(/_left_top([^_left_top]*)$/, "$1")
+                                    tooltip.innerHTML = tooltip.innerHTML.replace("_left", "")
+                                    tooltip.innerHTML = tooltip.innerHTML.replace("_top", "")
 
                                     // Position the tooltip.
                                     tooltipLeft = (this.getBoundingClientRect().left - tooltip.getBoundingClientRect().width) - tooltipMarginLeft
@@ -2744,8 +3572,8 @@ if (
                                         this.getAttribute("data-title").search("_center") <= (this.getAttribute("data-title").lastIndexOf("_center") + this.getAttribute("data-title").lastIndexOf("_top"))
                                 ) {
                                     // Remove the "_top" and "_center".
-                                    tooltip.innerHTML = tooltip.innerHTML.replace(/_top_center([^_top_center]*)$/, "$1")
-                                    tooltip.innerHTML = tooltip.innerHTML.replace(/_center_top([^_center_top]*)$/, "$1")
+                                    tooltip.innerHTML = tooltip.innerHTML.replace("_center", "")
+                                    tooltip.innerHTML = tooltip.innerHTML.replace("_top", "")
 
                                     // Position the tooltip.
                                     tooltipLeft = this.getBoundingClientRect().left + (this.getBoundingClientRect().width / 2) - (tooltip.getBoundingClientRect().width / 2)
@@ -2808,7 +3636,10 @@ if (
                     }
 
                     // Hide the tooltip
-                    tooltipElements[i].onmouseleave = function() {
+                    tooltipElements[i].addEventListener("mouseleave", hideTooltip)
+
+                    function hideTooltip() {
+                        tooltip.className = ""
                         tooltip.style.opacity = "0"
 
                         // Correct any alterations made from corrections
@@ -2823,219 +3654,410 @@ if (
                             }
                     }
                 }
-
-        /* Lapys JS Class Sets
-                --- NOTE ---
-                    The script is repeated over in-case
-                    of any event that causes a
-                    change in styles (such as resizing).
-        */
-        setInterval(function() {
-            for (i = 0; i < all.length; i++) {
-                if (all[i].hasAttribute("class")) {
-                    // Height Preset
-                        // h-device-height
-                        if (all[i].getAttribute("class").indexOf("h-device-height") >= 0)
-                            all[i].style.height = window.innerHeight + "px"
-                        // h-style
-                        if (all[i].getAttribute("class").indexOf("h-style") >= 0)
-                            all[i].style.height = all[i].clientHeight + "px"
-                        // h-width
-                        if (all[i].getAttribute("class").indexOf("h-width") >= 0)
-                            all[i].style.height = all[i].clientWidth + "px"
-                    // Margin Preset
-                        // m-parent-center
-                        if (all[i].getAttribute("class").indexOf("m-parent-center") >= 0)
-                            if (
-                                all[i].parentNode.clientHeight < body.clientHeight &&
-                                all[i].parentNode.clientWidth < body.clientWidth
-                            )
-                                all[i].style.margin = (
-                                    // Vertical Margin
-                                    (function() {
-                                        if (all[i].parentNode)
-                                            var verticalMargin = ((all[i].parentNode.clientHeight / 2) - (all[i].clientHeight / 2))
-
-                                            if (
-                                                verticalMargin == 0 ||
-                                                !verticalMargin ||
-                                                verticalMargin >= body.clientHeight
-                                            )
-                                                return "auto "
-                                            else
-                                                return verticalMargin + "px "
-                                    })() + 
-                                    // Horizontal Margin
-                                    (function() {
-                                        if (all[i].parentNode)
-                                            var horizontalMargin = ((all[i].parentNode.clientWidth / 2) - (all[i].clientWidth / 2))
-
-                                            if (
-                                                horizontalMargin == 0 ||
-                                                !horizontalMargin ||
-                                                horizontalMargin >= body.clientWidth
-                                            )
-                                                return "auto"
-                                            else
-                                                return horizontalMargin + "px"
-                                    })()
-                                )
-                    // Width Preset
-                        // w-device-width
-                        if (all[i].getAttribute("class").indexOf("w-device-width") >= 0)
-                            all[i].style.width = window.innerWidth + "px"
-                        // w-height
-                        if (all[i].getAttribute("class").indexOf("w-height") >= 0)
-                            all[i].style.width = all[i].clientHeight + "px"
-                        // w-style
-                        if (all[i].getAttribute("class").indexOf("w-style") >= 0)
-                            all[i].style.width = all[i].clientWidth + "px"
-                }
-            }
-        }, 1)
+        }, 100)
 
         /* Lapys JS (All) HTML Elements */
-        for (i = 0; i < all.length; i++) {
-            // Modification
-                // Child Identifier
-                all[i].childID = { }
+            // Repeat
+            function repeatModifyElement() {
+                // Defintion
+                all = get.html("*", "_array")
 
-                // Indexing
-                all[i].nodeIndex = i
+                for (i = 0; i < all.length; i++) {
+                    // Modification
+                        // Child Identifier
+                        all[i].childID = { }
 
-            // Children
-            for (j = 0; j < all[i].children.length; j++) {
-                /* --- NOTE ---
-                    If the element property does not co-exist from its child's "id" attribute already
-                    set the element property to the child element.
-                */
-                if (
-                    !all[i][all[i].children[j].id] &&
-                    all[i][all[i].children[j].id] != "" &&
-                    all[i][all[i].children[j].id] != " "
-                )
-                    all[i][all[i].children[j].id] = all[i].children[j]
+                    // CSS
+                        // Height
+                        all[i].CSSheight = numeralCSS(all[i].clientHeight)
 
-                /* --- NOTE ---
-                    Add synchronized "id" attributed child element and
-                    element properties to the "childID" property.
-                */
-               all[i].childID[all[i].children[j].id] = all[i].children[j]
-            }
-
-            // Index all non-<html> elements
-            if (all[i] != html) {
-                // <form> Elements
-                if (all[i].tagName == "FORM")
-                    /* --- NOTE ---
-                        If
-                            the element has a "name" attribute
-                                and
-                            the attribute has a value.
-                    */
-                    if (
-                        all[i].hasAttribute("name") &&
-                        all[i].getAttribute("name") != ""
-                    )
-                        // Index all the element's children.
-                        for (j = 0; j < all[i].children.length; j++)
-                            // If the element's child does not have a "form" attribute.
-                            all[i].children[j].form = all[i].getAttribute("name")
-
-                // <input>
-                if (all[i].tagName == "INPUT") {
-                    if (all[i].hasAttribute("value")) {
-                        if (all[i].getAttribute("value").indexOf(":lorem1:") >= 0)
-                            all[i].value = loremHTMLLevel1
-
-                        if (all[i].getAttribute("value").indexOf(":lorem2:") >= 0)
-                            all[i].value = loremHTMLLevel2
-
-                        if (all[i].getAttribute("value").indexOf(":lorem3:") >= 0)
-                            all[i].value = loremHTMLLevel3
-
-                        if (all[i].getAttribute("value").indexOf(":lorem4:") >= 0)
-                            all[i].value = loremHTMLLevel4
-
-                        if (all[i].getAttribute("value").indexOf(":lorem5:") >= 0)
-                            all[i].value = loremHTMLLevel5
-
-                    }
-                }
-
-                // <option>
-                if (all[i].tagName == "OPTION") {
-                    // If the element has no "label" attribute.
-                    if (!all[i].hasAttribute("label"))
-                        all[i].setAttribute(
-                            "label",
-                            (function() {
-                                // If the element's "innerText" has a white-space as its first character.
-                                if (all[i].innerText[0] == " ") {
-                                    return all[i].innerText.slice(1)
-
-                                    // If the element's "innerText" has a white-space as its last character.
-                                    if (all[i].innerText[all[i].innerText.length] == " ")
-                                        return all[i].innerText.slice(1, -1)
-                                }
-
-                                // If the element's "innerText" has a white-space as its last character.
-                                else if (all[i].innerText[all[i].innerText.length] == " ") {
-                                    return all[i].innerText.slice(0, -1)
-
-                                    // If the element's "innerText" has a white-space as its first character.
-                                    if (all[i].innerText[0] == " ")
-                                        return all[i].innerText.slice(1, -1)
-                                }
-
+                        // Margin
+                        all[i].CSSmargin = {
+                            // Bottom
+                            bottom : (function() {
+                                if (
+                                    !all[i].style.marginBottom &&
+                                    all[i].style.marginBottom != ""
+                                )
+                                    return numeralCSS(all[i].style.marginBottom)
                                 else
-                                    return all[i].innerText
+                                    return numeralCSS(get.css("margin-bottom", all[i]))
+                            })(),
+
+                            // Horizontal
+                            horizontal : (function() {
+                                var elementPaddingLeft
+                                var elementPaddingRight
+
+                                if (
+                                    !all[i].style.marginLeft &&
+                                    all[i].style.marginLeft != ""
+                                )
+                                    elementPaddingLeft = numeralCSS(all[i].style.marginLeft)
+                                else {
+                                    elementPaddingLeft = numeralCSS(get.css("margin-left", all[i]))
+
+                                    if (!elementPaddingLeft)
+                                        elementPaddingLeft = 0
+                                }
+
+                                if (
+                                    !all[i].style.marginRight &&
+                                    all[i].style.marginRight != ""
+                                )
+                                    elementPaddingRight = numeralCSS(all[i].style.marginRight)
+                                else {
+                                    elementPaddingRight = numeralCSS(get.css("margin-right", all[i]))
+
+                                    if (!elementPaddingRight)
+                                        elementPaddingRight = 0
+                                }
+
+                                return (elementPaddingLeft + elementPaddingRight)
+                            })(),
+
+                            // Left
+                            left : (function() {
+                                if (
+                                    !all[i].style.marginLeft &&
+                                    all[i].style.marginLeft != ""
+                                )
+                                    return numeralCSS(all[i].style.marginLeft)
+                                else
+                                    return numeralCSS(get.css("margin-left", all[i]))
+                            })(),
+
+                            // Right
+                            right : (function() {
+                                if (
+                                    !all[i].style.marginRight &&
+                                    all[i].style.marginRight != ""
+                                )
+                                    return numeralCSS(all[i].style.marginRight)
+                                else
+                                    return numeralCSS(get.css("margin-right", all[i]))
+                            })(),
+
+                            // Top
+                            top : (function() {
+                                if (
+                                    !all[i].style.marginTop &&
+                                    all[i].style.marginTop != ""
+                                )
+                                    return numeralCSS(all[i].style.marginTop)
+                                else
+                                    return numeralCSS(get.css("margin-top", all[i]))
+                            })(),
+
+                            // Vertical
+                            vertical : (function() {
+                                var elementPaddingBottom
+                                var elementPaddingTop
+
+                                if (
+                                    !all[i].style.marginBottom &&
+                                    all[i].style.marginBottom != ""
+                                )
+                                    elementPaddingBottom = numeralCSS(all[i].style.marginBottom)
+                                else {
+                                    elementPaddingBottom = numeralCSS(get.css("margin-bottom", all[i]))
+
+                                    if (!elementPaddingBottom)
+                                        elementPaddingBottom = 0
+                                }
+
+                                if (
+                                    !all[i].style.marginTop &&
+                                    all[i].style.marginTop != ""
+                                )
+                                    elementPaddingTop = numeralCSS(all[i].style.marginTop)
+                                else {
+                                    elementPaddingTop = numeralCSS(get.css("margin-top", all[i]))
+
+                                    if (!elementPaddingTop)
+                                        elementPaddingTop = 0
+                                }
+
+                                return (elementPaddingBottom + elementPaddingTop)
                             })()
-                        )
-                }
-
-                // <textarea>
-                if (all[i].tagName == "TEXTAREA") {
-                    if (all[i].value.indexOf("<lorem 1>") >= 0)
-                        all[i].value = all[i].value.replace("<lorem 1>", loremHTMLLevel1).slice(0, -10)
-
-                    if (all[i].value.indexOf("<lorem 2>") >= 0)
-                        all[i].value = all[i].value.replace("<lorem 2>", loremHTMLLevel2).slice(0, -10)
-
-                    if (all[i].value.indexOf("<lorem 3>") >= 0)
-                        all[i].value = all[i].value.replace("<lorem 3>", loremHTMLLevel3).slice(0, -10)
-
-                    if (all[i].value.indexOf("<lorem 4>") >= 0)
-                        all[i].value = all[i].value.replace("<lorem 4>", loremHTMLLevel4).slice(0, -10)
-
-                    if (all[i].value.indexOf("<lorem 5>") >= 0)
-                        all[i].value = all[i].value.replace("<lorem 5>", loremHTMLLevel5).slice(0, -10)
-
-                }
-
-                // Search for resize-able elements and reset their size when double-clicked
-                if (!all[i].hasAttribute("data-resize")) {
-                    if (window.getComputedStyle(all[i]).getPropertyValue("resize") == "horizontal" ||
-                        window.getComputedStyle(all[i]).getPropertyValue("resize") == "vertical" ||
-                        window.getComputedStyle(all[i]).getPropertyValue("resize") == "both") {
-                        
-                        // Collect the initially set height and width of the resize-able element
-                        var elementsResizeCSSHeight = [  ],
-                            elementsResizeCSSWidth = [  ]
-
-                        // Reset the object size
-                        all[i].ondblclick = function() {
-                            this.style.height = this.getAttribute("data-height")
-                            this.style.width = this.getAttribute("data-width")
                         }
-                        
-                        // Get the collected size of each object
-                        all[i].setAttribute("data-height", window.getComputedStyle(all[i]).getPropertyValue("height"))
-                        all[i].setAttribute("data-width", window.getComputedStyle(all[i]).getPropertyValue("width"))
+
+                        // Padding
+                        all[i].CSSpadding = {
+                            // Bottom
+                            bottom : (function() {
+                                if (
+                                    !all[i].style.paddingBottom &&
+                                    all[i].style.paddingBottom != ""
+                                )
+                                    return numeralCSS(all[i].style.paddingBottom)
+                                else
+                                    return numeralCSS(get.css("padding-bottom", all[i]))
+                            })(),
+
+                            // Horizontal
+                            horizontal : (function() {
+                                var elementPaddingLeft
+                                var elementPaddingRight
+
+                                if (
+                                    !all[i].style.paddingLeft &&
+                                    all[i].style.paddingLeft != ""
+                                )
+                                    elementPaddingLeft = numeralCSS(all[i].style.paddingLeft)
+                                else {
+                                    elementPaddingLeft = numeralCSS(get.css("padding-left", all[i]))
+
+                                    if (!elementPaddingLeft)
+                                        elementPaddingLeft = 0
+                                }
+
+                                if (
+                                    !all[i].style.paddingRight &&
+                                    all[i].style.paddingRight != ""
+                                )
+                                    elementPaddingRight = numeralCSS(all[i].style.paddingRight)
+                                else {
+                                    elementPaddingRight = numeralCSS(get.css("padding-right", all[i]))
+
+                                    if (!elementPaddingRight)
+                                        elementPaddingRight = 0
+                                }
+
+                                return (elementPaddingLeft + elementPaddingRight)
+                            })(),
+
+                            // Left
+                            left : (function() {
+                                if (
+                                    !all[i].style.paddingLeft &&
+                                    all[i].style.paddingLeft != ""
+                                )
+                                    return numeralCSS(all[i].style.paddingLeft)
+                                else
+                                    return numeralCSS(get.css("padding-left", all[i]))
+                            })(),
+
+                            // Right
+                            right : (function() {
+                                if (
+                                    !all[i].style.paddingRight &&
+                                    all[i].style.paddingRight != ""
+                                )
+                                    return numeralCSS(all[i].style.paddingRight)
+                                else
+                                    return numeralCSS(get.css("padding-right", all[i]))
+                            })(),
+
+                            // Top
+                            top : (function() {
+                                if (
+                                    !all[i].style.paddingTop &&
+                                    all[i].style.paddingTop != ""
+                                )
+                                    return numeralCSS(all[i].style.paddingTop)
+                                else
+                                    return numeralCSS(get.css("padding-top", all[i]))
+                            })(),
+
+                            // Vertical
+                            vertical : (function() {
+                                var elementPaddingBottom
+                                var elementPaddingTop
+
+                                if (
+                                    !all[i].style.paddingBottom &&
+                                    all[i].style.paddingBottom != ""
+                                )
+                                    elementPaddingBottom = numeralCSS(all[i].style.paddingBottom)
+                                else {
+                                    elementPaddingBottom = numeralCSS(get.css("padding-bottom", all[i]))
+
+                                    if (!elementPaddingBottom)
+                                        elementPaddingBottom = 0
+                                }
+
+                                if (
+                                    !all[i].style.paddingTop &&
+                                    all[i].style.paddingTop != ""
+                                )
+                                    elementPaddingTop = numeralCSS(all[i].style.paddingTop)
+                                else {
+                                    elementPaddingTop = numeralCSS(get.css("padding-top", all[i]))
+
+                                    if (!elementPaddingTop)
+                                        elementPaddingTop = 0
+                                }
+
+                                return (elementPaddingBottom + elementPaddingTop)
+                            })()
+                        }
+
+                        // Width
+                        all[i].CSSwidth = numeralCSS(all[i].clientWidth)
+
+                        /* Function */
+                            // Numberal CSS
+                            function numeralCSS(data) {
+                                return parseFloat(
+                                    data.toString().replace(
+                                        "cm", "").replace(
+                                        "deg", "").replace(
+                                        "in", "").replace(
+                                        "ms", "").replace(
+                                        "px", "").replace(
+                                        "s", "").replace(
+                                    )
+                                )
+                            }
+
+                        // Indexing
+                        all[i].nodeIndex = i
+
+                    // Children
+                    for (j = 0; j < all[i].children.length; j++) {
+                        /* --- NOTE ---
+                            If the element property does not co-exist from its child's "id" attribute already
+                            set the element property to the child element.
+                        */
+                        if (
+                            !all[i][all[i].children[j].id] &&
+                            all[i][all[i].children[j].id] != "" &&
+                            all[i][all[i].children[j].id] != " " &&
+                            all[i].children[j].id != ""
+                        )
+                            all[i][all[i].children[j].id] = all[i].children[j]
+
+                        /* --- NOTE ---
+                            Add synchronized "id" attributed child element and
+                            element properties to the "childID" property.
+                        */
+                        if (all[i].children[j].id != "")
+                           all[i].childID[all[i].children[j].id] = all[i].children[j]
                     }
                 }
             }
-        }
+            repeatModifyElement()
+            setInterval(function() { repeatModifyElement() }, 1)
+
+            // No-Repeat
+            function norepeatModifyElement() {
+                for (i = 0; i < all.length; i++) {
+                    // Index all non-<html> elements
+                    if (all[i] != html) {
+                        // <form> Elements
+                        if (all[i].tagName == "FORM")
+                            /* --- NOTE ---
+                                If
+                                    the element has a "name" attribute
+                                        and
+                                    the attribute has a value.
+                            */
+                            if (
+                                all[i].hasAttribute("name") &&
+                                all[i].getAttribute("name") != ""
+                            )
+                                // Index all the element's children.
+                                for (j = 0; j < all[i].children.length; j++)
+                                    // If the element's child does not have a "form" attribute.
+                                    set.attr(all[i].children[j], "form", all[i].getAttribute("name"))
+
+                        // <input>
+                        if (all[i].tagName == "INPUT") {
+                            if (all[i].hasAttribute("value")) {
+                                if (all[i].getAttribute("value").indexOf(":lorem1:") >= 0)
+                                    all[i].value = loremHTMLLevel1
+
+                                if (all[i].getAttribute("value").indexOf(":lorem2:") >= 0)
+                                    all[i].value = loremHTMLLevel2
+
+                                if (all[i].getAttribute("value").indexOf(":lorem3:") >= 0)
+                                    all[i].value = loremHTMLLevel3
+
+                                if (all[i].getAttribute("value").indexOf(":lorem4:") >= 0)
+                                    all[i].value = loremHTMLLevel4
+
+                                if (all[i].getAttribute("value").indexOf(":lorem5:") >= 0)
+                                    all[i].value = loremHTMLLevel5
+
+                            }
+                        }
+
+                        // <option>
+                        if (all[i].tagName == "OPTION") {
+                            // If the element has no "label" attribute.
+                            if (!all[i].hasAttribute("label"))
+                                all[i].setAttribute(
+                                    "label",
+                                    (function() {
+                                        // If the element's "innerText" has a white-space as its first character.
+                                        if (all[i].innerText[0] == " ") {
+                                            return all[i].innerText.slice(1)
+
+                                            // If the element's "innerText" has a white-space as its last character.
+                                            if (all[i].innerText[all[i].innerText.length] == " ")
+                                                return all[i].innerText.slice(1, -1)
+                                        }
+
+                                        // If the element's "innerText" has a white-space as its last character.
+                                        else if (all[i].innerText[all[i].innerText.length] == " ") {
+                                            return all[i].innerText.slice(0, -1)
+
+                                            // If the element's "innerText" has a white-space as its first character.
+                                            if (all[i].innerText[0] == " ")
+                                                return all[i].innerText.slice(1, -1)
+                                        }
+
+                                        else
+                                            return all[i].innerText
+                                    })()
+                                )
+                        }
+
+                        // <textarea>
+                        if (all[i].tagName == "TEXTAREA") {
+                            if (all[i].value.indexOf("<lorem 1>") >= 0)
+                                all[i].value = all[i].value.replace("<lorem 1>", loremHTMLLevel1).slice(0, -10)
+
+                            if (all[i].value.indexOf("<lorem 2>") >= 0)
+                                all[i].value = all[i].value.replace("<lorem 2>", loremHTMLLevel2).slice(0, -10)
+
+                            if (all[i].value.indexOf("<lorem 3>") >= 0)
+                                all[i].value = all[i].value.replace("<lorem 3>", loremHTMLLevel3).slice(0, -10)
+
+                            if (all[i].value.indexOf("<lorem 4>") >= 0)
+                                all[i].value = all[i].value.replace("<lorem 4>", loremHTMLLevel4).slice(0, -10)
+
+                            if (all[i].value.indexOf("<lorem 5>") >= 0)
+                                all[i].value = all[i].value.replace("<lorem 5>", loremHTMLLevel5).slice(0, -10)
+
+                        }
+
+                        // Search for resize-able elements and reset their size when double-clicked
+                        if (!all[i].hasAttribute("data-resize")) {
+                            if (window.getComputedStyle(all[i]).getPropertyValue("resize") == "horizontal" ||
+                                window.getComputedStyle(all[i]).getPropertyValue("resize") == "vertical" ||
+                                window.getComputedStyle(all[i]).getPropertyValue("resize") == "both") {
+                                
+                                // Collect the initially set height and width of the resize-able element
+                                var elementsResizeCSSHeight = [  ],
+                                    elementsResizeCSSWidth = [  ]
+
+                                // Reset the object size
+                                all[i].ondblclick = function() {
+                                    this.style.height = this.getAttribute("data-height")
+                                    this.style.width = this.getAttribute("data-width")
+                                }
+                                
+                                // Get the collected size of each object
+                                all[i].setAttribute("data-height", window.getComputedStyle(all[i]).getPropertyValue("height"))
+                                all[i].setAttribute("data-width", window.getComputedStyle(all[i]).getPropertyValue("width"))
+                            }
+                        }
+                    }
+                }
+            }
+            norepeatModifyElement()
 
         /* Console */
         if (document.getElementsByTagName("html")[0].getAttribute("data-console") != "off") {
@@ -3082,6 +4104,148 @@ if (
                     if (document.getElementsByTagName("main")[1])
                         console.warn("It is advised to use only 1 <main> element.")
         }
+
+        /* Lapys JS Class Sets
+                --- NOTE ---
+                    The script is repeated over in-case
+                    of any event that causes a
+                    change in styles (such as resizing).
+        */
+        setInterval(function() {
+            for (i = 0; i < all.length; i++) {
+                if (all[i].hasAttribute("class")) {
+                    // Flex Basis Preset
+                        // flx-b-device-width
+                        if (get.css("flex-direction", all[i].parentNode).indexOf("column") <= -1)
+                            if (all[i].getAttribute("class").indexOf("flx-b-device-width") >= 0)
+                                all[i].style.flexBasis = window.innerWidth + "px"
+                            else { /* Do nothing… */ }
+                        else
+                            if (all[i].getAttribute("class").indexOf("flx-b-device-width") >= 0)
+                                all[i].style.flexBasis = window.innerHeight + "px"
+                        // flx-b-height
+                        if (get.css("flex-direction", all[i].parentNode).indexOf("column") <= -1)
+                            if (all[i].getAttribute("class").indexOf("flx-b-height") >= 0)
+                                all[i].style.flexBasis = all[i].clientHeight + "px"
+                        // flx-b-width
+                        if (get.css("flex-direction", all[i].parentNode).indexOf("column") <= -1)
+                            if (all[i].getAttribute("class").indexOf("flx-b-width") >= 0)
+                                all[i].style.flexBasis = all[i].clientWidth + "px"
+                        // flx-b-style
+                        if (get.css("flex-direction", all[i].parentNode).indexOf("column") <= -1)
+                            if (all[i].getAttribute("class").indexOf("flx-b-style") >= 0)
+                                all[i].style.flexBasis = all[i].clientWidth + "px"
+                            else { /* Do nothing… */ }
+                        else
+                            if (all[i].getAttribute("class").indexOf("flx-b-style") >= 0)
+                                all[i].style.flexBasis = all[i].clientHeight + "px"
+
+                    // Height Preset
+                        // h-device-height
+                        if (all[i].getAttribute("class").indexOf("h-device-height") >= 0)
+                            all[i].style.height = window.innerHeight + "px"
+                        // h-style
+                        if (all[i].getAttribute("class").indexOf("h-style") >= 0)
+                            all[i].style.height = all[i].clientHeight + "px"
+                        // h-width
+                        if (all[i].getAttribute("class").indexOf("h-width") >= 0)
+                            all[i].style.height = all[i].clientWidth + "px"
+
+                    // Max Height Preset
+                        // max-h-device-height
+                        if (all[i].getAttribute("class").indexOf("max-h-device-height") >= 0)
+                            all[i].style.maxHeight = window.innerHeight + "px"
+                        // max-h-style
+                        if (all[i].getAttribute("class").indexOf("max-h-style") >= 0)
+                            all[i].style.maxHeight = all[i].clientHeight + "px"
+                        // max-h-width
+                        if (all[i].getAttribute("class").indexOf("max-h-width") >= 0)
+                            all[i].style.maxHeight = all[i].clientWidth + "px"
+
+                    // Min Height Preset
+                        // min-h-device-height
+                        if (all[i].getAttribute("class").indexOf("min-h-device-height") >= 0)
+                            all[i].style.minHeight = window.innerHeight + "px"
+                        // min-h-style
+                        if (all[i].getAttribute("class").indexOf("min-h-style") >= 0)
+                            all[i].style.minHeight = all[i].clientHeight + "px"
+                        // min-h-width
+                        if (all[i].getAttribute("class").indexOf("min-h-width") >= 0)
+                            all[i].style.minHeight = all[i].clientWidth + "px"
+
+                    // Margin Preset
+                        // m-parent-center
+                        if (all[i].getAttribute("class").indexOf("m-parent-center") >= 0)
+                            if (
+                                all[i].parentNode.clientHeight < body.clientHeight &&
+                                all[i].parentNode.clientWidth < body.clientWidth
+                            )
+                                all[i].style.margin = (
+                                    // Vertical Margin
+                                    (function() {
+                                        if (all[i].parentNode)
+                                            var verticalMargin = ((all[i].parentNode.clientHeight / 2) - (all[i].clientHeight / 2))
+
+                                            if (
+                                                verticalMargin == 0 ||
+                                                !verticalMargin ||
+                                                verticalMargin >= body.clientHeight
+                                            )
+                                                return "auto "
+                                            else
+                                                return verticalMargin + "px "
+                                    })() + 
+                                    // Horizontal Margin
+                                    (function() {
+                                        if (all[i].parentNode)
+                                            var horizontalMargin = ((all[i].parentNode.clientWidth / 2) - (all[i].clientWidth / 2))
+
+                                            if (
+                                                horizontalMargin == 0 ||
+                                                !horizontalMargin ||
+                                                horizontalMargin >= body.clientWidth
+                                            )
+                                                return "auto"
+                                            else
+                                                return horizontalMargin + "px"
+                                    })()
+                                )
+
+                    // Max Width Preset
+                        // max-w-device-width
+                        if (all[i].getAttribute("class").indexOf("max-w-device-width") >= 0)
+                            all[i].style.maxWidth = window.innerWidth + "px"
+                        // max-w-height
+                        if (all[i].getAttribute("class").indexOf("max-w-height") >= 0)
+                            all[i].style.maxWidth = all[i].clientHeight + "px"
+                        // max-w-style
+                        if (all[i].getAttribute("class").indexOf("max-w-style") >= 0)
+                            all[i].style.maxWidth = all[i].clientWidth + "px"
+
+                    // Min Width Preset
+                        // min-w-device-width
+                        if (all[i].getAttribute("class").indexOf("min-w-device-width") >= 0)
+                            all[i].style.minWidth = window.innerWidth + "px"
+                        // min-w-height
+                        if (all[i].getAttribute("class").indexOf("min-w-height") >= 0)
+                            all[i].style.minWidth = all[i].clientHeight + "px"
+                        // min-w-style
+                        if (all[i].getAttribute("class").indexOf("min-w-style") >= 0)
+                            all[i].style.minWidth = all[i].clientWidth + "px"
+
+                    // Width Preset
+                        // w-device-width
+                        if (all[i].getAttribute("class").indexOf("w-device-width") >= 0)
+                            all[i].style.width = window.innerWidth + "px"
+                        // w-height
+                        if (all[i].getAttribute("class").indexOf("w-height") >= 0)
+                            all[i].style.width = all[i].clientHeight + "px"
+                        // w-style
+                        if (all[i].getAttribute("class").indexOf("w-style") >= 0)
+                            all[i].style.width = all[i].clientWidth + "px"
+                }
+            }
+        }, 1)
 
         /* Execution
             --- WARN ---

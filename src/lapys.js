@@ -87,7 +87,7 @@ var LapysJS = {
             }, 1)
 
         // Event
-        window.onload = function() { deleteDocumentLoader() }
+        window.addEventListener("load", deleteDocumentLoader)
 
         // Function
         function deleteDocumentLoader() {
@@ -667,8 +667,13 @@ if (
 
         // insertBefore Function
         var insertBefore = function(element, previousSibling) {
-            // Return
-            return previousSibling.parentNode.insertBefore(element, previousSibling)
+            /* --- NOTE ---
+                    If
+                        the "previousSibling" exists.
+            */
+            if (previousSibling)
+                // Return
+                return previousSibling.parentNode.insertBefore(element, previousSibling)
         }
 
         // Get Functions
@@ -2107,39 +2112,45 @@ if (
                                 accordion[i].removeAttribute("data-open")
 
                                 /* --- NOTE ---
-                                        if
-                                        the second child of the Accordion
-                                        is the Accordion Content,
-                                        hide it.
+                                        If
+                                            the Accordion
+                                            has a second child.
                                 */
-                                if (accordion[i].children[1].className.indexOf("accr-c") >= 0)
-                                    accordion[i].children[1].style.display = "none"
+                                if (accordion[i].children[1])
+                                    /* --- NOTE ---
+                                            if
+                                            the second child of the Accordion
+                                            is the Accordion Content,
+                                            hide it.
+                                    */
+                                    if (accordion[i].children[1].className.indexOf("accr-c") >= 0)
+                                        accordion[i].children[1].style.display = "none"
 
-                                /*
-                                    …else
-                                        if the first child of the Accordion
-                                        is the Accordion Content,
-                                        hide it.
-                                */
-                                else if ((accordion[i].children[0].className.indexOf("accr-c") >= 0))
-                                    accordion[i].children[0].style.display = "none"
+                                    /*
+                                        …else
+                                            if the first child of the Accordion
+                                            is the Accordion Content,
+                                            hide it.
+                                    */
+                                    else if ((accordion[i].children[0].className.indexOf("accr-c") >= 0))
+                                        accordion[i].children[0].style.display = "none"
 
-                                /*
-                                    …else
-                                        if any child of the Accordion
-                                        is the Accordion Content,
-                                        hide it.
-                                */
-                                else
-                                    // Index all Accordion child elements.
-                                    for (j = 0; j < accordion[i].children.length; j++)
-                                        /* --- NOTE ---
-                                                if
-                                                    the Accordion child element
-                                                    has a class of "accr-c".
-                                        */
-                                        if (accordion[i].children[j].className.indexOf("accr-c") >= 0)
-                                            accordion[i].children[j].style.display = "none"
+                                    /*
+                                        …else
+                                            if any child of the Accordion
+                                            is the Accordion Content,
+                                            hide it.
+                                    */
+                                    else
+                                        // Index all Accordion child elements.
+                                        for (j = 0; j < accordion[i].children.length; j++)
+                                            /* --- NOTE ---
+                                                    if
+                                                        the Accordion child element
+                                                        has a class of "accr-c".
+                                            */
+                                            if (accordion[i].children[j].className.indexOf("accr-c") >= 0)
+                                                accordion[i].children[j].style.display = "none"
                             }
                         }
                     }, 100)
@@ -2566,59 +2577,73 @@ if (
                         function carouselKey() {
                             /* --- NOTE ---
                                     If
-                                        Left Arrow Key.
+                                        the browser is not Mozila Firefox.
                             */
-                            if (
-                                event.keyCode == 37 ||
-                                event.keyCode == 65 ||
-                                event.keyCode == 97
-                            ) {
-                                // Index all Carousels.
-                                for (i = 0; i < carousel.length; i++)
-                                    // If a Carousel 'is focused'.
-                                    if (carousel[i].isFocused) {
-                                        // Index all Carousel child elements.
-                                        for (j = 0; j < carousel[i].children.length; j++)
-                                            carousel[i].children[j].style.display = "none"
+                            if (!browser.mozila)
+                                /* --- NOTE ---
+                                        If
+                                            Left Arrow Key
+                                                or
+                                            'A'.
+                                */
+                                if (
+                                    event.keyCode == 37 ||
+                                    event.keyCode == 65 ||
+                                    event.keyCode == 97
+                                ) {
+                                    // Index all Carousels.
+                                    for (i = 0; i < carousel.length; i++)
+                                        // If a Carousel 'is focused'.
+                                        if (carousel[i].isFocused) {
+                                            // Index all Carousel child elements.
+                                            for (j = 0; j < carousel[i].children.length; j++)
+                                                carousel[i].children[j].style.display = "none"
 
-                                        // Index all Carousel child elements.
-                                        for (j = 0; j < carousel[i].children.length; j++)
-                                            carousel[i].children[j].style.display = "block"
+                                            // Index all Carousel child elements.
+                                            for (j = 0; j < carousel[i].children.length; j++)
+                                                carousel[i].children[j].style.display = "block"
 
-                                        // Insertion
-                                        carousel[i].insertBefore(
-                                            carousel[i].children[carousel[i].children.length - 1],
-                                            carousel[i].children[0]
-                                        )
-                                    }
-                            }
+                                            // Insertion
+                                            carousel[i].insertBefore(
+                                                carousel[i].children[carousel[i].children.length - 1],
+                                                carousel[i].children[0]
+                                            )
+                                        }
+                                }
 
                             /* --- NOTE ---
                                     If
-                                        Right Arrow Key.
+                                        the browser is not Mozila Firefox.
                             */
-                            if (
-                                event.keyCode == 39 ||
-                                event.keyCode == 68 ||
-                                event.keyCode == 100
-                            ) {
-                                // Index all Carousels.
-                                for (i = 0; i < carousel.length; i++)
-                                    // If a Carousel 'is focused'.
-                                    if (carousel[i].isFocused) {
-                                        // Index all Carousel child elements.
-                                        for (j = 0; j < carousel[i].children.length; j++)
-                                            carousel[i].children[j].style.display = "none"
+                            if (!browser.mozila)
+                                /* --- NOTE ---
+                                        If
+                                            Right Arrow Key
+                                                or
+                                            'S'.
+                                */
+                                if (
+                                    event.keyCode == 39 ||
+                                    event.keyCode == 68 ||
+                                    event.keyCode == 100
+                                ) {
+                                    // Index all Carousels.
+                                    for (i = 0; i < carousel.length; i++)
+                                        // If a Carousel 'is focused'.
+                                        if (carousel[i].isFocused) {
+                                            // Index all Carousel child elements.
+                                            for (j = 0; j < carousel[i].children.length; j++)
+                                                carousel[i].children[j].style.display = "none"
 
-                                        // Children
-                                            // First Child
-                                                // Style
-                                                carousel[i].children[0].style.display = "block"
+                                            // Children
+                                                // First Child
+                                                    // Style
+                                                    carousel[i].children[0].style.display = "block"
 
-                                        // Insertion
-                                        carousel[i].appendChild(carousel[i].children[0])
-                                    }
-                            }
+                                            // Insertion
+                                            carousel[i].appendChild(carousel[i].children[0])
+                                        }
+                                }
                         }
 
                 /* Code Editor */
@@ -3224,13 +3249,31 @@ if (
 
                             // Function
                             function playMedia() {
-                                if (!mediaControllerPlayBin[this.getAttribute("data-index")])
+                                if (!mediaControllerPlayBin[this.getAttribute("data-index")]) {
+                                    /* --- NOTE ---
+                                            If
+                                                the Media has the "data-pause-html"
+                                                attribute.
+                                    */
+                                    if (media[this.getAttribute("data-index")].hasAttribute("data-vid-pause-html"))
+                                        this.innerHTML = media[this.getAttribute("data-index")].getAttribute("data-vid-pause-html")
+
                                     // Play the Media
                                     media[this.getAttribute("data-index")].play()
+                                }
                                 
-                                else
+                                else {
+                                    /* --- NOTE ---
+                                            If
+                                                the Media has the "data-pause-html"
+                                                attribute.
+                                    */
+                                    if (media[this.getAttribute("data-index")].hasAttribute("data-vid-play-html"))
+                                        this.innerHTML = media[this.getAttribute("data-index")].getAttribute("data-vid-play-html")
+
                                     // Pause the Media
                                     media[this.getAttribute("data-index")].pause()
+                                }
 
                                 // Toggle
                                 mediaControllerPlayBin[this.getAttribute("data-index")] = !mediaControllerPlayBin[this.getAttribute("data-index")]
@@ -4403,23 +4446,41 @@ if (
                                             (function() {
                                                 // If the element's "innerText" has a white-space as its first character.
                                                 if (all[i].innerText[0] == " ") {
-                                                    return all[i].innerText.slice(1)
+                                                    // Initialization
+                                                    var allInnerText
+
+                                                    // Definition
+                                                    allInnerText = all[i].innerText.slice(1)
 
                                                     // If the element's "innerText" has a white-space as its last character.
                                                     if (all[i].innerText[all[i].innerText.length] == " ")
-                                                        return all[i].innerText.slice(1, -1)
+                                                        // Update
+                                                        allInnerText = all[i].innerText.slice(1, -1)
+
+                                                    // Return
+                                                    return allInnerText
                                                 }
 
                                                 // If the element's "innerText" has a white-space as its last character.
                                                 else if (all[i].innerText[all[i].innerText.length] == " ") {
-                                                    return all[i].innerText.slice(0, -1)
+                                                    // Initialization
+                                                    var allInnerText
+
+                                                    // Definition
+                                                    allInnerText = all[i].innerText.slice(0, -1)
 
                                                     // If the element's "innerText" has a white-space as its first character.
                                                     if (all[i].innerText[0] == " ")
-                                                        return all[i].innerText.slice(1, -1)
+                                                        // Update
+                                                        allInnerText = all[i].innerText.slice(1, -1)
+
+                                                    // Return
+                                                    return allInnerText
                                                 }
 
+                                                // ...else
                                                 else
+                                                    // Return
                                                     return all[i].innerText
                                             })()
                                         )
@@ -4537,37 +4598,6 @@ if (
                             has the "class" attribute.
                     */
                     if (all[i].hasAttribute("class")) {
-                        // Flex Basis Preset
-                            // flx-b-device-width
-                            if (window.getComputedStyle(all[i].parentNode).getPropertyValue("flex-direction").indexOf("column") <= -1)
-                                if (all[i].getAttribute("class").indexOf("flx-b-device-width") >= 0)
-                                    all[i].style.flexBasis = window.innerWidth + "px"
-                                else { /* Do nothing… */ }
-
-                            else
-                                if (all[i].getAttribute("class").indexOf("flx-b-device-width") >= 0)
-                                    all[i].style.flexBasis = window.innerHeight + "px"
-                            
-                            // flx-b-height
-                            if (window.getComputedStyle(all[i].parentNode).getPropertyValue("flex-direction").indexOf("column") <= -1)
-                                if (all[i].getAttribute("class").indexOf("flx-b-height") >= 0)
-                                    all[i].style.flexBasis = all[i].clientHeight + "px"
-                            
-                            // flx-b-width
-                            if (window.getComputedStyle(all[i].parentNode).getPropertyValue("flex-direction").indexOf("column") <= -1)
-                                if (all[i].getAttribute("class").indexOf("flx-b-width") >= 0)
-                                    all[i].style.flexBasis = all[i].clientWidth + "px"
-                            
-                            // flx-b-style
-                            if (window.getComputedStyle(all[i].parentNode).getPropertyValue("flex-direction").indexOf("column") <= -1)
-                                if (all[i].getAttribute("class").indexOf("flx-b-style") >= 0)
-                                    all[i].style.flexBasis = all[i].clientWidth + "px"
-                                else { /* Do nothing… */ }
-                            
-                            else
-                                if (all[i].getAttribute("class").indexOf("flx-b-style") >= 0)
-                                    all[i].style.flexBasis = all[i].clientHeight + "px"
-
                         // Height Preset
                             // h-device-height
                             if (all[i].getAttribute("class").indexOf("h-device-height") >= 0)

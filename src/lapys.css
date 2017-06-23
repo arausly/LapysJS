@@ -20365,6 +20365,7 @@ table.cmpnt *:not(tr),
     #documentLoader {
         align-items: center;
         background-color: rgba(255, 255, 255, .975);
+        cursor: wait;
         display: flex;
         left: 0;
         justify-content: center;
@@ -20376,7 +20377,7 @@ table.cmpnt *:not(tr),
         /* Content */
         #documentLoader > :first-child {
             animation: rotateDocumentLoaderElement 1s linear 0s infinite backwards running;
-            border: 20px solid rgba(0, 0, 0, .875);
+            border: 20px solid rgba(0, 0, 0, .75);
             border-top: 20px solid #0078FF;
             border-radius: 50%;
             height: 45px;

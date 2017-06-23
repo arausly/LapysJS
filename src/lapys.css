@@ -1411,15 +1411,15 @@ input[type="radio"]:not([default]) {
     /* --- NOTE ---
             Make checkboxes and radios simpler to style.
     */
-    background: none;
-    border: 2.5px solid #FFFFFF;
+    background-color: #CFCFCF;
+    border: 1.75px solid #FFFFFF;
     border-radius: 0;
     box-sizing: border-box;
     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .3),
-                inset 0 0 0 2px rgba(0, 0, 0, .2);
+                inset 0 0 0 1px rgba(0, 0, 0, .2);
     padding: 6px;
     opacity: .75;
-    outline: 0 !important;
+    outline: 1px solid #CFCFCF;
     -webkit-appearance: button
 }
 input[type="checkbox"]:active:not([default]),
@@ -1435,10 +1435,7 @@ input[type="radio"]:checked:not([default]) {
     /* --- NOTE ---
             Styles for selected checkboxes and radios.
     */
-    background: rgba(0, 255, 0, .5);
-    box-shadow: 0 0 0 5px rgba(0, 0, 0, .25), inset 0 0 0 0 transparent;
-    border-color: #00FF00;
-    opacity: 1
+    border-color: #00FF00
 }
 input[type="checkbox"]:disabled:not([default]),
 input[type="radio"]:disabled:not([default]) {
@@ -1446,8 +1443,6 @@ input[type="radio"]:disabled:not([default]) {
         --- NOTE ---
             Styles for disabled checkboxes and radios.
     */
-    background: rgba(255, 0, 0, .5);
-    box-shadow: 0 0 0 5px rgba(0, 0, 0, .25), inset 0 0 0 0 transparent;
     border-color: #FF0000
 }
 input[type="color"]:not([default]) {
@@ -1608,7 +1603,8 @@ input[type="number"]:not([default]) {
     height: auto
 }
 input[type="radio"]:not([default]) {
-    border-radius: 50%
+    border-radius: 50%;
+    outline: 0
 }
 input[type="search"]:not([default]) {
     -webkit-appearance: textfield
@@ -5265,7 +5261,7 @@ xmp {
 
         /* Shadow Level 0 */
             /* Outset */
-            .btnC,
+            .btn-C,
             .bx-s-0,
             .crd {
                 box-shadow: 0 2.5px 2.5px 0 #000000 !important
@@ -19856,19 +19852,17 @@ table.cmpnt *:not(tr),
             }
 
 /* Button Types */
-    .btnA,
-    .btnB,
-    .btnC,
-    .btnD {
+    [class*="btn-"] {
         /* --- NOTE ---
                 Each custom button type must have this.
         */
+        cursor: pointer;
         outline: 0 !important
     }
 
     /* Button Type A | Tile */
-    .btnA,
-    button.btnA {
+    .btn-A,
+    button.btn-A {
         border: 0;
         border-bottom-color: #CFCFCF;
         border-bottom-style: solid;
@@ -19878,17 +19872,17 @@ table.cmpnt *:not(tr),
         display: inline-block;
         padding: 5px 10px
     }
-    .btnA:focus,
-    .btnA:hover,
-    button.btnA:focus,
-    button.btnA:hover {
+    .btn-A:focus,
+    .btn-A:hover,
+    button.btn-A:focus,
+    button.btn-A:hover {
         border-bottom-color: #CFCFCF
     }
 
     /* Button Type B | Transparent */
-    .btnB,
-    button.btnB {
-        background: none;
+    .btn-B,
+    button.btn-B {
+        background-color: none;
         border: 1.5px solid;
         border-radius: 50px;
         color: #04F;
@@ -19900,22 +19894,39 @@ table.cmpnt *:not(tr),
     }
 
     /* Button Type C | Card */
-    .btnC,
-    button.btnC {
+    .btn-C,
+    button.btn-C {
         border: 0;
         cursor: pointer;
         transition: .675s
     }
 
     /* Button Type D | Pad */
-    .btnD,
-    button.btnD {
+    .btn-D,
+    button.btn-D {
         border-radius: 3px;
         padding: 5px
     }
 
+    /* Button Type E | Pane */
+    .btn-E,
+    button.btn-E {
+        background-color: rgba(255, 255, 255, .75);
+        border: 0;
+        opacity: .875;
+        outline-style: solid !important;
+        outline-width: 1px !important;
+        padding: 2.5px 5px
+    }
+        /* States */
+            /* Hover */
+            .btn-E:hover,
+            button.btn-E:hover {
+                opacity: 1
+            }
+
 /* Cards */
-.btnC,
+.btn-C,
 .crd {
     /* --- NOTE ---
             For cards and card-ified elements.
@@ -20350,6 +20361,40 @@ table.cmpnt *:not(tr),
         z-index: 3
     }
 
+    /* Loader */
+    #documentLoader {
+        align-items: center;
+        background-color: rgba(255, 255, 255, .975);
+        display: flex;
+        left: 0;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 2147483647 !important
+    }
+        /* Content */
+        #documentLoader > :first-child {
+            animation: rotateDocumentLoaderElement 1s linear 0s infinite backwards running;
+            border: 20px solid rgba(0, 0, 0, .875);
+            border-top: 20px solid #0078FF;
+            border-radius: 50%;
+            height: 45px;
+            padding: 20px;
+            width: 45px
+        }
+            /* @keyframes */
+                /* Rotate Document Loader Element */
+                @keyframes rotateDocumentLoaderElement {
+                    0% {
+                        transform: rotate(0deg)
+                    }
+
+                    to {
+                        transform: rotate(360deg)
+                    }
+                }
+
     /* Media */
     audio.med,
     video.med {
@@ -20410,25 +20455,6 @@ table.cmpnt *:not(tr),
             justify-content: center;
             width: 100%
         }
-
-    /* Text Type */
-    [data-kbd] {
-        /* --- NOTE ---
-                Stimulate text cursor effect.
-        */
-        animation: txtCursor .3s linear 0s infinite alternate-reverse forwards running;
-        border: 0;
-        border-left: 2px solid;
-        display: inline;
-        padding-right: 0;
-        white-space: no-wrap;
-        z-index: 3
-    }
-    [data-input="backwardDelete"][data-kbd],
-    [data-input="type"][data-kbd] {
-        border-left: 0;
-        border-right: 2px solid
-    }
 
     /* Tooltip */
     #tooltip {

@@ -43,11 +43,11 @@ var LapysJS = {
 
 /* Function */
     // Document Loader
-    function documentLoader(element, innerHTML) {
+    function documentLoader(innerHTML) {
         // Initialization
         var loaderElement = document.createElement("div")
 
-        /* --- NOTE ---
+        /* --- NOTE --- 
                 If
                     the <body> has a child.
         */
@@ -68,7 +68,12 @@ var LapysJS = {
                     "innerHTML" is "undefined".
         */
         if (innerHTML == undefined)
-            innerHTML = '<div> </div>'
+            innerHTML = (
+                '<div ' +
+                    'data-title="Loading, please wait…_center_top" ' +
+                    'data-title-class="fnt-sz-m p-1"' +
+                ' > </div>'
+            )
 
         // Modification
             // ID
